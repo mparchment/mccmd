@@ -6,14 +6,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 const HeaderWrapper = styled.div`
     height: 67px;
     padding-left: 10px;
-    padding-top: 10px;
     padding-right: 10px;
     display: flex;
     gap: 10px;
+    margin-bottom: 15px;
 `;
 
 const DonateButton = styled.button`
-    background-color: #dcc6a9;
+    background-color: #b98474;
     border: none;
     border-radius: 7.5px;
     color: white;

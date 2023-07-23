@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useContext, useRef } from 'react';
+import { HeaderContext } from '../contexts/HeaderContext';
 
 const PrayerTimesWrapper = styled.div`
   margin-top: 10px;
@@ -48,6 +50,14 @@ const JummuahWrapper = styled.div`
 
 const PrayerTimes = () => {
   const [nextPrayerIndex, setNextPrayerIndex] = useState(0);
+  const { setHeaderHeight } = useContext(HeaderContext);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (ref.current) {
+      setHeaderHeight((prev) => prev + ref.current.offsetHeight);
+    }
+  }, [setHeaderHeight]);
 
   const times = [
     { prayer: 'Fajr', time: '5:00', beginTime: '4:30' },

@@ -40,9 +40,9 @@ const EventDetails = styled.div`
     line-height: 1.7;
 `;
 
-const EventCard = ({ imgSrc, alt, title, text, time, location, date }) => (
+const EventCard = ({ imgSrc, title, text, time, location, date }) => (
     <EventCardWrapper>
-        <img src={imgSrc} alt={alt} style={{width: '100%'}}/>
+        <img src={imgSrc} alt="" style={{width: '100%'}}/>
         <EventCardSubtitle>{title}</EventCardSubtitle>
         <EventCardText>{text}</EventCardText>
         <EventDetails><AccessTimeIcon style={{ fontSize: "150%", color: "#b98474"}}/>{time}</EventDetails>
@@ -53,7 +53,6 @@ const EventCard = ({ imgSrc, alt, title, text, time, location, date }) => (
 
 EventCard.propTypes = {
     imgSrc: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
     time: PropTypes.string.isRequired,

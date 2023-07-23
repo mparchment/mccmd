@@ -5,6 +5,7 @@ const PrayerTimesWrapper = styled.div`
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 10px;
 `;
 
 const PrayerTimeGrid = styled.div`
@@ -22,6 +23,7 @@ const PrayerTimeGrid = styled.div`
 
 const GridItem = styled.div`
   padding: 10px;
+  padding-bottom: 3px;;
   text-align: center;
 `;
 
@@ -48,11 +50,11 @@ const PrayerTimes = () => {
   const [nextPrayerIndex, setNextPrayerIndex] = useState(0);
 
   const times = [
-    { prayer: 'Fajr', time: '5:00' },
-    { prayer: 'Zuhr', time: '1:30' },
-    { prayer: 'Asr', time: '6:30' },
-    { prayer: 'Maghrib', time: '8:30' },
-    { prayer: 'Isha', time: '10:15' },
+    { prayer: 'Fajr', time: '5:00', beginTime: '4:30' },
+    { prayer: 'Zuhr', time: '1:30', beginTime: '1:00' },
+    { prayer: 'Asr', time: '6:30', beginTime: '6:00' },
+    { prayer: 'Maghrib', time: '8:30', beginTime: '8:00' },
+    { prayer: 'Isha', time: '10:15', beginTime: '9:45' },
   ];
 
   useEffect(() => {
@@ -83,6 +85,9 @@ const PrayerTimes = () => {
       <PrayerTimeGrid>
         <GridItem /> {/* Empty first cell */}
         {times.map((time, index) => <GridItemSmall key={index+'prayer'}>{time.prayer}</GridItemSmall>)}
+
+        <GridItemSmall>{"Begins"}</GridItemSmall>
+        {times.map((time, index) => <GridItem key={index+'beginTime'}>{time.beginTime}</GridItem>)}
 
         <GridItemSmall>{"Iqamah"}</GridItemSmall>
         {times.map((time, index) => index === nextPrayerIndex ? 

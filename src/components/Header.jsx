@@ -6,6 +6,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useState, useEffect, useContext } from 'react';
 import { HeaderContext } from '../contexts/HeaderContext';
 
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+
 const HeaderWrapper = styled.div`
     height: 67px;
     padding-left: 10px;
@@ -57,16 +61,29 @@ const Menu = styled.div`
     gap: 30px;
     font-weight: bold;
     font-size: 25px;
+`;
 
-    & > div {
-        margin-left: 40px;
-        border-bottom: 2px solid #000;
-        width: fit-content;
-    }
+const MenuLink = styled.a`
+    margin-left: 40px;
+    border-bottom: 2px solid #000;
+    width: fit-content;
 
-    & > div:first-child {
+    &:first-child {
         margin-top: 15px;
     }
+
+    &:hover {
+        color: #b98474;
+    }
+`;
+
+const Icons = styled.div`
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    gap: 10px;
+    margin-top: 30px;
+    margin-left: 0 !important;
 `;
 
 function Header() {
@@ -106,14 +123,20 @@ function Header() {
                 
             </HeaderWrapper>
             {menuOpen && <Menu $headerHeight={headerHeight}>
-                <div>About Us</div>
-                <div>Services</div>
-                <div>Education</div>
-                <div>Community</div>
-                <div>Get Connected</div>
-                <div>Contact Us</div>
-                <div>MCC Live</div>
-                <div>Login</div>
+                <MenuLink>About Us</MenuLink>
+                <MenuLink>Services</MenuLink>
+                <MenuLink>Education</MenuLink>
+                <MenuLink>Community</MenuLink>
+                <MenuLink>Get Connected</MenuLink>
+                <MenuLink>Volunteering</MenuLink>
+                <MenuLink>Contact Us</MenuLink>
+                <MenuLink>MCC Live</MenuLink>
+                <MenuLink>Login</MenuLink>
+                <Icons>
+                    <FacebookIcon style={{ fontSize: '150%' }}/>
+                    <InstagramIcon style={{ fontSize: '150%' }}/>
+                    <YouTubeIcon style={{ fontSize: '150%' }}/>
+                </Icons>
             </Menu>} 
         </>
     )

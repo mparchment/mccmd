@@ -9,6 +9,9 @@ import { HeaderContext } from '../contexts/HeaderContext';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import EmailIcon from '@mui/icons-material/Email';
+
+import { Link } from 'react-router-dom';
 
 const HeaderWrapper = styled.div`
     height: 67px;
@@ -60,20 +63,19 @@ const Menu = styled.div`
     transition: all 0.3s ease;
     gap: 30px;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 23px;
 `;
 
-const MenuLink = styled.a`
+const MenuLink = styled(Link)`
     margin-left: 40px;
     border-bottom: 2px solid #000;
     width: fit-content;
 
+    color: inherit;
+    text-decoration: none;
+
     &:first-child {
         margin-top: 15px;
-    }
-
-    &:hover {
-        color: #b98474;
     }
 `;
 
@@ -84,6 +86,11 @@ const Icons = styled.div`
     gap: 10px;
     margin-top: 30px;
     margin-left: 0 !important;
+`;
+
+const IconLink = styled.a`
+    color: inherit;
+    text-decoration: none;
 `;
 
 function Header() {
@@ -114,7 +121,7 @@ function Header() {
     return (
         <>
             <HeaderWrapper>
-                <LogoWrapper><Logo src={MCCLogo} alt="logo" /></LogoWrapper>
+                <LogoWrapper><Link to="/mccmd"><Logo src={MCCLogo} alt="logo" /></Link></LogoWrapper>
                 <MenuButtonWrapper>
                     <DonateButton>Donate</DonateButton>
                     {menuOpen ? <CloseIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/> : <MenuIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/>}
@@ -123,19 +130,20 @@ function Header() {
                 
             </HeaderWrapper>
             {menuOpen && <Menu $headerHeight={headerHeight}>
-                <MenuLink>About Us</MenuLink>
-                <MenuLink>Services</MenuLink>
-                <MenuLink>Education</MenuLink>
-                <MenuLink>Community</MenuLink>
-                <MenuLink>Get Connected</MenuLink>
-                <MenuLink>Volunteering</MenuLink>
-                <MenuLink>Contact Us</MenuLink>
-                <MenuLink>MCC Live</MenuLink>
-                <MenuLink>Login</MenuLink>
+                <MenuLink to="/mccmd/about">About Us</MenuLink>
+                <MenuLink to="/mccmd/services">Services</MenuLink>
+                <MenuLink to="/mccmd/education">Education</MenuLink>
+                <MenuLink to="/mccmd/community">Community</MenuLink>
+                <MenuLink to="/mccmd/getconnected">Get Connected</MenuLink>
+                <MenuLink to="/mccmd/volunteering">Volunteering</MenuLink>
+                <MenuLink to="/mccmd/contactus">Contact Us</MenuLink>
+                <MenuLink to="#">MCC Live</MenuLink>
+                <MenuLink to="/mccmd/login">Login</MenuLink>
                 <Icons>
-                    <FacebookIcon style={{ fontSize: '150%' }}/>
-                    <InstagramIcon style={{ fontSize: '150%' }}/>
-                    <YouTubeIcon style={{ fontSize: '150%' }}/>
+                    <IconLink href='https://www.facebook.com/mccmaryland/'><EmailIcon style={{ fontSize: '150%' }}/></IconLink>
+                    <IconLink href='https://www.facebook.com/mccmaryland/'><FacebookIcon style={{ fontSize: '150%' }}/></IconLink>
+                    <IconLink href='https://www.instagram.com/mccmaryland/'><InstagramIcon style={{ fontSize: '150%' }}/></IconLink>
+                    <IconLink href='https://www.facebook.com/mccmaryland/'><YouTubeIcon style={{ fontSize: '150%' }}/></IconLink>
                 </Icons>
             </Menu>} 
         </>

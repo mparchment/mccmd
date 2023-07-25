@@ -92,8 +92,11 @@ function Home() {
                 <ServiceCard subtitle="Shahadas">
                     Whether you are just interested in Islam, have some questions, or are ready to convert, we are happy to speak to you and guide you through the Shahada. Learn more and book <Link to="#">here</Link>.
                 </ServiceCard>
-                <ServiceCard subtitle="Guided Tours">
-                    Book to join us on weekend mornings for a guided walk through our mosque, or on weekdays if you are part of an organisation such as a school or a local community group. Book <Link to="#">here</Link>.
+                <ServiceCard subtitle="Meet the Imam">
+                    Book a meeting up to two weeks in advance with the Imam to discuss one of a range of topics. Learn more <Link to="#">here</Link>.
+                </ServiceCard>
+                <ServiceCard subtitle="Clinic">
+                    To book rooms for other events or Islamic celebrations, from aqiqas and private gatherings to conferences, we offer rooms at reasonable rates of hire. Book <Link to="#">here</Link>.
                 </ServiceCard>
                 <ServiceCard subtitle="Nikahs">
                     Offering a unique & stunning yet economical & eco-friendly venue, getting married at Muslim Community Center is the experience of a lifetime. Find out more <Link to="#">here</Link>.
@@ -101,11 +104,20 @@ function Home() {
                 <ServiceCard subtitle="Janazas">
                     We ease the burden of bereavement by facilitating preparation of the deceased for burial through use of our dedicated mortuary and leading Janazah prayers. Make arrangements <Link to="#">here</Link>.
                 </ServiceCard>
-                <ServiceCard subtitle="Meet the Imam">
-                    Book a meeting up to two weeks in advance with the Imam to discuss one of a range of topics. Learn more <Link to="#">here</Link>.
+                <ServiceCard subtitle="Zakat">
+                    To book rooms for other events or Islamic celebrations, from aqiqas and private gatherings to conferences, we offer rooms at reasonable rates of hire. Book <Link to="#">here</Link>.
+                </ServiceCard>
+                <ServiceCard subtitle="Food Pantry">
+                    Book to join us on weekend mornings for a guided walk through our mosque, or on weekdays if you are part of an organisation such as a school or a local community group. Book <Link to="#">here</Link>.
+                </ServiceCard>
+                <ServiceCard subtitle="Refugee Aid">
+                    Book to join us on weekend mornings for a guided walk through our mosque, or on weekdays if you are part of an organisation such as a school or a local community group. Book <Link to="#">here</Link>.
                 </ServiceCard>
                 <ServiceCard subtitle="General Events">
                     To book rooms for other events or Islamic celebrations, from aqiqas and private gatherings to conferences, we offer rooms at reasonable rates of hire. Book <Link to="#">here</Link>.
+                </ServiceCard>
+                <ServiceCard subtitle="Guided Tours">
+                    Book to join us on weekend mornings for a guided walk through our mosque, or on weekdays if you are part of an organisation such as a school or a local community group. Book <Link to="#">here</Link>.
                 </ServiceCard>
             </ServicesWrapper>
             <Footer/>

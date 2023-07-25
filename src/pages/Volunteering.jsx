@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import Placeholder from '../assets/placeholder-image.png';
 
+import Footer from "../components/Footer";
+
 const VolunteeringWrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -77,6 +79,8 @@ function Volunteering() {
                     </p>
                 </div>
             </VolunteeringWrapper>
+
+            <Footer/>
         </>
     )
 }

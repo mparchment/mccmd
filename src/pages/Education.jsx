@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import Placeholder from '../assets/placeholder-image.png';
 
+import Footer from "../components/Footer"
+
 const EducationWrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -103,6 +105,7 @@ function About() {
                     </Card>
                 </CardWrapper>
             </EducationWrapper>
+            <Footer/>
         </>
     )
 }

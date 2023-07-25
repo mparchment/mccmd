@@ -2,6 +2,8 @@ import PrayerTimes from "../components/PrayerTimes"
 import Header from "../components/Header"
 import styled from 'styled-components';
 
+import Footer from "../components/Footer"
+
 const AboutWrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -23,6 +25,7 @@ function About() {
             <AboutWrapper>
                 <Title>Contact Us</Title>
             </AboutWrapper>
+            <Footer/>
         </>
     )
 }

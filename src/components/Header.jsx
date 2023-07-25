@@ -140,10 +140,10 @@ function Header() {
                 <MenuLink to="#">MCC Live</MenuLink>
                 <MenuLink to="/mccmd/login">Login</MenuLink>
                 <Icons>
-                    <IconLink href='https://www.facebook.com/mccmaryland/'><EmailIcon style={{ fontSize: '150%' }}/></IconLink>
-                    <IconLink href='https://www.facebook.com/mccmaryland/'><FacebookIcon style={{ fontSize: '150%' }}/></IconLink>
-                    <IconLink href='https://www.instagram.com/mccmaryland/'><InstagramIcon style={{ fontSize: '150%' }}/></IconLink>
-                    <IconLink href='https://www.facebook.com/mccmaryland/'><YouTubeIcon style={{ fontSize: '150%' }}/></IconLink>
+                    <IconLink href='#'><EmailIcon style={{ fontSize: '175%' }}/></IconLink>
+                    <IconLink href='https://www.facebook.com/mccmaryland/'><FacebookIcon style={{ fontSize: '175%' }}/></IconLink>
+                    <IconLink href='https://www.instagram.com/mccmaryland/'><InstagramIcon style={{ fontSize: '175%' }}/></IconLink>
+                    <IconLink href='https://www.youtube.com/@MCCMD'><YouTubeIcon style={{ fontSize: '175%' }}/></IconLink>
                 </Icons>
             </Menu>} 
         </>

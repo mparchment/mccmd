@@ -10,7 +10,7 @@ import ContactUs from "./pages/ContactUs"
 import Education from "./pages/Education"
 import GetConnected from "./pages/GetConnected"
 import Login from "./pages/Login"
-import Services from "./pages/Services"
+
 import Volunteering from "./pages/Volunteering"
 import Community from "./pages/Community"
 
@@ -33,7 +33,6 @@ function App() {
           <Route path="/mccmd/education" element={<Education />} />
           <Route path="/mccmd/getconnected" element={<GetConnected />} />
           <Route path="/mccmd/login" element={<Login />} />
-          <Route path="/mccmd/services" element={<Services />} />
           <Route path="/mccmd/volunteering" element={<Volunteering />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -131,7 +131,7 @@ function Header() {
             </HeaderWrapper>
             {menuOpen && <Menu $headerHeight={headerHeight}>
                 <MenuLink to="/mccmd/about">About Us</MenuLink>
-                <MenuLink to="/mccmd/services">Services</MenuLink>
+                <MenuLink to="#">Services</MenuLink>
                 <MenuLink to="/mccmd/education">Education</MenuLink>
                 <MenuLink to="/mccmd/community">Community</MenuLink>
                 <MenuLink to="/mccmd/getconnected">Get Connected</MenuLink>

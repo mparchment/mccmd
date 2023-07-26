@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import MCCLogo from '../assets/logo-small.png';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { HeaderContext } from '../contexts/HeaderContext';
 
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -54,8 +55,7 @@ const Menu = styled.div`
     top: 67px;
     left: 0;
     width: 100%;
-    height: fit-content;
-    padding-bottom: 70px;
+    height: ${props => `calc(100vh - ${props.$headerHeight}px)`};
     background-color: #fff;
     z-index: 1;
     display: flex;
@@ -96,10 +96,27 @@ const IconLink = styled.a`
 function Header() {
 
     const [menuOpen, setMenuOpen] = useState(false);
+    const { headerHeight } = useContext(HeaderContext);
 
     const handleMenuClick = () => {
         setMenuOpen(!menuOpen);
     }
+
+    // This effect will run whenever menuOpen state changes
+    useEffect(() => {
+        // If the menu is open, we'll disable scrolling on the body
+        if (menuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            // Otherwise, re-enable scrolling
+            document.body.style.overflow = 'unset';
+        }
+
+        // Cleanup function to prevent effects on unmount
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [menuOpen]); // Rerun the effect when `menuOpen` state changes
 
     return (
         <>
@@ -112,7 +129,7 @@ function Header() {
                 </MenuButtonWrapper>
                 
             </HeaderWrapper>
-            {menuOpen && <Menu>
+            {menuOpen && <Menu $headerHeight={headerHeight}>
                 <MenuLink to="/mccmd/about">About Us</MenuLink>
                 <MenuLink to="#">Services</MenuLink>
                 <MenuLink to="/mccmd/education">Education</MenuLink>

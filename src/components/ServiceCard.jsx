@@ -10,6 +10,7 @@ const ServiceCardStyled = styled.div`
     box-shadow: 0 1px 9px #ddd;
     font-size: 14px;
     font-weight: 500;
+    border-radius: 5px;
 `;
 
 const ServiceCardSubtitle = styled.h3`

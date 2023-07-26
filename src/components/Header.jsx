@@ -130,15 +130,15 @@ function Header() {
                 
             </HeaderWrapper>
             {menuOpen && <Menu $headerHeight={headerHeight}>
-                <MenuLink to="/mccmd/about">About Us</MenuLink>
-                <MenuLink to="#">Services</MenuLink>
-                <MenuLink to="/mccmd/education">Education</MenuLink>
-                <MenuLink to="/mccmd/community">Community</MenuLink>
-                <MenuLink to="/mccmd/getconnected">Get Connected</MenuLink>
-                <MenuLink to="/mccmd/volunteering">Volunteering</MenuLink>
-                <MenuLink to="/mccmd/contactus">Contact Us</MenuLink>
-                <MenuLink to="#">MCC Live</MenuLink>
-                <MenuLink to="/mccmd/login">Login</MenuLink>
+                <MenuLink to="/mccmd/about" onClick={handleMenuClick}>About Us</MenuLink>
+                <MenuLink to="#" onClick={handleMenuClick}>Services</MenuLink>
+                <MenuLink to="/mccmd/education" onClick={handleMenuClick}>Education</MenuLink>
+                <MenuLink to="/mccmd/community" onClick={handleMenuClick}>Community</MenuLink>
+                <MenuLink to="/mccmd/getconnected" onClick={handleMenuClick}>Get Connected</MenuLink>
+                <MenuLink to="/mccmd/volunteering" onClick={handleMenuClick}>Volunteering</MenuLink>
+                <MenuLink to="/mccmd/contactus" onClick={handleMenuClick}>Contact Us</MenuLink>
+                <MenuLink to="#" onClick={handleMenuClick}>MCC Live</MenuLink>
+                <MenuLink to="/mccmd/login" onClick={handleMenuClick}>Login</MenuLink>
                 <Icons>
                     <IconLink href='#'><EmailIcon style={{ fontSize: '175%' }}/></IconLink>
                     <IconLink href='https://www.facebook.com/mccmaryland/'><FacebookIcon style={{ fontSize: '175%' }}/></IconLink>

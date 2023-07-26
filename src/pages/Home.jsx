@@ -1,6 +1,3 @@
-import PrayerTimes from "../components/PrayerTimes"
-import Header from "../components/Header"
-import Footer from "../components/Footer";
 import EventCard from "../components/EventCard";
 import ServiceCard from "../components/ServiceCard";
 import styled from 'styled-components';
@@ -55,8 +52,6 @@ const Link = styled(PageLink)`
 function Home() {
     return (
         <>
-            <PrayerTimes/>
-            <Header/>
             <MainImage src={MCCFrontSmall} alt="MCC Front" style={{width: '100%'}}/>
             <EventsWrapper>
                 <div><WrapperTitle>Events</WrapperTitle></div>
@@ -120,7 +115,6 @@ function Home() {
                     Book to join us on weekend mornings for a guided walk through our mosque, or on weekdays if you are part of an organisation such as a school or a local community group. Book <Link to="#">here</Link>.
                 </ServiceCard>
             </ServicesWrapper>
-            <Footer/>
         </>
     )
 }

@@ -1,8 +1,4 @@
-import PrayerTimes from "../components/PrayerTimes"
-import Header from "../components/Header"
 import styled from 'styled-components';
-
-import Footer from "../components/Footer"
 
 const AboutWrapper = styled.div`
     display: flex;
@@ -20,8 +16,6 @@ const Title = styled.h2`
 function About() {
     return (
         <>
-            <PrayerTimes/>
-            <Header/>
             <AboutWrapper>
                 <Title>About Us</Title>
                 <div>
@@ -61,7 +55,6 @@ function About() {
 
                 </div>
             </AboutWrapper>
-            <Footer/>
         </>
     )
 }

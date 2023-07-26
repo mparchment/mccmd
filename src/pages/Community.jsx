@@ -1,10 +1,6 @@
-import PrayerTimes from "../components/PrayerTimes"
-import Header from "../components/Header"
 import styled from 'styled-components';
 
 import Placeholder from '../assets/placeholder-image.png';
-
-import Footer from "../components/Footer";
 
 const CommunityWrapper = styled.div`
     display: flex;
@@ -60,9 +56,6 @@ const Divider = styled.div`
 function About() {
     return (
         <>
-            <PrayerTimes/>
-            <Header/>
-            
             <CommunityWrapper>
                 <div>
                     <Title>Community</Title>
@@ -95,7 +88,6 @@ function About() {
                     </Card>
                 </CardWrapper>
             </CommunityWrapper>
-            <Footer/>
         </>
     )
 }

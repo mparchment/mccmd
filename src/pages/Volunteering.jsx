@@ -1,10 +1,5 @@
-import PrayerTimes from "../components/PrayerTimes"
-import Header from "../components/Header"
 import styled from 'styled-components';
-
 import Placeholder from '../assets/placeholder-image.png';
-
-import Footer from "../components/Footer";
 
 const VolunteeringWrapper = styled.div`
     display: flex;
@@ -64,10 +59,7 @@ const Link = styled.a`
 
 function Volunteering() {
     return (
-        <>
-            <PrayerTimes/>
-            <Header/>
-            
+        <>  
             <VolunteeringWrapper>
                 <div>
                     <Title>Volunteering</Title>
@@ -79,8 +71,6 @@ function Volunteering() {
                     </p>
                 </div>
             </VolunteeringWrapper>
-
-            <Footer/>
         </>
     )
 }

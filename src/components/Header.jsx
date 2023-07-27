@@ -160,7 +160,7 @@ function Header() {
                     <ServiceLink to="/mccmd/zakat" onClick={handleMenuClick}>Nikahs</ServiceLink>
                     <ServiceLink to="/mccmd/janazahs" onClick={handleMenuClick}>Janazahs</ServiceLink>
                     <ServiceLink to="/mccmd/zakat" onClick={handleMenuClick}>Zakat</ServiceLink>
-                    <ServiceLink to="/mccmd/refugee-aid" onClick={handleMenuClick}>Food Pantry</ServiceLink>
+                    <ServiceLink to="/mccmd/food-pantry" onClick={handleMenuClick}>Food Pantry</ServiceLink>
                     <ServiceLink to="/mccmd/refugee-aid" onClick={handleMenuClick}>Refugee Aid</ServiceLink>
                     <ServiceLink to="/mccmd/general-events" onClick={handleMenuClick}>General Events</ServiceLink>
                     <ServiceLink to="/mccmd/guided-tours" onClick={handleMenuClick}>Guided Tours</ServiceLink>

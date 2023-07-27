@@ -39,7 +39,7 @@ const Subtitle = styled.h4`
 `
 
 const NewsletterInput = styled.input`
-    width: 60%;
+    width: 57.5%;
     height: 30px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -63,13 +63,17 @@ const FooterLink = styled(Link)`
     color: inherit;
 `;
 
+const Form = styled.form`
+    white-space: nowrap;
+`
+
 function Footer() {
     return (
         <FooterWrapper>
             <FooterContainer>
                 <Title>Muslim Community Center</Title>
                 <Subtitle>Subscribe to our Newsletter</Subtitle>
-                <form><NewsletterInput type="text" placeholder="Your e-mail address"/><SubscribeButton>Subscribe</SubscribeButton></form>
+                <Form><NewsletterInput type="text" placeholder="Your e-mail address"/><SubscribeButton>Subscribe</SubscribeButton></Form>
                 <FooterText>Muslim Community Center is a registered 501(c)(3) chartiable non-profit organization that has been serving the spiritual needs of the Muslim community in Montgomery County, MD for decades.</FooterText>
                 <FooterText>Our mission: to promote brotherhood and human dignity among all by developing an environment of understanding, compassion, and justice in personal and professional life.</FooterText>
                 <FooterText>15200 New Hampshire Ave, Silver Spring, MD 20905</FooterText>

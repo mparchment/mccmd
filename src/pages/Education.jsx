@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-
-import Placeholder from '../assets/placeholder-image.png';
 import AdultHifdh from '../assets/adults-hifdh-placeholder.jpeg';
 import ChildrenHifdh from '../assets/children-hifdh-placeholder.jpeg';
 import IslamicSchool from '../assets/islamic-school-placeholder.jpeg';
@@ -11,6 +9,9 @@ const EducationWrapper = styled.div`
     flex-direction: column;
     padding: 25px;
     padding-top: 0;
+
+    font-size: 14px;
+    font-weight: 500;
 `;
 
 const Title = styled.h2`
@@ -58,16 +59,21 @@ const Divider = styled.div`
     margin-bottom: 30px;
 `;
 
+const LeadWrapper = styled.div`
+    font-size: 14px;
+    font-weight: 500;
+`;
+
 function About() {
     return (
         <>
             <EducationWrapper>
-                <div>
+                <LeadWrapper>
                     <Title>Education</Title>
                     <p>
                     Our mission is to enrich our community by providing a diverse range of educational opportunities, all designed to nurture and strengthen Islamic knowledge, understanding, and practice. </p> <p> Each of our programs aims to instill love for the Quran and Sunnah, fortify hearts with iman and taqwa, and inspire the practical application of these teachings in daily life. Explore our programs below to find the right fit for you or your child. 
                     </p>
-                </div>
+                </LeadWrapper>
                 
                 <CardWrapper>
                 <Divider/>

@@ -5,6 +5,9 @@ const AboutWrapper = styled.div`
     flex-direction: column;
     padding: 25px;
     padding-top: 0;
+
+    font-size: 14px;
+    font-weight: 500;
 `;
 
 const Title = styled.h2`
@@ -19,14 +22,14 @@ function About() {
             <AboutWrapper>
                 <Title>About Us</Title>
                 <div>
-                    Muslim Community Center has been serving Muslims living and working in Howard County, Maryland for over a decade. Since our humble beginnings our congregation has approximately doubled every year. What started as providing only Jummah services has grown to include daily prayer in MFC's Musallah, exciting weekly and monthly programs for area families and youth, an active Care Committee and much more! 
+                    Muslim Community Center has been serving Muslims living and working in Montgomery County, Maryland for over three decades. 
                 </div>
                 
                 <div>
                     <h3>Our Vision</h3>
                     <p>To be a Center of Islamic Excellence in which the Muslim community becomes a positive role model for all.</p>
                     <h3>Our Mission</h3>
-                    <p>To promote brotherhood and human dignity among all by developing an environment of understanding, compassion, and justice in personal and professional life. Serve the needs of the Muslim community and community at-large in a manner that promotes its positive image and standing in a changing environment. Represent the Muslim community in interfaith circles, in government, public and media relations, and in the society at-large.</p>
+                    <p>To promote brotherhood and human dignity among all by developing an environment of understanding, compassion, justice in personal and professional life - serving the needs of the Muslim community and community at-large in a manner that promotes its positive image and standing in a changing environment. </p>
                 </div>
                 
                 

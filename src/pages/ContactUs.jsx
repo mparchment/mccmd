@@ -6,6 +6,9 @@ const AboutWrapper = styled.div`
     padding: 25px;
     padding-top: 0;
     margin-bottom: 70px;
+
+    font-size: 14px;
+    font-weight: 500;
 `;
 
 const Title = styled.h2`

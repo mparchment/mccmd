@@ -5,6 +5,9 @@ const AboutWrapper = styled.div`
     flex-direction: column;
     padding: 25px;
     padding-top: 0;
+
+    font-size: 14px;
+    font-weight: 500;
 `;
 
 const Title = styled.h2`

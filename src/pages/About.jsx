@@ -40,7 +40,7 @@ function About() {
                     <p>Shaykh Mohamed Abdullahi is the Imam at the Muslim Community Center, where he leads congregational, jumu'ah and janazah prayers, and teaches tafsir, fiqh and hadith.</p>
                     <p>After completing memorization of the Qur'an at the age of eleven, Shaykh Mohamed went on to study the Shari'ah and gained comprehensive knowledge of Hadith and Fiqh. He graduated with Honors in Licentiate in Arabic Language and Islamic Studies from Al-Azhar University in Cairo, Egypt. He also holds a diploma in Shari'ah from the National Somali University in Mogadishu, Somalia. He is a certified Qari in three styles of recitation and has command of Arabic, Somali, Swahili and English.</p>
 
-                    <h3>Board of Trustees</h3>
+                    <h3>Board of Directors</h3>
                     <h4>Usman Sarwar — President</h4>
                     <h4>Saqib Ashraf — Vice President</h4>
                     <h4>Ishtiaq Chugtai — Treasurer</h4>

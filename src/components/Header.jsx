@@ -139,8 +139,9 @@ function Header() {
     return (
         <>
             <Helmet>
-                <title>Muslim Community Center</title>
-                <meta name="description" content="Welcome to Muslim Community Center!"/>
+                <meta property="og:title" content="Muslim Community Center"/>
+                <meta property="og:description" content="Welcome to MCC - the place to be!"/>
+                <meta property="og:image" content={MCCLogo}/>
             </Helmet>
             <HeaderWrapper>
                 <LogoWrapper><Link to="/mccmd"><Logo src={MCCLogo} alt="logo" onClick={handleMenuClick}/></Link></LogoWrapper>

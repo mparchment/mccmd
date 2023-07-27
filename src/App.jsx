@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 
 import NotFound from './pages/NotFound.jsx'
 import About from './pages/About.jsx'
@@ -34,24 +35,26 @@ function App() {
   return (
     <Router>
       <GlobalStyle/>
-      <HeaderContext.Provider value={{ headerHeight, setHeaderHeight }}>
-        <PageWrapper>
-          <PrayerTimes/>
-          <Header/>
-          <Routes>
-            <Route path="/mccmd" element={<Home />} />
-            <Route path="/mccmd/about" element={<About />} />
-            <Route path="/mccmd/community" element={<Community />} />
-            <Route path="/mccmd/contactus" element={<ContactUs />} />
-            <Route path="/mccmd/education" element={<Education />} />
-            <Route path="/mccmd/getconnected" element={<GetConnected />} />
-            <Route path="/mccmd/login" element={<Login />} />
-            <Route path="/mccmd/volunteering" element={<Volunteering />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <Footer/>
-        </PageWrapper>
-      </HeaderContext.Provider>
+      <HelmetProvider>
+        <HeaderContext.Provider value={{ headerHeight, setHeaderHeight }}>
+          <PageWrapper>
+            <PrayerTimes/>
+            <Header/>
+            <Routes>
+              <Route path="/mccmd" element={<Home />} />
+              <Route path="/mccmd/about" element={<About />} />
+              <Route path="/mccmd/community" element={<Community />} />
+              <Route path="/mccmd/contactus" element={<ContactUs />} />
+              <Route path="/mccmd/education" element={<Education />} />
+              <Route path="/mccmd/getconnected" element={<GetConnected />} />
+              <Route path="/mccmd/login" element={<Login />} />
+              <Route path="/mccmd/volunteering" element={<Volunteering />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            <Footer/>
+          </PageWrapper>
+        </HeaderContext.Provider>
+      </HelmetProvider>
     </Router>
   )
 }

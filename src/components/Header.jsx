@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import MCCLogo from '../assets/logo-small.png';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import { useState, useEffect, useContext } from 'react';
-import { HeaderContext } from '../contexts/HeaderContext';
+import { useState, useContext } from 'react';
+
+import MenuContext from '../contexts/MenuContext';
 
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -56,12 +57,13 @@ const Menu = styled.div`
     top: 67px;
     left: 0;
     width: 100%;
-    height: ${props => `calc(100vh - ${props.$headerHeight}px)`};
+    height: fit-content;
     background-color: #fff;
     z-index: 1;
     display: flex;
     flex-direction: column;
     transition: all 0.3s ease;
+    padding-bottom: 55px;
     gap: 30px;
     font-weight: bold;
 `;
@@ -106,35 +108,17 @@ const ServiceLink = styled(Link)`
 
 function Header() {
 
-    const [menuOpen, setMenuOpen] = useState(false);
+    const {menuOpen, toggleMenu} = useContext(MenuContext);
     const [servicesOpen, setServicesOpen] = useState(false);
 
-    const { headerHeight } = useContext(HeaderContext);
-
     const handleMenuClick = () => {
-        setMenuOpen(!menuOpen);
+        toggleMenu();
         setServicesOpen(false);
     }
 
     const handleServicesClick = () => {
         setServicesOpen(!servicesOpen);
     }
-
-    // This effect will run whenever menuOpen state changes
-    useEffect(() => {
-        // If the menu is open, we'll disable scrolling on the body
-        if (menuOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            // Otherwise, re-enable scrolling
-            document.body.style.overflow = 'unset';
-        }
-
-        // Cleanup function to prevent effects on unmount
-        return () => {
-            document.body.style.overflow = 'unset';
-        };
-    }, [menuOpen]); // Rerun the effect when `menuOpen` state changes
 
     return (
         <>
@@ -151,7 +135,7 @@ function Header() {
                 </MenuButtonWrapper>
                 
             </HeaderWrapper>
-            {menuOpen && <Menu $headerHeight={headerHeight}>
+            {menuOpen && <Menu>
                 <MenuLink to="/mccmd/about" onClick={handleMenuClick}>About Us</MenuLink>
                 <MenuLink to="#" onClick={handleServicesClick}>Services</MenuLink>
                 {servicesOpen && <>

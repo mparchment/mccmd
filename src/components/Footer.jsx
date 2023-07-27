@@ -24,11 +24,6 @@ const FooterText = styled.div`
     }
 `;
 
-const AddressText = styled.p`
-    margin-top: 2px;
-    margin-bottom: 2px;
-`
-
 const Title = styled.h3`
     font-weight: 800;
     font-size: 20px;
@@ -77,7 +72,7 @@ function Footer() {
                 <form><NewsletterInput type="text" placeholder="Your e-mail address"/><SubscribeButton>Subscribe</SubscribeButton></form>
                 <FooterText>Muslim Community Center is a registered 501(c)(3) chartiable non-profit organization that has been serving the spiritual needs of the Muslim community in Montgomery County, MD for decades.</FooterText>
                 <FooterText>Our mission: to promote brotherhood and human dignity among all by developing an environment of understanding, compassion, and justice in personal and professional life.</FooterText>
-                <FooterText><AddressText>15200 New Hampshire Ave</AddressText><AddressText>Silver Spring, MD 20905</AddressText></FooterText>
+                <FooterText>15200 New Hampshire Ave, Silver Spring, MD 20905</FooterText>
                 <FooterText><FooterLink to="/mccmd/about-us">About Us</FooterLink> | <FooterLink to="/mccmd/donate">Donate Today</FooterLink> | <FooterLink to="/mccmd/contact-us">Contact Us</FooterLink></FooterText>
                 <FooterText>© 2023 Muslim Community Center. All rights reserved.</FooterText>
             </FooterContainer>

@@ -23,9 +23,9 @@ function Pages() {
             <>
                 <Routes>
                     <Route path="/mccmd" element={<Home />} />
-                    <Route path="/mccmd/about" element={<About />} />
+                    <Route path="/mccmd/about-us" element={<About />} />
                     <Route path="/mccmd/community" element={<Community />} />
-                    <Route path="/mccmd/contactus" element={<ContactUs />} />
+                    <Route path="/mccmd/contact-us" element={<ContactUs />} />
                     <Route path="/mccmd/education" element={<Education />} />
                     <Route path="/mccmd/get-involved" element={<GetInvolved />} />
                     <Route path="/mccmd/login" element={<Login />} />

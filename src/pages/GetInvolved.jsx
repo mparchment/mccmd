@@ -14,6 +14,11 @@ const Title = styled.h2`
     color: #333;
 `;
 
+const Link = styled.a`
+    color: inherit;
+    font-weight: 600;
+`;
+
 function About() {
     return (
         <>
@@ -26,6 +31,7 @@ function About() {
                     </p>
                     <p>
                     Membership dues per calendar year are:
+                    </p>
                     <ul>
                         <li>Active Member: $100 for an individual, $200 for a family</li>
                         <li>Associate Member: $50 for an individual, $100 for a family</li>
@@ -33,12 +39,13 @@ function About() {
                     All membership contributions are considered as donations to the masjid and directly support our operating expenses.
                     <p>
                     Additionally, the benefits of membership include:
+                    </p>
                     <ul>
                         <li>Voting Rights (for active members)</li>
                         <li>Committee Participation (eligibility to be a member of a committee)</li>
                     </ul>
-                    </p>
-                    By becoming a member, you are not just contributing to the growth and sustainability of our community, but also getting the opportunity to shape its future.
+                    <p>
+                    By becoming a member, you are not just contributing to the growth and sustainability of our community, but also getting the opportunity to shape its future. Initiate your membership by filling out <Link href="">this</Link> form.
                     </p>
                 </div>
                 <div>
@@ -47,7 +54,7 @@ function About() {
                         Over the past three decades, we have relied upon unrelenting support of the Muslim community. We are always looking for dedicated volunteers to continue to offer several programs and services. 
                     </p>
                     <p>
-                        If you have some time and would like to help, please fill out <a href="">this</a> form and we will get back to you as soon as possible.
+                        If you have some time and would like to help, please fill out <Link href="">this</Link> form and we will get back to you as soon as possible.
                     </p>
                 </div>
             </AboutWrapper>

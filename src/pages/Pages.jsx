@@ -22,7 +22,7 @@ function Pages() {
             {!menuOpen && 
             <>
                 <Routes>
-                    <Route path="/mccmd" element={<Home />} />
+                    <Route path="/mccmd/" element={<Home />} />
                     <Route path="/mccmd/about-us" element={<About />} />
                     <Route path="/mccmd/community" element={<Community />} />
                     <Route path="/mccmd/contact-us" element={<ContactUs />} />

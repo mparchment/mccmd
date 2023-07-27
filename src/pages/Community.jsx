@@ -83,6 +83,11 @@ function About() {
                     </Card>
                     <Image src={Placeholder}/>
                     <Card>
+                        <Subtitle>MCC Brothers</Subtitle>
+                        <p>The MCC Seniors program provides persons aged 55 and older with a multi-purpose, culturally and ethnically sensitive, inter-generational program and services. We offer social, educational, recreational activities and outreach. Our members enjoy monthly trips, special events, stimulating lectures and activities, spiritual nurturing, skills development, activities to help get or stay in shape, and lovingly prepared home cooked lunches.</p>
+                    </Card>
+                    <Image src={Placeholder}/>
+                    <Card>
                         <Subtitle>MCC Seniors</Subtitle>
                         <p>The MCC Seniors program provides persons aged 55 and older with a multi-purpose, culturally and ethnically sensitive, inter-generational program and services. We offer social, educational, recreational activities and outreach. Our members enjoy monthly trips, special events, stimulating lectures and activities, spiritual nurturing, skills development, activities to help get or stay in shape, and lovingly prepared home cooked lunches.</p>
                     </Card>

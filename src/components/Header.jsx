@@ -106,6 +106,16 @@ const ServiceLink = styled(Link)`
     color: inherit;
 `;
 
+const MCCLiveLink = styled.a`
+    margin-left: 40px;
+    border-bottom: 2px solid #333;
+    width: fit-content;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: inherit;
+    text-decoration: none;
+`;
+
 function Header() {
 
     const {menuOpen, toggleMenu, closeMenu } = useContext(MenuContext);
@@ -133,7 +143,7 @@ function Header() {
                 <meta property="og:image" content={MCCLogo}/>
             </Helmet>
             <HeaderWrapper>
-                <LogoWrapper><Link to="/mccmd"><Logo src={MCCLogo} alt="logo" onClick={handleLogoClick}/></Link></LogoWrapper>
+                <LogoWrapper><Link to="/mccmd/"><Logo src={MCCLogo} alt="logo" onClick={handleLogoClick}/></Link></LogoWrapper>
                 <MenuButtonWrapper>
                     <DonateButton>Donate</DonateButton>
                     {menuOpen ? <CloseIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/> : <MenuIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/>}
@@ -144,17 +154,22 @@ function Header() {
                 <MenuLink to="/mccmd/about-us" onClick={handleMenuClick}>About Us</MenuLink>
                 <MenuLink to="#" onClick={handleServicesClick}>Services</MenuLink>
                 {servicesOpen && <>
+                    <ServiceLink to="/mccmd/imam" onClick={handleMenuClick}>Shahadas</ServiceLink>
+                    <ServiceLink to="/mccmd/imam" onClick={handleMenuClick}>Meet the Imam</ServiceLink>
                     <ServiceLink to="/mccmd/clinic" onClick={handleMenuClick}>Clinic</ServiceLink>
-                    <ServiceLink to="/mccmd/zakat" onClick={handleMenuClick}>Zakat</ServiceLink>
+                    <ServiceLink to="/mccmd/zakat" onClick={handleMenuClick}>Nikahs</ServiceLink>
                     <ServiceLink to="/mccmd/janazahs" onClick={handleMenuClick}>Janazahs</ServiceLink>
+                    <ServiceLink to="/mccmd/zakat" onClick={handleMenuClick}>Zakat</ServiceLink>
+                    <ServiceLink to="/mccmd/refugee-aid" onClick={handleMenuClick}>Food Pantry</ServiceLink>
                     <ServiceLink to="/mccmd/refugee-aid" onClick={handleMenuClick}>Refugee Aid</ServiceLink>
-                    <ServiceLink to="/mccmd/food-pantry" onClick={handleMenuClick}>Food Pantry</ServiceLink>
+                    <ServiceLink to="/mccmd/general-events" onClick={handleMenuClick}>General Events</ServiceLink>
+                    <ServiceLink to="/mccmd/guided-tours" onClick={handleMenuClick}>Guided Tours</ServiceLink>
                 </>}
                 <MenuLink to="/mccmd/education" onClick={handleMenuClick}>Education</MenuLink>
                 <MenuLink to="/mccmd/community" onClick={handleMenuClick}>Community</MenuLink>
                 <MenuLink to="/mccmd/get-involved" onClick={handleMenuClick}>Get Involved</MenuLink>
-                <MenuLink to="/mccmd/contactus" onClick={handleMenuClick}>Contact Us</MenuLink>
-                <MenuLink to="#" onClick={handleMenuClick}>MCC Live</MenuLink>
+                <MenuLink to="/mccmd/contact-us" onClick={handleMenuClick}>Contact Us</MenuLink>
+                <MCCLiveLink href="https://www.youtube.com/@MCCMD" onClick={handleMenuClick}>MCC Live</MCCLiveLink>
                 <MenuLink to="/mccmd/login" onClick={handleMenuClick}>Login</MenuLink>
                 <Icons>
                     <IconLink href='#'><EmailIcon style={{ fontSize: '175%' }}/></IconLink>

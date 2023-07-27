@@ -26,13 +26,13 @@ const FooterText = styled.div`
 
 const Title = styled.h3`
     font-weight: 800;
-    font-size: 20px;
+    font-size: 18px;
     color: white;
     text-transform: uppercase;
     margin-bottom: 5px;
 `;
 
-const Subtitle = styled.h4`
+const Subtitle = styled.h5`
     margin-top: 5px;
     margin-bottom: 5px;
     text-transform: uppercase;

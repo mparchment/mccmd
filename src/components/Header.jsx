@@ -141,7 +141,7 @@ function Header() {
                 
             </HeaderWrapper>
             {menuOpen && <Menu>
-                <MenuLink to="/mccmd/about" onClick={handleMenuClick}>About Us</MenuLink>
+                <MenuLink to="/mccmd/about-us" onClick={handleMenuClick}>About Us</MenuLink>
                 <MenuLink to="#" onClick={handleServicesClick}>Services</MenuLink>
                 {servicesOpen && <>
                     <ServiceLink to="/mccmd/clinic" onClick={handleMenuClick}>Clinic</ServiceLink>
@@ -152,8 +152,7 @@ function Header() {
                 </>}
                 <MenuLink to="/mccmd/education" onClick={handleMenuClick}>Education</MenuLink>
                 <MenuLink to="/mccmd/community" onClick={handleMenuClick}>Community</MenuLink>
-                <MenuLink to="/mccmd/getconnected" onClick={handleMenuClick}>Get Connected</MenuLink>
-                <MenuLink to="/mccmd/volunteering" onClick={handleMenuClick}>Volunteering</MenuLink>
+                <MenuLink to="/mccmd/get-involved" onClick={handleMenuClick}>Get Involved</MenuLink>
                 <MenuLink to="/mccmd/contactus" onClick={handleMenuClick}>Contact Us</MenuLink>
                 <MenuLink to="#" onClick={handleMenuClick}>MCC Live</MenuLink>
                 <MenuLink to="/mccmd/login" onClick={handleMenuClick}>Login</MenuLink>

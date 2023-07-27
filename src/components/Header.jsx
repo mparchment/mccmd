@@ -108,11 +108,16 @@ const ServiceLink = styled(Link)`
 
 function Header() {
 
-    const {menuOpen, toggleMenu} = useContext(MenuContext);
+    const {menuOpen, toggleMenu, closeMenu } = useContext(MenuContext);
     const [servicesOpen, setServicesOpen] = useState(false);
 
     const handleMenuClick = () => {
         toggleMenu();
+        setServicesOpen(false);
+    }
+
+    const handleLogoClick = () => {
+        closeMenu();
         setServicesOpen(false);
     }
 
@@ -128,7 +133,7 @@ function Header() {
                 <meta property="og:image" content={MCCLogo}/>
             </Helmet>
             <HeaderWrapper>
-                <LogoWrapper><Link to="/mccmd"><Logo src={MCCLogo} alt="logo" onClick={handleMenuClick}/></Link></LogoWrapper>
+                <LogoWrapper><Link to="/mccmd"><Logo src={MCCLogo} alt="logo" onClick={handleLogoClick}/></Link></LogoWrapper>
                 <MenuButtonWrapper>
                     <DonateButton>Donate</DonateButton>
                     {menuOpen ? <CloseIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/> : <MenuIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/>}

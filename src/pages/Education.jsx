@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 import Placeholder from '../assets/placeholder-image.png';
+import AdultHifdh from '../assets/adults-hifdh-placeholder.jpeg';
+import ChildrenHifdh from '../assets/children-hifdh-placeholder.jpeg';
+import IslamicSchool from '../assets/islamic-school-placeholder.jpeg';
+import IslamicDaycare from '../assets/islamic-daycare-placeholder.jpeg';
 
 const EducationWrapper = styled.div`
     display: flex;
@@ -30,6 +34,7 @@ const Card = styled.div`
     box-shadow: 0 1px 9px #ddd;
     font-size: 14px;
     font-weight: 500;
+    cursor: pointer;
 `;
 
 const Image = styled.img`
@@ -66,33 +71,33 @@ function About() {
                 
                 <CardWrapper>
                 <Divider/>
-                    <Image src={Placeholder}/>
-                    <Card>
+                    <Image src={IslamicSchool}/>
+                    <Card to="/mccmd/day-school">
                         <Subtitle>Day School</Subtitle>
-                        <p>The K-9 Islamic School at MCC is committed to cultivating Islamic principles in our students through an engaging curriculum that instills love and understanding of the Quran and Sunnah. Our dedicated teachers provide a supportive and inclusive environment that encourages questioning, exploration, and the inquisitive spirit inherent in every child. Learn more here.</p>
+                        <p>The K-9 Islamic School at MCC is committed to cultivating Islamic principles in our students through an engaging curriculum that instills love and understanding of the Quran and Sunnah. Our dedicated teachers provide a supportive and inclusive environment that encourages questioning, exploration, and the inquisitive spirit inherent in every child. </p>
                     </Card>
-                    <Image src={Placeholder}/>
-                    <Card>
+                    <Image src={IslamicSchool}/>
+                    <Card to="/mccmd/after-school">
                         <Subtitle>Madrasa</Subtitle>
                         <p>We provide a unique Madrasa after-school program for children aged 7-15. Join us on-site on Mondays, Wednesdays & Fridays, from 6-8 pm, for a journey of deeper understanding and love for Quranic teachings and principles.</p>
                     </Card>
-                    <Image src={Placeholder}/>
-                    <Card>
+                    <Image src={IslamicSchool}/>
+                    <Card to="/mccmd/weekend-school">
                         <Subtitle>Weekend School</Subtitle>
                         <p>At the MCC Weekend School, we've made it our mission to cultivate and preserve the Islamic character in our youth. By teaching the love and wisdom of the Quran and Sunnah, we aim to inspire them to carry these teachings into their everyday lives.</p>
                     </Card>
-                    <Image src={Placeholder}/>
-                    <Card>
-                        <Subtitle>Nursery</Subtitle>
-                        <p>Our Bayan Nursery is a place where the journey begins. We believe in the importance of nurturing Islamic values from the earliest years. With us, your little ones will discover the beauty of the Quran and Sunnah while strengthening their hearts with iman and taqwa.</p>
+                    <Image src={IslamicDaycare}/>
+                    <Card to="/mccmd/daycare">
+                        <Subtitle>DayCare</Subtitle>
+                        <p>Our Bayan Daycare is a place where the journey begins. We believe in the importance of nurturing Islamic values from the earliest years. With us, your little ones will discover the beauty of the Quran and Sunnah while strengthening their hearts with iman and taqwa.</p>
                     </Card>
-                    <Image src={Placeholder}/>
-                    <Card>
+                    <Image src={ChildrenHifdh}/>
+                    <Card to="/mccmd/childrens-hifdh">
                         <Subtitle>Hifdh for Children</Subtitle>
                         <p>We are thrilled to offer Hifdh classes for boys and girls aged between 6-17 years old. The program aims to deepen the young learner's relationship with the Quran through memorization.</p>
                     </Card>
-                    <Image src={Placeholder}/>
-                    <Card>
+                    <Image src={AdultHifdh}/>
+                    <Card to="/mccmd/adults-hifdh">
                         <Subtitle>Hifdh for Adults</Subtitle>
                         <p>We are delighted to offer hifdh classes for adults aged 18 or above. You can learn to read and memorize the Holy Qur’an, enriching your spiritual journey. </p>
                     </Card>

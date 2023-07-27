@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const ServiceCardStyled = styled.div`
@@ -11,15 +12,22 @@ const ServiceCardStyled = styled.div`
     font-size: 14px;
     font-weight: 500;
     border-radius: 5px;
+    cursor: pointer;
 `;
 
 const ServiceCardSubtitle = styled.h3`
     text-transform: uppercase;
 `;
 
-const ServiceCard = ({ subtitle, children }) => {
+const ServiceCard = ({ subtitle, to, children }) => {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate(to);
+    };
+
     return (
-        <ServiceCardStyled>
+        <ServiceCardStyled onClick={handleClick}>
             <ServiceCardSubtitle>{subtitle}</ServiceCardSubtitle>
             {children}
         </ServiceCardStyled>
@@ -28,7 +36,8 @@ const ServiceCard = ({ subtitle, children }) => {
 
 ServiceCard.propTypes = {
     subtitle: PropTypes.string.isRequired,
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
+    to: PropTypes.string.isRequired
 };
 
 export default ServiceCard;

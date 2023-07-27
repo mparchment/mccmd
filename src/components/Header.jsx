@@ -12,6 +12,40 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import EmailIcon from '@mui/icons-material/Email';
 
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+
+/*
+                <ServiceCard subtitle="Shahadas" to="/mccmd/shahadas">
+                    Whether you are just interested in Islam, have some questions, or are ready to convert, we are happy to speak to you and guide you through the Shahada. 
+                </ServiceCard>
+                <ServiceCard subtitle="Meet the Imam" to="/mccmd/imam">
+                    Book a meeting up to two weeks in advance with the Imam to discuss one of a range of topics. 
+                </ServiceCard>
+                <ServiceCard subtitle="Clinic" to="/mccmd/clinic">
+                    To book rooms for other events or Islamic celebrations, from aqiqas and private gatherings to conferences, we offer rooms at reasonable rates of hire.
+                </ServiceCard>
+                <ServiceCard subtitle="Nikahs" to="/mccmd/nikahs">
+                    Offering a unique & stunning yet economical & eco-friendly venue, getting married at Muslim Community Center is the experience of a lifetime. 
+                </ServiceCard>
+                <ServiceCard subtitle="Janazas" to="/mccmd/janazahs">
+                    We ease the burden of bereavement by facilitating preparation of the deceased for burial through use of our dedicated mortuary and leading Janazah prayers. 
+                </ServiceCard>
+                <ServiceCard subtitle="Zakat" to="/mccmd/zakat">
+                    To book rooms for other events or Islamic celebrations, from aqiqas and private gatherings to conferences, we offer rooms at reasonable rates of hire.
+                </ServiceCard>
+                <ServiceCard subtitle="Food Pantry" to="/mccmd/food-pantry">
+                    Book to join us on weekend mornings for a guided walk through our mosque, or on weekdays if you are part of an organisation such as a school or a local community group.
+                </ServiceCard>
+                <ServiceCard subtitle="Refugee Aid" to="/mccmd/refugee-aid">
+                    Book to join us on weekend mornings for a guided walk through our mosque, or on weekdays if you are part of an organisation such as a school or a local community group.
+                </ServiceCard>
+                <ServiceCard subtitle="General Events" to="/mccmd/general-events">
+                    To book rooms for other events or Islamic celebrations, from aqiqas and private gatherings to conferences, we offer rooms at reasonable rates of hire.
+                </ServiceCard>
+                <ServiceCard subtitle="Guided Tours" to="/mccmd/guided-tours">
+                    Book to join us on weekend mornings for a guided walk through our mosque, or on weekdays if you are part of an organisation such as a school or a local community group. 
+                </ServiceCard>
+*/
 
 const HeaderWrapper = styled.div`
     height: 67px;
@@ -63,13 +97,14 @@ const Menu = styled.div`
     transition: all 0.3s ease;
     gap: 30px;
     font-weight: bold;
-    font-size: 23px;
 `;
 
 const MenuLink = styled(Link)`
     margin-left: 40px;
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #333;
     width: fit-content;
+    text-transform: uppercase;
+    font-size: 20px;
 
     color: inherit;
     text-decoration: none;
@@ -93,13 +128,29 @@ const IconLink = styled.a`
     text-decoration: none;
 `;
 
+const ServiceLink = styled(Link)`
+    margin-left: 60px;
+    text-decoration: none;
+    border-bottom: 2px solid #333;
+    width: fit-content;
+    text-transform: uppercase;
+    color: inherit;
+`;
+
 function Header() {
 
     const [menuOpen, setMenuOpen] = useState(false);
+    const [servicesOpen, setServicesOpen] = useState(false);
+
     const { headerHeight } = useContext(HeaderContext);
 
     const handleMenuClick = () => {
         setMenuOpen(!menuOpen);
+        setServicesOpen(false);
+    }
+
+    const handleServicesClick = () => {
+        setServicesOpen(!servicesOpen);
     }
 
     // This effect will run whenever menuOpen state changes
@@ -120,18 +171,28 @@ function Header() {
 
     return (
         <>
+            <Helmet>
+                <title>Muslim Community Center</title>
+                <meta name="description" content="Welcome to MCC!" />
+            </Helmet>
             <HeaderWrapper>
-                <LogoWrapper><Link to="/mccmd"><Logo src={MCCLogo} alt="logo" /></Link></LogoWrapper>
+                <LogoWrapper><Link to="/mccmd"><Logo src={MCCLogo} alt="logo" onClick={handleMenuClick}/></Link></LogoWrapper>
                 <MenuButtonWrapper>
                     <DonateButton>Donate</DonateButton>
                     {menuOpen ? <CloseIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/> : <MenuIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/>}
-                    
                 </MenuButtonWrapper>
                 
             </HeaderWrapper>
             {menuOpen && <Menu $headerHeight={headerHeight}>
                 <MenuLink to="/mccmd/about" onClick={handleMenuClick}>About Us</MenuLink>
-                <MenuLink to="#" onClick={handleMenuClick}>Services</MenuLink>
+                <MenuLink to="#" onClick={handleServicesClick}>Services</MenuLink>
+                {servicesOpen && <>
+                    <ServiceLink to="/mccmd/clinic" onClick={handleMenuClick}>Clinic</ServiceLink>
+                    <ServiceLink to="/mccmd/zakat" onClick={handleMenuClick}>Zakat</ServiceLink>
+                    <ServiceLink to="/mccmd/janazahs" onClick={handleMenuClick}>Janazahs</ServiceLink>
+                    <ServiceLink to="/mccmd/refugee-aid" onClick={handleMenuClick}>Refugee Aid</ServiceLink>
+                    <ServiceLink to="/mccmd/food-pantry" onClick={handleMenuClick}>Food Pantry</ServiceLink>
+                </>}
                 <MenuLink to="/mccmd/education" onClick={handleMenuClick}>Education</MenuLink>
                 <MenuLink to="/mccmd/community" onClick={handleMenuClick}>Community</MenuLink>
                 <MenuLink to="/mccmd/getconnected" onClick={handleMenuClick}>Get Connected</MenuLink>

@@ -97,7 +97,7 @@ function Home() {
                     imgSrc={Placeholder3}
                     title="Hadith Study Circle"
                     text="Join us for in-person Saturday evenings for short study sessions on Hadith with Imam Muhammad Abdullahi."
-                    time="After Asr"
+                    time="Maghrib to Isha"
                     location="Muslim Community Center"
                     date="Wednesdays"
                 />

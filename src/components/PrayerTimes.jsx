@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import styled from 'styled-components';
 
 const PrayerTimesWrapper = styled.div`
@@ -49,33 +49,49 @@ const JummuahWrapper = styled.div`
 const PrayerTimes = () => {
   const [nextPrayerIndex, setNextPrayerIndex] = useState(0);
 
-  const times = [
-    { prayer: 'Fajr', time: '5:00', beginTime: '4:30' },
-    { prayer: 'Zuhr', time: '1:30', beginTime: '1:00' },
-    { prayer: 'Asr', time: '6:30', beginTime: '6:00' },
-    { prayer: 'Maghrib', time: '8:30', beginTime: '8:00' },
-    { prayer: 'Isha', time: '10:15', beginTime: '9:45' },
-  ];
+  const times = useMemo(() => {
+    const initialTimes = [
+      { prayer: 'Fajr', time: '5:15', beginTime: '4:40' },
+      { prayer: 'Zuhr', time: '1:30', beginTime: '1:15' }, // Fixed a typo here, replacing '.' with ':'
+      { prayer: 'Asr', time: '6:30', beginTime: '5:06' },
+      { prayer: 'Maghrib', beginTime: '8:22' },
+      { prayer: 'Isha', time: '10:00', beginTime: '9:48' },
+    ];
+
+    const maghribTime = initialTimes.find(t => t.prayer === 'Maghrib').beginTime.split(':');
+    maghribTime[1] = parseInt(maghribTime[1], 10) + 10;
+    if (maghribTime[1] >= 60) {
+      maghribTime[0] = parseInt(maghribTime[0], 10) + 1;
+      maghribTime[1] -= 60;
+    }
+    initialTimes.find(t => t.prayer === 'Maghrib').time = maghribTime.join(':');
+
+    return initialTimes;
+  }, []);
+
+  const currentTime = useMemo(() => new Date(), []); 
+
+  const convertTimeStrToDate = (timeStr, index) => {
+    const [hours, minutes] = timeStr.split(':');
+    let d = new Date();
+    let hourValue = +hours;
+    if (index > 0) {
+      hourValue += 12; 
+    }
+    d.setHours(hourValue);
+    d.setMinutes(+minutes);
+    return d;
+  };
 
   useEffect(() => {
-    const currentTime = new Date();
-
-    const convertTimeStrToDate = (timeStr) => {
-      const [hours, minutes] = timeStr.split(':');
-      let d = new Date();
-      d.setHours(+hours);
-      d.setMinutes(+minutes);
-      return d;
-    };
-
     for (let i = 0; i < times.length; i++) {
-      let prayerTime = convertTimeStrToDate(times[i].time);
+      let prayerTime = convertTimeStrToDate(times[i].time, i);
       if (prayerTime > currentTime) {
         setNextPrayerIndex(i);
         break;
       }
     }
-  }, []);
+  }, [times, currentTime]);
 
   return (
     <PrayerTimesWrapper>

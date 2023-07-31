@@ -3,6 +3,7 @@ import AdultHifdh from '../assets/adults-hifdh-placeholder.jpeg';
 import ChildrenHifdh from '../assets/children-hifdh-placeholder.jpeg';
 import IslamicSchool from '../assets/islamic-school-placeholder.jpeg';
 import IslamicDaycare from '../assets/islamic-daycare-placeholder.jpeg';
+import Placeholder from '../assets/placeholder-image.png';
 
 const EducationWrapper = styled.div`
     display: flex;
@@ -82,12 +83,12 @@ function About() {
                         <Subtitle>Day School</Subtitle>
                         <p>The K-9 Islamic School at MCC is committed to cultivating Islamic principles in our students through an engaging curriculum that instills love and understanding of the Quran and Sunnah. Our dedicated teachers provide a supportive and inclusive environment that encourages questioning, exploration, and the inquisitive spirit inherent in every child. </p>
                     </Card>
-                    <Image src={IslamicSchool}/>
+                    <Image src={Placeholder}/>
                     <Card to="/mccmd/after-school">
                         <Subtitle>Madrasa</Subtitle>
                         <p>We provide a unique Madrasa after-school program for children aged 7-15. Join us on-site on Mondays, Wednesdays & Fridays, from 6-8 pm, for a journey of deeper understanding and love for Quranic teachings and principles.</p>
                     </Card>
-                    <Image src={IslamicSchool}/>
+                    <Image src={Placeholder}/>
                     <Card to="/mccmd/weekend-school">
                         <Subtitle>Weekend School</Subtitle>
                         <p>At the MCC Weekend School, we've made it our mission to cultivate and preserve the Islamic character in our youth. By teaching the love and wisdom of the Quran and Sunnah, we aim to inspire them to carry these teachings into their everyday lives.</p>

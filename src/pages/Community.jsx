@@ -57,8 +57,11 @@ const CardWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-`;
 
+    // & > ${Card}:nth-of-type(odd) {
+    //     background-color: #f5f6fa;
+    // }
+`;
 const Divider = styled.div`
     width: 12.5%;
     height: 3px;
@@ -94,7 +97,7 @@ function About() {
                 </div>
                 
                 <CardWrapper>
-                <Divider/>
+                    <Divider/>
                     <Image src={MYOLogo}/>
                     <Card>
                         <Subtitle>Muslim Youth Organization</Subtitle>

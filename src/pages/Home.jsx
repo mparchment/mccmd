@@ -7,6 +7,10 @@ import Placeholder2 from '../assets/placeholder-2.jpg';
 import Placeholder3 from '../assets/placeholder-3.jpg';
 import { Link as PageLink } from 'react-router-dom';
 
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 const ServicesWrapper = styled.div`
     display: flex;
     justify-content: center;
@@ -49,10 +53,27 @@ const Link = styled(PageLink)`
     text-decoration: underline;
 `;
 
+const images = [MCCFrontSmall, MCCFrontSmall, MCCFrontSmall, MCCFrontSmall];
+const settings = {
+    dots: false,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+};
+
 function Home() {
     return (
         <>
-            <MainImage src={MCCFrontSmall} alt="MCC Front" style={{width: '100%'}}/>
+            <Slider {...settings}>
+                {images.map((image, index) => (
+                    <div key={index}>
+                        <img src={image} alt={`slide${index}`} style={{ width: '100%' }} />
+                    </div>
+                ))}
+            </Slider>
             <EventsWrapper>
                 <div><WrapperTitle>Events</WrapperTitle></div>
                 <Divider/>

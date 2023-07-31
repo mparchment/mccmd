@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 
-import Placeholder from '../assets/placeholder-image.png';
+import MYOLogo from '../assets/logos/muslim-youth-organization.png';
+import YAPLogo from '../assets/logos/young-adults-and-professionals.png';
+import MSALogo from '../assets/logos/muslim-sisters-alliance.png';
+import MSLogo from '../assets/logos/mcc-seniors.png';
+
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const CommunityWrapper = styled.div`
     display: flex;
@@ -36,8 +43,14 @@ const Card = styled.div`
 `;
 
 const Image = styled.img`
-    width: 97%;
+    width: 90%;
     margin-bottom: 35px;
+`;
+
+const ThinImage = styled.img`
+    width: 80%;
+    margin-bottom: 70px;
+    margin-top: 50px;
 `;
 
 const CardWrapper = styled.div`
@@ -56,6 +69,19 @@ const Divider = styled.div`
     margin-bottom: 30px;
 `;
 
+const IconLink = styled.a`
+    color: inherit;
+    text-decoration: none;
+`;
+
+const Icons = styled.div`
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    gap: 10px;
+    margin-top: 30px;
+`;
+
 function About() {
     return (
         <>
@@ -69,30 +95,34 @@ function About() {
                 
                 <CardWrapper>
                 <Divider/>
-                    <Image src={Placeholder}/>
+                    <Image src={MYOLogo}/>
                     <Card>
                         <Subtitle>Muslim Youth Organization</Subtitle>
-                        <p>Our mission is to establish a bond between the Muslim youth of the community and connect them with the masjid in an environment where individuals feel comfort and inspiration through the teaching of the Quran and Sunnah as well as halal events and activities. The Muslim Youth Organization stands as a platform for youth to have a voice in the community and become successful, independent adults who continue to add to the growth of the community.</p>
+                        <p>Our mission is to establish a bond between the Muslim youth of the community and connect them with the masjid in an environment where individuals feel comfort and inspiration through the teaching of the Quran and Sunnah with events and activities.</p> <p> We stand as a platform for youth to have a voice in the community and become successful, independent adults who contribute to the growth of the community.</p>
+                        <Icons>
+                            <IconLink href="#"><WhatsAppIcon style={{ fontSize: '200%' }}/></IconLink>
+                            <IconLink href="https://www.facebook.com/groups/43069277929/"><FacebookIcon style={{ fontSize: '200%' }}/></IconLink>
+                            <IconLink href="https://www.instagram.com/mccmyo/"><InstagramIcon style={{ fontSize: '200%' }}/></IconLink>
+                        </Icons>
                     </Card>
-                    <Image src={Placeholder}/>
+                    <ThinImage src={YAPLogo}/>
                     <Card>
                         <Subtitle>Young Adults and Professionals</Subtitle>
                         <p>The purpose of the Muslim Sisters' Alliance is to provide a forum for sisters aged 15 and older in the local community to empower each other in advancing the religious, health, personal and social aspects of our lives. We value the diversity of the sisters in our community and aim to be inclusive to sisters from all walks of life.</p>
+                        <Icons>
+                            <IconLink href="#"><WhatsAppIcon style={{ fontSize: '200%' }}/></IconLink>
+                            <IconLink href="https://www.facebook.com/MCCYAP/"><FacebookIcon style={{ fontSize: '200%' }}/></IconLink>
+                            <IconLink href="#"><InstagramIcon style={{ fontSize: '200%' }}/></IconLink>
+                        </Icons>
                     </Card>
-                    <Image src={Placeholder}/>
+                    <ThinImage src={MSALogo}/>
                     <Card>
                         <Subtitle>Muslim Sisters' Alliance</Subtitle>
                         <p>The purpose of the Muslim Sisters' Alliance is to provide a forum for sisters aged 15 and older in the local community to empower each other in advancing the religious, health, personal and social aspects of our lives. We value the diversity of the sisters in our community and aim to be inclusive to sisters from all walks of life.</p>
-                    </Card>
-                    <Image src={Placeholder}/>
-                    <Card>
-                        <Subtitle>MCC Brothers</Subtitle>
-                        <p>The MCC Seniors program provides persons aged 55 and older with a multi-purpose, culturally and ethnically sensitive, inter-generational program and services. We offer social, educational, recreational activities and outreach. Our members enjoy monthly trips, special events, stimulating lectures and activities, spiritual nurturing, skills development, activities to help get or stay in shape, and lovingly prepared home cooked lunches.</p>
-                    </Card>
-                    <Image src={Placeholder}/>
-                    <Card>
-                        <Subtitle>MCC Seniors</Subtitle>
-                        <p>The MCC Seniors program provides persons aged 55 and older with a multi-purpose, culturally and ethnically sensitive, inter-generational program and services. We offer social, educational, recreational activities and outreach. Our members enjoy monthly trips, special events, stimulating lectures and activities, spiritual nurturing, skills development, activities to help get or stay in shape, and lovingly prepared home cooked lunches.</p>
+                        <Icons>
+                            <IconLink href="https://www.facebook.com/MuslimSistersAlliance"><FacebookIcon style={{ fontSize: '200%' }}/></IconLink>
+                            <IconLink href="https://www.instagram.com/muslimsistersalliance/"><InstagramIcon style={{ fontSize: '200%' }}/></IconLink>
+                        </Icons>
                     </Card>
                 </CardWrapper>
             </CommunityWrapper>

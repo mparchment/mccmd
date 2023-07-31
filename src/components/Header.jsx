@@ -170,7 +170,6 @@ function Header() {
                 <MenuLink to="/mccmd/get-involved" onClick={handleMenuClick}>Get Involved</MenuLink>
                 <MenuLink to="/mccmd/contact-us" onClick={handleMenuClick}>Contact Us</MenuLink>
                 <MCCLiveLink href="https://www.youtube.com/@MCCMD" onClick={handleMenuClick}>MCC Live</MCCLiveLink>
-                <MenuLink to="/mccmd/login" onClick={handleMenuClick}>Login</MenuLink>
                 <Icons>
                     <IconLink href='#'><EmailIcon style={{ fontSize: '175%' }}/></IconLink>
                     <IconLink href='https://www.facebook.com/mccmaryland/'><FacebookIcon style={{ fontSize: '175%' }}/></IconLink>

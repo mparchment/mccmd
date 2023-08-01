@@ -13,6 +13,12 @@ const EducationWrapper = styled.div`
 
     font-size: 14px;
     font-weight: 500;
+
+    @media (min-width: 768px) {
+        width: 50%;
+        padding-top: 10px;
+        margin: 0 auto;
+    }
 `;
 
 const Title = styled.h2`

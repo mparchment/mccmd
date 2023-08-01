@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import useIsMobile from '../hooks/useIsMobile';
 
-import EmailIcon from '@mui/icons-material/Email';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
@@ -12,6 +11,8 @@ const FooterWrapper = styled.div`
     background-color: #333;
     color: white;
     margin: 0;
+
+    margin-top: 35px;
 `;
 
 const FooterContainer = styled.div`

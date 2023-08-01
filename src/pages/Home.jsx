@@ -2,6 +2,7 @@ import EventCard from "../components/EventCard";
 import ServiceCard from "../components/ServiceCard";
 import styled from 'styled-components';
 import MCCFrontSmall from '../assets/mcc-front-small.png';
+import MCCFront from '../assets/mcc-front.jpg';
 import Placeholder1 from '../assets/placeholder-1.jpg';
 import Placeholder2 from '../assets/placeholder-2.jpg';
 import Placeholder3 from '../assets/placeholder-3.jpg';
@@ -55,7 +56,7 @@ const Divider = styled.div`
 
 const MainImage = styled.img`
     width: 100vw;
-    object-fit: cover;
+    filter: brightness(70%);
 `;
 
 const EventsWrapper = styled.div`
@@ -134,7 +135,14 @@ const ReadMoreWrapper = styled.div`
     margin-top: 8px;
 `;
 
+const ImageContainer = styled.div`
+    position: relative;
+    text-align: center;
+    color: white;
+`;
+
 const images = [MCCFrontSmall, MCCFrontSmall, MCCFrontSmall, MCCFrontSmall];
+const desktopImages = [MCCFront];
 const settings = {
     dots: false,
     autoplay: true,
@@ -158,21 +166,24 @@ function Home() {
                     </div>
                 ))}
             </Slider>}
+            {!isMobile && <ImageContainer>
+                <MainImage src={desktopImages[0]} alt=""/>
+            </ImageContainer>}
             {!isMobile && <IntroductionWrapper>
                 <IntroductionCard>
-                    <IntroductionSubtitle>About Us</IntroductionSubtitle>
+                    <IntroductionSubtitle>Our Story</IntroductionSubtitle>
                     <div>Inspired by both Islamic and English religious architectural traditions, our design develops the idea of a British mosque for the 21st century.</div>
-                    <ReadMoreWrapper><SubdirectoryArrowRightIcon style={{ fontSize: "100%", marginRight: "5px"}}/><ReadMoreLink>Read More</ReadMoreLink></ReadMoreWrapper>
+                    <ReadMoreWrapper><SubdirectoryArrowRightIcon style={{ fontSize: "100%", marginRight: "5px"}}/><ReadMoreLink to="/mccmd/about-us/">Read More</ReadMoreLink></ReadMoreWrapper>
                 </IntroductionCard>
                 <IntroductionCard>
                     <IntroductionSubtitle>Plan Your Visit</IntroductionSubtitle>
                     <div>We're within walking distance of Cambridge train station, buses stop right outside & our underground car park has ample space to secure cycles.</div>
-                    <ReadMoreWrapper><SubdirectoryArrowRightIcon style={{ fontSize: "100%", marginRight: "5px"}}/><ReadMoreLink>Read More</ReadMoreLink></ReadMoreWrapper>
+                    <ReadMoreWrapper><SubdirectoryArrowRightIcon style={{ fontSize: "100%", marginRight: "5px"}}/><ReadMoreLink to="/mccmd/donate/">Read More</ReadMoreLink></ReadMoreWrapper>
                 </IntroductionCard>
                 <IntroductionCard>
-                    <IntroductionSubtitle>Support Your Masjid</IntroductionSubtitle>
+                    <IntroductionSubtitle>Support Our Masjid</IntroductionSubtitle>
                     <div>Thanks to your generous donations, we are able to host worshippers, offer community services & distribute food to those that need it most.</div>
-                    <ReadMoreWrapper><SubdirectoryArrowRightIcon style={{ fontSize: "100%", marginRight: "5px"}}/><ReadMoreLink>Read More</ReadMoreLink></ReadMoreWrapper>
+                    <ReadMoreWrapper><SubdirectoryArrowRightIcon style={{ fontSize: "100%", marginRight: "5px"}}/><ReadMoreLink to="/mccmd/donate/">Read More</ReadMoreLink></ReadMoreWrapper>
                 </IntroductionCard>
             </IntroductionWrapper>}
             <TitleWrapper><EventTitle>Events</EventTitle><Divider/></TitleWrapper>

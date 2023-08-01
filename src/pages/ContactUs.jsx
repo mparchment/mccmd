@@ -9,6 +9,12 @@ const AboutWrapper = styled.div`
 
     font-size: 14px;
     font-weight: 500;
+
+    @media (min-width: 768px) {
+        width: 50%;
+        padding-top: 10px;
+        margin: 0 auto;
+    }
 `;
 
 const Title = styled.h2`
@@ -65,7 +71,7 @@ function About() {
             <AboutWrapper>
                 <Title>Contact Us</Title>
                 <div>
-                    For enquiries, feedback or suggestions, send us a message using this form and we will get back to you as soon as possible.
+                    For questions, feedback or suggestions, send us a message using this form and we will get back to you as soon as possible.
                     <form>
                         <FormInputs>
                             <Input type="text" placeholder="Name *"/>

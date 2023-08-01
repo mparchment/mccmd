@@ -147,6 +147,23 @@ const JummahWrapper = styled.div`
     font-weight: 500;
 `;
 
+const DesktopMenu = styled.div`
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+    background-color: #333;
+    padding: 15px 0;
+`;
+
+const DesktopMenuLink = styled(Link)`
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+    color: #fff;
+`;
 
 function Header() {
 
@@ -184,6 +201,15 @@ function Header() {
                     {menuOpen ? <CloseIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/> : <MenuIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/>}
                 </MenuButtonWrapper>}
             </HeaderWrapper>
+            {!isMobile && <DesktopMenu>
+                <DesktopMenuLink to="/mccmd/about-us">About Us</DesktopMenuLink>
+                <DesktopMenuLink to="/mccmd/education">Services</DesktopMenuLink>
+                <DesktopMenuLink to="/mccmd/education">Education</DesktopMenuLink>
+                <DesktopMenuLink to="/mccmd/community">Community</DesktopMenuLink>
+                <DesktopMenuLink to="/mccmd/get-involved">Get Involved</DesktopMenuLink>
+                <DesktopMenuLink to="/mccmd/contact-us">Contact Us</DesktopMenuLink>
+                <DesktopMenuLink to="/mccmd/contact-us">Donate</DesktopMenuLink>
+            </DesktopMenu>}
             {isMobile && menuOpen && <Menu>
                 <MenuLink to="/mccmd/about-us" onClick={handleMenuClick}>About Us</MenuLink>
                 <MenuLink to="#" onClick={handleServicesClick}>Services</MenuLink>

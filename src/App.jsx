@@ -12,10 +12,6 @@ import styled from "styled-components";
 const PageWrapper = styled.div`
   height: 100vh;
   width: 100vw;
-
-  // REMOVE WHEN DESKTOP-COMPATIBLE
-  max-width: 414px;
-  margin: 0 auto;
 `;
 
 function App() {
@@ -25,7 +21,6 @@ function App() {
       <HelmetProvider>
           <MenuProvider>
             <PageWrapper>
-              <PrayerTimes/>
               <Header/>
               <Pages/>
             </PageWrapper>

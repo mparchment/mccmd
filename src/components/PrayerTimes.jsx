@@ -1,4 +1,5 @@
 import { useEffect, useState, useMemo } from 'react';
+import useIsMobile from '../hooks/useIsMobile';
 import styled from 'styled-components';
 
 const PrayerTimesWrapper = styled.div`
@@ -6,6 +7,10 @@ const PrayerTimesWrapper = styled.div`
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 10px;
+
+  @media (min-width: 768px) {
+    margin-top: 0px;
+  }
 `;
 
 const PrayerTimeGrid = styled.div`
@@ -23,7 +28,7 @@ const PrayerTimeGrid = styled.div`
 
 const GridItem = styled.div`
   padding: 10px;
-  padding-bottom: 3px;;
+  padding-bottom: 3px;
   text-align: center;
 `;
 
@@ -48,6 +53,7 @@ const JummuahWrapper = styled.div`
 
 const PrayerTimes = () => {
   const [nextPrayerIndex, setNextPrayerIndex] = useState(0);
+  const isMobile = useIsMobile();
 
   const times = useMemo(() => {
     const initialTimes = [
@@ -95,9 +101,9 @@ const PrayerTimes = () => {
 
   return (
     <PrayerTimesWrapper>
-      <JummuahWrapper>
+      {isMobile && <JummuahWrapper>
         {"1st Jumu'ah"}: 1:00 PM / {"2nd Jumu'ah"}: 2:00 PM
-      </JummuahWrapper>
+      </JummuahWrapper>}
       <PrayerTimeGrid>
         <GridItem /> {/* Empty first cell */}
         {times.map((time, index) => <GridItemSmall key={index+'prayer'}>{time.prayer}</GridItemSmall>)}

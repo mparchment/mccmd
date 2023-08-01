@@ -13,6 +13,21 @@ const ServiceCardStyled = styled.div`
     font-weight: 500;
     border-radius: 5px;
     cursor: pointer;
+
+    @media (min-width: 768px) {
+        width: 275px;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: start;
+    }
+
+    &:hover {
+        box-shadow: 0 1px 9px #b98474;
+        border: 1px solid #b98474;
+        transition: all 0.1s ease-in-out;
+    }
 `;
 
 const ServiceCardSubtitle = styled.h3`

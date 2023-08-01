@@ -11,7 +11,6 @@ const EventCardWrapper = styled.div`
     align-items: center;
     flex-direction: column;
     text-align: center;
-    width: 85%;
     margin-bottom: 30px;
 `;
 
@@ -40,15 +39,24 @@ const EventDetails = styled.div`
     line-height: 1.7;
 `;
 
+const AlignWrapper = styled.div`
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+`;
+
 const EventCard = ({ imgSrc, title, text, time, location, date }) => (
-    <EventCardWrapper>
-        <img src={imgSrc} alt="" style={{width: '100%'}}/>
-        <EventCardSubtitle>{title}</EventCardSubtitle>
-        <EventCardText>{text}</EventCardText>
-        <EventDetails><AccessTimeIcon style={{ fontSize: "150%", color: "#b98474"}}/>{time}</EventDetails>
-        <EventDetails><PlaceIcon style={{ fontSize: "150%", color: "#b98474"}}/>{location}</EventDetails>
-        <EventDetails><CalendarMonthIcon style={{ fontSize: "150%", color: "#b98474"}}/>{date}</EventDetails>
-    </EventCardWrapper>
+    <AlignWrapper>
+        <EventCardWrapper>
+            <img src={imgSrc} alt="" style={{width: '100%'}}/>
+            <EventCardSubtitle>{title}</EventCardSubtitle>
+            <EventCardText>{text}</EventCardText>
+            <EventDetails><AccessTimeIcon style={{ fontSize: "150%", color: "#b98474"}}/>{time}</EventDetails>
+            <EventDetails><PlaceIcon style={{ fontSize: "150%", color: "#b98474"}}/>{location}</EventDetails>
+            <EventDetails><CalendarMonthIcon style={{ fontSize: "150%", color: "#b98474"}}/>{date}</EventDetails>
+        </EventCardWrapper>
+    </AlignWrapper>
 );
 
 EventCard.propTypes = {

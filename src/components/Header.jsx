@@ -15,6 +15,9 @@ import EmailIcon from '@mui/icons-material/Email';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
+import useIsMobile from '../hooks/useIsMobile';
+import PrayerTimes from './PrayerTimes';
+
 const HeaderWrapper = styled.div`
     height: 67px;
     padding-left: 10px;
@@ -22,6 +25,16 @@ const HeaderWrapper = styled.div`
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
+
+    @media (min-width: 768px) {
+        width: 64%;
+        margin: 0 auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
 `;
 
 const DonateButton = styled.button`
@@ -116,10 +129,30 @@ const MCCLiveLink = styled.a`
     text-decoration: none;
 `;
 
+const PrayerTimeWrapper = styled.div`
+
+`;
+
+const Date = styled.div`
+    font-weight: bold;
+    white-space: nowrap;
+`;
+
+const JummahWrapper = styled.div`
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 500;
+`;
+
+
 function Header() {
 
-    const {menuOpen, toggleMenu, closeMenu } = useContext(MenuContext);
+    const {menuOpen, toggleMenu, closeMenu} = useContext(MenuContext);
     const [servicesOpen, setServicesOpen] = useState(false);
+    const isMobile = useIsMobile()
 
     const handleMenuClick = () => {
         toggleMenu();
@@ -137,6 +170,7 @@ function Header() {
 
     return (
         <>
+            {isMobile && <PrayerTimes/>}
             <Helmet>
                 <meta property="og:title" content="Muslim Community Center"/>
                 <meta property="og:description" content="Welcome to MCC - the place to be!"/>
@@ -144,13 +178,13 @@ function Header() {
             </Helmet>
             <HeaderWrapper>
                 <LogoWrapper><Link to="/mccmd/"><Logo src={MCCLogo} alt="logo" onClick={handleLogoClick}/></Link></LogoWrapper>
-                <MenuButtonWrapper>
+                {!isMobile && <><Date><div>1<sup>st</sup> August 2023 · 14 Muharram 1445</div><JummahWrapper>{"1st Jumu'ah"}: 1:00 PM / {"2nd Jumu'ah"}: 2:00 PM</JummahWrapper></Date><PrayerTimeWrapper><PrayerTimes/></PrayerTimeWrapper></>}
+                {isMobile && <MenuButtonWrapper>
                     <DonateButton>Donate</DonateButton>
                     {menuOpen ? <CloseIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/> : <MenuIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/>}
-                </MenuButtonWrapper>
-                
+                </MenuButtonWrapper>}
             </HeaderWrapper>
-            {menuOpen && <Menu>
+            {isMobile && menuOpen && <Menu>
                 <MenuLink to="/mccmd/about-us" onClick={handleMenuClick}>About Us</MenuLink>
                 <MenuLink to="#" onClick={handleServicesClick}>Services</MenuLink>
                 {servicesOpen && <>
@@ -163,7 +197,6 @@ function Header() {
                     <ServiceLink to="/mccmd/food-pantry" onClick={handleMenuClick}>Food Pantry</ServiceLink>
                     <ServiceLink to="/mccmd/refugee-aid" onClick={handleMenuClick}>Refugee Aid</ServiceLink>
                     <ServiceLink to="/mccmd/general-events" onClick={handleMenuClick}>General Events</ServiceLink>
-                    <ServiceLink to="/mccmd/guided-tours" onClick={handleMenuClick}>Guided Tours</ServiceLink>
                 </>}
                 <MenuLink to="/mccmd/education" onClick={handleMenuClick}>Education</MenuLink>
                 <MenuLink to="/mccmd/community" onClick={handleMenuClick}>Community</MenuLink>
@@ -171,7 +204,6 @@ function Header() {
                 <MenuLink to="/mccmd/contact-us" onClick={handleMenuClick}>Contact Us</MenuLink>
                 <MCCLiveLink href="https://www.youtube.com/@MCCMD" onClick={handleMenuClick}>MCC Live</MCCLiveLink>
                 <Icons>
-                    <IconLink href='#'><EmailIcon style={{ fontSize: '175%' }}/></IconLink>
                     <IconLink href='https://www.facebook.com/mccmaryland/'><FacebookIcon style={{ fontSize: '175%' }}/></IconLink>
                     <IconLink href='https://www.instagram.com/mccmaryland/'><InstagramIcon style={{ fontSize: '175%' }}/></IconLink>
                     <IconLink href='https://www.youtube.com/@MCCMD'><YouTubeIcon style={{ fontSize: '175%' }}/></IconLink>

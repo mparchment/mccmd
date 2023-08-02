@@ -66,7 +66,7 @@ const PrayerTimes = () => {
 
   useEffect(() => {
     // Fetch prayer times from the API
-    axios.get('http://api.aladhan.com/v1/timingsByAddress?address=15200%20New%20Hampshire%20Ave,%20Silver%20Spring,%20MD%2020905')
+    axios.get('https://api.aladhan.com/v1/timingsByAddress?address=15200%20New%20Hampshire%20Ave,%20Silver%20Spring,%20MD%2020905')
       .then(response => {
         if (response.data.code === 200) {
           const timings = response.data.data.timings;

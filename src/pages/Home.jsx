@@ -1,5 +1,4 @@
 import EventCard from "../components/EventCard";
-import ServiceCard from "../components/ServiceCard";
 import styled from 'styled-components';
 import MCCFrontSmall from '../assets/mcc-front-small.png';
 import MCCFront from '../assets/mcc-front.jpg';
@@ -14,27 +13,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import SubdirectoryArrowRightIcon from '@mui/icons-material/SubdirectoryArrowRight';
-
-const ServicesBox = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    @media (min-width: 768px) {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 25px;
-    }
-`;
-
-const ServicesWrapper = styled.div`
-    @media (min-width: 768px) {
-        width: 70%;
-        margin: 0 auto;
-        margin-bottom: 30px;
-    }
-`;
 
 const EventTitle = styled.h2`
     font-weight: 600;
@@ -213,38 +191,6 @@ function Home() {
                     date="Wednesdays"
                 />
             </EventsWrapper>
-            <TitleWrapper><EventTitle>Services</EventTitle><Divider/></TitleWrapper>
-            <ServicesWrapper>
-                <ServicesBox>
-                    <ServiceCard subtitle="Shahadas" to="/mccmd/shahadas">
-                        Whether you are just interested in Islam, have some questions, or are ready to convert, we are happy to speak to you and guide you through the Shahada. 
-                    </ServiceCard>
-                    <ServiceCard subtitle="Meet the Imam" to="/mccmd/imam">
-                        Book a meeting up to two weeks in advance with the Imam to discuss one of a range of topics. 
-                    </ServiceCard>
-                    <ServiceCard subtitle="Clinic" to="/mccmd/clinic">
-                        To book rooms for other events or Islamic celebrations, from aqiqas and private gatherings to conferences, we offer rooms at reasonable rates of hire.
-                    </ServiceCard>
-                    <ServiceCard subtitle="Nikahs" to="/mccmd/nikahs">
-                        Offering a unique & stunning yet economical & eco-friendly venue, getting married at Muslim Community Center is the experience of a lifetime. 
-                    </ServiceCard>
-                    <ServiceCard subtitle="Janazas" to="/mccmd/janazahs">
-                        We ease the burden of bereavement by facilitating preparation of the deceased for burial through use of our dedicated mortuary and leading Janazah prayers. 
-                    </ServiceCard>
-                    <ServiceCard subtitle="Zakat" to="/mccmd/zakat">
-                        To book rooms for other events or Islamic celebrations, from aqiqas and private gatherings to conferences, we offer rooms at reasonable rates of hire.
-                    </ServiceCard>
-                    <ServiceCard subtitle="Food Pantry" to="/mccmd/food-pantry">
-                        Book to join us on weekend mornings for a guided walk through our mosque, or on weekdays if you are part of an organisation such as a school or a local community group.
-                    </ServiceCard>
-                    <ServiceCard subtitle="Refugee Aid" to="/mccmd/refugee-aid">
-                        Book to join us on weekend mornings for a guided walk through our mosque, or on weekdays if you are part of an organisation such as a school or a local community group.
-                    </ServiceCard>
-                    <ServiceCard subtitle="General Events" to="/mccmd/general-events">
-                        To book rooms for other events or Islamic celebrations, from aqiqas and private gatherings to conferences, we offer rooms at reasonable rates of hire.
-                    </ServiceCard>
-                </ServicesBox>
-            </ServicesWrapper>
         </>
         </>
     )

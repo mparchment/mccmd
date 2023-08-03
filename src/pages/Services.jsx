@@ -52,7 +52,7 @@ function Services() {
                 <div>
                     <Title>Services</Title>
                     <p>
-                    Our vision at Muslim Community Center is to foster a community that thrives on support and cooperation. We have a range of programs that aim to bring us all closer, including youth groups, women's circles, charity initiatives, and cultural celebrations.</p> <p>Each of these programs plays a vital role in strengthening our community and helping everyone feel a sense of belonging.  So take a look at what we've got going on, find where you fit in, and join us in building a lively and supportive community.
+                    At Muslim Community Center, we are committed to serving your needs and guiding you in various aspects of Islamic life. From embracing new believers through Shahadas to facilitating sacred rites like Nikahs and Janazahs, our wide array of services ensures that you always have a place to turn. Whether you are planning a private gathering, seeking consultation with the Imam, or looking to be part of our community outreach initiatives like the Food Pantry and Refugee Aid, we offer affordable options tailored to your needs.
                     </p>
                 </div>
                 <Divider/>

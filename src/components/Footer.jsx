@@ -75,7 +75,7 @@ const SubscribeButton = styled.button`
     text-transform: uppercase;
 
     @media (min-width: 768px) {
-        width: 25%;
+        width: 125px;
     }
 `;
 

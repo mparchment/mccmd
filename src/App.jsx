@@ -8,6 +8,7 @@ import GlobalStyle from "./globalStyles"
 import PrayerTimes from "./components/PrayerTimes"
 import Header from "./components/Header"
 import styled from "styled-components";
+import TimesProvider from './contexts/TimesProvider.jsx';
 
 const PageWrapper = styled.div`
   height: 100vh;
@@ -19,12 +20,14 @@ function App() {
     <Router>
       <GlobalStyle/>
       <HelmetProvider>
+          <TimesProvider>
           <MenuProvider>
             <PageWrapper>
               <Header/>
               <Pages/>
             </PageWrapper>
           </MenuProvider>
+          </TimesProvider>
       </HelmetProvider>
     </Router>
   )

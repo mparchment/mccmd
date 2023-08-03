@@ -1,7 +1,7 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useContext, useMemo } from 'react';
 import useIsMobile from '../hooks/useIsMobile';
 import styled from 'styled-components';
-import axios from 'axios';
+import TimesContext from '../contexts/TimesContext';
 
 const PrayerTimesWrapper = styled.div`
   margin-top: 10px;
@@ -53,36 +53,8 @@ const JummuahWrapper = styled.div`
 `;
 
 const PrayerTimes = () => {
-  const [nextPrayerIndex, setNextPrayerIndex] = useState(0);
+  const { times: apiTimes } = useContext(TimesContext);  const [nextPrayerIndex, setNextPrayerIndex] = useState(0);
   const isMobile = useIsMobile();
-
-  const [apiTimes, setApiTimes] = useState(null);
-
-  const convertTo12Hour = (time) => {
-    const [hours, minutes] = time.split(':');
-    const convertedHours = hours % 12 || 12; // If 0, make it 12
-    return `${convertedHours}:${minutes}`;
-  };
-
-  useEffect(() => {
-    // Fetch prayer times from the API
-    axios.get('https://api.aladhan.com/v1/timingsByAddress?address=15200%20New%20Hampshire%20Ave,%20Silver%20Spring,%20MD%2020905')
-      .then(response => {
-        if (response.data.code === 200) {
-          const timings = response.data.data.timings;
-          setApiTimes({
-            Fajr: convertTo12Hour(timings.Fajr),
-            Dhuhr: convertTo12Hour(timings.Dhuhr),
-            Asr: convertTo12Hour(timings.Asr),
-            Maghrib: convertTo12Hour(timings.Maghrib),
-            Isha: convertTo12Hour(timings.Isha)
-          });
-        }
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }, []);
 
   const times = useMemo(() => {
     if (!apiTimes) return [];
@@ -94,6 +66,7 @@ const PrayerTimes = () => {
       { prayer: 'Maghrib', beginTime: apiTimes.Maghrib },
       { prayer: 'Isha', time: '10:00', beginTime: apiTimes.Isha },
     ];
+
 
     const maghribTime = initialTimes.find(t => t.prayer === 'Maghrib').beginTime.split(':');
     maghribTime[1] = parseInt(maghribTime[1], 10) + 10;
@@ -129,6 +102,7 @@ const PrayerTimes = () => {
       }
     }
   }, [times, currentTime]);
+
 
   return (
     <PrayerTimesWrapper>

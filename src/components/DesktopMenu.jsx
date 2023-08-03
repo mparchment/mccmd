@@ -46,17 +46,20 @@ const SlidingUnderline = styled.div`
 function DesktopMenu(){
     const [underlineLeft, setUnderlineLeft] = useState(0);
     const [underlineWidth, setUnderlineWidth] = useState(0);
+    const [underlineOpacity, setUnderlineOpacity] = useState(0); // Add this line
 
     const menuRefs = useRef([]);
-  
+
     const handleMouseOver = (index) => {
       const { offsetLeft, offsetWidth } = menuRefs.current[index];
       setUnderlineLeft(offsetLeft);
       setUnderlineWidth(offsetWidth);
+      setUnderlineOpacity(1); // Add this line
     };
-  
+
     const handleMouseLeave = () => {
       setUnderlineWidth(0);
+      setUnderlineOpacity(0); // Add this line
     };
   
     useEffect(() => {
@@ -76,7 +79,7 @@ function DesktopMenu(){
                     {item}
                 </DesktopMenuLink>
                 ))}
-                <SlidingUnderline style={{ left: underlineLeft, width: underlineWidth, opacity: underlineWidth ? 1 : 0 }} />
+                <SlidingUnderline style={{ left: underlineLeft, width: underlineWidth, opacity: underlineOpacity }} />
             </DesktopMenuWrapper>
         </DesktopMenuContainer>
     )

@@ -60,9 +60,7 @@ const LogoWrapper = styled.div`
     align-items: center;
 `;
 
-const PrayerTimeWrapper = styled.div`
-
-`;
+const PrayerTimeWrapper = styled.div``;
 
 const DateWrapper = styled.div`
     font-weight: bold;

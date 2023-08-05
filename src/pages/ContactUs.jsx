@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const AboutWrapper = styled.div`
+const ContactUsWrapper = styled.div`
     display: flex;
     flex-direction: column;
     padding: 25px;
@@ -65,10 +65,10 @@ const Button = styled.button`
 `;
 
 
-function About() {
+function ContactUs() {
     return (
         <>
-            <AboutWrapper>
+            <ContactUsWrapper>
                 <Title>Contact Us</Title>
                 <div>
                     For questions, feedback or suggestions, send us a message using this form and we will get back to you as soon as possible.
@@ -82,9 +82,9 @@ function About() {
                         <Button>Send Message</Button>
                     </form>
                 </div>
-            </AboutWrapper>
+            </ContactUsWrapper>
         </>
     )
 }
 
-export default About
+export default ContactUs

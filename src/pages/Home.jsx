@@ -34,7 +34,7 @@ const Divider = styled.div`
 
 const MainImage = styled.img`
     width: 100vw;
-    filter: brightness(70%);
+    filter: brightness(80%);
 `;
 
 const EventsWrapper = styled.div`
@@ -113,10 +113,44 @@ const ReadMoreWrapper = styled.div`
     margin-top: 8px;
 `;
 
-const ImageContainer = styled.div`
+const ImageWrapper = styled.div`
     position: relative;
-    text-align: center;
-    color: white;
+    width: 100vw;
+`;
+
+const OverlayContent = styled.div`
+  position: absolute;
+  top: 46%;
+  left: 47%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: left;
+`;
+
+const OverlayTitle = styled.h1`
+  font-size: 2em;
+  text-align: left;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, .55);
+  text-transform: uppercase;
+`;
+
+const OverlayText = styled.p`
+  margin-bottom: 2em;
+  font-size: 1.1em;
+  font-weight: 500;
+  text-align: left;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, .55);
+`;
+
+const OverlayButton = styled(Link)`
+    padding: 1em 1.33em;
+    font-size: 14px;
+    color: #531f19;
+    font-weight: 600;
+    background-color: #fff;
+    border: none;
+    text-decoration: none;
+    text-transform: uppercase;
 `;
 
 const images = [MCCFrontSmall, MCCFrontSmall, MCCFrontSmall, MCCFrontSmall];
@@ -144,9 +178,17 @@ function Home() {
                     </div>
                 ))}
             </Slider>}
-            {!isMobile && <ImageContainer>
-                <MainImage src={desktopImages[0]} alt=""/>
-            </ImageContainer>}
+            {!isMobile && (
+                <ImageWrapper>
+                    <MainImage src={desktopImages[0]} alt=""/>
+                    <OverlayContent>
+                    <OverlayTitle>Summer 2023 at Muslim Community Center</OverlayTitle>
+                    <OverlayText>Summer at Muslim Community Center is loaded with programs for the entire family! We know that there are many of you who are eager to taste the sweetness of Islamic knowledge but do not have the opportunity to do so on a full-time basis. That's why we strive to provide a variety of courses that fit your schedule.
+                    </OverlayText>
+                    <OverlayButton>Read More</OverlayButton>
+                    </OverlayContent>
+                </ImageWrapper>
+            )}
             {!isMobile && <IntroductionWrapper>
                 <IntroductionCard>
                     <IntroductionSubtitle>Our Story</IntroductionSubtitle>

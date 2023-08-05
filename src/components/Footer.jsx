@@ -66,7 +66,7 @@ const NewsletterInput = styled.input`
 const SubscribeButton = styled.button`
     background-color: #fff;
     border: none;
-    border-radius: 7.5px;
+    border-radius: 5px;
     color: #333;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;

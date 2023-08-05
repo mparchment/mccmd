@@ -1,4 +1,3 @@
-import { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -13,16 +12,32 @@ const DesktopMenuContainer = styled.div`
 `;
 
 const DesktopMenuLink = styled(Link)`
-    text-transform: uppercase;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 12px;
-    color: #fff;
-    
-    border-bottom: 2px solid transparent; // Add this line
-    
-    transition: border-bottom 0.3s ease; // Add this line
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 12px;
+  color: #fff;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transform: translateX(0);
+    height: 2px;
+    width: 0;
+    background-color: #b98474;
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+    left: 0;
+    transform: translateX(0);
+  }
 `;
+
 
 const DesktopMenuWrapper = styled.div`
   position: relative;
@@ -32,54 +47,18 @@ const DesktopMenuWrapper = styled.div`
   width: 100%;
 `;
 
-const SlidingUnderline = styled.div`
-  position: absolute;
-  bottom: 0;
-  height: 2px;
-  background-color: #b98474;
-  transition: left 0.3s ease, width 0.3s ease, opacity 0.3s ease;
-  width: 0;
-  opacity: 0;
-`;
-
-
 function DesktopMenu(){
-    const [underlineLeft, setUnderlineLeft] = useState(0);
-    const [underlineWidth, setUnderlineWidth] = useState(0);
-    const [underlineOpacity, setUnderlineOpacity] = useState(0); // Add this line
-
-    const menuRefs = useRef([]);
-
-    const handleMouseOver = (index) => {
-      const { offsetLeft, offsetWidth } = menuRefs.current[index];
-      setUnderlineLeft(offsetLeft);
-      setUnderlineWidth(offsetWidth);
-      setUnderlineOpacity(1); // Add this line
-    };
-
-    const handleMouseLeave = () => {
-      setUnderlineWidth(0);
-      setUnderlineOpacity(0); // Add this line
-    };
-  
-    useEffect(() => {
-      menuRefs.current = menuRefs.current.slice(0, 7);
-    }, []);
-
     return (
         <DesktopMenuContainer>
-            <DesktopMenuWrapper onMouseLeave={handleMouseLeave}>
+            <DesktopMenuWrapper>
                 {['About Us', 'Services', 'Education', 'Community', 'Get Involved', 'Contact Us', 'Donate'].map((item, index) => (
                 <DesktopMenuLink
-                    ref={(el) => (menuRefs.current[index] = el)}
                     to={`/mccmd/${item.toLowerCase().replace(/ /g, '-')}`}
-                    onMouseOver={() => handleMouseOver(index)}
                     key={index}
                 >
                     {item}
                 </DesktopMenuLink>
                 ))}
-                <SlidingUnderline style={{ left: underlineLeft, width: underlineWidth, opacity: underlineOpacity }} />
             </DesktopMenuWrapper>
         </DesktopMenuContainer>
     )

@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { PageBackground } from '../components/PageBackground';
+import BoardCell from '../components/BoardCell';
+import PortraitPlaceholder from '../assets/portrait-placeholder.png';
 
 const Wrapper = styled.div`
     display: flex;
@@ -29,48 +31,106 @@ const Title = styled.h2`
     color: #333;
 `;
 
+const AboutBox = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+`;
+
+const Subtitle = styled.h3`
+    &:first-of-type {
+        margin-top: 25px;
+    }
+    font-weight: 800;
+`;
+
+const ImamTitle = styled.h2`
+    align-self: center;
+    margin-bottom: 10px;
+`;
+
+const Portrait = styled.img`
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-self: center;
+    margin-bottom: 25px;
+`;
+
+const BoardBox = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+
+    margin-bottom: 25px;
+    margin-top: 25px;
+`;
+
+const BoardHeading = styled.h3`
+    align-self: center;
+    margin-bottom: 25px;
+`;
+
+const ImamSubtitle = styled.h3`
+    align-self: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 400;
+`;
+
+
 function AboutPage() {
     return (
         <>
             <PageBackground/>
             <Wrapper>
-                <Title>About Us</Title>
+                
+                <AboutBox>
                 <div>
-                    <p>Muslim Community Center has been serving Muslims living and working in Montgomery County, Maryland for over three decades.</p>
+                    <Title>About Us</Title>
+                    <p>For over three decades, Muslim Community Center has been a beacon of light for the Muslim community in Montgomery County, Maryland.</p><p> We pride ourselves not only as a place of worship but as a hub for community engagement, education, and growth. Our commitment has always been to enrich the lives of the local Muslim community by providing comprehensive Islamic education, promoting unity and mutual understanding, and offering a platform for dialogue and interaction.</p>
                 </div>
                 
                 <div>
-                    <h3>Our Vision</h3>
-                    <p>To be a Center of Islamic Excellence in which the Muslim community becomes a positive role model for all.</p>
-                    <h3>Our Mission</h3>
+                    <Subtitle>Our Vision</Subtitle>
+                    <p>To be a center of Islamic excellence in which the Muslim community becomes a positive role model for all.</p>
+                    <Subtitle>Our Mission</Subtitle>
                     <p>To promote brotherhood and human dignity among all by developing an environment of understanding, compassion, justice in personal and professional life - serving the needs of the Muslim community and community at-large in a manner that promotes its positive image and standing in a changing environment. </p>
                 </div>
-                
-                
+                </AboutBox>
+                                
                 <Title>Our Team</Title>
-                <div>
-                    <h3>Muhammad Abdullahi — Imam</h3>
+                <Portrait src={PortraitPlaceholder}/>
+                <ImamTitle>Muhammad Abdullahi</ImamTitle>
+                <ImamSubtitle>Imam</ImamSubtitle>
 
-                    <p>Shaykh Mohamed Abdullahi is the Imam at the Muslim Community Center, where he leads congregational, jumu'ah and janazah prayers, and teaches tafsir, fiqh and hadith.</p>
-                    <p>After completing memorization of the Qur'an at the age of eleven, Shaykh Mohamed went on to study the Shari'ah and gained comprehensive knowledge of Hadith and Fiqh. He graduated with Honors in Licentiate in Arabic Language and Islamic Studies from Al-Azhar University in Cairo, Egypt. He also holds a diploma in Shari'ah from the National Somali University in Mogadishu, Somalia. He is a certified Qari in three styles of recitation and has command of Arabic, Somali, Swahili and English.</p>
+                <p>Shaykh Mohamed Abdullahi is the Imam at the Muslim Community Center, where he leads congregational, jumu'ah and janazah prayers, and teaches tafsir, fiqh and hadith.</p>
+                <p>After completing memorization of the Qur'an at the age of eleven, Shaykh Mohamed went on to study the Shari'ah and gained comprehensive knowledge of Hadith and Fiqh. He graduated with Honors in Licentiate in Arabic Language and Islamic Studies from Al-Azhar University in Cairo, Egypt. He also holds a diploma in Shari'ah from the National Somali University in Mogadishu, Somalia. He is a certified Qari in three styles of recitation and has command of Arabic, Somali, Swahili and English.</p>
 
-                    <h3>Board of Directors</h3>
-                    <h4>Usman Sarwar — President</h4>
-                    <h4>Saqib Ashraf — Vice President</h4>
-                    <h4>Ishtiaq Chugtai — Treasurer</h4>
-                    <h4>Junaid Shah — Secretary</h4>
-                    <h4>Habib Ghanim — Director</h4>
-                    <h4>Shaina Ayers — Director</h4>
-                    <h4>Ashraf Sufi — Director</h4>
+                <BoardHeading>Board of Directors</BoardHeading>
 
-                    <h3>Board of Trustees</h3>
-                    <h4>Lubna Ejaz — Chair</h4>
-                    <h4>Sabir Rahman — Secretary </h4>
-                    <h4>Najma Khan — Trustee</h4>
-                    <h4>Mohammed Shamim — Trustee</h4>
-                    <h4>Akram Zahoor — Trustee</h4>
+                <BoardBox>
+                    <BoardCell name="Usman Sarwar" position="President" portrait={PortraitPlaceholder} bio="Usman Sarwar is the President of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
+                    <BoardCell name="Ishtiaq Chugtai" position="Treasurer" portrait={PortraitPlaceholder} bio="Ishtiaq Chugtai is the Treasurer of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
+                    <BoardCell name="Junaid Shah" position="Secretary" portrait={PortraitPlaceholder} bio="Junaid Shah is the Secretary of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
+                    <BoardCell name="Habib Ghanim" position="Director" portrait={PortraitPlaceholder} bio="Habib Ghanim is a Director of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
+                    <BoardCell name="Shaina Ayers" position="Director" portrait={PortraitPlaceholder} bio="Shaina Ayers is a Director of Muslim Community Center. She has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. She is a graduate of the University of Maryland, College Park and works as a software engineer."/>
+                    <BoardCell name="Ashraf Sufi" position="Director" portrait={PortraitPlaceholder} bio="Ashraf Sufi is a Director of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
+                </BoardBox>
+                
+                <BoardHeading>Board of Trustees</BoardHeading>
 
-                </div>
+                <BoardBox>
+                    <BoardCell name="Lubna Ejaz" position="Chair" portrait={PortraitPlaceholder} bio="Lubna Ejaz is the Chair of Muslim Community Center. She has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. She is a graduate of the University of Maryland, College Park and works as a software engineer."/>
+                    <BoardCell name="Sabir Rahman" position="Secretary" portrait={PortraitPlaceholder} bio="Sabir Rahman is the Secretary of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
+                    <BoardCell name="Najma Khan" position="Trustee" portrait={PortraitPlaceholder} bio="Najma Khan is a Trustee of Muslim Community Center. She has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. She is a graduate of the University of Maryland, College Park and works as a software engineer."/>
+                    <BoardCell name="Mohammed Shamim" position="Trustee" portrait={PortraitPlaceholder} bio="Mohammed Shamim is a Trustee of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
+                    <BoardCell name="Akram Zahoor" position="Trustee" portrait={PortraitPlaceholder} bio="Akram Zahoor is a Trustee of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
+                </BoardBox>                    
             </Wrapper>
         </>
     )

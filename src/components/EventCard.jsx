@@ -46,10 +46,15 @@ const AlignWrapper = styled.div`
     justify-content: flex-start;
 `;
 
+const Image = styled.img`
+    width: 100%;
+    border-radius: 5px;
+`;
+
 const EventCard = ({ imgSrc, title, text, time, location, date }) => (
     <AlignWrapper>
         <EventCardWrapper>
-            <img src={imgSrc} alt="" style={{width: '100%'}}/>
+            <Image src={imgSrc} alt="" style={{width: '100%'}}/>
             <EventCardSubtitle>{title}</EventCardSubtitle>
             <EventCardText>{text}</EventCardText>
             <EventDetails><AccessTimeIcon style={{ fontSize: "150%", color: "#b98474"}}/>{time}</EventDetails>

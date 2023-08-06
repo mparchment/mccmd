@@ -49,7 +49,7 @@ function AppContent() {
           <Route path="/mccmd/services/imam" element={<Services />} />
           <Route path="/mccmd/services/clinic" element={<Services />} />
           <Route path="/mccmd/services/nikahs" element={<Services />} />
-          <Route path="/mccmd/services/janazas" element={<Services />} />
+          <Route path="/mccmd/services/janazahs" element={<Services />} />
           <Route path="/mccmd/services/zakat" element={<Services />} />
           <Route path="/mccmd/services/food-pantry" element={<Services />} />
           <Route path="/mccmd/services/refugee-aid" element={<Services />} />

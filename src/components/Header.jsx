@@ -76,6 +76,11 @@ const JummahWrapper = styled.div`
     font-weight: 500;
 `;
 
+const Background = styled.div`
+    background-color: #fff;
+    width: 100%;
+`;
+
 function Header() {
     const {menuOpen, closeMenu, toggleMenu} = useContext(MenuContext);
     const {hijriMonth, hijriDay, hijriYear} = useContext(TimesContext);
@@ -122,7 +127,7 @@ function Header() {
     const hijriString = `${hijriDay} ${hijriMonth} ${hijriYear}`;
 
     return (
-        <>
+        <Background>
             {isMobile && <PrayerTimes/>}
             <Helmet>
                 <meta property="og:title" content="Muslim Community Center"/>
@@ -139,7 +144,7 @@ function Header() {
             </HeaderWrapper>
             {!isMobile && <DesktopMenu/>}
             {isMobile && menuOpen && <MobileMenu/>} 
-        </>
+        </Background>
     )
 }
 

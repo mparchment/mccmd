@@ -8,11 +8,13 @@ import MSLogo from '../assets/logos/mcc-seniors.png';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import { PageBackground } from '../components/PageBackground';
 
 const CommunityWrapper = styled.div`
     display: flex;
     flex-direction: column;
     padding: 25px;
+
     padding-top: 0;
 
     font-size: 14px;
@@ -22,6 +24,12 @@ const CommunityWrapper = styled.div`
         width: 50%;
         padding-top: 10px;
         margin: 0 auto;
+
+        padding-left: 7.5%;
+        padding-right: 7%;
+
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
     }
 `;
 
@@ -101,6 +109,7 @@ const Icons = styled.div`
 function About() {
     return (
         <>
+            <PageBackground />
             <CommunityWrapper>
                 <div>
                     <Title>Community</Title>

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { PageBackground } from '../components/PageBackground';
 
 const AboutWrapper = styled.div`
     display: flex;
@@ -13,6 +14,12 @@ const AboutWrapper = styled.div`
         width: 50%;
         padding-top: 10px;
         margin: 0 auto;
+
+        padding-left: 7.5%;
+        padding-right: 7%;
+
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
     }
 `;
 
@@ -25,6 +32,7 @@ const Title = styled.h2`
 function About() {
     return (
         <>
+            <PageBackground/>
             <AboutWrapper>
                 <Title>About Us</Title>
                 <div>

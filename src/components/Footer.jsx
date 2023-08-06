@@ -11,8 +11,6 @@ const FooterWrapper = styled.div`
     background-color: #333;
     color: white;
     margin: 0;
-
-    margin-top: 35px;
 `;
 
 const FooterContainer = styled.div`

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { PageBackground } from '../components/PageBackground';
 
 const ContactUsWrapper = styled.div`
     display: flex;
@@ -14,6 +15,12 @@ const ContactUsWrapper = styled.div`
         width: 50%;
         padding-top: 10px;
         margin: 0 auto;
+        
+        padding-left: 7.5%;
+        padding-right: 7%;
+
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
     }
 `;
 
@@ -68,6 +75,7 @@ const Button = styled.button`
 function ContactUs() {
     return (
         <>
+            <PageBackground/>
             <ContactUsWrapper>
                 <Title>Contact Us</Title>
                 <div>

@@ -130,16 +130,15 @@ const OverlayContent = styled.div`
 const OverlayTitle = styled.h1`
   font-size: 2em;
   text-align: left;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, .55);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
   text-transform: uppercase;
 `;
 
 const OverlayText = styled.p`
   margin-bottom: 2em;
   font-size: 1.1em;
-  font-weight: 500;
   text-align: left;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, .55);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
 `;
 
 const OverlayButton = styled(Link)`
@@ -169,7 +168,7 @@ function Home() {
 
     const isMobile = useIsMobile();
 
-    return (<>
+    return (
         <>  
             {isMobile && <Slider {...settings}>
                 {images.map((image, index) => (
@@ -233,7 +232,6 @@ function Home() {
                     date="Wednesdays"
                 />
             </EventsWrapper>
-        </>
         </>
     )
 }

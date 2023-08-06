@@ -64,7 +64,7 @@ const PrayerTimes = () => {
       { prayer: 'Dhuhr', time: '1:30', beginTime: apiTimes.Dhuhr },
       { prayer: 'Asr', time: '6:30', beginTime: apiTimes.Asr },
       { prayer: 'Maghrib', beginTime: apiTimes.Maghrib },
-      { prayer: 'Isha', time: '10:00', beginTime: apiTimes.Isha },
+      { prayer: 'Isha', time: '9:45', beginTime: apiTimes.Isha },
     ];
 
 

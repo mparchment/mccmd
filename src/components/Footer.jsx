@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import useIsMobile from '../hooks/useIsMobile';
 
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import YouTubeIcon from '@mui/icons-material/YouTube';
+import FacebookIcon from '../assets/facebook-icon.png';
+import InstagramIcon from '../assets/instagram-icon.png';
+import YouTubeIcon from '../assets/youtube-icon.png';
 
 const FooterWrapper = styled.div`
     width: 100%;
@@ -62,18 +62,19 @@ const NewsletterInput = styled.input`
 `;
 
 const SubscribeButton = styled.button`
-    background-color: #fff;
+    background-color: #b98474;
     border: none;
     border-radius: 5px;
-    color: #333;
+    color: #fff;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 12px;
     padding: 10px 15px;
     text-transform: uppercase;
+    cursor: pointer;
 
     @media (min-width:1366px) {
-        width: 125px;
+        width: 49%;
     }
 `;
 
@@ -106,17 +107,24 @@ const BoxDiv = styled.div`
 
 const Icons = styled.div`
     display: flex;
-    margin-top: 20px;
+    margin-top: 15px;
     flex-direction: row;
+    align-items: center;
     gap: 15px;
+    width: 48.5%;
 `;
 
 const IconLink = styled.a`
-    color: #dcdde1;
+    color: #b98474;
     text-decoration: none;
+`;
+
+const Icon = styled.img`
+    width: 35px;
+    height: 35px;
 
     &:hover {
-        color: inherit;
+        overlay: brightness(50%);
     }
 `;
 
@@ -146,9 +154,9 @@ function Footer() {
                     <BoxDiv><Subtitle>Subscribe to our Newsletter</Subtitle>
                     <Form><NewsletterInput type="text" placeholder="Your e-mail address"/><SubscribeButton>Subscribe</SubscribeButton></Form>
                     <Icons>
-                        <IconLink href='https://www.facebook.com/mccmaryland/'><FacebookIcon style={{ fontSize: '250%' }}/></IconLink>
-                        <IconLink href='https://www.instagram.com/mccmaryland/'><InstagramIcon style={{ fontSize: '250%' }}/></IconLink>
-                        <IconLink href='https://www.youtube.com/@MCCMD'><YouTubeIcon style={{ fontSize: '250%' }}/></IconLink>
+                        <IconLink href='https://www.facebook.com/mccmaryland/'><Icon src={FacebookIcon}/></IconLink>
+                        <IconLink href='https://www.instagram.com/mccmaryland/'><Icon src={InstagramIcon}/></IconLink>
+                        <IconLink href='https://www.youtube.com/@MCCMD'><Icon src={YouTubeIcon}/></IconLink>
                     </Icons>
                     </BoxDiv>
                 </FooterBox>}

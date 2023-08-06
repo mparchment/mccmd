@@ -8,6 +8,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Montserrat', sans-serif;
     color: #333;
   }
+
+  p {
+    max-width: 850px;
+    align-self: center;
+  }
 `;
  
 export default GlobalStyle;

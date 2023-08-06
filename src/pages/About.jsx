@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { PageBackground } from '../components/PageBackground';
 
-const AboutWrapper = styled.div`
+const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     padding: 25px;
@@ -29,14 +29,14 @@ const Title = styled.h2`
     color: #333;
 `;
 
-function About() {
+function AboutPage() {
     return (
         <>
             <PageBackground/>
-            <AboutWrapper>
+            <Wrapper>
                 <Title>About Us</Title>
                 <div>
-                    Muslim Community Center has been serving Muslims living and working in Montgomery County, Maryland for over three decades. 
+                    <p>Muslim Community Center has been serving Muslims living and working in Montgomery County, Maryland for over three decades.</p>
                 </div>
                 
                 <div>
@@ -71,9 +71,9 @@ function About() {
                     <h4>Akram Zahoor — Trustee</h4>
 
                 </div>
-            </AboutWrapper>
+            </Wrapper>
         </>
     )
 }
 
-export default About
+export default AboutPage

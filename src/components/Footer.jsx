@@ -28,10 +28,6 @@ const FooterContainer = styled.div`
 
 const FooterText = styled.div`
     font-size: 12px;
-
-    &:first-of-type {
-        margin-top: 15px;
-    }
 `;
 
 const Title = styled.h3`
@@ -74,7 +70,7 @@ const SubscribeButton = styled.button`
     cursor: pointer;
 
     @media (min-width:1366px) {
-        width: 49%;
+        width: 125px;
     }
 `;
 
@@ -84,12 +80,6 @@ const FooterLink = styled(Link)`
 
 const Form = styled.form`
     white-space: nowrap;
-
-    @media (min-width:1366px) {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
 `
 
 const FooterBox = styled.div`
@@ -101,13 +91,14 @@ const FooterBox = styled.div`
 const BoxDiv = styled.div`
     display: flex;
     flex-direction: column;
+    align-self: flex-end;
     width: 40%;
     gap: 10px;
 `;
 
 const Icons = styled.div`
     display: flex;
-    margin-top: 15px;
+    margin-top: 10px;
     flex-direction: row;
     align-items: center;
     gap: 15px;
@@ -120,44 +111,54 @@ const IconLink = styled.a`
 `;
 
 const Icon = styled.img`
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
 
     &:hover {
         overlay: brightness(50%);
     }
 `;
 
+const ExternalLink = styled.a`
+    color: inherit;
+`;
+
 function Footer() {
     const isMobile = useIsMobile();
+    const currentYear = new Date().getFullYear();
 
     return (
         <FooterWrapper>
             <FooterContainer>
-                <Title>Muslim Community Center</Title>
                 {isMobile && <>
+                    <Title>Muslim Community Center</Title>
+                    <Subtitle>Join Us on WhatsApp</Subtitle>
+                    <FooterText>For the latest updates on prayer times, jumu'ah, community programs and events, join the <ExternalLink href="">MCC WhatsApp broadcast</ExternalLink>.</FooterText>
                     <Subtitle>Subscribe to our Newsletter</Subtitle>
                     <Form><NewsletterInput type="text" placeholder="Your e-mail address"/><SubscribeButton>Subscribe</SubscribeButton></Form>
                     <FooterText>Muslim Community Center is a registered 501(c)(3) chartiable non-profit organization that has been serving the spiritual needs of the Muslim community in Montgomery County, MD for decades.</FooterText>
                     <FooterText>Our mission: to promote brotherhood and human dignity among all by developing an environment of understanding, compassion, and justice in personal and professional life.</FooterText>
-                    <FooterText>15200 New Hampshire Ave, Silver Spring, MD 20905</FooterText>
+                    <FooterText><ExternalLink href="https://goo.gl/maps/JH4J2Bm6Lunx6pz97">15200 New Hampshire Ave, Silver Spring, MD 20905</ExternalLink></FooterText>
                     <FooterText><FooterLink to="/mccmd/about-us">About Us</FooterLink> | <FooterLink to="/mccmd/donate">Donate Today</FooterLink> | <FooterLink to="/mccmd/contact-us">Contact Us</FooterLink></FooterText>
                     <FooterText>© 2023 Muslim Community Center. All rights reserved.</FooterText>
                     </>
                 }
                 {!isMobile && <FooterBox>
-                    <BoxDiv><FooterText>Muslim Community Center is a registered 501(c)(3) chartiable non-profit organization that has been serving the spiritual needs of the Muslim community in Montgomery County, MD for decades.</FooterText>
+                    <BoxDiv><Title>Muslim Community Center</Title><FooterText>Muslim Community Center is a registered 501(c)(3) chartiable non-profit organization that has been serving the spiritual needs of the Muslim community in Montgomery County, MD for decades.</FooterText>
                     <FooterText>Our mission: to promote brotherhood and human dignity among all by developing an environment of understanding, compassion, and justice in personal and professional life.</FooterText>
-                    <FooterText>15200 New Hampshire Ave, Silver Spring, MD 20905</FooterText>
+                    <FooterText><ExternalLink href="https://goo.gl/maps/JH4J2Bm6Lunx6pz97">15200 New Hampshire Ave, Silver Spring, MD 20905</ExternalLink></FooterText>
                     <FooterText><FooterLink to="/mccmd/about-us">About Us</FooterLink> | <FooterLink to="/mccmd/donate">Donate Today</FooterLink> | <FooterLink to="/mccmd/contact-us">Contact Us</FooterLink></FooterText>
-                    <FooterText>© 2023 Muslim Community Center. All rights reserved.</FooterText></BoxDiv>
-                    <BoxDiv><Subtitle>Subscribe to our Newsletter</Subtitle>
-                    <Form><NewsletterInput type="text" placeholder="Your e-mail address"/><SubscribeButton>Subscribe</SubscribeButton></Form>
-                    <Icons>
-                        <IconLink href='https://www.facebook.com/mccmaryland/'><Icon src={FacebookIcon}/></IconLink>
-                        <IconLink href='https://www.instagram.com/mccmaryland/'><Icon src={InstagramIcon}/></IconLink>
-                        <IconLink href='https://www.youtube.com/@MCCMD'><Icon src={YouTubeIcon}/></IconLink>
-                    </Icons>
+                    <FooterText>© {currentYear} Muslim Community Center. All rights reserved.</FooterText></BoxDiv>
+                    <BoxDiv>
+                        <Subtitle>Join Us on WhatsApp</Subtitle>
+                        <FooterText>For the latest updates on prayer times, jumu'ah, community programs and events, join the <ExternalLink href="">MCC WhatsApp broadcast</ExternalLink>.</FooterText>
+                        <Subtitle>Subscribe to our Newsletter</Subtitle>
+                        <Form><NewsletterInput type="text" placeholder="Your e-mail address"/><SubscribeButton>Subscribe</SubscribeButton></Form>
+                        <Icons>
+                            <IconLink href='https://www.facebook.com/mccmaryland/'><Icon src={FacebookIcon}/></IconLink>
+                            <IconLink href='https://www.instagram.com/mccmaryland/'><Icon src={InstagramIcon}/></IconLink>
+                            <IconLink href='https://www.youtube.com/@MCCMD'><Icon src={YouTubeIcon}/></IconLink>
+                        </Icons>
                     </BoxDiv>
                 </FooterBox>}
             </FooterContainer>

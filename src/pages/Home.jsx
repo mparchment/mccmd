@@ -35,6 +35,7 @@ const Divider = styled.div`
 const MainImage = styled.img`
     width: 100vw;
     filter: brightness(80%);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
 `;
 
 const EventsWrapper = styled.div`

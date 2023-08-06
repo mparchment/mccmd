@@ -59,7 +59,7 @@ const ServiceCell = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
     width: 100%;
     
     @media (max-width:1366px) {

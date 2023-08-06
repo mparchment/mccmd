@@ -8,7 +8,9 @@ export const PageBackground = styled.div`
     width: 100%;
     height: 100%;
     background-image: url(${BackgroundImage});
-    background-size: cover;
+    filter: grayscale(100%);
+    background-size: contain;
+    background-repeat: repeat;
     z-index: -1;
 
     @media (max-width:1366px) {

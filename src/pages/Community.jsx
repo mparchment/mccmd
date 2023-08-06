@@ -104,19 +104,22 @@ const Icons = styled.div`
     margin-top: 30px;Center
 `;
 
-
+const CommunityParagraph = styled.div`
+    max-width: 796px;
+    align-self: center;
+`;
 
 function About() {
     return (
         <>
             <PageBackground />
             <CommunityWrapper>
-                <div>
+                <CommunityParagraph>
                     <Title>Community</Title>
                     <p>
                     Our vision at Muslim Community Center is to foster a community that thrives on support and cooperation. We have a range of programs that aim to bring us all closer, including youth groups, women's circles, charity initiatives, and cultural celebrations.</p> <p>Each of these programs plays a vital role in strengthening our community and helping everyone feel a sense of belonging.  So take a look at what we've got going on, find where you fit in, and join us in building a lively and supportive community.
                     </p>
-                </div>
+                </CommunityParagraph>
                 <Divider/>
                 <CardWrapper>
                     <Card>

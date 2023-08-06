@@ -13,7 +13,7 @@ const ServiceCardStyled = styled.div`
     border-radius: 5px;
     cursor: pointer;
 
-    @media (min-width: 768px) {
+    @media (min-width:1366px) {
         flex-grow: 1;
         height: 100px;
         display: flex;

@@ -20,7 +20,7 @@ const CommunityWrapper = styled.div`
     font-size: 14px;
     font-weight: 500;
 
-    @media (min-width: 768px) {
+    @media (min-width:1366px) {
         width: 50%;
         padding-top: 10px;
         margin: 0 auto;
@@ -66,7 +66,7 @@ const Card = styled.div`
     flex-direction: column;
     align-items: center;
 
-    @media (min-width: 768px) {
+    @media (min-width:1366px) {
         width: 600px;
     }
 `;
@@ -75,7 +75,7 @@ const CardWrapper = styled.div`
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 768px) {
+    @media (min-width:1366px) {
         flex-direction: row;
         justify-content: flex-start;
         gap: 35px;

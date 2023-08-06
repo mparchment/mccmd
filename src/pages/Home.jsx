@@ -45,12 +45,12 @@ const EventsWrapper = styled.div`
     margin: 0 auto;
     gap: 50px;
 
-    @media (min-width: 768px) {
+    @media (min-width:1366px) {
         width: 60%;
         flex-direction: row;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width:1366px) {
         align-items: center;
     }
 `;

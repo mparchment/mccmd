@@ -12,7 +12,7 @@ const ServicesWrapper = styled.div`
     font-size: 14px;
     font-weight: 500;
 
-    @media (min-width: 768px) {
+    @media (min-width:1366px) {
         width: 50%;
         padding-top: 10px;
         margin: 0 auto;
@@ -31,7 +31,7 @@ const ServicesBox = styled.div`
     align-items: center;
     flex-direction: column;
 
-    @media (min-width: 768px) {
+    @media (min-width:1366px) {
         flex-direction: row;
         flex-wrap: wrap;
         gap: 35px;
@@ -62,7 +62,7 @@ const ServiceCell = styled.div`
     gap: 10px;
     width: 100%;
     
-    @media (max-width: 768px) {
+    @media (max-width:1366px) {
         margin-bottom: 40px;
     }
 `;
@@ -73,7 +73,7 @@ const Image = styled.img`
     object-fit: cover;
     align-self: flex-start;
 
-    @media(max-width: 768px) {
+    @media(max-width:1366px) {
         display: none;
     }
 `;

@@ -9,7 +9,7 @@ const PrayerTimesWrapper = styled.div`
   margin-right: 10px;
   margin-bottom: 10px;
 
-  @media (min-width: 768px) {
+  @media (min-width:1366px) {
     margin-top: 0px;
   }
 `;

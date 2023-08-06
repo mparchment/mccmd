@@ -20,7 +20,7 @@ const FooterContainer = styled.div`
     flex-direction: column;
     padding: 25px;
 
-    @media (min-width: 768px) {
+    @media (min-width:1366px) {
         width: 64%;
         margin: 0 auto;
     }
@@ -56,7 +56,7 @@ const NewsletterInput = styled.input`
     padding-left: 10px;
     margin-right: 10px;
 
-    @media (min-width: 768px) {
+    @media (min-width:1366px) {
         width: 46%;
     }
 `;
@@ -72,7 +72,7 @@ const SubscribeButton = styled.button`
     padding: 10px 15px;
     text-transform: uppercase;
 
-    @media (min-width: 768px) {
+    @media (min-width:1366px) {
         width: 125px;
     }
 `;
@@ -84,7 +84,7 @@ const FooterLink = styled(Link)`
 const Form = styled.form`
     white-space: nowrap;
 
-    @media (min-width: 768px) {
+    @media (min-width:1366px) {
         display: flex;
         flex-direction: column;
         gap: 12px;

@@ -20,7 +20,7 @@ const HeaderWrapper = styled.div`
     gap: 10px;
     margin-bottom: 15px;
 
-    @media (min-width: 768px) {
+    @media (min-width:1366px) {
         width: 64%;
         margin: 0 auto;
         padding-top: 20px;

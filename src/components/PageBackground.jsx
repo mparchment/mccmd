@@ -11,7 +11,7 @@ export const PageBackground = styled.div`
     background-size: cover;
     z-index: -1;
 
-    @media (max-width: 768px) {
+    @media (max-width:1366px) {
         display: none;
     }
 `;

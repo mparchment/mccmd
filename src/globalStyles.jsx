@@ -4,6 +4,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     overflow-x: hidden;
+    overscroll-behavior-y: none;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
     color: #333;

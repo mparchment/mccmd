@@ -60,11 +60,11 @@ const PrayerTimes = () => {
     if (!apiTimes) return [];
 
     const initialTimes = [
-      { prayer: 'Fajr', time: '5:15', beginTime: apiTimes.Fajr },
+      { prayer: 'Fajr', time: '5:30', beginTime: apiTimes.Fajr },
       { prayer: 'Dhuhr', time: '1:30', beginTime: apiTimes.Dhuhr },
-      { prayer: 'Asr', time: '6:30', beginTime: apiTimes.Asr },
+      { prayer: 'Asr', time: '6:15', beginTime: apiTimes.Asr },
       { prayer: 'Maghrib', beginTime: apiTimes.Maghrib },
-      { prayer: 'Isha', time: '9:45', beginTime: apiTimes.Isha },
+      { prayer: 'Isha', time: '9:30', beginTime: apiTimes.Isha },
     ];
 
 

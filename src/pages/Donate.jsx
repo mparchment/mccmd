@@ -55,7 +55,6 @@ function Donate() {
                 </OverlayContent>
             </ImageWrapper>
             <DonationTitle>Giving</DonationTitle>
-
         </>
     )
 }

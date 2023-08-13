@@ -40,7 +40,7 @@ function AppContent() {
     if (!isLoading) {
         const timer = setTimeout(() => {
             setShowLoading(false);
-        }, 1000);
+        }, 750);
 
         return () => clearTimeout(timer);
     }

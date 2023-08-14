@@ -1,8 +1,8 @@
-// TimesProvider.js
 import { useState, useEffect } from 'react';
 import TimesContext from './TimesContext';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+
 
 const TimesProvider = ({ children }) => {
   const [apiData, setApiData] = useState({
@@ -11,6 +11,7 @@ const TimesProvider = ({ children }) => {
     hijriDay: null,
     hijriYear: null,
   });
+  const [isLoading, setIsLoading] = useState(true);
 
   const convertTo12Hour = (time) => {
     const [hours, minutes] = time.split(':');
@@ -23,6 +24,7 @@ const TimesProvider = ({ children }) => {
   }
 
   useEffect(() => {
+    setIsLoading(true);
     axios.get('https://api.aladhan.com/v1/timingsByAddress?address=15200%20New%20Hampshire%20Ave,%20Silver%20Spring,%20MD%2020905')
       .then(response => {
         if (response.data.code === 200) {
@@ -43,15 +45,17 @@ const TimesProvider = ({ children }) => {
             hijriDay: hijriDay,
             hijriYear: hijriYear,
           });
+          setIsLoading(false);
         }
       })
       .catch(error => {
         console.error(error);
+        setIsLoading(false);
       });
   }, []);  
 
   return (
-    <TimesContext.Provider value={apiData}>
+    <TimesContext.Provider value={{ ...apiData, isLoading }}>
       {children}
     </TimesContext.Provider>
   );

@@ -1,96 +1,60 @@
 import styled from 'styled-components';
-import { PageBackground } from '../components/PageBackground';
+import { Link } from 'react-router-dom';
+import MCCFront from '../assets/mcc-front.jpg';
 
-const DonateWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 25px;
-    padding-top: 0;
-    padding-bottom: 65px;
-
-    font-size: 14px;
-    font-weight: 500;
-
-    @media (min-width:1366px) {
-        width: 50%;
-        padding-top: 10px;
-        margin: 0 auto;
-        
-        padding-left: 7.5%;
-        padding-right: 7%;
-
-        background-color: #fff;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-    }
+const ImageWrapper = styled.div`
+    position: relative;
+    width: 100vw;
 `;
 
-const Title = styled.h2`
-    font-weight: 800;
-    font-size: 200%;
-    color: #333;
+const OverlayContent = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: left;
 `;
 
-const FormInputs = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    gap: 10px;
+const OverlayTitle = styled.h1`
+  font-size: 2em;
+  text-align: center;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+  text-transform: uppercase;
 `;
 
-const Input = styled.input`
-    width: 95%;
-    height: 30px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding-left: 10px;
-    font-size: 16px;
-    font-family: 'Montserrat', sans-serif;
+const OverlayText = styled.p`
+  margin-bottom: 2em;
+  font-size: 1.1em;
+  text-align: left;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
 `;
 
-const TextArea = styled.textarea`
-    width: 95%;
-    height: 100px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding-left: 10px;
-    padding-top: 10px;
-    font-size: 16px;
-    font-family: 'Montserrat', sans-serif;
+const MainImage = styled.img`
+    width: 100vw;
+    filter: brightness(80%);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
 `;
 
-const Button = styled.button`
-    background-color: #b98474;
-    border: none;
-    border-radius: 7.5px;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    padding: 15px 15px;
-    margin-right: 10px;
-    text-transform: uppercase;
+const DonationTitle = styled.h1`
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 `;
 
+const desktopImages = [MCCFront];
 
 function Donate() {
     return (
         <>
-            <PageBackground/>
-            <DonateWrapper>
-                <Title>Donate</Title>
-                <div>
-                    For questions, feedback or suggestions, send us a message using this form and we will get back to you as soon as possible.
-                    <form>
-                        <FormInputs>
-                            <Input type="text" placeholder="Name *"/>
-                            <Input type="text" placeholder="Email *"/>
-                            <Input type="text" placeholder="Subject *"/>
-                            <TextArea placeholder="Your Message *"/>
-                        </FormInputs>
-                        <Button>Send Message</Button>
-                    </form>
-                </div>
-            </DonateWrapper>
+            <ImageWrapper>
+                <MainImage src={desktopImages[0]} alt=""/>
+                <OverlayContent>
+                <OverlayTitle>Donate</OverlayTitle>
+                <OverlayText>Be a part of helping us live Islam, together.</OverlayText>
+                </OverlayContent>
+            </ImageWrapper>
+            <DonationTitle>Giving</DonationTitle>
         </>
     )
 }

@@ -35,6 +35,11 @@ const AboutBox = styled.div`
     display: flex;
     flex-direction: row;
     gap: 40px;
+
+    @media (max-width: 1366px) {
+        flex-direction: column;
+        gap: 0;
+    }
 `;
 
 const Subtitle = styled.h3`

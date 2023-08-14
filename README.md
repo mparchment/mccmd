@@ -34,11 +34,11 @@ Developing a comprehensive website for MCC. See the live website [here](https://
     - [ ] Explore Cypress.
   - [ ] Display social media and WhatsApp links prominently.
   - [ ] Plan out dashboard, authentication, and login.
-    - [ ] Include OAuth option.
+    - [ ] Include OAuth option for Google and Facebook.
   - [ ] Automatic prayer time updates using MasjidBox API.
   - [ ] Prototype events calendar.
     - [ ] Redesign events section of homepage.
-
+  - [ ] Modify header to appear when scrolling up.
 ### References
 
 - [Masjid DarusSalam](https://masjidds.org/)

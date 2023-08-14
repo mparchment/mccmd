@@ -38,3 +38,10 @@ Developing a comprehensive website for MCC. See the live website [here](https://
   - [ ] Automatic prayer time updates using MasjidBox API.
   - [ ] Prototype events calendar.
     - [ ] Redesign events section of homepage.
+
+### References
+
+- [Masjid DarusSalam](https://masjidds.org/)
+- [Cambridge Central Mosque](https://cambridgecentralmosque.org/)
+- [Muslim Family Center](https://www.muslimfamilycenter.org/)
+- [Qalam Institute](https://www.qalam.institute/)

@@ -6,10 +6,10 @@ Developing a comprehensive website for MCC. See the live website [here](https://
 
 - **Website Review Comments**
   - [ ] Implement a page for noting social media handles.
-  - [ ] Develop a landing committees page to show active committees and respective chairs.
+  - [X] Develop a committees page to show active committees and respective chairs.
   - [ ] Fix the staggered layout on the Community page - make all organizations even on the same line.
   - [ ] Make the Contact Us page sectioned into general questions, feedback, or suggestions; imam inquiries, and rentals.
-  - [ ] Delete the services page and move it back to the homepage.
+  - [X] Delete the services page and move it back to the homepage.
   - [ ] Include the history of Muslim Community Center in the About Us page.
   - [ ] On the home page, separate recurring programs from events.
 

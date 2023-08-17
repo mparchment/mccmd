@@ -20,6 +20,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import SubdirectoryArrowRightIcon from '@mui/icons-material/SubdirectoryArrowRight';
 import ServiceCard from "../components/ServiceCard";
+import { PageBackground } from "../components/PageBackground";
 
 const ProgramTitle = styled.h2`
     font-weight: 600;
@@ -327,6 +328,7 @@ function Home() {
 
     return (
         <>  
+            <PageBackground style={{ display: 'none' }}/>
             {isMobile && <Slider {...settings}>
                 {images.map((image, index) => (
                     <div key={index}>
@@ -355,13 +357,13 @@ function Home() {
             {!isMobile && <IntroductionWrapper>
                 <IntroductionCard>
                     <IntroductionSubtitle>Our Story</IntroductionSubtitle>
-                    <div>Inspired by both Islamic and English religious architectural traditions, our design develops the idea of a British mosque for the 21st century.</div>
+                    <div>For over 30 years, MCC has served Montgomery County as more than just a mosque; it's a center for community growth, education, and belonging.</div>
                     <ReadMoreWrapper><SubdirectoryArrowRightIcon style={{ fontSize: "100%", marginRight: "5px"}}/><ReadMoreLink to="/mccmd/about-us/">Read More</ReadMoreLink></ReadMoreWrapper>
                 </IntroductionCard>
                 <IntroductionCard>
-                    <IntroductionSubtitle>Get Connected</IntroductionSubtitle>
-                    <div>We're within walking distance of Cambridge train station, buses stop right outside & our underground car park has ample space to secure cycles.</div>
-                    <ReadMoreWrapper><SubdirectoryArrowRightIcon style={{ fontSize: "100%", marginRight: "5px"}}/><ReadMoreLink to="/mccmd/donate/">Read More</ReadMoreLink></ReadMoreWrapper>
+                    <IntroductionSubtitle>Stay Updated</IntroductionSubtitle>
+                    <div>Connect with us on our social media channels and stay updated with our WhatsApp broadcasts. Dive deep into our community, wherever you are.</div>
+                    <ReadMoreWrapper><SubdirectoryArrowRightIcon style={{ fontSize: "100%", marginRight: "5px"}}/><ReadMoreLink to="/mccmd/get-involved/">Read More</ReadMoreLink></ReadMoreWrapper>
                 </IntroductionCard>
                 <IntroductionCard>
                     <IntroductionSubtitle>Support Our Masjid</IntroductionSubtitle>

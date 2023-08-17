@@ -5,6 +5,7 @@ import MCCFront from '../assets/mcc-front.jpg';
 import Bonfire from '../assets/bonfire.jpg';
 import Tech from '../assets/tech.jpg';
 import Books from '../assets/books.jpg';
+import ParkingLot from '../assets/parking-lot.jpg';
 
 import Placeholder1 from '../assets/placeholder-1.jpg';
 import Placeholder2 from '../assets/placeholder-2.jpg';
@@ -280,8 +281,13 @@ const desktopImages = [
     },
     {
         image: Books,
-        title: "Sunday School Registration at MCC",
+        title: "Sunday School Registration",
         text: "It's that time of year again! MCC Sunday School is excited to open registrations for the 2023-2024 academic year. Whether you're a returning student or new to our community, we welcome all to join our family of learning. Reserve your spot today and embark on a spiritual journey with us!"
+    },
+    {
+        image: ParkingLot,
+        title: "MCC Driveway and Parking Lot Repavement",
+        text: "Following our Ramadan fundraiser, we're moving forward with our driveway and parking lot renovation. Split into three main phases, our goal is to repair damaged areas, enhance our Food Pantry and trash zones, and refurbish the basketball court. We appreciate your support and patience during this time. With these improvements, we aim to serve the MCC community even better. Stay tuned for more details!"
     }
 ];
 

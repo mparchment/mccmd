@@ -11,6 +11,7 @@ import GetInvolved from "./pages/GetInvolved.jsx"
 import Community from "./pages/Community"
 import Services from './pages/Services.jsx';
 import Donate from './pages/Donate.jsx';
+import Dashboard from './pages/Dashboard.jsx'
 
 import MenuProvider from "./contexts/MenuProvider"
 import MenuContext from './contexts/MenuContext.jsx';
@@ -75,6 +76,7 @@ function AppContent() {
                 <Route path="/mccmd/services/refugee-aid" element={<Services />} />
                 <Route path="/mccmd/services/general-events" element={<Services />} />
                 <Route path="/mccmd/donate" element={<Donate />} />
+                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>}
             <Footer/>

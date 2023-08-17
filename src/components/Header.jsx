@@ -19,16 +19,34 @@ const HeaderWrapper = styled.div`
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
+    position: relative; // Added this line
 
     @media (min-width:1366px) {
-        width: 64%;
+        width: 98%;
         margin: 0 auto;
         padding-top: 20px;
         padding-bottom: 20px;
         flex-direction: row;
-        justify-content: space-between;
         align-items: center;
     }
+`;
+
+const CenteredContent = styled.div`
+    position: absolute; // Added this line
+    top: 50%; // Added this line
+    left: 50%; // Added this line
+    transform: translate(-50%, -50%); // Added this line
+    display: flex;
+    width: 64%;
+    align-items: center;
+    justify-content: space-between;
+`;
+
+const AccountInfo = styled.div`
+    margin-left: auto;
+    font-size: 12px;
+    text-align: right;
+    padding-right: 10px;
 `;
 
 const DonateButton = styled.button`
@@ -65,6 +83,12 @@ const PrayerTimeWrapper = styled.div``;
 const DateWrapper = styled.div`
     font-weight: bold;
     white-space: nowrap;
+
+    @media (max-width: 1440px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 
 const JummahWrapper = styled.div`
@@ -80,6 +104,16 @@ const Background = styled.div`
     background-color: #fff;
     width: 100%;
 `;
+
+const DateContainer = styled.div`
+    @media (max-width: 1440px) {
+        font-size: 12px;
+    }
+`;
+
+const PageLink = styled(Link)`
+
+`
 
 function Header() {
     const {menuOpen, closeMenu, toggleMenu} = useContext(MenuContext);
@@ -135,17 +169,21 @@ function Header() {
                 <meta property="og:image" content={MCCLogo}/>
             </Helmet>
             <HeaderWrapper>
-                <LogoWrapper><Link to="/mccmd/"><Logo src={MCCLogo} alt="logo" onClick={handleLogoClick}/></Link></LogoWrapper>
-                {!isMobile && <><DateWrapper><div>{dateString} · {hijriString} </div><JummahWrapper>{"1st Jumu'ah"}: 1:00 PM / {"2nd Jumu'ah"}: 2:00 PM</JummahWrapper></DateWrapper><PrayerTimeWrapper><PrayerTimes/></PrayerTimeWrapper></>}
-                {isMobile && <MenuButtonWrapper>
-                    <DonateButton>Donate</DonateButton>
-                    {menuOpen ? <CloseIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/> : <MenuIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/>}
-                </MenuButtonWrapper>}
+                <CenteredContent>
+                    <LogoWrapper><Link to="/mccmd/"><Logo src={MCCLogo} alt="logo" onClick={handleLogoClick}/></Link></LogoWrapper>
+                    {!isMobile && <><DateWrapper><DateContainer>{dateString} · {hijriString} </DateContainer><JummahWrapper>{"1st Jumu'ah"}: 1:00 PM / {"2nd Jumu'ah"}: 2:00 PM</JummahWrapper></DateWrapper><PrayerTimeWrapper><PrayerTimes/></PrayerTimeWrapper></>}
+                    {isMobile && <MenuButtonWrapper>
+                        <DonateButton>Donate</DonateButton>
+                        {menuOpen ? <CloseIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/> : <MenuIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/>}
+                    </MenuButtonWrapper>}
+                </CenteredContent>
+                <AccountInfo><div>Welcome back, Michael.</div><div><PageLink to="/dashboard">Dashboard</PageLink> | <PageLink>Account</PageLink></div></AccountInfo>
             </HeaderWrapper>
             {!isMobile && <DesktopMenu/>}
             {isMobile && menuOpen && <MobileMenu/>} 
         </Background>
     )
+    
 }
 
 export default Header;

@@ -85,6 +85,10 @@ const IntroductionWrapper = styled.div`
     flex-direction: row;
     margin: 0 auto;
     gap: 30px;
+
+    @media (max-width: 1440px) {
+        width: 75%;
+    }
 `;
 
 const IntroductionCard = styled.div`
@@ -287,7 +291,7 @@ const desktopImages = [
     {
         image: ParkingLot,
         title: "MCC Driveway and Parking Lot Repavement",
-        text: "Following our Ramadan fundraiser, we're moving forward with our driveway and parking lot renovation. Split into three main phases, our goal is to repair damaged areas, enhance our Food Pantry and trash zones, and refurbish the basketball court. We appreciate your support and patience during this time. With these improvements, we aim to serve the MCC community even better. Stay tuned for more details!"
+        text: "Following our Ramadan fundraiser, we're moving forward with our driveway and parking lot renovation. Split into three main phases, our goal is to repair damaged areas, enhance our food pantry zone, and refurbish the basketball court. We appreciate your support and patience during this time. With these improvements, we aim to serve the MCC community even better. Stay tuned for more details!"
     }
 ];
 

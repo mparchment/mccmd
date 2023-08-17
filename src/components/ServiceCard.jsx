@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const ServiceCardStyled = styled.div`
     width: 72.5%;
     box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    margin-bottom: 50px;
     padding: 25px 30px;
     border: 1px solid #ddd;
     box-shadow: 0 1px 9px #ddd;
@@ -13,11 +14,12 @@ const ServiceCardStyled = styled.div`
     border-radius: 5px;
     cursor: pointer;
 
-    @media (min-width:1366px) {
-        flex-grow: 1;
-        height: 100px;
+    @media (min-width: 768px) {
+        width: 275px;
+        height: 150px;
         display: flex;
         flex-direction: column;
+        justify-content: flex-start;
         align-items: start;
     }
 

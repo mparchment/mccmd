@@ -69,11 +69,12 @@ const PrayerTimes = () => {
 
 
     const maghribTime = initialTimes.find(t => t.prayer === 'Maghrib').beginTime.split(':');
-    maghribTime[1] = parseInt(maghribTime[1], 10) + 10;
+    maghribTime[1] = parseInt(maghribTime[1], 10) + 5; 
     if (maghribTime[1] >= 60) {
       maghribTime[0] = parseInt(maghribTime[0], 10) + 1;
       maghribTime[1] -= 60;
     }
+    maghribTime[1] = maghribTime[1].toString().padStart(2, '0');
     initialTimes.find(t => t.prayer === 'Maghrib').time = maghribTime.join(':');
 
     return initialTimes;

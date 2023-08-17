@@ -5,24 +5,25 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 import PropTypes from 'prop-types';
 
-const EventCardWrapper = styled.div`
+const ProgramCardWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
+    max-width: 355px;
+    margin: 0 auto;
     margin-bottom: 30px;
 `;
 
-const EventCardSubtitle = styled.h3`
+const ProgramCardSubtitle = styled.h3`
     text-transform: uppercase;
-    margin-bottom: 25px;
     font-weight: 600;
-    color: #333;
+    color: inherit;
     margin-bottom: 8px;
 `;
 
-const EventCardText = styled.span`
+const ProgramCardText = styled.span`
     font-size: 14px;
     font-weight: 500;
     text-align: center;
@@ -30,7 +31,7 @@ const EventCardText = styled.span`
     margin-top: 5px;
 `;
 
-const EventDetails = styled.div`
+const ProgramDetails = styled.div`
     font-size: 14px;
     font-weight: 500;
     display: flex;
@@ -40,7 +41,7 @@ const EventDetails = styled.div`
 `;
 
 const AlignWrapper = styled.div`
-    width: 85%;
+    max-width: 355px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -51,20 +52,20 @@ const Image = styled.img`
     border-radius: 5px;
 `;
 
-const EventCard = ({ imgSrc, title, text, time, location, date }) => (
+const ProgramCard = ({ imgSrc, title, text, time, location, date }) => (
     <AlignWrapper>
-        <EventCardWrapper>
-            <Image src={imgSrc} alt="" style={{width: '100%'}}/>
-            <EventCardSubtitle>{title}</EventCardSubtitle>
-            <EventCardText>{text}</EventCardText>
-            <EventDetails><AccessTimeIcon style={{ fontSize: "150%", color: "#b98474"}}/>{time}</EventDetails>
-            <EventDetails><PlaceIcon style={{ fontSize: "150%", color: "#b98474"}}/>{location}</EventDetails>
-            <EventDetails><CalendarMonthIcon style={{ fontSize: "150%", color: "#b98474"}}/>{date}</EventDetails>
-        </EventCardWrapper>
+        <ProgramCardWrapper>
+            <Image src={imgSrc} alt=""/>
+            <ProgramCardSubtitle>{title}</ProgramCardSubtitle>
+            <ProgramCardText>{text}</ProgramCardText>
+            <ProgramDetails><AccessTimeIcon style={{ fontSize: "150%", color: "#b98474"}}/>{time}</ProgramDetails>
+            <ProgramDetails><PlaceIcon style={{ fontSize: "150%", color: "#b98474"}}/>{location}</ProgramDetails>
+            <ProgramDetails><CalendarMonthIcon style={{ fontSize: "150%", color: "#b98474"}}/>{date}</ProgramDetails>
+        </ProgramCardWrapper>
     </AlignWrapper>
 );
 
-EventCard.propTypes = {
+ProgramCard.propTypes = {
     imgSrc: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
@@ -73,4 +74,4 @@ EventCard.propTypes = {
     date: PropTypes.string.isRequired
 };
 
-export default EventCard;
+export default ProgramCard;

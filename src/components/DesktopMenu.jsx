@@ -51,7 +51,7 @@ function DesktopMenu(){
     return (
         <DesktopMenuContainer>
             <DesktopMenuWrapper>
-                {['About Us', 'Services', 'Education', 'Community', 'Get Involved', 'Contact Us', 'Donate'].map((item, index) => (
+                {['About Us', 'Education', 'Community', 'Get Involved', 'Contact Us', 'Donate'].map((item, index) => (
                 <DesktopMenuLink
                     to={`/mccmd/${item.toLowerCase().replace(/ /g, '-')}`}
                     key={index}

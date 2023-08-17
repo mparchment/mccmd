@@ -23,6 +23,7 @@ import Footer from "./components/Footer"
 import styled from "styled-components";
 
 import Loading from './components/Loading.jsx';
+import Committees from './pages/Committees.jsx';
 
 const PageWrapper = styled.div`
   height: 100vh;
@@ -62,6 +63,7 @@ function AppContent() {
                 <Route path="/mccmd/contact-us" element={<ContactUs />} />
                 <Route path="/mccmd/education" element={<Education />} />
                 <Route path="/mccmd/get-involved" element={<GetInvolved />} />
+                <Route path="/mccmd/committees" element={<Committees />} />
                 {/*<Route path="/mccmd/services" element={<Services />} />*/}
                 <Route path="/mccmd/services/shahadas" element={<Services />} />
                 <Route path="/mccmd/services/imam" element={<Services />} />

@@ -14,6 +14,10 @@ const GlobalStyle = createGlobalStyle`
     max-width: 850px;
     align-self: center;
   }
+
+  a {
+    color: inherit;
+  }
 `;
  
 export default GlobalStyle;

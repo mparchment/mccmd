@@ -62,7 +62,7 @@ function AppContent() {
                 <Route path="/mccmd/contact-us" element={<ContactUs />} />
                 <Route path="/mccmd/education" element={<Education />} />
                 <Route path="/mccmd/get-involved" element={<GetInvolved />} />
-                <Route path="/mccmd/services" element={<Services />} />
+                {/*<Route path="/mccmd/services" element={<Services />} />*/}
                 <Route path="/mccmd/services/shahadas" element={<Services />} />
                 <Route path="/mccmd/services/imam" element={<Services />} />
                 <Route path="/mccmd/services/clinic" element={<Services />} />

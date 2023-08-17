@@ -11,7 +11,7 @@ import Placeholder2 from '../assets/placeholder-2.jpg';
 import Placeholder3 from '../assets/placeholder-3.jpg';
 import Placeholder4 from '../assets/placeholder-4.jpeg';
 import { Link as PageLink } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import useIsMobile from '../hooks/useIsMobile';
 import Slider from "react-slick";
@@ -224,7 +224,7 @@ const ProgramsSection = styled.div`
 const SlideButton = styled.button`
     background-color: rgba(0, 0, 0, 0); // Semi-transparent black
     height: 100%;
-    width: 100px;
+    width: 75px;
     color: white;
     border: none;
     padding: 10px 30px;
@@ -233,6 +233,11 @@ const SlideButton = styled.button`
     font-size: 2rem;
     font-weight: bold;
     transition: background-color 0.3s ease;
+
+    &:hover {
+        color: lightgray;
+        transition: color .75s ease;
+    }
 `;
 
 const PreviousButton = styled(SlideButton)`
@@ -260,7 +265,7 @@ const desktopImages = [
     {
         image: MCCFront,
         title: "Summer 2023 at Muslim Community Center",
-        text: "Summer at Muslim Community Center is loaded with programs for the entire family! We know that there are many of you who are eager to taste the sweetness of Islamic knowledge but do not have the opportunity to do so on a full-time basis. That's why we strive to provide a variety of courses that fit your schedule.",
+        text: "Experience Summer 2023 at the Muslim Community Center! We're offering a diverse range of programs tailored for every family member. Recognizing that many desire to delve into Islamic teachings but can't commit full-time, our weekly classes are designed to accommodate your schedule, all within the the masjid",
     },
     {
         image: Bonfire,
@@ -298,24 +303,26 @@ function Home() {
     const [autoSlide, setAutoSlide] = useState(true);
 
 
-    const nextSlide = () => {
+    const nextSlide = useCallback(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % desktopImages.length);
         setAutoSlide(false);  // Disable automatic sliding
-    };
+    }, [setCurrentIndex, setAutoSlide]);
       
-    const prevSlide = () => {
+    const prevSlide = useCallback(() => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + desktopImages.length) % desktopImages.length);
         setAutoSlide(false);  // Disable automatic sliding
-    };
+    }, [setCurrentIndex, setAutoSlide]);
     
 
     useEffect(() => {
         if (autoSlide) {
-            const slideTimer = setInterval(nextSlide, 5000);  // Change slides every 5 seconds
+            const slideTimer = setInterval(() => {
+                setCurrentIndex((prevIndex) => (prevIndex + 1) % desktopImages.length);
+            }, 5000);  // Change slides every 5 seconds
     
             return () => clearInterval(slideTimer);  // Cleanup on component unmount
         }
-    }, [autoSlide, currentIndex]);  // Dependencies list
+    }, [autoSlide]);
     
 
     return (

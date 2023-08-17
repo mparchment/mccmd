@@ -264,6 +264,8 @@ function CommitteesPage() {
                         email="zakat@mccmd.org"
                     />
                 </Box>
+                <Divider style={{ marginBottom: '30px', marginTop: '0' }}/>
+                <p style={{ marginBottom: '30px' }}><span style={{ fontWeight: 700 }}>A minimum of two-year service, as certified by the Chairperson of a Committee, is one of the prerequisites for candidacy to the Board of Directors.</span> The Board of Directors and Board of Trustees may add other committees from time to time as the need arises. For any questions or concerns, please contact the President or the Board of Directors.</p>
             </Wrapper>
         </>
     );

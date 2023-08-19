@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import useIsMobile from '../hooks/useIsMobile';
-
+import { useContext } from 'react';
+import MenuContext from '../contexts/MenuContext';
 import FacebookIcon from '../assets/facebook-icon.png';
 import InstagramIcon from '../assets/instagram-icon.png';
 import YouTubeIcon from '../assets/youtube-icon.png';
@@ -125,9 +126,11 @@ const ExternalLink = styled.a`
 
 function Footer() {
     const isMobile = useIsMobile();
+    const {menuOpen} = useContext(MenuContext);
     const currentYear = new Date().getFullYear();
 
     return (
+        <>{!menuOpen &&
         <FooterWrapper>
             <FooterContainer>
                 {isMobile && <>
@@ -163,6 +166,7 @@ function Footer() {
                 </FooterBox>}
             </FooterContainer>
         </FooterWrapper>
+        }</>
     )
 }
 

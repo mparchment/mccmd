@@ -40,6 +40,10 @@ const CenteredContent = styled.div`
     width: 64%;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: 1366px) {
+        width: 95%;
+    }
 `;
 
 const AccountInfo = styled.div`
@@ -177,7 +181,7 @@ function Header() {
                         {menuOpen ? <CloseIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/> : <MenuIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/>}
                     </MenuButtonWrapper>}
                 </CenteredContent>
-                <AccountInfo><div>Welcome back, Name.</div><div><PageLink to="/dashboard">Dashboard</PageLink> | <PageLink>Account</PageLink></div></AccountInfo>
+                {!isMobile && <AccountInfo><div>Welcome back, Name.</div><div><PageLink to="/dashboard">Dashboard</PageLink> | <PageLink>Account</PageLink></div></AccountInfo>}
             </HeaderWrapper>
             {!isMobile && <DesktopMenu/>}
             {isMobile && menuOpen && <MobileMenu/>} 

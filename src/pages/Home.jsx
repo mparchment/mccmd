@@ -84,7 +84,6 @@ function Home() {
         <>  
             <PageBackground style={{ display: 'none' }}/>
             {isMobile ? (
-                <>
                 <ImageWrapper>
                     <SlidesContainer {...handlers} style={{ transform: `translateX(-${currentIndex * 100}vw)` }}>
                         {desktopImages.map((slide, index) => (
@@ -99,26 +98,23 @@ function Home() {
                         ))}
                     </SlidesContainer>
                 </ImageWrapper>
-            </>
             ) : (
-                <>
-                    <ImageWrapper>
-                        <SlidesContainer currentIndex={currentIndex}>
-                            {desktopImages.map((slide, index) => (
-                                <Slide key={index}>
-                                    <MainImage src={slide.image} alt=""/>
-                                    <OverlayContent>
-                                        <OverlayTitle>{slide.title}</OverlayTitle>
-                                        <OverlayText>{slide.text}</OverlayText>
-                                        <OverlayButton>Read More</OverlayButton>
-                                    </OverlayContent>
-                                </Slide>
-                            ))}
-                        </SlidesContainer>
-                        <PreviousButton onClick={prevSlide}>{'\u2039'}</PreviousButton>
-                        <NextButton onClick={nextSlide}>{'\u203a'}</NextButton>
-                    </ImageWrapper>
-                </>
+                <ImageWrapper>
+                    <SlidesContainer style={{ transform: `translateX(-${currentIndex * 100}vw)` }}>
+                        {desktopImages.map((slide, index) => (
+                            <Slide key={index}>
+                                <MainImage src={slide.image} alt=""/>
+                                <OverlayContent>
+                                    <OverlayTitle>{slide.title}</OverlayTitle>
+                                    <OverlayText>{slide.text}</OverlayText>
+                                    <OverlayButton>Read More</OverlayButton>
+                                </OverlayContent>
+                            </Slide>
+                        ))}
+                    </SlidesContainer>
+                    <PreviousButton onClick={prevSlide}>{'\u2039'}</PreviousButton>
+                    <NextButton onClick={nextSlide}>{'\u203a'}</NextButton>
+                </ImageWrapper>
             )}
             {!isMobile && <IntroductionWrapper>
                 <IntroductionCard>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import MCCLogo from '../assets/logo-small.png';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import DesktopMenu from './DesktopMenu';
 import MenuContext from '../contexts/MenuContext';
@@ -53,7 +53,7 @@ const AccountInfo = styled.div`
     padding-right: 10px;
 `;
 
-const DonateButton = styled.button`
+const Button = styled.button`
     background-color: #b98474;
     border: none;
     border-radius: 7.5px;
@@ -122,6 +122,9 @@ const PageLink = styled(Link)`
 function Header() {
     const {menuOpen, closeMenu, toggleMenu} = useContext(MenuContext);
     const {hijriMonth, hijriDay, hijriYear} = useContext(TimesContext);
+    const isUserLoggedIn = false
+
+    const navigate = useNavigate();
 
     const handleLogoClick = () => {
         closeMenu();
@@ -177,7 +180,9 @@ function Header() {
                     <LogoWrapper><Link to="/mccmd/"><Logo src={MCCLogo} alt="logo" onClick={handleLogoClick}/></Link></LogoWrapper>
                     {!isMobile && <><DateWrapper><DateContainer>{dateString} · {hijriString} </DateContainer><JummahWrapper>{"1st Jumu'ah"}: 1:00 PM / {"2nd Jumu'ah"}: 2:00 PM</JummahWrapper></DateWrapper><PrayerTimeWrapper><PrayerTimes/></PrayerTimeWrapper></>}
                     {isMobile && <MenuButtonWrapper>
-                        <DonateButton>Donate</DonateButton>
+                        <Button onClick={() => isUserLoggedIn ? navigate('/mccmd/donate') : navigate('/mccmd/login')}>
+                            {isUserLoggedIn ? 'Donate' : 'Login'}
+                        </Button>
                         {menuOpen ? <CloseIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/> : <MenuIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/>}
                     </MenuButtonWrapper>}
                 </CenteredContent>

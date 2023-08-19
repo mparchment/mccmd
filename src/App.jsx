@@ -25,6 +25,7 @@ import styled from "styled-components";
 
 import Loading from './components/Loading.jsx';
 import Committees from './pages/Committees.jsx';
+import Login from './pages/Login.jsx';
 
 const PageWrapper = styled.div`
   height: 100vh;
@@ -76,7 +77,8 @@ function AppContent() {
                 <Route path="/mccmd/services/refugee-aid" element={<Services />} />
                 <Route path="/mccmd/services/general-events" element={<Services />} />
                 <Route path="/mccmd/donate" element={<Donate />} />
-                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/mccmd/login" element={<Login />} />
+                <Route path="/mccmd/dashboard" element={<Dashboard />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>}
             <Footer/>

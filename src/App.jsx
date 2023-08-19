@@ -26,6 +26,7 @@ import styled from "styled-components";
 import Loading from './components/Loading.jsx';
 import Committees from './pages/Committees.jsx';
 import Login from './pages/Login.jsx';
+import Converts from './pages/services/Converts.jsx';
 
 const PageWrapper = styled.div`
   height: 100vh;
@@ -79,6 +80,7 @@ function AppContent() {
                 <Route path="/mccmd/donate" element={<Donate />} />
                 <Route path="/mccmd/login" element={<Login />} />
                 <Route path="/mccmd/dashboard" element={<Dashboard />} />
+                <Route path="/mccmd/converts" element={<Converts />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>}
             <Footer/>

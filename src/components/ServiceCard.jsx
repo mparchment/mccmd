@@ -34,11 +34,15 @@ const ServiceCardSubtitle = styled.h3`
     text-transform: uppercase;
 `;
 
-const ServiceCard = ({ subtitle, to, children }) => {
+const ServiceCard = ({ subtitle, to, children, external }) => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate(to);
+        if (external) {
+            window.open(to, '_blank');
+        } else {
+            navigate(to);
+        }
     };
 
     return (
@@ -52,7 +56,7 @@ const ServiceCard = ({ subtitle, to, children }) => {
 ServiceCard.propTypes = {
     subtitle: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired,
-    to: PropTypes.string.isRequired
+    to: PropTypes.string.isRequired,
+    external: PropTypes.bool
 };
-
 export default ServiceCard;

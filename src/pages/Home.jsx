@@ -165,14 +165,14 @@ function Home() {
             <TitleWrapper><ProgramTitle>Services</ProgramTitle><Divider/></TitleWrapper>
             <ServicesWrapper>
                 <ServicesBox>
-                    <ServiceCard subtitle="Shahadas" to="/mccmd/shahadas">
+                    <ServiceCard subtitle="Converts" to="/mccmd/converts">
                         Whether you are just interested in Islam, have some questions, or are ready to convert, we are happy to speak to you and guide you through the Shahada. 
                     </ServiceCard>
                     <ServiceCard subtitle="Meet the Imam" to="/mccmd/imam">
                         Book a meeting up to two weeks in advance with the Imam to discuss one of a range of topics. 
                     </ServiceCard>
-                    <ServiceCard subtitle="Clinic" to="/mccmd/clinic">
-                        To book rooms for other events or Islamic celebrations, from aqiqas and private gatherings to conferences, we offer rooms at reasonable rates of hire.
+                    <ServiceCard subtitle="Clinic" to="https://www.mccclinic.org/" external>
+                        Our clinic combines health with Islamic values. Serving both Muslims and the larger community, we focus on comprehensive care and community well-being.
                     </ServiceCard>
                     <ServiceCard subtitle="Nikahs" to="/mccmd/nikahs">
                         Offering a unique & stunning yet economical & eco-friendly venue, getting married at Muslim Community Center is the experience of a lifetime. 

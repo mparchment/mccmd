@@ -177,7 +177,7 @@ function Header() {
                         {menuOpen ? <CloseIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/> : <MenuIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/>}
                     </MenuButtonWrapper>}
                 </CenteredContent>
-                <AccountInfo><div>Welcome back, Michael.</div><div><PageLink to="/dashboard">Dashboard</PageLink> | <PageLink>Account</PageLink></div></AccountInfo>
+                <AccountInfo><div>Welcome back, Name.</div><div><PageLink to="/dashboard">Dashboard</PageLink> | <PageLink>Account</PageLink></div></AccountInfo>
             </HeaderWrapper>
             {!isMobile && <DesktopMenu/>}
             {isMobile && menuOpen && <MobileMenu/>} 

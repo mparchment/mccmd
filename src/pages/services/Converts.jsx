@@ -88,7 +88,7 @@ const ImamSubtitle = styled.h3`
 `;
 
 
-function AboutPage() {
+function Converts() {
     return (
         <>
             <PageBackground/>
@@ -105,5 +105,5 @@ function AboutPage() {
     )
 }
 
-export default AboutPage
+export default Converts
 

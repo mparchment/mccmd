@@ -174,8 +174,8 @@ function Home() {
                     <ServiceCard subtitle="Clinic" to="https://www.mccclinic.org/" external>
                         Our clinic combines health with Islamic values. Serving both Muslims and the larger community, we focus on comprehensive care and community well-being.
                     </ServiceCard>
-                    <ServiceCard subtitle="Nikahs" to="/mccmd/nikahs">
-                        Offering a unique & stunning yet economical & eco-friendly venue, getting married at Muslim Community Center is the experience of a lifetime. 
+                    <ServiceCard subtitle="Marriage" to="/mccmd/marriage">
+                        From premarital counseling to nikah ceremonies, we ensure your union begins with the right blessings and preparations.
                     </ServiceCard>
                     <ServiceCard subtitle="Janazas" to="/mccmd/janazahs">
                         We ease the burden of bereavement by facilitating preparation of the deceased for burial through use of our dedicated mortuary and leading Janazah prayers. 

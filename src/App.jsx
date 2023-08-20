@@ -1,32 +1,37 @@
+import { useContext, useEffect, useState } from 'react';
 import { useLocation, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { useContext, useEffect, useState } from 'react';
+import styled from 'styled-components';
 
-import NotFound from './pages/NotFound.jsx'
-import About from './pages/About.jsx'
-import Home from "./pages/Home"
-import ContactUs from "./pages/ContactUs"
-import Education from "./pages/Education"
-import GetInvolved from "./pages/GetInvolved.jsx"
-import Community from "./pages/Community"
-import Services from './pages/Services.jsx';
-import Donate from './pages/Donate.jsx';
-import Dashboard from './pages/Dashboard.jsx'
-
-import MenuProvider from "./contexts/MenuProvider"
-import MenuContext from './contexts/MenuContext.jsx';
-import TimesProvider from './contexts/TimesProvider.jsx';
-import TimesContext from './contexts/TimesContext.jsx';
-
-import GlobalStyle from "./globalStyles"
-import Header from "./components/Header"
-import Footer from "./components/Footer"
-import styled from "styled-components";
-
-import Loading from './components/Loading.jsx';
+import Home from './pages/Home.jsx';
+import About from './pages/About.jsx';
 import Committees from './pages/Committees.jsx';
-import Login from './pages/Login.jsx';
+import Community from './pages/Community';
+import ContactUs from './pages/ContactUs';
 import Converts from './pages/services/Converts.jsx';
+import Dashboard from './pages/Dashboard.jsx';
+import Donate from './pages/Donate.jsx';
+import Education from './pages/Education';
+import Footer from './components/Footer';
+import GetInvolved from './pages/GetInvolved.jsx';
+import Zakat from './pages/services/Zakat.jsx';
+import Janazas from './pages/services/Janazas.jsx';
+import Marriage from './pages/services/Marriage.jsx';
+import Imam from './pages/services/Imam.jsx';
+import FoodPantry from './pages/services/FoodPantry.jsx';
+import RefugeeAid from './pages/services/RefugeeAid.jsx';
+import GeneralPrograms from './pages/services/GeneralPrograms.jsx';
+
+import GlobalStyle from './globalStyles';
+import Header from './components/Header';
+import Loading from './components/Loading.jsx';
+import Login from './pages/Login.jsx';
+import NotFound from './pages/NotFound.jsx';
+import Services from './pages/Services.jsx';
+import TimesContext from './contexts/TimesContext.jsx';
+import TimesProvider from './contexts/TimesProvider.jsx';
+import MenuContext from './contexts/MenuContext.jsx';
+import MenuProvider from './contexts/MenuProvider';
 
 const PageWrapper = styled.div`
   height: 100vh;
@@ -57,7 +62,7 @@ function AppContent() {
 
   return (
       <PageWrapper>
-          {showLoading && <Loading/>}
+          {showLoading ? <Loading/> : <>
           <Header/>
           {!menuOpen && <Routes>
                 <Route path="/mccmd/" element={<Home />} />
@@ -67,23 +72,20 @@ function AppContent() {
                 <Route path="/mccmd/education" element={<Education />} />
                 <Route path="/mccmd/get-involved" element={<GetInvolved />} />
                 <Route path="/mccmd/committees" element={<Committees />} />
-                {/*<Route path="/mccmd/services" element={<Services />} />*/}
-                <Route path="/mccmd/services/shahadas" element={<Services />} />
-                <Route path="/mccmd/services/imam" element={<Services />} />
-                <Route path="/mccmd/services/clinic" element={<Services />} />
-                <Route path="/mccmd/services/nikahs" element={<Services />} />
-                <Route path="/mccmd/services/janazahs" element={<Services />} />
-                <Route path="/mccmd/services/zakat" element={<Services />} />
-                <Route path="/mccmd/services/food-pantry" element={<Services />} />
-                <Route path="/mccmd/services/refugee-aid" element={<Services />} />
-                <Route path="/mccmd/services/general-events" element={<Services />} />
                 <Route path="/mccmd/donate" element={<Donate />} />
                 <Route path="/mccmd/login" element={<Login />} />
                 <Route path="/mccmd/dashboard" element={<Dashboard />} />
                 <Route path="/mccmd/converts" element={<Converts />} />
+                <Route path="/mccmd/food-pantry" element={<FoodPantry />} />
+                <Route path="/mccmd/general-programs" element={<GeneralPrograms />} />
+                <Route path="/mccmd/imam" element={<Imam />} />
+                <Route path="/mccmd/janazas" element={<Janazas />} />
+                <Route path="/mccmd/marriage" element={<Marriage />} />
+                <Route path="/mccmd/refugee-aid" element={<RefugeeAid />} />
+                <Route path="/mccmd/zakat" element={<Zakat />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>}
-            <Footer/>
+            <Footer/></>}
         </PageWrapper>
     );
 }

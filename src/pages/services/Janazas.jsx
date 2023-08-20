@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { PageBackground } from '../../components/PageBackground';
-import BoardCell from '../../components/BoardCell';
-import PortraitPlaceholder from '../../assets/portrait-placeholder.png';
+import BoardCell from '../../components/BoardCell'; // Note: You didn't use this in AboutPage, ensure its usage if needed
+import PortraitPlaceholder from '../../assets/portrait-placeholder.png'; // Note: Unused in the given AboutPage
 
 const Wrapper = styled.div`
     display: flex;
@@ -26,84 +26,49 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h2`
-    font-weight: 800;    
-    font-size: 200%;
-    color: #333;
-`;
-
-const AboutBox = styled.div`
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-
-    @media (max-width: 1366px) {
-        flex-direction: column;
-        gap: 0;
-    }
+    /* ... existing styles ... */
 `;
 
 const Subtitle = styled.h3`
-    &:first-of-type {
-        margin-top: 25px;
-    }
-    font-weight: 800;
+    /* ... existing styles ... */
 `;
 
-const ImamTitle = styled.h2`
-    align-self: center;
-    margin-bottom: 10px;
+const InfoParagraph = styled.p`
+    /* Add any specific styles for the paragraphs, if needed. */
 `;
 
-const Portrait = styled.img`
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    align-self: center;
-    margin-bottom: 25px;
-`;
-
-const BoardBox = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 40px;
-
-    margin-bottom: 25px;
-    margin-top: 25px;
-`;
-
-const BoardHeading = styled.h3`
-    align-self: center;
-    margin-bottom: 25px;
-`;
-
-const ImamSubtitle = styled.h3`
-    align-self: center;
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-weight: 400;
-`;
-
-
-function AboutPage() {
+function JanazahPage() {
     return (
         <>
-            <PageBackground/>
+            <PageBackground />
             <Wrapper>
-                <Title>Janazas</Title>
-                    <Subtitle>From Shahadas to Learning About Islam</Subtitle>
-                    <p>At the Muslim Community Center, we offer a comprehensive program for new converts to Islam. This program is designed to guide individuals through their journey of embracing Islam, starting from the Shahada (declaration of faith) and extending to in-depth learning about Islamic teachings and practices.</p>
-                    
-                    <p>We understand that embracing a new faith is a significant step in one's life, and we are committed to providing a supportive and welcoming environment for all new converts. Our program is open to everyone, regardless of background or previous religious beliefs.</p>
+                <Title>Janazah Services</Title>
+               
+                <InfoParagraph>
+                    We at Muslim Community Center are deeply sorry for your loss. Our aim is to assist in the timely and respectful burial process in accordance with the Qur'an and Sunnah. The Prophet Muhammad (ﷺ) said, “مَن شهد الجنازة حتى يُصلَّى عليها فله قيراط، ومَن شهدَها حتى تُدفَنَ فله قيراطان”. Translated, "Whoever attends a funeral and attends the prayer will receive a qirat worth of reward and whoever attends the burial, he will receive two." One qirat is equivalent to great mountains' worth.
+                </InfoParagraph>
+                
+                <InfoParagraph>
+                    Should your friend or family member be near passing or has passed away, please reach out to the funeral service center of your preference to arrange for the burial. Some available services in the area include:
+                    {/* You can convert the list of services to a styled list or component if required */}
+                </InfoParagraph>
 
-                    <p>If you are interested in joining our program for new converts, please contact us at [...] We look forward to welcoming you to our community!</p>    
+                <InfoParagraph>
+                    For those requiring financial help for burial expenses, please <a href="link-to-form">complete this form</a>. If you need to purchase a burial plot, several cemeteries are available in the area:
+                    {/* Convert the list of cemeteries to a styled list or component if required */}
+                </InfoParagraph>
+
+                <InfoParagraph>
+                    To request a janazah service, <a href="link-to-request">click here</a>. After the service, ensure you obtain the death certificate and finalize any debts and accounts of the departed with the designated funeral services.
+                </InfoParagraph>
+                
+                <InfoParagraph>
+                    <strong>Note:</strong> Muslim Community Center neither endorses nor sponsors any listed services or cemeteries. Everyone should individually verify and decide based on the service and pricing. It's recommended to compare prices when selecting a service.
+                </InfoParagraph>
+                
             </Wrapper>
         </>
     )
 }
 
-export default AboutPage
-
+export default JanazahPage;

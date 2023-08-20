@@ -177,7 +177,7 @@ function Home() {
                     <ServiceCard subtitle="Marriage" to="/mccmd/marriage">
                         From premarital counseling to nikah ceremonies, we ensure your union begins with the right blessings and preparations.
                     </ServiceCard>
-                    <ServiceCard subtitle="Janazas" to="/mccmd/janazahs">
+                    <ServiceCard subtitle="Janazas" to="/mccmd/janazas">
                         We ease the burden of bereavement by facilitating preparation of the deceased for burial through use of our dedicated mortuary and leading Janazah prayers. 
                     </ServiceCard>
                     <ServiceCard subtitle="Zakat" to="/mccmd/zakat">

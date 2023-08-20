@@ -21,7 +21,7 @@ Developing a comprehensive website for MCC. See the live website [here](https://
       - [ ] Policies and Procedures manual.
       - [ ] General body meeting notes.
       - [ ] Financials (if applicable).
-    - [ ] Link to renew membership with auto-filled member name.
+    - [ ] Link to renew membership.
     - [ ] Link to refer a member with auto-filled PDF for referrals.
     - [ ] Link for YTD or history of past donations for tax purposes.
     - [ ] Link for the government matching program for donations.

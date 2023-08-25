@@ -136,7 +136,7 @@ function Footer() {
                 {isMobile && <>
                     <Title>Muslim Community Center</Title>
                     <Subtitle>Join Us on WhatsApp</Subtitle>
-                    <FooterText>For the latest updates on prayer times, jumu'ah, community programs and events, join the <ExternalLink href="">MCC WhatsApp broadcast</ExternalLink>.</FooterText>
+                    <FooterText>For the latest updates on prayer times, jumu'ah, community programs and events, join the <ExternalLink href="https://chat.whatsapp.com/EIqeR0Msl2ZB4AjSQBgdgH">MCC WhatsApp broadcast</ExternalLink>.</FooterText>
                     <Subtitle>Subscribe to our Newsletter</Subtitle>
                     <Form><NewsletterInput type="text" placeholder="Your e-mail address"/><SubscribeButton>Subscribe</SubscribeButton></Form>
                     <FooterText>Muslim Community Center is a registered 501(c)(3) chartiable non-profit organization that has been serving the spiritual needs of the Muslim community in Montgomery County, MD for decades.</FooterText>
@@ -154,7 +154,7 @@ function Footer() {
                     <FooterText>© {currentYear} Muslim Community Center. All rights reserved.</FooterText></BoxDiv>
                     <BoxDiv>
                         <Subtitle>Join Us on WhatsApp</Subtitle>
-                        <FooterText>For the latest updates on prayer times, jumu'ah, community programs and events, join the <ExternalLink href="">MCC WhatsApp broadcast</ExternalLink>.</FooterText>
+                        <FooterText>For the latest updates on prayer times, jumu'ah, community programs and events, join the <ExternalLink href="https://chat.whatsapp.com/EIqeR0Msl2ZB4AjSQBgdgH">MCC WhatsApp broadcast</ExternalLink>.</FooterText>
                         <Subtitle>Subscribe to our Newsletter</Subtitle>
                         <Form><NewsletterInput type="text" placeholder="Your e-mail address"/><SubscribeButton>Subscribe</SubscribeButton></Form>
                         <Icons>

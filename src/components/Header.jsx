@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import MCCLogo from '../assets/logo-small.png';
 import { useContext } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import DesktopMenu from './DesktopMenu';
 import MenuContext from '../contexts/MenuContext';
@@ -11,6 +11,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import MobileMenu from './MobileMenu';
 import useIsMobile from '../hooks/useIsMobile';
 import PrayerTimes from './PrayerTimes';
+import AuthModal from './AuthModal';
+import AuthContext from '../contexts/AuthContext';
+import { auth } from '../firebase-config';
+import { useEffect, useState } from 'react';
 
 const HeaderWrapper = styled.div`
     height: 67px;
@@ -119,12 +123,27 @@ const PageLink = styled(Link)`
 
 `
 
+const AuthLink = styled.button`
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  color: inherit;
+`;
+
 function Header() {
     const {menuOpen, closeMenu, toggleMenu} = useContext(MenuContext);
     const {hijriMonth, hijriDay, hijriYear} = useContext(TimesContext);
-    const isUserLoggedIn = false
+    const { isUserLoggedIn, userName } = useContext(AuthContext);
+
+    const [isAuthModalOpen, setAuthModalOpen] = useState(false);
 
     const navigate = useNavigate();
+    const openAuthModal = () => setAuthModalOpen(true);
+    const closeAuthModal = () => setAuthModalOpen(false);
 
     const handleLogoClick = () => {
         closeMenu();
@@ -167,6 +186,14 @@ function Header() {
     const dateString = getCurrentDate();
     const hijriString = `${hijriDay} ${hijriMonth} ${hijriYear}`;
 
+    const handleMobileButtonClick = () => {
+        if (isUserLoggedIn) {
+            navigate('/mccmd/dashboard');
+        } else {
+            openAuthModal();
+        }
+    }
+
     return (
         <Background>
             {isMobile && <PrayerTimes/>}
@@ -180,14 +207,28 @@ function Header() {
                     <LogoWrapper><Link to="/mccmd/"><Logo src={MCCLogo} alt="logo" onClick={handleLogoClick}/></Link></LogoWrapper>
                     {!isMobile && <><DateWrapper><DateContainer>{dateString} · {hijriString} </DateContainer><JummahWrapper>{"1st Jumu'ah"}: 1:00 PM / {"2nd Jumu'ah"}: 2:00 PM</JummahWrapper></DateWrapper><PrayerTimeWrapper><PrayerTimes/></PrayerTimeWrapper></>}
                     {isMobile && <MenuButtonWrapper>
-                        <Button onClick={() => isUserLoggedIn ? navigate('/mccmd/donate') : navigate('/mccmd/login')}>
+                        <Button onClick={handleMobileButtonClick}>
                             {isUserLoggedIn ? 'Donate' : 'Login'}
                         </Button>
                         {menuOpen ? <CloseIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/> : <MenuIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/>}
                     </MenuButtonWrapper>}
                 </CenteredContent>
-                {!isMobile && <AccountInfo><div>Welcome back, Name.</div><div><PageLink to="/dashboard">Dashboard</PageLink> | <PageLink>Account</PageLink></div></AccountInfo>}
+                {!isMobile && (
+                    <AccountInfo>
+                    <div>
+                        {isUserLoggedIn ? `Welcome back, ${userName}.` : "Welcome to MCC!"}
+                    </div>
+                    <div>
+                        {isUserLoggedIn ? (
+                        <><PageLink to="/mccmd/dashboard">Dashboard</PageLink> | <PageLink to="/mccmd/account">Account</PageLink></>
+                        ) : (
+                        <AuthLink onClick={openAuthModal}>Sign In / Create Account</AuthLink>
+                        )}
+                    </div>
+                    </AccountInfo>
+                )}
             </HeaderWrapper>
+            <AuthModal isOpen={isAuthModalOpen} onClose={closeAuthModal} />
             {!isMobile && <DesktopMenu/>}
             {isMobile && menuOpen && <MobileMenu/>} 
         </Background>

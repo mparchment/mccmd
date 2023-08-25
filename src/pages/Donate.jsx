@@ -380,7 +380,7 @@ function Donate() {
             <Subtitle>2. Tarbiyah and Lifelong Education:</Subtitle>
             Your contributions support our educators and maintain our educational facilities. From Qur'an circles to Islamic studies, your backing guarantees continuous learning opportunities for all ages.
 
-            <Subtitle>3. Nurturing the Youth:</Subtitle>
+            <Subtitle>3. Raising the Youth:</Subtitle>
             Your donations fund programs tailored for young Muslims, from educational retreats to recreational activities. These initiatives give them a sense of belonging and equip them to represent Islam confidently in society.
 
             <Subtitle>4. Community Events and Outreach:</Subtitle>

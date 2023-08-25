@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import BackgroundImage from "../assets/page-background.jpg"
+import BackgroundImage from "../assets/page-background.webp"
 
 export const PageBackground = styled.div`
     

@@ -7,11 +7,10 @@ Developing a comprehensive website for MCC. See the live website [here](https://
 - **Website Review Comments**
   - [ ] Implement a page for noting social media handles.
   - [X] Develop a committees page to show active committees and respective chairs.
-  - [ ] Fix the staggered layout on the Community page - make all organizations even on the same line.
+  - [X] Fix the staggered layout on the Community page - make all organizations even on the same line.
   - [ ] Make the Contact Us page sectioned into general questions, feedback, or suggestions; imam inquiries, and rentals.
   - [X] Delete the services page and move it back to the homepage.
   - [ ] Include the history of Muslim Community Center in the About Us page.
-  - [ ] On the home page, separate recurring programs from events.
 
 - **Member Portal Inquiry**
   - [ ] Investigate feasibility of creating a member portal/member login page.
@@ -29,7 +28,7 @@ Developing a comprehensive website for MCC. See the live website [here](https://
 
 - **Donation Page**
   - [ ] Explore charging the person making the donation the donation fees.
-  - [ ] Emphasize the recurring donation section.
+  - [X] Emphasize the recurring donation section.
 
 - **General Development Tasks**
   - [ ] Begin integration with WordPress.
@@ -50,3 +49,4 @@ Developing a comprehensive website for MCC. See the live website [here](https://
 - [Cambridge Central Mosque](https://cambridgecentralmosque.org/)
 - [Muslim Family Center](https://www.muslimfamilycenter.org/)
 - [Qalam Institute](https://www.qalam.institute/)
+- [Dar al-Hijrah](https://hijrah.org/)

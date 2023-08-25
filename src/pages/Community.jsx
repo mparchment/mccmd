@@ -121,7 +121,7 @@ function CommunityPage() {
                         <Subtitle>Muslim Youth Organization</Subtitle>
                         <p>Our mission is to establish a bond between the Muslim youth of the community and connect them with the masjid in an environment where individuals feel comfort and inspiration through the teaching of the Quran and Sunnah with events and activities.</p> <p> We stand as a platform for youth to have a voice in the community and become successful, independent adults who contribute to the growth of the community.</p> <p> Programming is seperated by age and gender, with occasional joint events. Visit us on Facebook and Instagram for regular updates. </p>
                         <Icons>
-                            <IconLink href="#"><WhatsAppIcon style={{ fontSize: '200%' }}/></IconLink>
+                            {/*<IconLink href="#"><WhatsAppIcon style={{ fontSize: '200%' }}/></IconLink>*/}
                             <IconLink href="https://www.facebook.com/groups/43069277929/"><FacebookIcon style={{ fontSize: '200%' }}/></IconLink>
                             <IconLink href="https://www.instagram.com/mccmyo/"><InstagramIcon style={{ fontSize: '200%' }}/></IconLink>
                         </Icons>
@@ -133,7 +133,7 @@ function CommunityPage() {
                         <Subtitle>Young Adults and Professionals</Subtitle>
                         <p>We are dedicated to nurturing the personal and professional growth of Muslims in the community. Recognizing the unique challenges and opportunities faced by young adults in today's dynamic world, we strive to provide a supportive network that emphasizes Islamic values, offers educational workshops, and fosters social connections.</p> <p>Whether you're a college student, a budding entrepreneur, or a seasoned professional, our programs are designed to inspire and guide you on your journey. </p>
                         <Icons>
-                            <IconLink href="#"><WhatsAppIcon style={{ fontSize: '200%' }}/></IconLink>
+                            <IconLink href="https://chat.whatsapp.com/IS72H18WoWBK4ctacNaetz"><WhatsAppIcon style={{ fontSize: '200%' }}/></IconLink>
                             <IconLink href="https://www.facebook.com/MCCYAP/"><FacebookIcon style={{ fontSize: '200%' }}/></IconLink>
                             <IconLink href="#"><InstagramIcon style={{ fontSize: '200%' }}/></IconLink>
                         </Icons>
@@ -145,7 +145,7 @@ function CommunityPage() {
                         <Subtitle>Muslim Sisters' Alliance</Subtitle>
                         <p>The purpose of the Muslim Sisters' Alliance is to provide a forum for sisters aged 15 and older in the local community to empower each other in advancing the religious, health, personal and social aspects of our lives. We value the diversity of the sisters in our community and aim to be inclusive to sisters from all walks of life.</p>
                         <Icons>
-                            <IconLink href="#"><WhatsAppIcon style={{ fontSize: '200%' }}/></IconLink>
+                            {/*<IconLink href="#"><WhatsAppIcon style={{ fontSize: '200%' }}/></IconLink>*/}
                             <IconLink href="https://www.facebook.com/MuslimSistersAlliance"><FacebookIcon style={{ fontSize: '200%' }}/></IconLink>
                             <IconLink href="https://www.instagram.com/muslimsistersalliance/"><InstagramIcon style={{ fontSize: '200%' }}/></IconLink>
                         </Icons>

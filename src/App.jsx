@@ -21,6 +21,7 @@ import Imam from './pages/services/Imam.jsx';
 import FoodPantry from './pages/services/FoodPantry.jsx';
 import RefugeeAid from './pages/services/RefugeeAid.jsx';
 import GeneralPrograms from './pages/services/GeneralPrograms.jsx';
+import CreateAccount from './pages/CreateAccount.jsx';
 
 import GlobalStyle from './globalStyles';
 import Header from './components/Header';
@@ -32,6 +33,7 @@ import TimesContext from './contexts/TimesContext.jsx';
 import TimesProvider from './contexts/TimesProvider.jsx';
 import MenuContext from './contexts/MenuContext.jsx';
 import MenuProvider from './contexts/MenuProvider';
+import AuthProvider from './contexts/AuthProvider';
 
 const PageWrapper = styled.div`
   height: 100vh;
@@ -74,6 +76,7 @@ function AppContent() {
                 <Route path="/mccmd/committees" element={<Committees />} />
                 <Route path="/mccmd/donate" element={<Donate />} />
                 <Route path="/mccmd/login" element={<Login />} />
+                <Route path="/mccmd/create-account" element={<CreateAccount />} />
                 <Route path="/mccmd/dashboard" element={<Dashboard />} />
                 <Route path="/mccmd/converts" element={<Converts />} />
                 <Route path="/mccmd/food-pantry" element={<FoodPantry />} />
@@ -82,6 +85,7 @@ function AppContent() {
                 <Route path="/mccmd/janazas" element={<Janazas />} />
                 <Route path="/mccmd/marriage" element={<Marriage />} />
                 <Route path="/mccmd/refugee-aid" element={<RefugeeAid />} />
+                <Route path="/mccmd/dashboard" element={<Dashboard />} />
                 <Route path="/mccmd/zakat" element={<Zakat />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>}
@@ -96,11 +100,13 @@ function App() {
     <Router>
       <GlobalStyle/>
       <HelmetProvider>
+        <AuthProvider>
         <TimesProvider>
           <MenuProvider>
             <AppContent/>
           </MenuProvider>
         </TimesProvider>
+        </AuthProvider>
       </HelmetProvider>
     </Router>
   )

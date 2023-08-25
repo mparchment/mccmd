@@ -1,11 +1,26 @@
 import styled from 'styled-components';
 import { PageBackground } from '../components/PageBackground';
-import BoardCell from '../components/BoardCell';
-import PortraitPlaceholder from '../assets/portrait-placeholder.png';
+
+import { auth, provider } from "../firebase-config";
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+function darkenColor(color, factor) {
+    const f = parseInt(color.slice(1), 16),
+          R = f >> 16,
+          G = (f >> 8) & 0x00FF,
+          B = f & 0x0000FF;
+    
+    return "#" + (1 << 24 | (R * (1 - factor)) << 16 | (G * (1 - factor)) << 8 | (B * (1 - factor))).toString(16).slice(1).toUpperCase();
+}
 
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 25px;
     padding-top: 0;
 
@@ -25,120 +40,213 @@ const Wrapper = styled.div`
     }
 `;
 
-const Title = styled.h2`
-    font-weight: 800;    
-    font-size: 200%;
-    color: #333;
-`;
 
-const AboutBox = styled.div`
+const Buttons = styled.div`
     display: flex;
-    flex-direction: row;
-    gap: 40px;
-
-    @media (max-width: 1366px) {
-        flex-direction: column;
-        gap: 0;
-    }
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    gap: 1rem;
 `;
 
-const Subtitle = styled.h3`
-    &:first-of-type {
-        margin-top: 25px;
-    }
+const TextContainer = styled.div`
+    width: 80%;
+    text-align: left;
     font-weight: 800;
+    color: rgb(75,75,75);
 `;
 
-const ImamTitle = styled.h2`
-    align-self: center;
-    margin-bottom: 10px;
+const FormContainer = styled.div`
+    width: 80%;
 `;
 
-const Portrait = styled.img`
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    align-self: center;
-    margin-bottom: 25px;
+const Button = styled.button`
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: inherit;
+    width: 80%;
+    margin: 10px auto;
+    box-shadow: 2px 2px 0 ${darkenColor('#b98474', 0.15)};
+    &:active {
+        transform: scale(0.98);
+    }
 `;
 
-const BoardBox = styled.div`
+const SignInButton = styled(Button)`
+    background-color: #b98474;
+    color: white;
+    border: #b98474 solid 1px;
+    &:active {
+        box-shadow: 0px 1px 0px ${darkenColor('#b98474', 0.15)};
+    }
+`;
+
+const Input = styled.input`
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 12px 0 12px 16px;
+    width: 90%;
+    font-family: inherit;
+    margin-bottom: 1rem;
+`;
+
+const Divider = styled.hr`
+    width: 80%;
+    border: 1px solid lightgray;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+`;
+
+const Form = styled.form`
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 40px;
-
-    margin-bottom: 25px;
-    margin-top: 25px;
+    flex-direction: column;
+    align-items: center;
 `;
 
-const BoardHeading = styled.h3`
-    align-self: center;
-    margin-bottom: 25px;
+const OAuthButtons = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    gap: 1rem;
 `;
 
-const ImamSubtitle = styled.h3`
-    align-self: center;
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-weight: 400;
+const OAuthButton = styled(Button)`
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #b98474;
+    box-shadow: 2px 2px 0 ${darkenColor('#b98474', 0.15)};
+    border: #b98474 solid 1px;
+    color: white;
+    white-space: nowrap;
+    width: 95%;
+    padding-left: 20px;
 `;
 
+const LogoWrapper = styled.img`
+    width: 20px;
+    margin-right: 30px;
+`;
 
-function AboutPage() {
+const SignInText = styled.span`
+    padding-top: 1rem;
+    font-size: 14px;
+`;
+
+const FormError = styled.span`
+    color: red;
+    font-size: 14px;
+    margin-bottom: .7rem;
+    margin-top: .33rem;
+`;
+
+const SignUpLink = styled.a`
+    color: #b98474;
+    font-weight: 800;
+    cursor: pointer;
+`;
+
+const Icon = styled.img`
+    height: 20px;
+    cursor: pointer;
+`;
+
+const IconContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+`;
+
+const Login = () => {
+    const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [invalidLogin, setInvalidLogin] = useState(false);
+
+    const handleBackClick = () => {
+        navigate('/');
+    };
+
+    const handleSignUpClick = () => {
+        navigate('/mccmd/create-account');
+    };
+
+    const handleSignIn = async (e) => {
+        e.preventDefault();    
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+            navigate('/dashboard');
+        } catch (error) {
+            console.log(error.code, error.message);
+        }
+    };
+
+    const handleGoogleSignUp = () => {
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                const user = result.user;
+                navigate('/dashboard');
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                const email = error.email;
+                const credential = GoogleAuthProvider.credentialFromError(error);
+            });
+    };
+
     return (
         <>
             <PageBackground/>
             <Wrapper>
-                
-                <AboutBox>
-                <div>
-                    <Title>Login</Title>
-                    <p>For over three decades, Muslim Community Center has been a beacon of light for the Muslim community in Montgomery County, Maryland.</p><p> We pride ourselves not only as a place of worship but as a hub for community engagement, education, and growth. Our commitment has always been to enrich the lives of the local Muslim community by providing comprehensive Islamic education, promoting unity and mutual understanding, and offering a platform for dialogue and interaction.</p>
-                </div>
-                
-                <div>
-                    <Subtitle>Our Vision</Subtitle>
-                    <p>To be a center of Islamic excellence in which the Muslim community becomes a positive role model for all.</p>
-                    <Subtitle>Our Mission</Subtitle>
-                    <p>To promote brotherhood and human dignity among all by developing an environment of understanding, compassion, justice in personal and professional life - serving the needs of the Muslim community and community at-large in a manner that promotes its positive image and standing in a changing environment. </p>
-                </div>
-                </AboutBox>
-                                
-                <Title>Our Team</Title>
-                <Portrait src={PortraitPlaceholder}/>
-                <ImamTitle>Muhammad Abdullahi</ImamTitle>
-                <ImamSubtitle>Imam</ImamSubtitle>
-
-                <p>Shaykh Mohamed Abdullahi is the Imam at the Muslim Community Center, where he leads congregational, jumu'ah and janazah prayers, and teaches tafsir, fiqh and hadith.</p>
-                <p>After completing memorization of the Qur'an at the age of eleven, Shaykh Mohamed went on to study the Shari'ah and gained comprehensive knowledge of Hadith and Fiqh. He graduated with Honors in Licentiate in Arabic Language and Islamic Studies from Al-Azhar University in Cairo, Egypt. He also holds a diploma in Shari'ah from the National Somali University in Mogadishu, Somalia. He is a certified Qari in three styles of recitation and has command of Arabic, Somali, Swahili and English.</p>
-
-                <BoardHeading>Board of Directors</BoardHeading>
-
-                <BoardBox>
-                    <BoardCell name="Usman Sarwar" position="President" portrait={PortraitPlaceholder} bio="Usman Sarwar is the President of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                    <BoardCell name="Ishtiaq Chugtai" position="Treasurer" portrait={PortraitPlaceholder} bio="Ishtiaq Chugtai is the Treasurer of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                    <BoardCell name="Junaid Shah" position="Secretary" portrait={PortraitPlaceholder} bio="Junaid Shah is the Secretary of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                    <BoardCell name="Habib Ghanim" position="Director" portrait={PortraitPlaceholder} bio="Habib Ghanim is a Director of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                    <BoardCell name="Shaina Ayers" position="Director" portrait={PortraitPlaceholder} bio="Shaina Ayers is a Director of Muslim Community Center. She has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. She is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                    <BoardCell name="Ashraf Sufi" position="Director" portrait={PortraitPlaceholder} bio="Ashraf Sufi is a Director of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                </BoardBox>
-                
-                <BoardHeading>Board of Trustees</BoardHeading>
-
-                <BoardBox>
-                    <BoardCell name="Lubna Ejaz" position="Chair" portrait={PortraitPlaceholder} bio="Lubna Ejaz is the Chair of Muslim Community Center. She has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. She is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                    <BoardCell name="Sabir Rahman" position="Secretary" portrait={PortraitPlaceholder} bio="Sabir Rahman is the Secretary of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                    <BoardCell name="Najma Khan" position="Trustee" portrait={PortraitPlaceholder} bio="Najma Khan is a Trustee of Muslim Community Center. She has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. She is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                    <BoardCell name="Mohammed Shamim" position="Trustee" portrait={PortraitPlaceholder} bio="Mohammed Shamim is a Trustee of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                    <BoardCell name="Akram Zahoor" position="Trustee" portrait={PortraitPlaceholder} bio="Akram Zahoor is a Trustee of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                </BoardBox>                    
+                {/*<IconContainer><Icon src={BackIcon} onClick={handleBackClick}/></IconContainer>*/}
+                <TextContainer>
+                    <h1>Welcome back to MCC!</h1>
+                </TextContainer>
+        
+                <OAuthButtons>
+                    <OAuthButton onClick={handleGoogleSignUp}>Sign in with Google</OAuthButton>
+                    <OAuthButton>Sign in with Apple</OAuthButton>
+                </OAuthButtons>
+        
+                <Divider/>
+        
+                <FormContainer>
+                    <Form onSubmit={handleSignIn}>
+                        <Input 
+                            type="email" 
+                            placeholder="Email" 
+                            value={email}
+                            onChange={e => setEmail(e.target.value)} 
+                        />
+                        <Input 
+                            type="password" 
+                            placeholder="Password" 
+                            value={password}
+                            onChange={e => setPassword(e.target.value)}
+                        />
+                        {invalidLogin && <FormError>Invalid email or password.</FormError>}
+                    </Form>
+                </FormContainer>
+                <Buttons>
+                    <SignInText>Don't have an account? <SignUpLink onClick={handleSignUpClick}>Sign up</SignUpLink>.</SignInText>
+                    <SignInButton onClick={handleSignIn}>Sign In</SignInButton> 
+                </Buttons>
             </Wrapper>
         </>
     )
-}
+};
 
-export default AboutPage
+export default Login;

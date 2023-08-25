@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import styled from 'styled-components';
 
 import { auth, provider } from "../firebase-config";
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 import FacebookIcon from '../assets/facebook-icon-small.png';
 import GoogleIcon from '../assets/google-icon-small.png';
@@ -148,11 +148,22 @@ const Logo = styled.img`
     margin-right: .75rem
 `;
 
+const InputRow = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 85.6%;
+    gap: 1rem;
+`;
+
 function AuthModal({ isOpen, onClose }) {
-  const [isLogin, setIsLogin] = useState(true);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [invalidLogin, setInvalidLogin] = useState(false);
+    const [isLogin, setIsLogin] = useState(true);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [invalidLogin, setInvalidLogin] = useState(false);
 
   const modalRef = useRef(null);
 
@@ -180,13 +191,24 @@ function AuthModal({ isOpen, onClose }) {
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential.accessToken;
                 const user = result.user;
-                navigate('/dashboard');
             }).catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 const email = error.email;
                 const credential = GoogleAuthProvider.credentialFromError(error);
             });
+    };
+
+    const handleSignUp = async (e) => {
+        e.preventDefault();
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            onClose();
+        } catch (error) {
+            console.log(error.code, error.message);
+        }
     };
 
     return (
@@ -212,10 +234,17 @@ function AuthModal({ isOpen, onClose }) {
             ) : (
                 <>
                 <FormContainer>
-                    <Form onSubmit={handleLogin}>
+                    <Form onSubmit={handleSignUp}>
+                        <InputRow>
+                            <Input type="text" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                            <Input type="text" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                        </InputRow>
                         <Input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                        <Input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                        <Button type="submit">Login</Button>
+                        <InputRow>
+                            <Input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <Input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                        </InputRow>
+                        <Button type="submit">Sign Up</Button>
                     </Form>
                     <OAuthButtons>
                         <OAuthButton onClick={handleGoogleLogin}><Logo src={GoogleIcon}/>Sign Up with Google</OAuthButton>

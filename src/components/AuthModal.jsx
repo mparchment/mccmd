@@ -175,6 +175,24 @@ function AuthModal({ isOpen, onClose }) {
 
   const modalRef = useRef(null);
 
+
+  function clearForm() {
+    setEmail("");
+    setPassword("");
+    setFirstName("");
+    setLastName("");
+    setPhoneNumber("");
+    setAddress("");
+    setConfirmPassword("");
+    setInvalidLogin(false);
+  }
+
+  function switchForm() {
+    clearForm();
+    setIsLogin(!isLogin);
+  }
+
+
   const closeModal = (e) => {
     if (modalRef.current && !modalRef.current.contains(e.target)) {
       onClose();
@@ -194,6 +212,8 @@ function AuthModal({ isOpen, onClose }) {
         const userData = userDoc.data();
         // Do something with the user data
         // You might want to set it to state or context
+        onClose();
+        clearForm();
       }
   
     } catch (error) {
@@ -232,6 +252,7 @@ function AuthModal({ isOpen, onClose }) {
               });
 
             onClose();
+            clearForm();
         } catch (error) {
             console.log(error.code, error.message);
         }
@@ -255,7 +276,7 @@ function AuthModal({ isOpen, onClose }) {
                         <OAuthButton onClick={handleGoogleLogin}><Logo src={FacebookIcon}/>Log in with Facebook</OAuthButton>
                     </OAuthButtons>
                 </FormContainer>
-                <SwitchText>Don't have an account? <SwitchLink onClick={() => setIsLogin(false)}>Sign Up</SwitchLink>.</SwitchText>
+                <SwitchText>Don't have an account? <SwitchLink onClick={switchForm}>Sign Up</SwitchLink>.</SwitchText>
             </>
             ) : (
                 <>
@@ -281,7 +302,7 @@ function AuthModal({ isOpen, onClose }) {
                         <OAuthButton onClick={handleGoogleLogin}><Logo src={FacebookIcon}/>Sign Up with Facebook</OAuthButton>
                     </OAuthButtons>
                 </FormContainer>
-                <SwitchText>Already have an account? <SwitchLink onClick={() => setIsLogin(true)}>Log in</SwitchLink>.</SwitchText>
+                <SwitchText>Already have an account? <SwitchLink onClick={switchForm}>Log in</SwitchLink>.</SwitchText>
             </>
             )}
         </ModalContent>

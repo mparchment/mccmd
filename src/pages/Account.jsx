@@ -2,9 +2,10 @@ import { useContext, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { PageBackground } from '../components/PageBackground';
 import AuthContext from '../contexts/AuthContext';
-import { db } from '../firebase-config';
+import { auth, db } from '../firebase-config';
 import { collection, doc, setDoc } from 'firebase/firestore';
-
+import { signOut } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 
 const Wrapper = styled.div`
     display: flex;
@@ -78,9 +79,22 @@ const DashboardDiv = styled.div`
     width: 50%;
 `
 
+const SignOutButton = styled.button`
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    align-self: center;
+`;
+
 function Account() {
     const { userData, updateUserData } = useContext(AuthContext);
     const [accountData, setAccountData] = useState(userData);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setAccountData(userData);
@@ -109,6 +123,15 @@ function Account() {
             console.error("Error updating account: ", error);
         }
     };
+
+    const handleSignOut = () => {
+        signOut(auth).then(() => {
+          console.log("User signed out");
+          navigate("/mccmd/")
+        }).catch((error) => {
+          console.log("Error signing out: ", error);
+        });
+      };
     
     return (
         <>
@@ -137,6 +160,7 @@ function Account() {
 
                                 <SubmitButton type="submit">Update</SubmitButton>
                             </Form>
+                            <SignOutButton onClick={handleSignOut}>Sign Out</SignOutButton>
                         </div>
                     </DashboardDiv>
                 </DashboardContainer>

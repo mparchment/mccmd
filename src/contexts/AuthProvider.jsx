@@ -1,29 +1,47 @@
 import { useEffect, useState } from 'react';
 import AuthContext from './AuthContext';
-import { auth } from '../firebase-config';
+import { auth, db } from '../firebase-config';
 import PropTypes from 'prop-types';
+import { doc, getDoc } from 'firebase/firestore';
 
 const AuthProvider = ({ children }) => {
     const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-    const [userName, setUserName] = useState(null);
+    const [userData, setUserData] = useState({
+        firstName: '',
+        lastName: '',
+        address: '',
+        phoneNumber: '',
+        email: ''
+    });
 
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((user) => {
+        const unsubscribe = auth.onAuthStateChanged(async (user) => {
             if (user) {
                 setIsUserLoggedIn(true);
-                setUserName(user.displayName || "User");
+    
+                const userDoc = await getDoc(doc(db, "users", user.uid));
+                if (userDoc.exists()) {
+                    const userDataFromDb = userDoc.data();
+                    setUserData({
+                        ...userDataFromDb,
+                        uid: user.uid
+                    });
+                }
+    
             } else {
                 setIsUserLoggedIn(false);
-                setUserName(null);
+                setUserData({});
             }
         });
-
+    
         return () => unsubscribe();
     }, []);
+    
+      
 
     const value = {
         isUserLoggedIn,
-        userName
+        userData
     };
 
     return (

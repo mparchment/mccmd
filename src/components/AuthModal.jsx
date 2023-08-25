@@ -1,8 +1,10 @@
 import { useState, useRef } from 'react';
 import styled from 'styled-components';
 
-import { auth, provider } from "../firebase-config";
+import { auth, db, provider } from "../firebase-config";
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+
+import { doc, getDoc, setDoc } from "firebase/firestore"; 
 
 import FacebookIcon from '../assets/facebook-icon-small.png';
 import GoogleIcon from '../assets/google-icon-small.png';
@@ -156,12 +158,18 @@ const InputRow = styled.div`
     gap: 1rem;
 `;
 
+function formatPhoneNumber(phoneNumberString) {
+    return ('' + phoneNumberString).replace(/\D/g, '');
+}
+
 function AuthModal({ isOpen, onClose }) {
     const [isLogin, setIsLogin] = useState(true);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [address, setAddress] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [invalidLogin, setInvalidLogin] = useState(false);
 
@@ -176,14 +184,22 @@ function AuthModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   const handleLogin = async (e) => {
-    e.preventDefault();    
+    e.preventDefault();
     try {
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+  
+      const userDoc = await getDoc(doc(db, "users", user.uid));
+      if (userDoc.exists()) {
+        const userData = userDoc.data();
+        // Do something with the user data
+        // You might want to set it to state or context
+      }
+  
     } catch (error) {
-        console.log(error.code, error.message);
+      console.log(error.code, error.message);
     }
-    };
+  };
 
     const handleGoogleLogin = () => {
         signInWithPopup(auth, provider)
@@ -204,6 +220,16 @@ function AuthModal({ isOpen, onClose }) {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
+            
+            setPhoneNumber(formatPhoneNumber(phoneNumber))
+
+            await setDoc(doc(db, "users", user.uid), {
+                firstName,
+                lastName,
+                address,
+                phoneNumber,
+                email,
+              });
 
             onClose();
         } catch (error) {
@@ -239,7 +265,11 @@ function AuthModal({ isOpen, onClose }) {
                             <Input type="text" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                             <Input type="text" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                         </InputRow>
-                        <Input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <InputRow>
+                            <Input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <Input type="tel" placeholder="Phone Number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+                        </InputRow>
+                        <Input type="text" placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} />
                         <InputRow>
                             <Input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                             <Input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />

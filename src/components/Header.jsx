@@ -137,7 +137,7 @@ const AuthLink = styled.button`
 function Header() {
     const {menuOpen, closeMenu, toggleMenu} = useContext(MenuContext);
     const {hijriMonth, hijriDay, hijriYear} = useContext(TimesContext);
-    const { isUserLoggedIn, userName } = useContext(AuthContext);
+    const { isUserLoggedIn, userData } = useContext(AuthContext);
 
     const [isAuthModalOpen, setAuthModalOpen] = useState(false);
 
@@ -216,7 +216,7 @@ function Header() {
                 {!isMobile && (
                     <AccountInfo>
                     <div>
-                        {isUserLoggedIn ? `Welcome back, ${userName}.` : "Welcome to MCC!"}
+                        {isUserLoggedIn ? `Welcome back, ${userData.firstName}.` : "Welcome to MCC!"}
                     </div>
                     <div>
                         {isUserLoggedIn ? (

@@ -127,7 +127,7 @@ function Dashboard() {
                         </div>
                     </DashboardDiv>
                     <DashboardDiv>
-                        World
+                        
                     </DashboardDiv>
                 </DashboardContainer>
             </Wrapper>

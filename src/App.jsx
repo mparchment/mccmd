@@ -22,6 +22,7 @@ import FoodPantry from './pages/services/FoodPantry.jsx';
 import RefugeeAid from './pages/services/RefugeeAid.jsx';
 import GeneralPrograms from './pages/services/GeneralPrograms.jsx';
 import CreateAccount from './pages/CreateAccount.jsx';
+import Account from './pages/Account.jsx';
 
 import GlobalStyle from './globalStyles';
 import Header from './components/Header';
@@ -76,7 +77,7 @@ function AppContent() {
                 <Route path="/mccmd/committees" element={<Committees />} />
                 <Route path="/mccmd/donate" element={<Donate />} />
                 <Route path="/mccmd/login" element={<Login />} />
-                <Route path="/mccmd/create-account" element={<CreateAccount />} />
+                <Route path="/mccmd/account" element={<Account />} />
                 <Route path="/mccmd/dashboard" element={<Dashboard />} />
                 <Route path="/mccmd/converts" element={<Converts />} />
                 <Route path="/mccmd/food-pantry" element={<FoodPantry />} />

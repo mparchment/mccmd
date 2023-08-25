@@ -79,7 +79,7 @@ const DashboardDiv = styled.div`
 `
 
 function Account() {
-    const { userData } = useContext(AuthContext);
+    const { userData, updateUserData } = useContext(AuthContext);
     const [accountData, setAccountData] = useState(userData);
 
     useEffect(() => {
@@ -101,6 +101,7 @@ function Account() {
                 const userRef = doc(db, "users", userData.uid);
                 await setDoc(userRef, accountData, { merge: true });
                 console.log("Account updated: ", accountData);
+                updateUserData(accountData);
             } else {
                 console.error("userData or db is undefined");
             }

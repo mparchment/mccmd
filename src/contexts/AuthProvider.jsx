@@ -37,11 +37,14 @@ const AuthProvider = ({ children }) => {
         return () => unsubscribe();
     }, []);
     
-      
+    const updateUserData = (newData) => {
+        setUserData(prevData => ({ ...prevData, ...newData }));
+    };
 
     const value = {
         isUserLoggedIn,
-        userData
+        userData,
+        updateUserData
     };
 
     return (

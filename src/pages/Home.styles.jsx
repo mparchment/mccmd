@@ -188,6 +188,10 @@ export const OverlayText = styled.p`
         margin-bottom: 0;
         margin-top: 0;
     }
+
+    @media (max-width: 400px) {
+        font-size: 0.93em;
+    }
 `;
 
 export const OverlayButton = styled(Link)`

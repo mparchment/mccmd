@@ -12,7 +12,6 @@ const GlobalStyle = createGlobalStyle`
 
   p {
     max-width: 850px;
-    align-self: center;
   }
 
   a {

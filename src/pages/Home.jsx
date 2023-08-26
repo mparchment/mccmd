@@ -120,7 +120,7 @@ function Home() {
                 <IntroductionCard>
                     <IntroductionSubtitle>Our Story</IntroductionSubtitle>
                     <div>For over 30 years, MCC has served Montgomery County as more than just a mosque; it's a center for community growth, education, and belonging.</div>
-                    <ReadMoreWrapper><SubdirectoryArrowRightIcon style={{ fontSize: "100%", marginRight: "5px"}}/><ReadMoreLink to="/mccmd/about-us/">Read More</ReadMoreLink></ReadMoreWrapper>
+                    <ReadMoreWrapper><SubdirectoryArrowRightIcon style={{ fontSize: "100%", marginRight: "5px"}}/><ReadMoreLink to="/mccmd/our-story/">Read More</ReadMoreLink></ReadMoreWrapper>
                 </IntroductionCard>
                 <IntroductionCard>
                     <IntroductionSubtitle>Stay Updated</IntroductionSubtitle>
@@ -165,29 +165,35 @@ function Home() {
             <TitleWrapper><ProgramTitle>Services</ProgramTitle><Divider/></TitleWrapper>
             <ServicesWrapper>
                 <ServicesBox>
-                    <ServiceCard subtitle="Converts" to="/mccmd/converts">
-                        Whether you are just interested in Islam, have some questions, or are ready to convert, we are happy to speak to you and guide you through the Shahada. 
-                    </ServiceCard>
-                    <ServiceCard subtitle="Meet the Imam" to="/mccmd/imam">
-                        Book a meeting up to two weeks in advance with the Imam to discuss one of a range of topics. 
+                    <ServiceCard subtitle="Imam Consultation" to="/mccmd/imam">
+                        Schedule a meeting up to two weeks in advance with our Imam for spiritual guidance or to discuss any Islamic topic  that concern you.
                     </ServiceCard>
                     <ServiceCard subtitle="Clinic" to="https://www.mccclinic.org/" external>
                         Our clinic combines health with Islamic values. Serving both Muslims and the larger community, we focus on comprehensive care and community well-being.
                     </ServiceCard>
+                    <ServiceCard subtitle="Converts" to="/mccmd/converts">
+                        Whether you are just interested in Islam, have some questions, or are ready to convert, we are happy to speak to you and answer any questions you have. 
+                    </ServiceCard>
                     <ServiceCard subtitle="Marriage" to="/mccmd/marriage">
                         From premarital counseling to nikah ceremonies, we ensure your union begins with the right blessings and preparations.
                     </ServiceCard>
-                    <ServiceCard subtitle="Janazas" to="/mccmd/janazas">
-                        We ease the burden of bereavement by facilitating preparation of the deceased for burial through use of our dedicated mortuary and leading Janazah prayers. 
+                    <ServiceCard subtitle="Funerals" to="/mccmd/janazas">
+                        Our team assists families in carrying out Islamic burials with respect and timeliness, including janazah prayers and guidance on local funeral services.
                     </ServiceCard>
                     <ServiceCard subtitle="Zakat" to="/mccmd/zakat">
-                        To book rooms for other events or Islamic celebrations, from aqiqas and private gatherings to conferences, we offer rooms at reasonable rates of hire.
+                        We facilitate the collection and distribution of Zakat funds, ensuring they reach those most in need within the community.
                     </ServiceCard>
                     <ServiceCard subtitle="Food Pantry" to="/mccmd/food-pantry">
-                        Book to join us on weekend mornings for a guided walk through our mosque, or on weekdays if you are part of an organisation such as a school or a local community group.
+                        Access essential groceries and food items through our pantry. Open to all, we aim to alleviate food insecurity in our community.
                     </ServiceCard>
                     <ServiceCard subtitle="Refugee Aid" to="/mccmd/refugee-aid">
-                        Book to join us on weekend mornings for a guided walk through our mosque, or on weekdays if you are part of an organisation such as a school or a local community group.
+                        We provide critical support to refugees, including financial aid, medical support, as well as help in acclimating to a new environment.
+                    </ServiceCard>
+                    <ServiceCard subtitle="Domestic Violence" to="/mccmd/general-events">
+                        Reach out to our trained Domestic Violence Ambassadors for confidential support and resource guidance if you or someone you know is facing abuse.
+                    </ServiceCard>
+                    <ServiceCard subtitle="Community Directory" to="/mccmd/directory">
+                        Connect with skilled individuals in our community or offer your expertise. Our directory makes it easy to find help or contribute your talents.
                     </ServiceCard>
                     <ServiceCard subtitle="General Programs" to="/mccmd/general-events">
                         To book rooms for other events or Islamic celebrations, from aqiqas and private gatherings to conferences, we offer rooms at reasonable rates of hire.
@@ -199,3 +205,4 @@ function Home() {
 }
 
 export default Home;
+

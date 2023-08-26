@@ -9,6 +9,8 @@ const Wrapper = styled.div`
     padding: 25px;
     padding-top: 0;
 
+    height: 100vh;
+
     font-size: 14px;
     font-weight: 500;
 

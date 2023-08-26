@@ -135,7 +135,7 @@ function AboutPage() {
                     <BoardCell name="Najma Khan" position="Trustee" portrait={PortraitPlaceholder} bio="Najma Khan is a Trustee of Muslim Community Center. She has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. She is a graduate of the University of Maryland, College Park and works as a software engineer."/>
                     <BoardCell name="Mohammed Shamim" position="Trustee" portrait={PortraitPlaceholder} bio="Mohammed Shamim is a Trustee of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
                     <BoardCell name="Akram Zahoor" position="Trustee" portrait={PortraitPlaceholder} bio="Akram Zahoor is a Trustee of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                </BoardBox>                    
+                </BoardBox>  
             </Wrapper>
         </>
     )

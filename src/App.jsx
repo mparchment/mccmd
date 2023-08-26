@@ -23,6 +23,7 @@ import RefugeeAid from './pages/services/RefugeeAid.jsx';
 import GeneralPrograms from './pages/services/GeneralPrograms.jsx';
 import CreateAccount from './pages/CreateAccount.jsx';
 import Account from './pages/Account.jsx';
+import OurStory from './pages/OurStory.jsx';
 
 import GlobalStyle from './globalStyles';
 import Header from './components/Header';
@@ -70,6 +71,7 @@ function AppContent() {
           {!menuOpen && <Routes>
                 <Route path="/mccmd/" element={<Home />} />
                 <Route path="/mccmd/about-us" element={<About />} />
+                <Route path="/mccmd/our-story" element={<OurStory />} />
                 <Route path="/mccmd/community" element={<Community />} />
                 <Route path="/mccmd/contact-us" element={<ContactUs />} />
                 <Route path="/mccmd/education" element={<Education />} />

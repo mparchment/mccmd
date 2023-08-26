@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { PageBackground } from '../components/PageBackground';
 
-const AboutWrapper = styled.div`
+const GetInvolvedWrapper = styled.div`
     display: flex;
     flex-direction: column;
     padding: 25px;
@@ -35,48 +35,60 @@ const Link = styled.a`
     font-weight: 600;
 `;
 
-function About() {
+function GetInvolved() {
     return (
         <>
             <PageBackground/>
-            <AboutWrapper>
+            <GetInvolvedWrapper>
                 <Title>Get Involved</Title>
                 <div>
                     <h3>Membership</h3>
                     <p>
-                    We invite you to make your mark by becoming a registered member. With a variety of membership options, you can engage in a way that suits your unique capacities and interests. 
+                    We invite you to contribute to the Muslim Community Center by becoming a registered member. With different membership types available, you can engage in a way that aligns with your unique situation and interests.
                     </p>
                     <p>
-                    Membership dues per calendar year are:
-                    </p>
-                    <ul>
-                        <li>Active Member: $100 for an individual, $200 for a family</li>
-                        <li>Associate Member: $50 for an individual, $100 for a family</li>
-                    </ul>
-                    All membership contributions are considered as donations to the masjid and directly support our operating expenses.
-                    <p>
-                    Additionally, the benefits of membership include:
+                    Membership types include:
                     </p>
                     <ul>
-                        <li>Voting Rights (for active members)</li>
-                        <li>Committee Participation (eligibility to be a member of a committee)</li>
+                        <li><strong>Active Individual Member:</strong> $100, open to Muslims over 18 who are citizens or hold certain types of visas.</li>
+                        <li><strong>Active Family Member:</strong> $200, for families with two related adults living in the same home. Max 2 votes per family.</li>
+                        <li><strong>Active Student Member:</strong> $25, for full-time students between 18 to 24 years old in the Washington, D.C. Metropolitan area.</li>
+                        <li><strong>Active Distinguished Member:</strong> Granted to those who have provided exemplary service to the MCC community.</li>
+                        <li><strong>Honorary Member:</strong> Granted to individuals for distinguished service to the Muslim community. No dues required.</li>
                     </ul>
                     <p>
-                    By becoming a member, you are not just contributing to the growth and sustainability of our community, but also getting the opportunity to shape its future. Initiate your membership by filling out <Link href="">this</Link> form.
+                    All membership contributions directly support our operating expenses and are non-refundable.
+                    </p>
+                    <p>
+                    Benefits of being an active member in good standing include:
+                    </p>
+                    <ul>
+                        <li>Voting rights in the general body meeting</li>
+                        <li>Eligibility to hold elected office</li>
+                        <li>Committee participation</li>
+                    </ul>
+                    <p>
+                    Annual dues are payable on <strong>December 1st</strong> of each year. To be eligible for voting in annual general body meetings, membership must be renewed by <strong>January 31st</strong> of that year. Dues may be prorated for new members and can sometimes be paid in installments. Dues waivers may be available upon request.
+                    </p>
+                    <p>
+                    If you allow your membership to lapse for a year or more and wish to rejoin, you'll need to pay the current year’s dues and wait a year to gain voting rights and eligibility to hold elected office.
+                    </p>
+                    <p>
+                    By becoming a member, you are contributing to the growth and sustainability of our community and gaining the opportunity to shape its future. Initiate your membership by filling out <Link href="">this</Link> form.
                     </p>
                 </div>
                 <div>
                     <h3>Volunteering</h3>
                     <p>
-                        Over the past three decades, we have relied upon unrelenting support of the Muslim community. We are always looking for dedicated volunteers to continue to offer several programs and services. 
+                        The Muslim Community Center has thrived on the dedicated support of volunteers for over three decades. We are continually in search of committed individuals to help us offer a range of programs and services.
                     </p>
                     <p>
-                        If you have some time and would like to help, please fill out <Link href="">this</Link> form and we will get back to you as soon as possible.
+                        If you're interested in lending a hand, please fill out <Link href="">this</Link> form, and we will get back to you as soon as possible.
                     </p>
                 </div>
-            </AboutWrapper>
+            </GetInvolvedWrapper>
         </>
     )
 }
 
-export default About
+export default GetInvolved;

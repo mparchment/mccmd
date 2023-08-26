@@ -151,11 +151,17 @@ const Logo = styled.img`
 `;
 
 const InputRow = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 85.6%;
-    gap: 1rem;
+    @media (min-width: 768px){
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 85.6%;
+        gap: 1rem;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 function formatPhoneNumber(phoneNumberString) {

@@ -99,6 +99,10 @@ const DashboardDiv = styled.div`
     width: 50%;
 `
 
+const MembershipStatus = styled.span`
+    color: #27ae60;
+`;
+
 function Dashboard() {
     return (
         <>
@@ -108,9 +112,9 @@ function Dashboard() {
                 <DashboardContainer>
                     <DashboardDiv>
                     <div>
-                            <Subtitle>Membership</Subtitle>
+                            <Subtitle>Membership: <MembershipStatus>Active</MembershipStatus></Subtitle>
                             <ul>
-                                <li>Display date of last paid dues.</li>
+                                <li>Membership was last renewed on <strong>April 8, 2023</strong>.</li>
                                 <li>Link to refer a member with auto-filled PDF for referrals.</li>
                                 <li>Link to renew membership with auto-filled member name.</li>
                             </ul>

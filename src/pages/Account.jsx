@@ -56,19 +56,37 @@ const Input = styled.input`
     margin: 5px 0 20px 0;
 `;
 
+function darkenColor(color, factor) {
+    const f = parseInt(color.slice(1), 16),
+          R = f >> 16,
+          G = (f >> 8) & 0x00FF,
+          B = f & 0x0000FF;
+    
+    return "#" + (1 << 24 | (R * (1 - factor)) << 16 | (G * (1 - factor)) << 8 | (B * (1 - factor))).toString(16).slice(1).toUpperCase();
+}
+
 const SubmitButton = styled.button`
-    padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #b98474; 
+    margin: 10px auto;
     color: white;
     border: none;
-    border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 80%;
+    border-radius: 5px;
+    border: #b98474 solid 1px;
+    margin-bottom: 5px;
+
+    box-shadow: 0 2px 0 ${darkenColor('#b98474', 0.15)};
 `;
 
 const DashboardContainer = styled.div`
     display: flex;
     flex-direction: row;
-    height: 600px;
+    height: fit-content;
+    margin-bottom: 30px;
     gap: 40px;
 
     justify-content: center;
@@ -77,18 +95,27 @@ const DashboardContainer = styled.div`
 const DashboardDiv = styled.div`
     height: 100%;
     width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 `
 
 const SignOutButton = styled.button`
-    padding: 10px 20px;
-    background-color: #f44336;
+    background-color: #c9a99f; 
+    margin: 10px auto;
     color: white;
     border: none;
-    margin-top: 10px;
-    border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
-    width: 100%;
-    align-self: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 80%;
+    border-radius: 5px;
+    border: #c9a99f solid 1px;
+    margin-bottom: 5px;
+
+    box-shadow: 0 2px 0 ${darkenColor('#c9a99f', 0.15)};
 `;
 
 function Account() {
@@ -140,28 +167,26 @@ function Account() {
                 <Title>Account</Title>
                 <DashboardContainer>
                     <DashboardDiv>
-                        <div>
-                            <Subtitle>Account Information</Subtitle>
-                            <Form onSubmit={handleSubmit}>
-                                <Label htmlFor="firstName">First Name</Label>
-                                <Input type="text" id="firstName" name="firstName" value={accountData.firstName} onChange={handleInputChange} />
+                        <Subtitle>Account Information</Subtitle>
+                        <Form onSubmit={handleSubmit}>
+                            <Label htmlFor="firstName">First Name</Label>
+                            <Input type="text" id="firstName" name="firstName" value={accountData.firstName} onChange={handleInputChange} />
 
-                                <Label htmlFor="lastName">Last Name</Label>
-                                <Input type="text" id="lastName" name="lastName" value={accountData.lastName} onChange={handleInputChange} />
+                            <Label htmlFor="lastName">Last Name</Label>
+                            <Input type="text" id="lastName" name="lastName" value={accountData.lastName} onChange={handleInputChange} />
 
-                                <Label htmlFor="address">Address</Label>
-                                <Input type="text" id="address" name="address" value={accountData.address} onChange={handleInputChange} />
+                            <Label htmlFor="address">Address</Label>
+                            <Input type="text" id="address" name="address" value={accountData.address} onChange={handleInputChange} />
 
-                                <Label htmlFor="phoneNumber">Phone Number</Label>
-                                <Input type="tel" id="phoneNumber" name="phoneNumber" value={accountData.phoneNumber} onChange={handleInputChange} />
+                            <Label htmlFor="phoneNumber">Phone Number</Label>
+                            <Input type="tel" id="phoneNumber" name="phoneNumber" value={accountData.phoneNumber} onChange={handleInputChange} />
 
-                                <Label htmlFor="email">Email</Label>
-                                <Input type="email" id="email" name="email" value={accountData.email} onChange={handleInputChange} />
+                            <Label htmlFor="email">Email</Label>
+                            <Input type="email" id="email" name="email" value={accountData.email} onChange={handleInputChange} />
 
-                                <SubmitButton type="submit">Update</SubmitButton>
-                            </Form>
-                            <SignOutButton onClick={handleSignOut}>Sign Out</SignOutButton>
-                        </div>
+                            <SubmitButton type="submit">Update</SubmitButton>
+                        </Form>
+                        <SignOutButton onClick={handleSignOut}>Sign Out</SignOutButton>
                     </DashboardDiv>
                 </DashboardContainer>
             </Wrapper>

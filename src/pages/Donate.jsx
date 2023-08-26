@@ -210,7 +210,7 @@ const VisaButton = styled.button`
 `;
 
 const PaypalButton = styled.button`
-    background-color: #e0c2b9;  // A typical color for PayPal branding
+    background-color: #c9a99f;  // A typical color for PayPal branding
     margin: 10px auto;
     color: white;
     border: none;
@@ -220,9 +220,9 @@ const PaypalButton = styled.button`
     font-weight: bold;
     width: 80%;
     border-radius: 5px;
-    border: #e0c2b9 solid 1px;
+    border: #c9a99f solid 1px;
     
-    box-shadow: 2px 2px 0 ${darkenColor('#e0c2b9', 0.15)};
+    box-shadow: 2px 2px 0 ${darkenColor('#c9a99f', 0.15)};
 `;
 
 const DonationButtons = styled.div`

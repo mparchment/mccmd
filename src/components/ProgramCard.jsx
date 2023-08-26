@@ -50,6 +50,10 @@ const AlignWrapper = styled.div`
 const Image = styled.img`
     width: 100%;
     border-radius: 5px;
+
+    @media (max-width: 400px) {
+        width: 85%;
+    }
 `;
 
 const ProgramCard = ({ imgSrc, title, text, time, location, date }) => (

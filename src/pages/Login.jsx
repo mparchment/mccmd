@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { PageBackground } from '../components/PageBackground';
 
-import { auth, provider } from "../firebase-config";
+import { auth, googleProvider } from "../firebase-config";
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 import { useState } from 'react';

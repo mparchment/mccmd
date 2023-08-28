@@ -5,7 +5,7 @@ const Cell = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 250px;
+    width: 275px;
     margin: 0 auto;
 `;
 
@@ -33,7 +33,7 @@ const Portrait = styled.img`
 `;
 
 const CellBio = styled.p`
-
+    text-align: center;
 `
 
 function BoardCell({ name, portrait, position, bio}){

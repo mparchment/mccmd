@@ -113,28 +113,35 @@ function AboutPage() {
                 <ImamTitle>Muhammad Abdullahi</ImamTitle>
                 <ImamSubtitle>Imam</ImamSubtitle>
 
-                <p>Shaykh Mohamed Abdullahi is the Imam at the Muslim Community Center, where he leads congregational, jumu'ah and janazah prayers, and teaches tafsir, fiqh and hadith.</p>
-                <p>After completing memorization of the Qur'an at the age of eleven, Shaykh Mohamed went on to study the Shari'ah and gained comprehensive knowledge of Hadith and Fiqh. He graduated with Honors in Licentiate in Arabic Language and Islamic Studies from Al-Azhar University in Cairo, Egypt. He also holds a diploma in Shari'ah from the National Somali University in Mogadishu, Somalia. He is a certified Qari in three styles of recitation and has command of Arabic, Somali, Swahili and English.</p>
+                <p style={{ alignSelf: 'center'}}>Shaykh Mohamed Abdullahi is the Imam at the Muslim Community Center, where he leads jama'ah prayers, and teaches Qur'an, fiqh and hadith. After completing memorization of the Qur'an at the age of eleven, Shaykh Mohamed went on to study the Shari'ah and gained comprehensive knowledge of Hadith and Fiqh. He graduated with Honors in Licentiate in Arabic Language and Islamic Studies from Al-Azhar University in Cairo, Egypt. He also holds a diploma in Shari'ah from the National Somali University in Mogadishu, Somalia. He is a certified Qari in three styles of recitation and has command of Arabic, Somali, Swahili and English.</p>
 
                 <BoardHeading>Board of Directors</BoardHeading>
 
                 <BoardBox>
-                    <BoardCell name="Usman Sarwar" position="President" portrait={PortraitPlaceholder} bio="Usman Sarwar is the President of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                    <BoardCell name="Ishtiaq Chugtai" position="Treasurer" portrait={PortraitPlaceholder} bio="Ishtiaq Chugtai is the Treasurer of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                    <BoardCell name="Junaid Shah" position="Secretary" portrait={PortraitPlaceholder} bio="Junaid Shah is the Secretary of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                    <BoardCell name="Habib Ghanim" position="Director" portrait={PortraitPlaceholder} bio="Habib Ghanim is a Director of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                    <BoardCell name="Shaina Ayers" position="Director" portrait={PortraitPlaceholder} bio="Shaina Ayers is a Director of Muslim Community Center. She has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. She is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                    <BoardCell name="Ashraf Sufi" position="Director" portrait={PortraitPlaceholder} bio="Ashraf Sufi is a Director of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
+                    <BoardCell name="Usman Sarwar" position="President" portrait={PortraitPlaceholder} bio="Usman Sarwar serves as the President of the Muslim Community Center and has been a stalwart community member for over two decades. With a degree in Electrical Engineering from the University of Maryland, he is a technology advocate and works in the field of renewable energy. His leadership focuses on sustainable community development." />
+
+                    <BoardCell name="Ishtiaq Chugtai" position="Treasurer" portrait={PortraitPlaceholder} bio="Ishtiaq Chugtai, the Treasurer, is a financial consultant by profession. A member for over 20 years, he has used his expertise to ensure the financial stability of the center. He holds a Master's in Business Administration and is passionate about youth development programs." />
+
+                    <BoardCell name="Junaid Shah" position="Secretary" portrait={PortraitPlaceholder} bio="Junaid Shah serves as the Secretary and is a public health advocate. A graduate in Public Health from the University of Maryland, he has initiated several health and wellness programs at the center. His years of community service have enriched the organization's social initiatives." />
+
+                    <BoardCell name="Habib Ghanim" position="Director" portrait={PortraitPlaceholder} bio="Habib Ghanim is a Director and a community builder with a background in Civil Engineering. He focuses on infrastructure projects for the center and oversees maintenance and improvement initiatives. His meticulous planning skills have been an asset in the center’s growth." />
+
+                    <BoardCell name="Shaina Ayers" position="Director" portrait={PortraitPlaceholder} bio="Shaina Ayers is a Director with a focus on digital communications and engagement. Holding a degree in Communications from the University of Maryland, she has enhanced the center's online presence significantly. Shaina is committed to fostering strong relationships within the community through social media." />
+
                 </BoardBox>
                 
                 <BoardHeading>Board of Trustees</BoardHeading>
 
                 <BoardBox>
-                    <BoardCell name="Lubna Ejaz" position="Chair" portrait={PortraitPlaceholder} bio="Lubna Ejaz is the Chair of Muslim Community Center. She has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. She is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                    <BoardCell name="Sabir Rahman" position="Secretary" portrait={PortraitPlaceholder} bio="Sabir Rahman is the Secretary of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                    <BoardCell name="Najma Khan" position="Trustee" portrait={PortraitPlaceholder} bio="Najma Khan is a Trustee of Muslim Community Center. She has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. She is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                    <BoardCell name="Mohammed Shamim" position="Trustee" portrait={PortraitPlaceholder} bio="Mohammed Shamim is a Trustee of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
-                    <BoardCell name="Akram Zahoor" position="Trustee" portrait={PortraitPlaceholder} bio="Akram Zahoor is a Trustee of Muslim Community Center. He has been a member of the community for over 20 years and has served on the Board of Directors for 10 years. He is a graduate of the University of Maryland, College Park and works as a software engineer."/>
+                    <BoardCell name="Lubna Ejaz" position="Chair" portrait={PortraitPlaceholder} bio="Lubna Ejaz, the Chair, has a legal background and champions the center's governance. A law graduate, she has served on various civic boards and brings a wealth of experience in organizational leadership." />
+
+                    <BoardCell name="Sabir Rahman" position="Secretary" portrait={PortraitPlaceholder} bio="Sabir Rahman is the Secretary of the Board of Trustees and is an entrepreneur with multiple business ventures. His keen interest in community-based economic development projects has led to several partnerships and sponsorships for the center." />
+
+                    <BoardCell name="Najma Khan" position="Trustee" portrait={PortraitPlaceholder} bio="Najma Khan is a Trustee and an educator. She has contributed to the center’s educational programs, particularly in the children’s Islamic studies section. Her years of teaching experience make her an invaluable asset to the community’s educational growth." />
+
+                    <BoardCell name="Mohammed Shamim" position="Trustee" portrait={PortraitPlaceholder} bio="Mohammed Shamim is a Trustee and works in the healthcare sector. With a background in medicine, he has been instrumental in organizing medical camps and awareness sessions, contributing to the overall well-being of the community." />
+
+                    <BoardCell name="Akram Zahoor" position="Trustee" portrait={PortraitPlaceholder} bio="Akram Zahoor, a Trustee, is a researcher with a focus on Islamic history and culture. His scholarly activities have resulted in a rich and diversified range of educational programs at the center. He has authored several articles and books on Islamic studies." />
                 </BoardBox>  
             </Wrapper>
         </>

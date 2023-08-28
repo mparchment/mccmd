@@ -72,6 +72,7 @@ const Button = styled.button`
     padding: 15px 15px;
     margin-right: 10px;
     text-transform: uppercase;
+    cursor: pointer;
 `;
 
 
@@ -111,7 +112,64 @@ const IntroParagraph = styled.p`
 `;
 
 function ContactUs() {
-    const [inquiryType, setInquiryType] = useState('general');
+  const [inquiryType, setInquiryType] = useState('general');
+  const [formData, setFormData] = useState({
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+  });
+  const [formErrors, setFormErrors] = useState({
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+  });
+
+  const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      setFormData({
+          ...formData,
+          [name]: value,
+      });
+  };
+
+  const validateForm = () => {
+      let isValid = true;
+      let errors = {};
+
+      if (formData.name.trim() === '') {
+          errors.name = 'Name is required.';
+          isValid = false;
+      }
+
+      if (formData.email.trim() === '' || !formData.email.includes('@')) {
+          errors.email = 'Valid email is required.';
+          isValid = false;
+      }
+
+      if (formData.subject.trim() === '') {
+          errors.subject = 'Subject is required.';
+          isValid = false;
+      }
+
+      if (formData.message.trim() === '') {
+          errors.message = 'Message is required.';
+          isValid = false;
+      }
+
+      setFormErrors(errors);
+      return isValid;
+  };
+
+  const handleSubmit = (e) => {
+      e.preventDefault();
+
+      if (validateForm()) {
+          console.log('Form is valid. Submitting...');
+          // Your form submission logic here
+      }
+  };
   
     const handleInquirySelection = (type) => {
       setInquiryType(type);
@@ -137,10 +195,10 @@ function ContactUs() {
             );
           case 'concerns':
             return (
-              <>
-                <p>Muslim Community Center views complaints as an opportunity for growth and improvement. Our aim is to resolve your concerns in a fair and timely manner, ensuring a positive relationship with our community.</p>
-                <p>Complaints can be made by any individual or organization with a justifiable interest in Muslim Community Center. For written complaints, please send to: Concerns & Complaints, Muslim Community Center, Address, City, ZIP, Country. Verbal complaints can be made by phone at [your phone number] or in person to a staff member. We aim to acknowledge complaints within 7 working days and resolve them within 28 working days where possible.</p>
-              </>
+                <>
+                    <p>Muslim Community Center views complaints as an opportunity for growth and improvement. Our aim is to resolve your concerns in a fair and timely manner, ensuring a positive relationship with our community.</p>
+                    <p>Complaints can be made by any individual or organization with a justifiable interest in Muslim Community Center. For written complaints, please send to: Concerns & Complaints, Muslim Community Center, Address, City, ZIP, Country. Verbal complaints can be made by phone at [your phone number] or in person to a staff member. We aim to acknowledge complaints within 7 working days and resolve them within 28 working days where possible.</p>
+                </>
             );
           default:
             return '';
@@ -171,15 +229,45 @@ function ContactUs() {
               {getInquiryDescription(inquiryType)}
             </InquiryDescription>
             <div>
-              <form>
-                <FormInputs>
-                    <Input type="text" placeholder="Name *"/>
-                    <Input type="text" placeholder="Email *"/>
-                    <Input type="text" placeholder="Subject *"/>
-                    <TextArea placeholder="Your Message *"/>
-                </FormInputs>
-                <Button>Send Message</Button>
-              </form>
+                <form onSubmit={handleSubmit}>
+                    <FormInputs>
+                        <Input 
+                            type="text" 
+                            name="name" 
+                            placeholder="Name *" 
+                            value={formData.name}
+                            onChange={handleInputChange}
+                        />
+                        {formErrors.name && <div style={{ color: 'red' }}>{formErrors.name}</div>}
+                        
+                        <Input 
+                            type="text" 
+                            name="email" 
+                            placeholder="Email *" 
+                            value={formData.email}
+                            onChange={handleInputChange}
+                        />
+                        {formErrors.email && <div style={{ color: 'red' }}>{formErrors.email}</div>}
+                        
+                        <Input 
+                            type="text" 
+                            name="subject" 
+                            placeholder="Subject *" 
+                            value={formData.subject}
+                            onChange={handleInputChange}
+                        />
+                        {formErrors.subject && <div style={{ color: 'red' }}>{formErrors.subject}</div>}
+                        
+                        <TextArea 
+                            name="message"
+                            placeholder="Your Message *" 
+                            value={formData.message}
+                            onChange={handleInputChange}
+                        />
+                        {formErrors.message && <div style={{ color: 'red' }}>{formErrors.message}</div>}
+                    </FormInputs>
+                    <Button type="submit">Send Message</Button>
+                </form>
             </div>
           </>
         )}

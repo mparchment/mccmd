@@ -43,6 +43,16 @@ Developing a comprehensive website for MCC. See the live website [here](https://
     - [ ] Redesign events section of homepage.
   - [ ] Modify header to appear when scrolling up.
   - [ ] Fix OAuth sign up and login.
+  - [ ] Work on SEO for the website.
+    - [ ] Build and submit a sitemap for SEO.
+    - [ ] For SEO, make sure that each page has a unique URL.
+    - [ ] Add textual explanations to visual content.
+      - [ ] For product category pages, include textual context for each image.
+    - [ ] Add descriptive title and meta descriptions for each page.
+    - [ ] Utilize semantic HTML markup for content.
+      - [ ] Replace any plugin-based content (e.g., Java, Silverlight) with semantic HTML.
+    - [ ] For single-page JavaScript apps, ensure each screen or content piece has a unique URL.
+
 ### References
 
 - [Masjid DarusSalam](https://masjidds.org/)

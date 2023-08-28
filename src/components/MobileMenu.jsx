@@ -71,7 +71,7 @@ const MCCLiveLink = styled.a`
 `;
 
 function MobileMenu() {
-    const {toggleMenu} = useContext(MenuContext);
+    const { toggleMenu } = useContext(MenuContext);
     const [servicesOpen, setServicesOpen] = useState(false);
 
     const handleServicesClick = () => {
@@ -80,7 +80,6 @@ function MobileMenu() {
 
     const handleMenuClick = () => {
         toggleMenu();
-        // setServicesOpen(false);
     }
 
     return (
@@ -88,25 +87,27 @@ function MobileMenu() {
             <MenuLink to="/mccmd/about-us" onClick={handleMenuClick}>About Us</MenuLink>
             <MenuLink to="#" onClick={handleServicesClick}>Services</MenuLink>
             {servicesOpen && <>
-                <ServiceLink to="/mccmd/imam" onClick={handleMenuClick}>Shahadas</ServiceLink>
-                <ServiceLink to="/mccmd/imam" onClick={handleMenuClick}>Meet the Imam</ServiceLink>
-                <ServiceLink to="/mccmd/clinic" onClick={handleMenuClick}>Clinic</ServiceLink>
-                <ServiceLink to="/mccmd/zakat" onClick={handleMenuClick}>Nikahs</ServiceLink>
-                <ServiceLink to="/mccmd/janazahs" onClick={handleMenuClick}>Janazahs</ServiceLink>
+                <ServiceLink to="/mccmd/imam" onClick={handleMenuClick}>Imam Consultation</ServiceLink>
+                <ServiceLink to="https://www.mccclinic.org/" onClick={handleMenuClick}>Clinic</ServiceLink>
+                <ServiceLink to="/mccmd/converts" onClick={handleMenuClick}>Converts</ServiceLink>
+                <ServiceLink to="/mccmd/marriage" onClick={handleMenuClick}>Marriage</ServiceLink>
+                <ServiceLink to="/mccmd/janazas" onClick={handleMenuClick}>Funerals</ServiceLink>
                 <ServiceLink to="/mccmd/zakat" onClick={handleMenuClick}>Zakat</ServiceLink>
                 <ServiceLink to="/mccmd/food-pantry" onClick={handleMenuClick}>Food Pantry</ServiceLink>
                 <ServiceLink to="/mccmd/refugee-aid" onClick={handleMenuClick}>Refugee Aid</ServiceLink>
-                <ServiceLink to="/mccmd/general-events" onClick={handleMenuClick}>General Events</ServiceLink>
+                <ServiceLink to="/mccmd/general-events" onClick={handleMenuClick}>Domestic Abuse</ServiceLink>
             </>}
             <MenuLink to="/mccmd/education" onClick={handleMenuClick}>Education</MenuLink>
             <MenuLink to="/mccmd/community" onClick={handleMenuClick}>Community</MenuLink>
             <MenuLink to="/mccmd/get-involved" onClick={handleMenuClick}>Get Involved</MenuLink>
+            <MenuLink to="/mccmd/committees" onClick={handleMenuClick}>Committees</MenuLink> {/* Added this line */}
             <MenuLink to="/mccmd/contact-us" onClick={handleMenuClick}>Contact Us</MenuLink>
-            <MCCLiveLink href="https://www.youtube.com/@MCCMD" onClick={handleMenuClick}>MCC Live</MCCLiveLink>
+            <MenuLink to="/mccmd/donate" onClick={handleMenuClick}>Donate</MenuLink> {/* Added this line */}
+            {/*<MCCLiveLink href="https://www.youtube.com/@MCCMD" onClick={handleMenuClick}>MCC Live</MCCLiveLink>*/}
             <Icons>
-                <IconLink href='https://www.facebook.com/mccmaryland/'><FacebookIcon style={{ fontSize: '175%' }}/></IconLink>
-                <IconLink href='https://www.instagram.com/mccmaryland/'><InstagramIcon style={{ fontSize: '175%' }}/></IconLink>
-                <IconLink href='https://www.youtube.com/@MCCMD'><YouTubeIcon style={{ fontSize: '175%' }}/></IconLink>
+                <IconLink href='https://www.facebook.com/mccmaryland/'><FacebookIcon style={{ fontSize: '175%' }} /></IconLink>
+                <IconLink href='https://www.instagram.com/mccmaryland/'><InstagramIcon style={{ fontSize: '175%' }} /></IconLink>
+                <IconLink href='https://www.youtube.com/@MCCMD'><YouTubeIcon style={{ fontSize: '175%' }} /></IconLink>
             </Icons>
         </Menu>
     )

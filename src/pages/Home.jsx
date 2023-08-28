@@ -192,9 +192,9 @@ function Home() {
                     <ServiceCard subtitle="Domestic Abuse" to="/mccmd/general-events">
                         Reach out to our trained Domestic Violence Ambassadors for confidential support and resource guidance if you or someone you know is facing abuse.
                     </ServiceCard>
-                    <ServiceCard subtitle="General Programs" to="/mccmd/general-events">
+                    {/*<ServiceCard subtitle="General Programs" to="/mccmd/general-events">
                         To book rooms for other events or Islamic celebrations, from aqiqas and private gatherings to conferences, we offer rooms at reasonable rates of hire.
-                    </ServiceCard>
+                    </ServiceCard>*/}
                 </ServicesBox>
             </ServicesWrapper>
         </>

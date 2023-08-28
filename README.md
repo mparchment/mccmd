@@ -5,7 +5,7 @@ Developing a comprehensive website for MCC. See the live website [here](https://
 ### Development Tasks
 
 - **Website Review Comments**
-  - [ ] Implement a page for noting social media handles.
+  - [X] Implement a page for noting social media handles.
   - [X] Develop a committees page to show active committees and respective chairs.
   - [X] Fix the staggered layout on the Community page - make all organizations even on the same line.
   - [X] Make the Contact Us page sectioned into general questions, feedback, or suggestions; imam inquiries, and rentals.
@@ -36,7 +36,7 @@ Developing a comprehensive website for MCC. See the live website [here](https://
   - [ ] Start automated frontend testing.
     - [ ] Explore Jest.
     - [ ] Explore Cypress.
-  - [ ] Display social media and WhatsApp links prominently.
+  - [X] Display social media and WhatsApp links prominently.
   - [X] Plan out dashboard, authentication, and login.
   - [ ] Automatic prayer time updates using MasjidBox API.
   - [ ] Prototype events calendar.

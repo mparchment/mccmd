@@ -62,7 +62,8 @@ const DonationButton = styled.button`
   border: 1px solid black;
   padding: 5px 10px;
   cursor: pointer;
-  border-radius: ${({ position }) => position === 'left' ? '5px 0 0 5px' : position === 'right' ? '0 5px 5px 0' : '5px'};
+  border-radius: ${({ $position }) => $position === 'left' ? '5px 0 0 5px' : $position === 'right' ? '0 5px 5px 0' : '5px'};
+
   width: 200px;
   height: 50px;
   border: rgba(0, 0, 0, 0.34) solid 1px;
@@ -177,7 +178,7 @@ const DonationInfo = styled.div`
     gap: 20px;
 `;
 
-const DonationDisclaimer = styled.p`
+const DonationDisclaimer = styled.div`
     font-size: .8rem;
     width: 80%;
     margin: 0 auto;
@@ -261,7 +262,7 @@ const ImageWrapper = styled.div`
     }
 `;
 
-const ImageText = styled.p`
+const ImageText = styled.div`
     margin-left: 20px;
     margin-bottom: 25px;
 `;

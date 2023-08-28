@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { PageBackground } from '../components/PageBackground';
 import { useState } from 'react';
+import emailjs from '@emailjs/browser'
 
 const ContactUsWrapper = styled.div`
     display: flex;
@@ -99,7 +100,7 @@ const InquiryButton = styled.button`
   }
 `;
 
-const InquiryDescription = styled.p`
+const InquiryDescription = styled.div`
   margin-top: 15px;
   margin-bottom: 0;
   font-weight: 500;
@@ -112,64 +113,92 @@ const IntroParagraph = styled.p`
 `;
 
 function ContactUs() {
-  const [inquiryType, setInquiryType] = useState('general');
-  const [formData, setFormData] = useState({
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-  });
-  const [formErrors, setFormErrors] = useState({
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-  });
+    const [inquiryType, setInquiryType] = useState('general');
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+    });
+    const [formErrors, setFormErrors] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+    });
 
-  const handleInputChange = (e) => {
-      const { name, value } = e.target;
-      setFormData({
-          ...formData,
-          [name]: value,
-      });
-  };
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    };
 
-  const validateForm = () => {
-      let isValid = true;
-      let errors = {};
+    const validateForm = () => {
+        let isValid = true;
+        let errors = {};
 
-      if (formData.name.trim() === '') {
-          errors.name = 'Name is required.';
-          isValid = false;
-      }
+        if (formData.name.trim() === '') {
+            errors.name = 'Name is required.';
+            isValid = false;
+        }
 
-      if (formData.email.trim() === '' || !formData.email.includes('@')) {
-          errors.email = 'Valid email is required.';
-          isValid = false;
-      }
+        if (formData.email.trim() === '' || !formData.email.includes('@')) {
+            errors.email = 'Valid email is required.';
+            isValid = false;
+        }
 
-      if (formData.subject.trim() === '') {
-          errors.subject = 'Subject is required.';
-          isValid = false;
-      }
+        if (formData.subject.trim() === '') {
+            errors.subject = 'Subject is required.';
+            isValid = false;
+        }
 
-      if (formData.message.trim() === '') {
-          errors.message = 'Message is required.';
-          isValid = false;
-      }
+        if (formData.message.trim() === '') {
+            errors.message = 'Message is required.';
+            isValid = false;
+        }
 
-      setFormErrors(errors);
-      return isValid;
-  };
+        setFormErrors(errors);
+        return isValid;
+    };
 
-  const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
       e.preventDefault();
-
+    
       if (validateForm()) {
-          console.log('Form is valid. Submitting...');
-          // Your form submission logic here
+        const formElement = e.target;
+        const hiddenInquiryTypeInput = formElement.querySelector('input[name="inquiryType"]');
+        if (hiddenInquiryTypeInput) {
+          hiddenInquiryTypeInput.value = getDescriptiveInquiryType(inquiryType);
+        }
+    
+        let selectedTemplateId;
+    
+        if (inquiryType === 'imam') {
+          selectedTemplateId = import.meta.env.VITE_EMAILJS_IMAM_TEMPLATEID;
+        } else {
+          selectedTemplateId = import.meta.env.VITE_EMAILJS_DEFAULT_TEMPLATEID;
+        }
+    
+        if (!selectedTemplateId) {
+          console.log('No template ID matched for the selected inquiry type.');
+          return;
+        }
+    
+        emailjs.sendForm(
+          import.meta.env.VITE_EMAILJS_SERVICEID, 
+          selectedTemplateId, 
+          formElement, 
+          import.meta.env.VITE_EMAILJS_PUBLICKEY
+        )
+        .then((result) => {
+          console.log(result.text);
+        }, (error) => {
+          console.log(error.text);
+        });
       }
-  };
+    };
   
     const handleInquirySelection = (type) => {
       setInquiryType(type);
@@ -195,14 +224,25 @@ function ContactUs() {
             );
           case 'concerns':
             return (
-                <>
-                    <p>Muslim Community Center views complaints as an opportunity for growth and improvement. Our aim is to resolve your concerns in a fair and timely manner, ensuring a positive relationship with our community.</p>
-                    <p>Complaints can be made by any individual or organization with a justifiable interest in Muslim Community Center. For written complaints, please send to: Concerns & Complaints, Muslim Community Center, Address, City, ZIP, Country. Verbal complaints can be made by phone at [your phone number] or in person to a staff member. We aim to acknowledge complaints within 7 working days and resolve them within 28 working days where possible.</p>
-                </>
+              <>
+                <p>Muslim Community Center views complaints as an opportunity for growth and improvement. Our aim is to resolve your concerns in a fair and timely manner, ensuring a positive relationship with our community.</p>
+                <p>Complaints can be made by any individual or organization with a justifiable interest in Muslim Community Center. For written complaints, please send to: Concerns & Complaints, Muslim Community Center, Address, City, ZIP, Country. Verbal complaints can be made by phone at [your phone number] or in person to a staff member. We aim to acknowledge complaints within 7 working days and resolve them within 28 working days where possible.</p>
+              </>
             );
           default:
             return '';
         }
+      };
+
+      const getDescriptiveInquiryType = (type) => {
+        const inquiryTypeMap = {
+          'general': 'General Inquiries',
+          'feedback': 'Feedback and Suggestions',
+          'imam': 'Imam Inquiries',
+          'rentals': 'Rental Requests',
+          'concerns': 'Concerns and Complaints'
+        };
+        return inquiryTypeMap[type] || 'Unknown Inquiry Type';
       };
            
   return (
@@ -230,6 +270,7 @@ function ContactUs() {
             </InquiryDescription>
             <div>
                 <form onSubmit={handleSubmit}>
+                  <input type="hidden" name="inquiryType" value={getDescriptiveInquiryType(inquiryType)} />
                     <FormInputs>
                         <Input 
                             type="text" 

@@ -330,3 +330,7 @@ export const IconLink = styled.a`
     color: inherit;
     text-decoration: none;
 `;
+
+export const Icon = styled.img`
+    width: 30px;
+`;

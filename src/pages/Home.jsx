@@ -2,7 +2,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSwipeable } from 'react-swipeable';
 
-
 import SubdirectoryArrowRightIcon from '@mui/icons-material/SubdirectoryArrowRight';
 
 import useIsMobile from '../hooks/useIsMobile';
@@ -37,13 +36,14 @@ import {
     SlideContent,
     FollowUsLink,
     Icons,
-    IconLink
+    IconLink,
+    Icon
 } from './Home.styles';
 
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import FacebookIcon from '../assets/facebook-color.png';
+import InstagramIcon from '../assets/instagram-color.png';
+import WhatsAppIcon from '../assets/whatsapp-color.png';
+import YouTubeIcon from '../assets/youtube-color.png';
 
 import Placeholder1 from '../assets/placeholder-1.jpg';
 import Placeholder2 from '../assets/placeholder-2.jpg';
@@ -143,10 +143,11 @@ function Home() {
                     <div>Connect with us on our social media channels and stay updated with our WhatsApp broadcasts. Dive deep into our community, wherever you are.</div>
                     <ReadMoreWrapper></ReadMoreWrapper>
                     <Icons>
-                        <IconLink href='https://chat.whatsapp.com/EIqeR0Msl2ZB4AjSQBgdgH'><WhatsAppIcon style={{ fontSize: '200%' }} /></IconLink>
-                        <IconLink href='https://www.instagram.com/mccmaryland/'><InstagramIcon style={{ fontSize: '200%' }} /></IconLink>
-                        <IconLink href='https://www.facebook.com/mccmaryland/'><FacebookIcon style={{ fontSize: '200%' }} /></IconLink>
-                        <IconLink href='https://www.youtube.com/@MCCMD'><YouTubeIcon style={{ fontSize: '200%' }} /></IconLink>
+                        <IconLink href='https://chat.whatsapp.com/EIqeR0Msl2ZB4AjSQBgdgH'><Icon src={WhatsAppIcon}/></IconLink>
+                        <IconLink href='https://www.youtube.com/@MCCMD'><Icon src={YouTubeIcon}/></IconLink>
+                        <IconLink href='https://www.facebook.com/mccmaryland/'><Icon src={FacebookIcon}/></IconLink>
+                        <IconLink href='https://www.instagram.com/mccmaryland/'><Icon src={InstagramIcon}/></IconLink>
+
                     </Icons>
                 </IntroductionCard>
                 <IntroductionCard>

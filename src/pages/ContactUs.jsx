@@ -13,7 +13,7 @@ const ContactUsWrapper = styled.div`
     font-size: 14px;
     font-weight: 500;
 
-    height: 100vh;
+    min-height: 100vh;
 
     @media (min-width:1366px) {
         width: 50%;

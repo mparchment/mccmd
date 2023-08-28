@@ -2,6 +2,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import MenuContext from '../contexts/MenuContext';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -48,6 +49,7 @@ const ServiceLink = styled(Link)`
 const Icons = styled.div`
     display: flex;
     justify-content: center;
+    align-items: center;
     align-self: center;
     gap: 10px;
     margin-top: 30px;
@@ -106,8 +108,9 @@ function MobileMenu() {
             {/*<MCCLiveLink href="https://www.youtube.com/@MCCMD" onClick={handleMenuClick}>MCC Live</MCCLiveLink>*/}
             <Icons>
                 <IconLink href='https://www.facebook.com/mccmaryland/'><FacebookIcon style={{ fontSize: '175%' }} /></IconLink>
+                <IconLink href='https://www.youtube.com/@MCCMD'><YouTubeIcon style={{ fontSize: '215%' }} /></IconLink>
                 <IconLink href='https://www.instagram.com/mccmaryland/'><InstagramIcon style={{ fontSize: '175%' }} /></IconLink>
-                <IconLink href='https://www.youtube.com/@MCCMD'><YouTubeIcon style={{ fontSize: '175%' }} /></IconLink>
+                <IconLink href='https://chat.whatsapp.com/EIqeR0Msl2ZB4AjSQBgdgH'><WhatsAppIcon style={{ fontSize: '175%' }} /></IconLink>
             </Icons>
         </Menu>
     )

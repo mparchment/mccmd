@@ -40,10 +40,10 @@ import {
     Icon
 } from './Home.styles';
 
-import FacebookIcon from '../assets/facebook-color.png';
-import InstagramIcon from '../assets/instagram-color.png';
-import WhatsAppIcon from '../assets/whatsapp-color.png';
-import YouTubeIcon from '../assets/youtube-color.png';
+import FacebookIcon from '../assets/facebook-black.png';
+import InstagramIcon from '../assets/instagram-black.png';
+import WhatsAppIcon from '../assets/whatsapp-black.png';
+import YouTubeIcon from '../assets/youtube-black.png';
 
 import Placeholder1 from '../assets/placeholder-1.jpg';
 import Placeholder2 from '../assets/placeholder-2.jpg';
@@ -138,16 +138,14 @@ function Home() {
                     <div>For over 30 years, MCC has served Montgomery County as more than just a mosque; it's a center for community growth, education, and belonging.</div>
                     <ReadMoreWrapper><SubdirectoryArrowRightIcon style={{ fontSize: "100%", marginRight: "5px"}}/><ReadMoreLink to="/mccmd/our-story/">Read More</ReadMoreLink></ReadMoreWrapper>
                 </IntroductionCard>
-                <IntroductionCard style={{ gap: '5px' }}>
-                    <IntroductionSubtitle style={{ paddingBottom: '5px'}}>Stay Updated</IntroductionSubtitle>
+                <IntroductionCard style={{ paddingBottom: '15px'}}>
+                    <IntroductionSubtitle>Stay Updated</IntroductionSubtitle>
                     <div>Connect with us on our social media channels and stay updated with our WhatsApp broadcasts. Dive deep into our community, wherever you are.</div>
-                    <ReadMoreWrapper></ReadMoreWrapper>
-                    <Icons>
+                    <Icons style={{ marginTop: '13px'}}>
                         <IconLink href='https://chat.whatsapp.com/EIqeR0Msl2ZB4AjSQBgdgH'><Icon src={WhatsAppIcon}/></IconLink>
                         <IconLink href='https://www.youtube.com/@MCCMD'><Icon src={YouTubeIcon}/></IconLink>
                         <IconLink href='https://www.facebook.com/mccmaryland/'><Icon src={FacebookIcon}/></IconLink>
                         <IconLink href='https://www.instagram.com/mccmaryland/'><Icon src={InstagramIcon}/></IconLink>
-
                     </Icons>
                 </IntroductionCard>
                 <IntroductionCard>

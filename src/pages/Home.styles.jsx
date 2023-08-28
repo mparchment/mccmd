@@ -104,7 +104,7 @@ export const ReadMoreLink = styled(Link)`
 `;
 
 export const ReadMoreWrapper = styled.div`
-    margin-top: 8px;
+    margin-top: 18px;
     whitespace: nowrap;
     display: flex;
     flex-direction: row;

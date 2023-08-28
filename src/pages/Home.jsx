@@ -33,8 +33,17 @@ import {
     ServicesWrapper, 
     ProgramsSection, 
     PreviousButton, 
-    NextButton 
+    NextButton,
+    SlideContent,
+    FollowUsLink,
+    Icons,
+    IconLink
 } from './Home.styles';
+
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 import Placeholder1 from '../assets/placeholder-1.jpg';
 import Placeholder2 from '../assets/placeholder-2.jpg';
@@ -49,7 +58,7 @@ function Home() {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [autoSlide, setAutoSlide] = useState(true);
-
+    const [showSocialMedia, setShowSocialMedia] = useState(false);
 
     const nextSlide = useCallback(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % desktopImages.length);
@@ -68,7 +77,14 @@ function Home() {
         preventDefaultTouchmoveEvent: true,
         trackMouse: true
     });
-    
+
+    const toggleSocialMedia = () => {
+        setShowSocialMedia(true);
+        setTimeout(() => {
+            setShowSocialMedia(false);
+        }, 5000);
+    };
+
     useEffect(() => {
         if (autoSlide) {
             const slideTimer = setInterval(() => {
@@ -122,15 +138,21 @@ function Home() {
                     <div>For over 30 years, MCC has served Montgomery County as more than just a mosque; it's a center for community growth, education, and belonging.</div>
                     <ReadMoreWrapper><SubdirectoryArrowRightIcon style={{ fontSize: "100%", marginRight: "5px"}}/><ReadMoreLink to="/mccmd/our-story/">Read More</ReadMoreLink></ReadMoreWrapper>
                 </IntroductionCard>
-                <IntroductionCard>
-                    <IntroductionSubtitle>Stay Updated</IntroductionSubtitle>
+                <IntroductionCard style={{ gap: '5px' }}>
+                    <IntroductionSubtitle style={{ paddingBottom: '5px'}}>Stay Updated</IntroductionSubtitle>
                     <div>Connect with us on our social media channels and stay updated with our WhatsApp broadcasts. Dive deep into our community, wherever you are.</div>
-                    <ReadMoreWrapper><SubdirectoryArrowRightIcon style={{ fontSize: "100%", marginRight: "5px"}}/><ReadMoreLink to="/mccmd/get-involved/">Read More</ReadMoreLink></ReadMoreWrapper>
+                    <ReadMoreWrapper></ReadMoreWrapper>
+                    <Icons>
+                        <IconLink href='https://chat.whatsapp.com/EIqeR0Msl2ZB4AjSQBgdgH'><WhatsAppIcon style={{ fontSize: '200%' }} /></IconLink>
+                        <IconLink href='https://www.instagram.com/mccmaryland/'><InstagramIcon style={{ fontSize: '200%' }} /></IconLink>
+                        <IconLink href='https://www.facebook.com/mccmaryland/'><FacebookIcon style={{ fontSize: '200%' }} /></IconLink>
+                        <IconLink href='https://www.youtube.com/@MCCMD'><YouTubeIcon style={{ fontSize: '200%' }} /></IconLink>
+                    </Icons>
                 </IntroductionCard>
                 <IntroductionCard>
                     <IntroductionSubtitle>Support Our Masjid</IntroductionSubtitle>
                     <div>Thanks to your generous donations, we are able to host worshippers, offer community services & distribute food to those that need it most.</div>
-                    <ReadMoreWrapper><SubdirectoryArrowRightIcon style={{ fontSize: "100%", marginRight: "5px"}}/><ReadMoreLink to="/mccmd/donate/">Read More</ReadMoreLink></ReadMoreWrapper>
+                    <ReadMoreWrapper><SubdirectoryArrowRightIcon style={{ fontSize: "100%", marginRight: "5px"}}/><ReadMoreLink to="/mccmd/donate/">Give Today</ReadMoreLink></ReadMoreWrapper>
                 </IntroductionCard>
             </IntroductionWrapper>}
             <ProgramsSection>

@@ -105,6 +105,11 @@ export const ReadMoreLink = styled(Link)`
 
 export const ReadMoreWrapper = styled.div`
     margin-top: 8px;
+    whitespace: nowrap;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    width: fit-content;
 `;
 
 export const ImageWrapper = styled.div`
@@ -282,4 +287,46 @@ export const NextButton = styled(SlideButton)`
     display: flex;
     justify-content: flex-end;
     align-items: center;
+`;
+
+export const SlideContent = styled.div`
+    transition: opacity 0.5s ease-in-out;
+    opacity: ${props => props.fadeOut ? '0' : '1'};
+    display: ${props => props.fadeOut ? 'none' : 'flex'};
+    z-index: ${props => props.fadeOut ? '-1' : '1'};
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+`;
+
+export const FollowUsLink = styled.div`
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+  cursor: pointer;
+  border-bottom: 2px solid #b98474;
+  width: fit-content;
+
+  &:hover {
+    color: #b98474;
+    transition: all 0.2s ease-in-out;
+  }
+`;
+
+export const Icons = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    gap: 10px;
+`;
+
+
+export const IconLink = styled.a`
+    color: inherit;
+    text-decoration: none;
 `;

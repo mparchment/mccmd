@@ -41,6 +41,12 @@ jobs:
         env:
           VITE_FIREBASE_APIKEY: ${{ secrets.VITE_FIREBASE_APIKEY }}
           VITE_FIREBASE_AUTHDOMAIN: ${{ secrets.VITE_FIREBASE_AUTHDOMAIN }}
+          VITE_EMAILJS_SERVICEID: ${{ secrets.VITE_EMAILJS_SERVICEID }}
+          VITE_EMAILJS_DEFAULT_TEMPLATEID: ${{ secrets.VITE_EMAILJS_DEFAULT_TEMPLATEID }}
+          VITE_EMAILJS_IMAM_TEMPLATEID: ${{ secrets.VITE_EMAILJS_IMAM_TEMPLATEID }}
+          VITE_EMAILJS_PUBLICKEY: ${{ secrets.VITE_EMAILJS_PUBLICKEY }}
+          VITE_EMAILJS_MCC_EMAIL: ${{ secrets.VITE_EMAILJS_MCC_EMAIL }}
+          VITE_EMAILJS_IMAM_EMAIL: ${{ secrets.VITE_EMAILJS_IMAM_EMAIL }}
         run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v3

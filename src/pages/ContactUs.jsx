@@ -168,16 +168,20 @@ function ContactUs() {
     
       if (validateForm()) {
         const formElement = e.target;
+        let selectedTemplateId;
+    
         const hiddenInquiryTypeInput = formElement.querySelector('input[name="inquiryType"]');
+        const hiddenToInput = formElement.querySelector('input[name="to"]');
+    
         if (hiddenInquiryTypeInput) {
           hiddenInquiryTypeInput.value = getDescriptiveInquiryType(inquiryType);
         }
     
-        let selectedTemplateId;
-    
         if (inquiryType === 'imam') {
+          hiddenToInput.value = import.meta.env.VITE_EMAILJS_IMAM_EMAIL;
           selectedTemplateId = import.meta.env.VITE_EMAILJS_IMAM_TEMPLATEID;
         } else {
+          hiddenToInput.value = import.meta.env.VITE_EMAILJS_MCC_EMAIL;
           selectedTemplateId = import.meta.env.VITE_EMAILJS_DEFAULT_TEMPLATEID;
         }
     
@@ -199,6 +203,7 @@ function ContactUs() {
         });
       }
     };
+    
   
     const handleInquirySelection = (type) => {
       setInquiryType(type);
@@ -271,43 +276,44 @@ function ContactUs() {
             <div>
                 <form onSubmit={handleSubmit}>
                   <input type="hidden" name="inquiryType" value={getDescriptiveInquiryType(inquiryType)} />
-                    <FormInputs>
-                        <Input 
-                            type="text" 
-                            name="name" 
-                            placeholder="Name *" 
-                            value={formData.name}
-                            onChange={handleInputChange}
-                        />
-                        {formErrors.name && <div style={{ color: 'red' }}>{formErrors.name}</div>}
-                        
-                        <Input 
-                            type="text" 
-                            name="email" 
-                            placeholder="Email *" 
-                            value={formData.email}
-                            onChange={handleInputChange}
-                        />
-                        {formErrors.email && <div style={{ color: 'red' }}>{formErrors.email}</div>}
-                        
-                        <Input 
-                            type="text" 
-                            name="subject" 
-                            placeholder="Subject *" 
-                            value={formData.subject}
-                            onChange={handleInputChange}
-                        />
-                        {formErrors.subject && <div style={{ color: 'red' }}>{formErrors.subject}</div>}
-                        
-                        <TextArea 
-                            name="message"
-                            placeholder="Your Message *" 
-                            value={formData.message}
-                            onChange={handleInputChange}
-                        />
-                        {formErrors.message && <div style={{ color: 'red' }}>{formErrors.message}</div>}
-                    </FormInputs>
-                    <Button type="submit">Send Message</Button>
+                  <input type="hidden" name="to" value="" />
+                  <FormInputs>
+                      <Input 
+                          type="text" 
+                          name="name" 
+                          placeholder="Name *" 
+                          value={formData.name}
+                          onChange={handleInputChange}
+                      />
+                      {formErrors.name && <div style={{ color: 'red' }}>{formErrors.name}</div>}
+                      
+                      <Input 
+                          type="text" 
+                          name="email" 
+                          placeholder="Email *" 
+                          value={formData.email}
+                          onChange={handleInputChange}
+                      />
+                      {formErrors.email && <div style={{ color: 'red' }}>{formErrors.email}</div>}
+                      
+                      <Input 
+                          type="text" 
+                          name="subject" 
+                          placeholder="Subject *" 
+                          value={formData.subject}
+                          onChange={handleInputChange}
+                      />
+                      {formErrors.subject && <div style={{ color: 'red' }}>{formErrors.subject}</div>}
+                      
+                      <TextArea 
+                          name="message"
+                          placeholder="Your Message *" 
+                          value={formData.message}
+                          onChange={handleInputChange}
+                      />
+                      {formErrors.message && <div style={{ color: 'red' }}>{formErrors.message}</div>}
+                  </FormInputs>
+                  <Button type="submit">Send Message</Button>
                 </form>
             </div>
           </>

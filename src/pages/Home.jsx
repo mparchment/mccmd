@@ -154,6 +154,18 @@ function Home() {
                     <ReadMoreWrapper><SubdirectoryArrowRightIcon style={{ fontSize: "100%", marginRight: "5px"}}/><ReadMoreLink to="/mccmd/donate/">Give Today</ReadMoreLink></ReadMoreWrapper>
                 </IntroductionCard>
             </IntroductionWrapper>}
+            {isMobile && <IntroductionWrapper>
+                <IntroductionCard>
+                    <IntroductionSubtitle>Stay Updated</IntroductionSubtitle>
+                    <div>Connect with us on our social media channels and stay updated with our WhatsApp broadcasts. Dive deep into our community, wherever you are.</div>
+                    <Icons style={{ marginTop: '13px'}}>
+                        <IconLink href='https://chat.whatsapp.com/EIqeR0Msl2ZB4AjSQBgdgH'><Icon src={WhatsAppIcon}/></IconLink>
+                        <IconLink href='https://www.youtube.com/@MCCMD'><Icon src={YouTubeIcon}/></IconLink>
+                        <IconLink href='https://www.facebook.com/mccmaryland/'><Icon src={FacebookIcon}/></IconLink>
+                        <IconLink href='https://www.instagram.com/mccmaryland/'><Icon src={InstagramIcon}/></IconLink>
+                    </Icons>
+                </IntroductionCard>
+            </IntroductionWrapper>}
             <ProgramsSection>
                 <TitleWrapper><ProgramTitle>Programs</ProgramTitle><Divider/></TitleWrapper>
                 <ProgramsWrapper>

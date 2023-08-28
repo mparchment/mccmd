@@ -67,6 +67,10 @@ export const IntroductionWrapper = styled.div`
     @media (max-width: 1440px) {
         width: 75%;
     }
+
+    @media (max-width: 1366px) {
+        width: 100%;
+    }
 `;
 
 export const IntroductionCard = styled.div`
@@ -79,6 +83,10 @@ export const IntroductionCard = styled.div`
     font-weight: 500;
     text-align: center;
     gap: 10px;
+
+    @media (max-width: 1366px) {
+        padding-top: 10px;
+    }
 `;
 
 export const IntroductionSubtitle = styled.h3`

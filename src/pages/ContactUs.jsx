@@ -49,7 +49,7 @@ const Input = styled.input`
     border-radius: 5px;
     padding-left: 10px;
     font-size: 16px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: inherit;
 `;
 
 const TextArea = styled.textarea`

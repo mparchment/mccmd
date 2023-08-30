@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import MCCFront from '../assets/mcc-front.jpg';
-import MCCSide from '../assets/mcc-side.jpeg';
+import MCCSide from '../assets/mcc-side.jpg';
 import { useState } from 'react';
 
 function darkenColor(color, factor) {

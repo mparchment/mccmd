@@ -1,4 +1,3 @@
-// React imports
 import { useState, useEffect, useCallback } from 'react';
 import { useSwipeable } from 'react-swipeable';
 
@@ -6,9 +5,9 @@ import SubdirectoryArrowRightIcon from '@mui/icons-material/SubdirectoryArrowRig
 
 import useIsMobile from '../hooks/useIsMobile';
 
-import ProgramCard from "../components/ProgramCard";
-import ServiceCard from "../components/ServiceCard";
-import { PageBackground } from "../components/PageBackground";
+import ProgramCard from '../components/ProgramCard';
+import ServiceCard from '../components/ServiceCard';
+import { PageBackground } from '../components/PageBackground';
 
 import { 
     ProgramTitle, 
@@ -33,8 +32,6 @@ import {
     ProgramsSection, 
     PreviousButton, 
     NextButton,
-    SlideContent,
-    FollowUsLink,
     Icons,
     IconLink,
     Icon
@@ -86,19 +83,35 @@ function Home() {
     };
 
     useEffect(() => {
+        const handleVisibilityChange = () => {
+          if (document.hidden) {
+            setAutoSlide(false);
+          } else {
+            setAutoSlide(true);
+          }
+        };
+      
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+      
+        return () => {
+          document.removeEventListener("visibilitychange", handleVisibilityChange);
+        };
+      }, []); 
+      
+      useEffect(() => {
         if (autoSlide) {
-            const slideTimer = setInterval(() => {
-                setCurrentIndex((prevIndex) => (prevIndex + 1) % desktopImages.length);
-            }, 5000); 
-    
-            return () => clearInterval(slideTimer);
+          const slideTimer = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % desktopImages.length);
+          }, 5000); 
+      
+          return () => clearInterval(slideTimer);
         }
-    }, [autoSlide]);
+      }, [autoSlide]);
     
 
     return (
         <>  
-            <PageBackground style={{ display: 'none' }}/>
+            <PageBackground style={{ background: 'white' }}/>
             {isMobile ? (
                 <ImageWrapper>
                     <SlidesContainer {...handlers} style={{ transform: `translateX(-${currentIndex * 100}vw)` }}>

@@ -118,7 +118,7 @@ const SignOutButton = styled.button`
     box-shadow: 0 2px 0 ${darkenColor('#c9a99f', 0.15)};
 `;
 
-function Account() {
+function AccountPage() {
     const { userData, updateUserData } = useContext(AuthContext);
     const [accountData, setAccountData] = useState(userData);
     const navigate = useNavigate();
@@ -194,4 +194,4 @@ function Account() {
     );
 }
 
-export default Account;
+export default AccountPage;

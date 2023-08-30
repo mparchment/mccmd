@@ -31,7 +31,7 @@ const Title = styled.h2`
     color: #333;
 `;
 
-const AboutBox = styled.div`
+const Box = styled.div`
     display: flex;
     flex-direction: row;
     gap: 40px;
@@ -94,7 +94,7 @@ function AboutPage() {
             <PageBackground/>
             <Wrapper>
                 
-                <AboutBox>
+                <Box>
                 <div>
                     <Title>About Us</Title>
                     <p>For over three decades, Muslim Community Center has been a beacon of light for the Muslim community in Montgomery County, Maryland.</p><p> We pride ourselves not only as a place of worship but as a hub for community engagement, education, and growth. Our commitment has always been to enrich the lives of the local Muslim community by providing comprehensive Islamic education, promoting unity and mutual understanding, and offering a platform for dialogue and interaction.</p>
@@ -106,7 +106,7 @@ function AboutPage() {
                     <Subtitle>Our Mission</Subtitle>
                     <p>To promote brotherhood and human dignity among all by developing an environment of understanding, compassion, justice in personal and professional life - serving the needs of the Muslim community and community at-large in a manner that promotes its positive image and standing in a changing environment. </p>
                 </div>
-                </AboutBox>
+                </Box>
                                 
                 <Title>Our Team</Title>
                 <Portrait src={PortraitPlaceholder}/>

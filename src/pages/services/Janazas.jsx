@@ -42,7 +42,7 @@ const InfoParagraph = styled.p`
 function JanazahPage() {
     return (
         <>
-            <PageBackground />
+            
             <Wrapper>
                 <Title>Janazah Services</Title>
                

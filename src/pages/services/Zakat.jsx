@@ -94,7 +94,7 @@ const ImamSubtitle = styled.h3`
 function Zakat() {
     return (
       <>
-        <PageBackground />
+        
         <Wrapper>
           <Title>Zakat</Title>
           <Subtitle>Give Your Zakat to Those in Need</Subtitle>

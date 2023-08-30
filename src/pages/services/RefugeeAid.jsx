@@ -93,7 +93,7 @@ const ImamSubtitle = styled.h3`
 function RefugeeAid() {
     return (
         <>
-            <PageBackground/>
+            
             <Wrapper>
                 <Title>Refugee Aid</Title>
                 <Subtitle>Supporting Refugees Beyond the Basics</Subtitle>

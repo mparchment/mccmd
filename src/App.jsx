@@ -36,6 +36,9 @@ import TimesProvider from './contexts/TimesProvider.jsx';
 import MenuContext from './contexts/MenuContext.jsx';
 import MenuProvider from './contexts/MenuProvider';
 import AuthProvider from './contexts/AuthProvider';
+import { PageBackground } from './components/PageBackground.jsx';
+
+import useIsMobile from './hooks/useIsMobile';
 
 const PageWrapper = styled.div`
   height: 100vh;
@@ -46,8 +49,8 @@ function AppContent() {
   const { menuOpen } = useContext(MenuContext);
   const { isLoading } = useContext(TimesContext);
   const { pathname } = useLocation();
-
   const [showLoading, setShowLoading] = useState(true);
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     if (!isLoading) {
@@ -67,6 +70,7 @@ function AppContent() {
   return (
       <PageWrapper>
           {showLoading ? <Loading/> : <>
+          {!isMobile && <PageBackground/>}
           <Header/>
           {!menuOpen && <Routes>
                 <Route path="/mccmd/" element={<Home />} />

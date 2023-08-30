@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { PageBackground } from '../components/PageBackground';
+
 import BoardCell from '../components/BoardCell';
 import PortraitPlaceholder from '../assets/portrait-placeholder.png';
 
@@ -91,7 +91,7 @@ const ImamSubtitle = styled.h3`
 function OurStory() {
     return (
         <>
-            <PageBackground/>
+            
             <Wrapper>
                 <Title>Our Story</Title>
                     <p>The Muslim Community Center has been a cornerstone of the Muslim community in the Maryland, Virginia, and Washington, D.C. area for decades. Initially conceived in September 1976, the idea blossomed into a dedicated center that officially opened its doors in May 1981. Since then, Muslim Community Center has grown exponentially, serving thousands of families and becoming a nationally recognized Islamic center.</p>

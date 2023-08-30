@@ -11,7 +11,7 @@ export const PageBackground = styled.div`
     filter: grayscale(100%);
     background-size: contain;
     background-repeat: repeat;
-    z-index: -1;
+    z-index: -999;
 
     @media (max-width:1366px) {
         display: none;

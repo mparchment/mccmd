@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { PageBackground } from '../components/PageBackground';
+
 import BoardCell from '../components/BoardCell';
 import PortraitPlaceholder from '../assets/portrait-placeholder.png';
 
@@ -91,7 +91,7 @@ const ImamSubtitle = styled.h3`
 function AboutPage() {
     return (
         <>
-            <PageBackground/>
+            
             <Wrapper>
                 
                 <Box>

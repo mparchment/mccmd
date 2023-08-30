@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { PageBackground } from '../components/PageBackground';
+
 import BoardCell from '../components/BoardCell';
 import PortraitPlaceholder from '../assets/portrait-placeholder.png';
 
@@ -29,7 +29,7 @@ const Wrapper = styled.div`
 function CreateAccount() {
     return (
         <>
-            <PageBackground/>
+            
             <Wrapper>
                 Create account page.
             </Wrapper>

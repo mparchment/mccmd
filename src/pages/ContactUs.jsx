@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { PageBackground } from '../components/PageBackground';
+
 import { useState } from 'react';
 import emailjs from '@emailjs/browser'
 
@@ -252,7 +252,7 @@ function ContactUs() {
            
   return (
     <>
-      <PageBackground/>
+      
       <ContactUsWrapper>
         <Title>Contact Us</Title>
 

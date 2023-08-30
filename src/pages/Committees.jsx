@@ -4,7 +4,7 @@ import ChildrenHifdh from '../assets/children-hifdh-placeholder.jpeg';
 import IslamicSchool from '../assets/islamic-school-placeholder.jpeg';
 import IslamicDaycare from '../assets/islamic-daycare-placeholder.jpeg';
 import Placeholder from '../assets/placeholder-image.png';
-import { PageBackground } from '../components/PageBackground';
+
 import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
@@ -152,7 +152,7 @@ Committee.propTypes = {
 function CommitteesPage() {
     return (
         <>
-            <PageBackground />
+            
             <Wrapper>
                 <Title>Committees</Title>
                 <p>MCC operations are conducted through various committees. Any MCC member can volunteer to serve on a committee of their choice by contacting the Chairperson of that Committee. Members who wish to serve on the committees should take their commitment seriously and be prepared to devote enough time to their undertaking.</p>

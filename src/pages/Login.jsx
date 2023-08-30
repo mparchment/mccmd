@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { PageBackground } from '../components/PageBackground';
+
 
 import { auth, googleProvider } from "../firebase-config";
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
@@ -209,7 +209,7 @@ const Login = () => {
 
     return (
         <>
-            <PageBackground/>
+            
             <Wrapper>
                 {/*<IconContainer><Icon src={BackIcon} onClick={handleBackClick}/></IconContainer>*/}
                 <TextContainer>

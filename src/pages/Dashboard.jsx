@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { PageBackground } from '../components/PageBackground';
+
 import BoardCell from '../components/BoardCell';
 import PortraitPlaceholder from '../assets/portrait-placeholder.png';
 
@@ -106,7 +106,7 @@ const MembershipStatus = styled.span`
 function Dashboard() {
     return (
         <>
-            <PageBackground/>
+            
             <Wrapper>
                 <Title>Dashboard</Title>
                 <DashboardContainer>

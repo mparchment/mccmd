@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import MCCFront from '../assets/mcc-front.jpg';
 import MCCSide from '../assets/mcc-side.jpg';
 import { useState } from 'react';
+import { WhiteBackground } from '../components/WhiteBackground';    
 
 function darkenColor(color, factor) {
     const f = parseInt(color.slice(1), 16),
@@ -329,74 +330,78 @@ function Donate() {
     };
   
     return (
-      <PageContainer>
-          <Intro>
-          <IntroTitle>Donate</IntroTitle>
-          <IntroText>Donating to Muslim Community Center means tarbiyah and lifelong education. Building spiritual companionship and educating young minds. Your financial help makes all this happen, and more.</IntroText>
-          </Intro>
-          <DonationBottom>
-            <ImageWrapper>
-                <DonationImage src={MCCSide} alt="Donate" />
-                <ImageText><h3>You can make a difference.</h3>Donating to Muslim Community Center means tarbiyah and lifelong education. Building spiritual companionship and educating young minds. Your financial help makes all this happen, and more.</ImageText>
-            </ImageWrapper>
-            <DonateBox>
-                <DonationInfo>
-                    <div><DonationTitle>Secure Donation</DonationTitle></div>
-                    <DonationType>
-                        <DonationButton position="left" selected={donationType === 'once'} onClick={() => handleDonationTypeChange('once')}>Give Once</DonationButton>
-                        <DonationButton position="right" selected={donationType === 'monthly'} onClick={() => handleDonationTypeChange('monthly')}>Monthly <span style={{ marginLeft: '2px', fontSize: '1.1rem'}}>♥</span></DonationButton>
-                    </DonationType>
-                    <DonationAmounts>
-                        <DonationAmount selected={donationAmount === 1000} onClick={() => handleDonationAmountChange(1000)}>$1000</DonationAmount>
-                        <DonationAmount selected={donationAmount === 500} onClick={() => handleDonationAmountChange(500)}>$500</DonationAmount>
-                        <DonationAmount selected={donationAmount === 250} onClick={() => handleDonationAmountChange(250)}>$250</DonationAmount>
-                        <DonationAmount selected={donationAmount === 100} onClick={() => handleDonationAmountChange(100)}>$100</DonationAmount>
-                        <DonationAmount selected={donationAmount === 50} onClick={() => handleDonationAmountChange(50)}>$50</DonationAmount>
-                        <DonationAmount selected={donationAmount === 25} onClick={() => handleDonationAmountChange(25)}>$25</DonationAmount>
-                    </DonationAmounts>
-                    <CustomAmount>
-                    <CustomAmountInput type="number" value={customAmountValue} onChange={handleCustomAmountChange}/>
-                    </CustomAmount>
-                </DonationInfo>
-                <DonationDisclaimer><Divider/>Muslim Community Center is committed to your privacy. Your payment details will be processed by Paypal, and a record of your donation will be stored by us. </DonationDisclaimer>
-                <DonationButtons>
-                    <VisaButton type="submit">
-                        Visa
-                    </VisaButton>
-                    <PaypalButton type="submit">
-                        PayPal
-                    </PaypalButton>
-                </DonationButtons>
-            </DonateBox>
-          </DonationBottom>
+        <>
+            <WhiteBackground/>
+            <PageContainer>
+                <Intro>
+                <IntroTitle>Donate</IntroTitle>
+                <IntroText>Donating to Muslim Community Center means tarbiyah and lifelong education. Building spiritual companionship and educating young minds. Your financial help makes all this happen, and more.</IntroText>
+                </Intro>
+                <DonationBottom>
+                <ImageWrapper>
+                    <DonationImage src={MCCSide} alt="Donate" />
+                    <ImageText><h3>You can make a difference.</h3>Donating to Muslim Community Center means tarbiyah and lifelong education. Building spiritual companionship and educating young minds. Your financial help makes all this happen, and more.</ImageText>
+                </ImageWrapper>
+                <DonateBox>
+                    <DonationInfo>
+                        <div><DonationTitle>Secure Donation</DonationTitle></div>
+                        <DonationType>
+                            <DonationButton position="left" selected={donationType === 'once'} onClick={() => handleDonationTypeChange('once')}>Give Once</DonationButton>
+                            <DonationButton position="right" selected={donationType === 'monthly'} onClick={() => handleDonationTypeChange('monthly')}>Monthly <span style={{ marginLeft: '2px', fontSize: '1.1rem'}}>♥</span></DonationButton>
+                        </DonationType>
+                        <DonationAmounts>
+                            <DonationAmount selected={donationAmount === 1000} onClick={() => handleDonationAmountChange(1000)}>$1000</DonationAmount>
+                            <DonationAmount selected={donationAmount === 500} onClick={() => handleDonationAmountChange(500)}>$500</DonationAmount>
+                            <DonationAmount selected={donationAmount === 250} onClick={() => handleDonationAmountChange(250)}>$250</DonationAmount>
+                            <DonationAmount selected={donationAmount === 100} onClick={() => handleDonationAmountChange(100)}>$100</DonationAmount>
+                            <DonationAmount selected={donationAmount === 50} onClick={() => handleDonationAmountChange(50)}>$50</DonationAmount>
+                            <DonationAmount selected={donationAmount === 25} onClick={() => handleDonationAmountChange(25)}>$25</DonationAmount>
+                        </DonationAmounts>
+                        <CustomAmount>
+                        <CustomAmountInput type="number" value={customAmountValue} onChange={handleCustomAmountChange}/>
+                        </CustomAmount>
+                    </DonationInfo>
+                    <DonationDisclaimer><Divider/>Muslim Community Center is committed to your privacy. Your payment details will be processed by Paypal, and a record of your donation will be stored by us. </DonationDisclaimer>
+                    <DonationButtons>
+                        <VisaButton type="submit">
+                            Visa
+                        </VisaButton>
+                        <PaypalButton type="submit">
+                            PayPal
+                        </PaypalButton>
+                    </DonationButtons>
+                </DonateBox>
+                </DonationBottom>
 
-          <Wrapper> 
-            <Title>Where Your Donations Go</Title>
+                <Wrapper> 
+                <Title>Where Your Donations Go</Title>
 
-            Your generous donations greatly influence the operations and growth of the Muslim Community Center. Here’s how your contributions are utilized:
+                Your generous donations greatly influence the operations and growth of the Muslim Community Center. Here’s how your contributions are utilized:
 
-            <Subtitle>1. Masjid Operations:</Subtitle>
-            Your donations cover monthly utilities, maintenance, and repairs. Funds also facilitate the cleaning and preparation of the mosque for daily prayers. Your support ensures our mosque remains a beacon of light for the community.
+                <Subtitle>1. Masjid Operations:</Subtitle>
+                Your donations cover monthly utilities, maintenance, and repairs. Funds also facilitate the cleaning and preparation of the mosque for daily prayers. Your support ensures our mosque remains a beacon of light for the community.
 
-            <Subtitle>2. Tarbiyah and Lifelong Education:</Subtitle>
-            Your contributions support our educators and maintain our educational facilities. From Qur'an circles to Islamic studies, your backing guarantees continuous learning opportunities for all ages.
+                <Subtitle>2. Tarbiyah and Lifelong Education:</Subtitle>
+                Your contributions support our educators and maintain our educational facilities. From Qur'an circles to Islamic studies, your backing guarantees continuous learning opportunities for all ages.
 
-            <Subtitle>3. Raising the Youth:</Subtitle>
-            Your donations fund programs tailored for young Muslims, from educational retreats to recreational activities. These initiatives give them a sense of belonging and equip them to represent Islam confidently in society.
+                <Subtitle>3. Raising the Youth:</Subtitle>
+                Your donations fund programs tailored for young Muslims, from educational retreats to recreational activities. These initiatives give them a sense of belonging and equip them to represent Islam confidently in society.
 
-            <Subtitle>4. Community Events and Outreach:</Subtitle>
-            Your donations enable community iftars, workshops, and interfaith dialogues. We've been able to host renowned scholars and collaborate on larger events, fostering unity and understanding within and outside the community.
+                <Subtitle>4. Community Events and Outreach:</Subtitle>
+                Your donations enable community iftars, workshops, and interfaith dialogues. We've been able to host renowned scholars and collaborate on larger events, fostering unity and understanding within and outside the community.
 
-            <Subtitle>5. Helping the Needy:</Subtitle>
-            Your contributions not only support the mosque but also assist those in need. We've set up zakat and sadaqah funds that directly aid the less fortunate in various capacities, including global relief efforts.
+                <Subtitle>5. Helping the Needy:</Subtitle>
+                Your contributions not only support the mosque but also assist those in need. We've set up zakat and sadaqah funds that directly aid the less fortunate in various capacities, including global relief efforts.
 
-            <Subtitle>6. Infrastructure Projects:</Subtitle>
-            As our community grows, our infrastructure needs evolve. Donations fund expansions, upgrades, and renovations, ensuring we can accommodate everyone comfortably.
+                <Subtitle>6. Infrastructure Projects:</Subtitle>
+                As our community grows, our infrastructure needs evolve. Donations fund expansions, upgrades, and renovations, ensuring we can accommodate everyone comfortably.
 
-            We prioritize financial transparency and are dedicated to using donations wisely for our community's betterment and promoting Islam. Thank you for your trust and support.
-        </Wrapper>
+                We prioritize financial transparency and are dedicated to using donations wisely for our community's betterment and promoting Islam. Thank you for your trust and support.
+            </Wrapper>
 
-      </PageContainer>
+            </PageContainer>
+        </>
+      
     );
   }
   

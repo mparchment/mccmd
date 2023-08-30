@@ -91,7 +91,7 @@ const ImamSubtitle = styled.h3`
 function AboutPage() {
     return (
         <>
-            <PageBackground/>
+            
             <Wrapper>
                 <Title>Meet the Imam</Title>
                     <Subtitle>From Shahadas to Learning About Islam</Subtitle>

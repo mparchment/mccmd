@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { PageBackground } from '../components/PageBackground';
+
 
 const GetInvolvedWrapper = styled.div`
     display: flex;
@@ -38,7 +38,7 @@ const Link = styled.a`
 function GetInvolved() {
     return (
         <>
-            <PageBackground/>
+            
             <GetInvolvedWrapper>
                 <Title>Get Involved</Title>
                 <div>

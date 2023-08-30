@@ -91,7 +91,7 @@ const ImamSubtitle = styled.h3`
 function FoodPantry() {
     return (
         <>
-            <PageBackground/>
+            
             <Wrapper>
                 <Title>Food Pantry</Title>
                     <Subtitle>From Shahadas to Learning About Islam</Subtitle>

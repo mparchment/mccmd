@@ -7,7 +7,7 @@ import useIsMobile from '../hooks/useIsMobile';
 
 import ProgramCard from '../components/ProgramCard';
 import ServiceCard from '../components/ServiceCard';
-import { PageBackground } from '../components/PageBackground';
+
 
 import { 
     ProgramTitle, 
@@ -48,6 +48,7 @@ import Placeholder3 from '../assets/placeholder-3.jpg';
 import Placeholder4 from '../assets/placeholder-4.jpeg';
 
 import { images, desktopImages } from './Home.constants';
+import { WhiteBackground } from '../components/WhiteBackground';
 
 function Home() {
 
@@ -111,7 +112,7 @@ function Home() {
 
     return (
         <>  
-            <PageBackground style={{ background: 'white' }}/>
+            <WhiteBackground/>
             {isMobile ? (
                 <ImageWrapper>
                     <SlidesContainer {...handlers} style={{ transform: `translateX(-${currentIndex * 100}vw)` }}>

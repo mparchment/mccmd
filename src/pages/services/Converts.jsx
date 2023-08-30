@@ -91,7 +91,7 @@ const ImamSubtitle = styled.h3`
 function Converts() {
     return (
         <>
-            <PageBackground/>
+            
             <Wrapper>
                 <Title>Converts</Title>
                     <Subtitle>From Shahadas to Learning About Islam</Subtitle>

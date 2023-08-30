@@ -8,7 +8,7 @@ import MSLogo from '../assets/logos/mcc-seniors.png';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import { PageBackground } from '../components/PageBackground';
+
 
 const Wrapper = styled.div`
     display: flex;
@@ -107,7 +107,7 @@ const Icons = styled.div`
 function CommunityPage() {
     return (
         <>
-            <PageBackground />
+            
             <Wrapper>
                 <Title>Community</Title>
                 <p>

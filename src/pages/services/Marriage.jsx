@@ -92,7 +92,7 @@ const ImamSubtitle = styled.h3`
 function Marriage() {
     return (
         <>
-            <PageBackground/>
+            
             <Wrapper>
                 <Title>Marriage Services</Title>
 

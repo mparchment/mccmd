@@ -4,7 +4,7 @@ import ChildrenHifdh from '../assets/children-hifdh-placeholder.jpeg';
 import IslamicSchool from '../assets/islamic-school-placeholder.jpeg';
 import IslamicDaycare from '../assets/islamic-daycare-placeholder.jpeg';
 import Placeholder from '../assets/placeholder-image.png';
-import { PageBackground } from '../components/PageBackground';
+
 
 const Wrapper = styled.div`
     display: flex;
@@ -117,7 +117,7 @@ const Image = styled.img`
 function EducationPage() {
     return (
         <>
-            <PageBackground/>
+            
             <Wrapper>
                 <Title>Education</Title>
                 <p>

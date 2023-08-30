@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Card from '../components/ServiceCard'
 import Shahadas from '../assets/placeholder-image.png'
 
-import { PageBackground } from '../components/PageBackground';
+
 
 const Wrapper = styled.div`
     display: flex;
@@ -81,7 +81,7 @@ const Image = styled.img`
 function ServicesPage() {
     return (
         <>
-            <PageBackground />
+            
             <Wrapper>
                 <Title>Services</Title>
                 <p>

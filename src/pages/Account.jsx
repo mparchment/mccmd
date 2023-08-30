@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { PageBackground } from '../components/PageBackground';
+
 import AuthContext from '../contexts/AuthContext';
 import { auth, db } from '../firebase-config';
 import { collection, doc, setDoc } from 'firebase/firestore';
@@ -162,7 +162,7 @@ function AccountPage() {
     
     return (
         <>
-            <PageBackground/>
+            
             <Wrapper>
                 <Title>Account</Title>
                 <DashboardContainer>

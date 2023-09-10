@@ -60,3 +60,7 @@ Developing a comprehensive website for MCC. See the live website [here](https://
 - [Muslim Family Center](https://www.muslimfamilycenter.org/)
 - [Qalam Institute](https://www.qalam.institute/)
 - [Dar al-Hijrah](https://hijrah.org/)
+
+## To=Do
+- Change logo colors - dome brownish
+- Liven colors 

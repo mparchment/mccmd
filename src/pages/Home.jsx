@@ -8,6 +8,8 @@ import useIsMobile from '../hooks/useIsMobile';
 import ProgramCard from '../components/ProgramCard';
 import ServiceCard from '../components/ServiceCard';
 
+import MCCFront from '../assets/mcc-front.jpg';
+
 
 import { 
     ProgramTitle, 
@@ -47,8 +49,13 @@ import Placeholder2 from '../assets/placeholder-2.jpg';
 import Placeholder3 from '../assets/placeholder-3.jpg';
 import Placeholder4 from '../assets/placeholder-4.jpeg';
 
-import { images, desktopImages } from './Home.constants';
+import { images } from './Home.constants';
 import { WhiteBackground } from '../components/WhiteBackground';
+
+function stripHtml(html) {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    return doc.body.textContent || "";
+}
 
 function Home() {
 
@@ -57,16 +64,29 @@ function Home() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [autoSlide, setAutoSlide] = useState(true);
     const [showSocialMedia, setShowSocialMedia] = useState(false);
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        fetch('https://mccmd.org/wp-json/wp/v2/posts')
+          .then(response => response.json())
+          .then(data => setPosts(data));
+      }, []);
+  
+      const desktopImages = posts.map(post => ({
+          image: MCCFront,
+          title: post.title.rendered,
+          text: stripHtml(post.excerpt.rendered)
+      }));
 
     const nextSlide = useCallback(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % desktopImages.length);
         setAutoSlide(false); 
-    }, [setCurrentIndex, setAutoSlide]);
+    }, [setCurrentIndex, setAutoSlide, desktopImages.length]);
       
     const prevSlide = useCallback(() => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + desktopImages.length) % desktopImages.length);
         setAutoSlide(false); 
-    }, [setCurrentIndex, setAutoSlide]);
+    }, [setCurrentIndex, setAutoSlide, desktopImages.length]);    
 
     
     const handlers = useSwipeable({

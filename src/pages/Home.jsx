@@ -9,6 +9,7 @@ import ProgramCard from '../components/ProgramCard';
 import ServiceCard from '../components/ServiceCard';
 
 import MCCFront from '../assets/mcc-front.jpg';
+import ShaykhAbdussamadPortrait from '../assets/shaykh-abdussamad-portrait.png';
 
 
 import { 
@@ -222,7 +223,7 @@ function Home() {
                 <TitleWrapper><ProgramTitle>Programs</ProgramTitle><Divider/></TitleWrapper>
                 <ProgramsWrapper>
                     <ProgramCard
-                        imgSrc={Placeholder2}
+                        imgSrc={ShaykhAbdussamadPortrait}
                         title="Living the Legacy: Journey Through the Life of the Prophet"
                         text="Join us for a journey into the life of the Prophet (صلى الله عليه وآله وسلم) in our weekly seerah class with Shaykh Abdussamad Madad."
                         time="Maghrib to Isha"

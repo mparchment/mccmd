@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useContext } from 'react';
 import { useSwipeable } from 'react-swipeable';
 
 import SubdirectoryArrowRightIcon from '@mui/icons-material/SubdirectoryArrowRight';
@@ -11,6 +11,7 @@ import ServiceCard from '../components/ServiceCard';
 import MCCFront from '../assets/mcc-front.jpg';
 import ShaykhAbdussamadPortrait from '../assets/shaykh-abdussamad-portrait.png';
 
+import PostsContext from '../contexts/PostsContext';
 
 import { 
     ProgramTitle, 
@@ -61,35 +62,10 @@ function stripHtml(html) {
 function Home() {
 
     const isMobile = useIsMobile();
-
     const [currentIndex, setCurrentIndex] = useState(0);
     const [autoSlide, setAutoSlide] = useState(true);
     const [showSocialMedia, setShowSocialMedia] = useState(false);
-    const [posts, setPosts] = useState([]);
-
-    useEffect(() => {
-        fetch('https://mccmd.org/wp-json/wp/v2/posts')
-          .then(response => response.json())
-          .then(async (data) => {
-            const postsWithMedia = await Promise.all(data.map(async (post) => {
-              if (post._links && post._links['wp:featuredmedia'] && post._links['wp:featuredmedia'].length > 0) {
-                const mediaUrl = post._links['wp:featuredmedia'][0].href;
-                const mediaResponse = await fetch(mediaUrl);
-                const mediaData = await mediaResponse.json();
-                const imageUrl = mediaData.source_url;
-                return {
-                  ...post,
-                  featuredMedia: imageUrl,
-                };
-              }
-              return {
-                ...post,
-                featuredMedia: null,
-              };
-            }));
-            setPosts(postsWithMedia);
-          });
-    }, []);
+    const { posts } = useContext(PostsContext);
     
     const desktopImages = posts.map(post => ({
         image: post.featuredMedia || MCCFront,

@@ -36,9 +36,11 @@ import TimesProvider from './contexts/TimesProvider.jsx';
 import MenuContext from './contexts/MenuContext.jsx';
 import MenuProvider from './contexts/MenuProvider';
 import AuthProvider from './contexts/AuthProvider';
+import PostsContext from './contexts/PostsContext.jsx';
 import { PageBackground } from './components/PageBackground.jsx';
 
 import useIsMobile from './hooks/useIsMobile';
+import PostsProvider from './contexts/PostsProvider.jsx';
 
 const PageWrapper = styled.div`
   height: 100vh;
@@ -48,19 +50,20 @@ const PageWrapper = styled.div`
 function AppContent() {
   const { menuOpen } = useContext(MenuContext);
   const { isLoading } = useContext(TimesContext);
+  const { isPostsLoading } = useContext(PostsContext);
   const { pathname } = useLocation();
   const [showLoading, setShowLoading] = useState(true);
   const isMobile = useIsMobile();
   
   useEffect(() => {
-    if (!isLoading) {
+    if (!isLoading & !isPostsLoading) {
         const timer = setTimeout(() => {
             setShowLoading(false);
         }, 750);
 
         return () => clearTimeout(timer);
     }
-  }, [isLoading]);
+  }, [isLoading, isPostsLoading]);
 
 
   useEffect(() => {
@@ -108,11 +111,13 @@ function App() {
       <GlobalStyle/>
       <HelmetProvider>
         <AuthProvider>
+        <PostsProvider>
         <TimesProvider>
           <MenuProvider>
             <AppContent/>
           </MenuProvider>
         </TimesProvider>
+        </PostsProvider>
         </AuthProvider>
       </HelmetProvider>
     </Router>

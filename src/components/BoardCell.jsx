@@ -21,15 +21,18 @@ const CellPosition = styled.h3`
     font-weight: 400;
 `
 
-const Portrait = styled.img`
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    align-self: center;
-    margin-bottom: 25px;
+const PortraitWrapper = styled.div`
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  align-self: center;
+`;
+
+const PortraitImage = styled.img`
+  object-fit: cover; 
+  width: 100%;
+  height: 100%;
 `;
 
 const CellBio = styled.p`
@@ -39,7 +42,7 @@ const CellBio = styled.p`
 function BoardCell({ name, portrait, position, bio}){
     return (
         <Cell>
-            <Portrait src={portrait}/>
+            <PortraitWrapper><PortraitImage src={portrait}/></PortraitWrapper>
             <CellName>{name}</CellName>
             <CellPosition>{position}</CellPosition>
             <CellBio>{bio}</CellBio>

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import BoardCell from '../components/BoardCell';
 import PortraitPlaceholder from '../assets/portrait-placeholder.png';
+import ImamPortrait from '../assets/imam-abdullahi-portrait.png';
 
 const Wrapper = styled.div`
     display: flex;
@@ -54,15 +55,27 @@ const ImamTitle = styled.h2`
     margin-bottom: 10px;
 `;
 
+// CHANGE THIS OUT
 const Portrait = styled.img`
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    align-self: center;
-    margin-bottom: 25px;
+  max-width: 250px; 
+  border-radius: 50%;
+  object-fit: cover; 
+  align-self: center;
+  margin-bottom: 25px;
+`;
+
+const PortraitWrapper = styled.div`
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  align-self: center;
+`;
+
+const PortraitImage = styled.img`
+  object-fit: cover; 
+  width: 100%;
+  height: 100%;
 `;
 
 const BoardBox = styled.div`
@@ -109,7 +122,7 @@ function AboutPage() {
                 </Box>
                                 
                 <Title>Our Team</Title>
-                <Portrait src={PortraitPlaceholder}/>
+                <PortraitWrapper><PortraitImage src={ImamPortrait}/></PortraitWrapper>
                 <ImamTitle>Muhammad Abdullahi</ImamTitle>
                 <ImamSubtitle>Imam</ImamSubtitle>
 

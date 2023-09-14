@@ -53,41 +53,70 @@ const JummuahWrapper = styled.div`
 `;
 
 const PrayerTimes = () => {
-  const { times: apiTimes } = useContext(TimesContext);  const [nextPrayerIndex, setNextPrayerIndex] = useState(0);
+  const { times: apiTimes } = useContext(TimesContext);
+  const [nextPrayerIndex, setNextPrayerIndex] = useState(0);
+  const [times, setTimes] = useState([]);
   const isMobile = useIsMobile();
 
-  const times = useMemo(() => {
-    if (!apiTimes) return [];
+  const parseGoogleDate = (googleDate) => {
+    const timeParts = googleDate.match(/\(([^)]+)\)/)[1].split(',');
+    const parsedTime = new Date(...timeParts).toLocaleTimeString().slice(0, 5);
+    return parsedTime.endsWith(':') ? parsedTime.slice(0, -1) : parsedTime;
+  };
 
-    const initialTimes = [
-      { prayer: 'Fajr', time: '5:30', beginTime: apiTimes.Fajr },
-      { prayer: 'Dhuhr', time: '1:30', beginTime: apiTimes.Dhuhr },
-      { prayer: 'Asr', time: '6:15', beginTime: apiTimes.Asr },
-      { prayer: 'Maghrib', beginTime: apiTimes.Maghrib },
-      { prayer: 'Isha', time: '9:30', beginTime: apiTimes.Isha },
-    ];
+  const fetchPrayerTimes = async () => {
+    const response = await fetch('https://docs.google.com/spreadsheets/d/1CQ7UpSaMG9HjqxNLRqARgJmHSRBpprlGKz9UtPgGDuM/gviz/tq?');
+    const text = await response.text();
+    const json = JSON.parse(text.match(/google\.visualization\.Query\.setResponse\(([\s\S\w]+)\);/)[1]);
+    const rows = json.table.rows;
 
+    const fetchedTimes = rows.map(row => {
+      const cells = row.c;
+      return {
+        month: cells[0].v,
+        Fajr: parseGoogleDate(cells[1].v),
+        Dhuhr: parseGoogleDate(cells[2].v),
+        Asr: parseGoogleDate(cells[3].v),
+        Maghrib: "",
+        Isha: parseGoogleDate(cells[5].v),
+      };
+    });
 
-    const maghribTime = initialTimes.find(t => t.prayer === 'Maghrib').beginTime.split(':');
-    maghribTime[1] = parseInt(maghribTime[1], 10) + 5; 
-    if (maghribTime[1] >= 60) {
-      maghribTime[0] = parseInt(maghribTime[0], 10) + 1;
-      maghribTime[1] -= 60;
+    const currentMonth = new Date().toLocaleString('default', { month: 'long' });
+    const currentMonthTimes = fetchedTimes.find(time => time.month === currentMonth);
+
+    if (currentMonthTimes && apiTimes) {
+      const maghribTime = apiTimes.Maghrib.split(':');
+      maghribTime[1] = parseInt(maghribTime[1], 10) + 5;
+      if (maghribTime[1] >= 60) {
+        maghribTime[0] = parseInt(maghribTime[0], 10) + 1;
+        maghribTime[1] -= 60;
+      }
+      maghribTime[1] = maghribTime[1].toString().padStart(2, '0');
+      const maghribFinalTime = maghribTime.join(':');
+  
+      setTimes([
+        { prayer: 'Fajr', time: currentMonthTimes.Fajr, beginTime: apiTimes.Fajr },
+        { prayer: 'Dhuhr', time: currentMonthTimes.Dhuhr, beginTime: apiTimes.Dhuhr },
+        { prayer: 'Asr', time: currentMonthTimes.Asr, beginTime: apiTimes.Asr },
+        { prayer: 'Maghrib', time: maghribFinalTime, beginTime: apiTimes.Maghrib },
+        { prayer: 'Isha', time: currentMonthTimes.Isha, beginTime: apiTimes.Isha },
+      ]);
     }
-    maghribTime[1] = maghribTime[1].toString().padStart(2, '0');
-    initialTimes.find(t => t.prayer === 'Maghrib').time = maghribTime.join(':');
-
-    return initialTimes;
+  };
+  
+  useEffect(() => {
+    fetchPrayerTimes();
   }, [apiTimes]);
 
-  const currentTime = useMemo(() => new Date(), []); 
+  const currentTime = useMemo(() => new Date(), []);
 
   const convertTimeStrToDate = (timeStr, index) => {
     const [hours, minutes] = timeStr.split(':');
     let d = new Date();
     let hourValue = +hours;
     if (index > 0) {
-      hourValue += 12; 
+      hourValue += 12;
     }
     d.setHours(hourValue);
     d.setMinutes(+minutes);
@@ -103,7 +132,6 @@ const PrayerTimes = () => {
       }
     }
   }, [times, currentTime]);
-
 
   return (
     <PrayerTimesWrapper>

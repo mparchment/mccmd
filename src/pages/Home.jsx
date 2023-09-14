@@ -69,14 +69,32 @@ function Home() {
     useEffect(() => {
         fetch('https://mccmd.org/wp-json/wp/v2/posts')
           .then(response => response.json())
-          .then(data => setPosts(data));
-      }, []);
-  
-      const desktopImages = posts.map(post => ({
-          image: MCCFront,
-          title: post.title.rendered,
-          text: stripHtml(post.excerpt.rendered)
-      }));
+          .then(async (data) => {
+            const postsWithMedia = await Promise.all(data.map(async (post) => {
+              if (post._links && post._links['wp:featuredmedia'] && post._links['wp:featuredmedia'].length > 0) {
+                const mediaUrl = post._links['wp:featuredmedia'][0].href;
+                const mediaResponse = await fetch(mediaUrl);
+                const mediaData = await mediaResponse.json();
+                const imageUrl = mediaData.source_url;
+                return {
+                  ...post,
+                  featuredMedia: imageUrl,
+                };
+              }
+              return {
+                ...post,
+                featuredMedia: null,
+              };
+            }));
+            setPosts(postsWithMedia);
+          });
+    }, []);
+    
+    const desktopImages = posts.map(post => ({
+        image: post.featuredMedia || MCCFront,
+        title: stripHtml(post.title.rendered),
+        text: stripHtml(post.excerpt.rendered),
+    }));
 
     const nextSlide = useCallback(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % desktopImages.length);

@@ -90,6 +90,10 @@ const ImamSubtitle = styled.h3`
     font-weight: 400;
 `;
 
+const Verse = styled.div`
+    self-align: center;
+    max-width: 600px;
+`;
 
 function Zakat() {
     return (
@@ -98,11 +102,9 @@ function Zakat() {
         <Wrapper>
           <Title>Zakat</Title>
           <Subtitle>Give Your Zakat to Those in Need</Subtitle>
-          <p>At the Muslim Community Center, we offer a comprehensive zakat program to help those in need. This program is designed to collect and distribute zakat to eligible recipients, as prescribed by Islamic teachings.</p>
-  
-          <p>We understand the importance of zakat in Islam and are committed to ensuring that your zakat is distributed in a fair and transparent manner. Our program is open to everyone, regardless of background or previous religious beliefs.</p>
-  
-          <p>If you would like to give your zakat through our program, please contact us at [...] We look forward to working with you to fulfill this important pillar of Islam.</p>
+          <Verse>Keep up the prayer and pay the prescribed alms. Whatever good you store up for yourselves, you will find it with God: He sees everything you do. (Quran 2:110)</Verse>
+
+          <p>At Muslim Community Center, we offer a comprehensive zakat program to help those in need. This program is designed to collect and distribute zakat to eligible recipients. If you would like to give your zakat through our program, please contact us at [...] We look forward to working with you to fulfill this important pillar of Islam.</p>
         </Wrapper>
       </>
     );

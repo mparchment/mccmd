@@ -157,6 +157,12 @@ function Header() {
 
     const isMobile = useIsMobile()
     
+    const capitalizeHijriMonth = (str) => {
+        return str.replace(/al-(\w)/g, (match, letter) => {
+            return 'Al-' + letter.toUpperCase();
+        });
+    }
+    
     const getCurrentDate = () => {
         const currentDate = new Date();
         const day = currentDate.getDate();
@@ -184,7 +190,7 @@ function Header() {
       };
 
     const dateString = getCurrentDate();
-    const hijriString = `${hijriDay} ${hijriMonth} ${hijriYear}`;
+    const hijriString = `${hijriDay} ${capitalizeHijriMonth(hijriMonth)} ${hijriYear}`;
 
     const handleMobileButtonClick = () => {
         if (isUserLoggedIn) {

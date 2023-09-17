@@ -7,7 +7,8 @@ import useIsMobile from "../hooks/useIsMobile";
 
 import ProgramCard from "../components/ProgramCard";
 import ServiceCard from "../components/ServiceCard";
-import Calendar from "../components/Calendar";
+import OldCalendar from "../components/Calendar";
+import WeeklyCalendar from "../components/WeeklyCalendar";
 
 import MCCFront from "../assets/mcc-front.jpg";
 import ShaykhAbdussamadPortrait from "../assets/shaykh-abdussamad-portrait.png";
@@ -61,6 +62,24 @@ function stripHtml(html) {
   return doc.body.textContent || "";
 }
 
+const events = [
+  // Existing events
+  { name: 'Fajr Halaqah', date: '2023-09-18', startTime: '2023-09-18T05:30:00' },
+  { name: 'Sirah Study', date: '2023-09-18', startTime: '2023-09-18T19:30:00' },
+  { name: 'Tazkiyah Tuesdays', date: '2023-09-19', startTime: '2023-09-19T07:30:00' },
+  { name: 'Hadith Study', date: '2023-09-20', startTime: '2023-09-20T19:30:00' },
+  { name: 'YAP Book Club', date: '2023-09-21', startTime: '2023-09-21T07:30:00' },
+  { name: "1st Jumu'ah", date: '2023-09-22', startTime: '2023-09-22T13:00:00' },
+  { name: "2nd Jumu'ah", date: '2023-09-22', startTime: '2023-09-22T14:00:00' },
+  { name: 'MYO Halaqah', date: '2023-09-22', startTime: '2023-09-22T18:00:00' },
+  { name: 'Breakfast Club', date: '2023-09-23', startTime: '2023-09-23T09:00:00' },
+  { name: 'MCC Cleanup', date: '2023-09-23', startTime: '2023-09-23T11:00:00' },
+  { name: 'Family Picnic', date: '2023-09-17', startTime: '2023-09-17T12:00:00' },
+  ...['2023-09-17', '2023-09-18', '2023-09-19', '2023-09-20', '2023-09-21'].map(date => [
+    { name: 'Islamic Studies', date, startTime: `${date}T16:00:00` },
+    { name: "Qur'an Program", date, startTime: `${date}T17:00:00` },
+  ]).flat(),
+];
 function Home() {
   const isMobile = useIsMobile();
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -246,7 +265,7 @@ function Home() {
           </IntroductionCard>
         </IntroductionWrapper>
       )}
-      {/*<Calendar />*/}
+      {/*<OldCalendar />*/}
       <ProgramsSection>
         <TitleWrapper>
           <ProgramTitle>Programs</ProgramTitle>
@@ -279,6 +298,11 @@ function Home() {
           />
         </ProgramsWrapper>
       </ProgramsSection>
+      <TitleWrapper>
+        <ProgramTitle>Calendar</ProgramTitle>
+        <Divider />
+      </TitleWrapper>
+      <WeeklyCalendar events={events}/>
       <TitleWrapper>
         <ProgramTitle>Services</ProgramTitle>
         <Divider />

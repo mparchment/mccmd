@@ -246,7 +246,7 @@ function Home() {
           </IntroductionCard>
         </IntroductionWrapper>
       )}
-      <Calendar />
+      {/*<Calendar />*/}
       <ProgramsSection>
         <TitleWrapper>
           <ProgramTitle>Programs</ProgramTitle>

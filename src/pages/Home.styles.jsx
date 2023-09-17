@@ -250,6 +250,7 @@ export const ProgramsSection = styled.div`
     margin-bottom: 55px;
     background: #333;
     color: #fff;
+    margin-top: 30px;
 
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
 `;

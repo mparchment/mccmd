@@ -245,11 +245,6 @@ export const ServicesWrapper = styled.div`
 `;
 
 export const ProgramsSection = styled.div`
-
-    @media (min-width: 1366px) {
-        margin-top: 25px;
-    }
-
     padding-top: 30px;
     padding-bottom: 20px;
     margin-bottom: 55px;
@@ -260,7 +255,7 @@ export const ProgramsSection = styled.div`
 `;
 
 export const SlideButton = styled.button`
-    background-color: rgba(0, 0, 0, 0); // Semi-transparent black
+    background-color: rgba(0, 0, 0, 0);
     height: 100%;
     width: 75px;
     color: white;

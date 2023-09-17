@@ -19,7 +19,7 @@ const PostsProvider = ({ children }) => {
       }
     };
 
-    fetch('https://mccmd.org/wp-json/wp/v2/posts?_fields=id,title,excerpt,_links')
+    fetch('https://mccmd.org/wp-json/wp/v2/posts?_fields=id,title,slug,excerpt,content,_links')
       .then(response => response.json())
       .then(data => {
         const fetchPromises = data.map((post) => {

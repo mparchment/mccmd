@@ -38,6 +38,7 @@ import MenuProvider from './contexts/MenuProvider';
 import AuthProvider from './contexts/AuthProvider';
 import PostsContext from './contexts/PostsContext.jsx';
 import { PageBackground } from './components/PageBackground.jsx';
+import PostDetail from './components/PostDetail.jsx';
 
 import useIsMobile from './hooks/useIsMobile';
 import PostsProvider from './contexts/PostsProvider.jsx';
@@ -57,11 +58,7 @@ function AppContent() {
   
   useEffect(() => {
     if (!isLoading & !isPostsLoading) {
-        const timer = setTimeout(() => {
-            setShowLoading(false);
-        }, 750);
-
-        return () => clearTimeout(timer);
+      setShowLoading(false)
     }
   }, [isLoading, isPostsLoading]);
 
@@ -88,15 +85,16 @@ function AppContent() {
                 <Route path="/mccmd/login" element={<Login />} />
                 <Route path="/mccmd/account" element={<Account />} />
                 <Route path="/mccmd/dashboard" element={<Dashboard />} />
-                <Route path="/mccmd/converts" element={<Converts />} />
+                <Route path="/mccmd/convert-care" element={<Converts />} />
                 <Route path="/mccmd/food-pantry" element={<FoodPantry />} />
                 <Route path="/mccmd/general-programs" element={<GeneralPrograms />} />
-                <Route path="/mccmd/imam" element={<Imam />} />
+                <Route path="/mccmd/imams-corner" element={<Imam />} />
                 <Route path="/mccmd/janazas" element={<Janazas />} />
                 <Route path="/mccmd/marriage" element={<Marriage />} />
                 <Route path="/mccmd/refugee-aid" element={<RefugeeAid />} />
                 <Route path="/mccmd/dashboard" element={<Dashboard />} />
                 <Route path="/mccmd/zakat" element={<Zakat />} />
+                <Route path="/mccmd/:slug" element={<PostDetail />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>}
             <Footer/></>}

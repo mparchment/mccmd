@@ -39,12 +39,11 @@ const DonateBox = styled.div`
     text-align: center;
     height: fit-content;
     width: 350px;
-    padding: 25px;
     border-radius: 10px;
     background-color: #f5f5f7;
 
-    @media (max-width: 768px) {
-        width: 100%;  // Take the full width on mobile screens
+    @media (max-width: 1440px) {
+        width: 100%; 
         margin-top: 20px;
     }
 `;
@@ -245,10 +244,11 @@ const DonationBottom = styled.div`
     gap: 20px;
     margin-bottom: 50px;
     justify-content: center;
-    flex-wrap: wrap; // Allow items to wrap
+    flex-wrap: nowrap;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1440px) {
         flex-direction: column; 
+        flex-wrap: wrap;
     }
 `;
 
@@ -258,8 +258,8 @@ const ImageWrapper = styled.div`
     font-weight: 500;
     width: 60%;
 
-    @media (max-width: 768px) {
-        width: 100%;  // Take the full width on mobile screens
+    @media (max-width: 1440px) {
+        width: 100%; 
     }
 `;
 
@@ -338,39 +338,39 @@ function Donate() {
                 <IntroText>Donating to Muslim Community Center means tarbiyah and lifelong education. Building spiritual companionship and educating young minds. Your financial help makes all this happen, and more.</IntroText>
                 </Intro>
                 <DonationBottom>
-                <ImageWrapper>
-                    <DonationImage src={MCCSide} alt="Donate" />
-                    <ImageText><h3>You can make a difference.</h3>Donating to Muslim Community Center means tarbiyah and lifelong education. Building spiritual companionship and educating young minds. Your financial help makes all this happen, and more.</ImageText>
-                </ImageWrapper>
-                <DonateBox>
-                    <DonationInfo>
-                        <div><DonationTitle>Secure Donation</DonationTitle></div>
-                        <DonationType>
-                            <DonationButton position="left" selected={donationType === 'once'} onClick={() => handleDonationTypeChange('once')}>Give Once</DonationButton>
-                            <DonationButton position="right" selected={donationType === 'monthly'} onClick={() => handleDonationTypeChange('monthly')}>Monthly <span style={{ marginLeft: '2px', fontSize: '1.1rem'}}>♥</span></DonationButton>
-                        </DonationType>
-                        <DonationAmounts>
-                            <DonationAmount selected={donationAmount === 1000} onClick={() => handleDonationAmountChange(1000)}>$1000</DonationAmount>
-                            <DonationAmount selected={donationAmount === 500} onClick={() => handleDonationAmountChange(500)}>$500</DonationAmount>
-                            <DonationAmount selected={donationAmount === 250} onClick={() => handleDonationAmountChange(250)}>$250</DonationAmount>
-                            <DonationAmount selected={donationAmount === 100} onClick={() => handleDonationAmountChange(100)}>$100</DonationAmount>
-                            <DonationAmount selected={donationAmount === 50} onClick={() => handleDonationAmountChange(50)}>$50</DonationAmount>
-                            <DonationAmount selected={donationAmount === 25} onClick={() => handleDonationAmountChange(25)}>$25</DonationAmount>
-                        </DonationAmounts>
-                        <CustomAmount>
-                        <CustomAmountInput type="number" value={customAmountValue} onChange={handleCustomAmountChange}/>
-                        </CustomAmount>
-                    </DonationInfo>
-                    <DonationDisclaimer><Divider/>Muslim Community Center is committed to your privacy. Your payment details will be processed by Paypal, and a record of your donation will be stored by us. </DonationDisclaimer>
-                    <DonationButtons>
-                        <VisaButton type="submit">
-                            Visa
-                        </VisaButton>
-                        <PaypalButton type="submit">
-                            PayPal
-                        </PaypalButton>
-                    </DonationButtons>
-                </DonateBox>
+                    <ImageWrapper>
+                        <DonationImage src={MCCSide} alt="Donate" />
+                        <ImageText><h3>You can make a difference.</h3>Donating to Muslim Community Center means tarbiyah and lifelong education. Building spiritual companionship and educating young minds. Your financial help makes all this happen, and more.</ImageText>
+                    </ImageWrapper>
+                    <DonateBox>
+                        <DonationInfo>
+                            <div><DonationTitle>Secure Donation</DonationTitle></div>
+                            <DonationType>
+                                <DonationButton position="left" selected={donationType === 'once'} onClick={() => handleDonationTypeChange('once')}>Give Once</DonationButton>
+                                <DonationButton position="right" selected={donationType === 'monthly'} onClick={() => handleDonationTypeChange('monthly')}>Monthly <span style={{ marginLeft: '2px', fontSize: '1.1rem'}}>♥</span></DonationButton>
+                            </DonationType>
+                            <DonationAmounts>
+                                <DonationAmount selected={donationAmount === 1000} onClick={() => handleDonationAmountChange(1000)}>$1000</DonationAmount>
+                                <DonationAmount selected={donationAmount === 500} onClick={() => handleDonationAmountChange(500)}>$500</DonationAmount>
+                                <DonationAmount selected={donationAmount === 250} onClick={() => handleDonationAmountChange(250)}>$250</DonationAmount>
+                                <DonationAmount selected={donationAmount === 100} onClick={() => handleDonationAmountChange(100)}>$100</DonationAmount>
+                                <DonationAmount selected={donationAmount === 50} onClick={() => handleDonationAmountChange(50)}>$50</DonationAmount>
+                                <DonationAmount selected={donationAmount === 25} onClick={() => handleDonationAmountChange(25)}>$25</DonationAmount>
+                            </DonationAmounts>
+                            <CustomAmount>
+                            <CustomAmountInput type="number" value={customAmountValue} onChange={handleCustomAmountChange}/>
+                            </CustomAmount>
+                        </DonationInfo>
+                        <DonationDisclaimer><Divider/>Muslim Community Center is committed to your privacy. Your payment details will be processed by Paypal, and a record of your donation will be stored by us. </DonationDisclaimer>
+                        <DonationButtons>
+                            <VisaButton type="submit">
+                                Visa
+                            </VisaButton>
+                            <PaypalButton type="submit">
+                                PayPal
+                            </PaypalButton>
+                        </DonationButtons>
+                    </DonateBox>
                 </DonationBottom>
 
                 <Wrapper> 

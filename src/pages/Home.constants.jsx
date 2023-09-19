@@ -49,7 +49,7 @@ const generateRecurringEvents = () => {
         eventsForDay.push({ name: 'Fajr Halaqah', date: dateStr, startTime: `${dateStr}T05:30:00` });
         eventsForDay.push({ name: 'Sirah Study', date: dateStr, startTime: `${dateStr}T19:30:00` });
         } else if (dayName === 'Tuesday') {
-        eventsForDay.push({ name: 'Tazkiyah Tuesdays', date: dateStr, startTime: `${dateStr}T07:30:00` });
+        eventsForDay.push({ name: 'Tazkiyah Tuesdays', date: dateStr, startTime: `${dateStr}T19:30:00` });
         } else if (dayName === 'Wednesday') {
         eventsForDay.push({ name: 'Hadith Study', date: dateStr, startTime: `${dateStr}T19:30:00` });
         } else if (dayName === 'Thursday') {

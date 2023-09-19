@@ -101,7 +101,7 @@ const DateWrapper = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-        font-size: 13px;
+        font-size: 12px;
     }
 `;
 

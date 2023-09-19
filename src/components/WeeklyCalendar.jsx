@@ -62,14 +62,6 @@ const WeeklyCalendar = ({ events }) => {
     '#fff0e0',
     '#fce0cc',
   ];
-  
-
-  const eventsWithColors = events.map((event, index) => {
-    return {
-      ...event,
-      color: colorPalette[index % colorPalette.length],
-    };
-  });
 
   const formatTime = (date) => {
     const hours = date.getHours();
@@ -82,19 +74,19 @@ const WeeklyCalendar = ({ events }) => {
   return (
     <AlignCenter>
       <Wrapper>
-        {daysOfWeek.map((day, index) => {
-          const dayEvents = eventsWithColors.filter((event) =>
+        {daysOfWeek.map((day, dayIndex) => {
+          const dayEvents = events.filter((event) =>
             day.toISOString().split('T')[0] === new Date(event.date).toISOString().split('T')[0]
           );
 
           dayEvents.sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
 
           return (
-            <DayColumn key={index}>
+            <DayColumn key={dayIndex}>
               <DayTitle>{dayNames[day.getDay()]}</DayTitle>
               <EventsWrapper>
-                {dayEvents.map((event, i) => (
-                  <Event key={i} style={{backgroundColor: `${event.color}`}}>
+                {dayEvents.map((event, eventIndex) => (
+                  <Event key={eventIndex} style={{backgroundColor: colorPalette[(eventIndex + dayIndex) % colorPalette.length]}}>
                     <strong>{event.name}</strong><br/>{formatTime(new Date(event.startTime))}
                   </Event>
                 ))}
@@ -108,7 +100,7 @@ const WeeklyCalendar = ({ events }) => {
 };
 
 WeeklyCalendar.propTypes = {
-    events: PropTypes.array.isRequired,
+  events: PropTypes.array.isRequired,
 };
 
 export default WeeklyCalendar;

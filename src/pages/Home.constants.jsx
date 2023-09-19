@@ -35,4 +35,44 @@ export const desktopImages = [
     }
 ];
 
+const generateRecurringEvents = () => {
+    const today = new Date();
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
+    const recurringEvents = daysOfWeek.map((dayName, index) => {
+        const eventDate = new Date(today);
+        eventDate.setDate(today.getDate() + (index - today.getDay() + 7) % 7);
+        const dateStr = eventDate.toISOString().split('T')[0];
+        
+        const eventsForDay = [];
+        if (dayName === 'Monday') {
+        eventsForDay.push({ name: 'Fajr Halaqah', date: dateStr, startTime: `${dateStr}T05:30:00` });
+        eventsForDay.push({ name: 'Sirah Study', date: dateStr, startTime: `${dateStr}T19:30:00` });
+        } else if (dayName === 'Tuesday') {
+        eventsForDay.push({ name: 'Tazkiyah Tuesdays', date: dateStr, startTime: `${dateStr}T07:30:00` });
+        } else if (dayName === 'Wednesday') {
+        eventsForDay.push({ name: 'Hadith Study', date: dateStr, startTime: `${dateStr}T19:30:00` });
+        } else if (dayName === 'Thursday') {
+        eventsForDay.push({ name: 'YAP Book Club', date: dateStr, startTime: `${dateStr}T07:30:00` });
+        } else if (dayName === 'Friday') {
+        eventsForDay.push({ name: "1st Jumu'ah", date: dateStr, startTime: `${dateStr}T13:00:00` });
+        eventsForDay.push({ name: "2nd Jumu'ah", date: dateStr, startTime: `${dateStr}T14:00:00` });
+        eventsForDay.push({ name: 'MYO Halaqah', date: dateStr, startTime: `${dateStr}T18:00:00` });
+        } else if (dayName === 'Saturday') {
+        eventsForDay.push({ name: 'Breakfast Club', date: dateStr, startTime: `${dateStr}T09:00:00` });
+        eventsForDay.push({ name: 'MCC Cleanup', date: dateStr, startTime: `${dateStr}T11:00:00` });
+        } else if (dayName === 'Sunday') {
+        eventsForDay.push({ name: 'Family Picnic', date: dateStr, startTime: `${dateStr}T12:00:00` });
+        }
+        
+        eventsForDay.push({ name: 'Islamic Studies', date: dateStr, startTime: `${dateStr}T16:00:00` });
+        eventsForDay.push({ name: "Qur'an Program", date: dateStr, startTime: `${dateStr}T17:00:00` });
+        
+        return eventsForDay;
+    }).flat();
+
+    return recurringEvents;
+};
+  
+export const events = generateRecurringEvents();
+  

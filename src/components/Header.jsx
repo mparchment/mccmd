@@ -75,7 +75,7 @@ const Button = styled.button`
 `;
 
 const Logo = styled.img`
-    height: 50px;
+    height: 2.75rem;
 `;
 
 const MenuButtonWrapper = styled.div`
@@ -101,6 +101,7 @@ const DateWrapper = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
+        font-size: 13px;
     }
 `;
 
@@ -119,9 +120,7 @@ const Background = styled.div`
 `;
 
 const DateContainer = styled.div`'
-    @media (max-width: 1440px) {
-        font-size: 12px;
-    }
+
 `;
 
 const PageLink = styled(Link)`

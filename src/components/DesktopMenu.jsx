@@ -39,6 +39,34 @@ const DesktopMenuLink = styled(Link)`
   }
 `;
 
+const ServicesLink = styled.span`
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 12px;
+  color: #fff;
+  position: relative;
+  user-select: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transform: translateX(0);
+    height: 2px;
+    width: 0;
+    background-color: #b98474;
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+    left: 0;
+    transform: translateX(0);
+  }
+`;
+
 
 const DesktopMenuWrapper = styled.div`
   position: relative;
@@ -83,11 +111,18 @@ function DesktopMenu() {
           'Donate',
         ].map((item, index) => (
           <DropdownContainer key={index}>
-            <DesktopMenuLink
-              to={`/mccmd/${item.toLowerCase().replace(/ /g, '-')}`}
-            >
-              {item}
-            </DesktopMenuLink>
+            {item === 'Services' ? (
+              <ServicesLink style={{ textTransform: 'uppercase', fontWeight: 'bold', fontSize: '12px', color: '#fff' }}>
+                {item}
+              </ServicesLink>
+            ) : (
+              <DesktopMenuLink
+                to={`/mccmd/${item.toLowerCase().replace(/ /g, '-')}`}
+              >
+                {item}
+              </DesktopMenuLink>
+            )}
+
             {item === 'Services' && (
               <DropdownContent>
                 <DesktopMenuLink to="/mccmd/imams-corner">

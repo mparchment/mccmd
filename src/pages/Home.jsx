@@ -358,8 +358,8 @@ function Home() {
             know is facing abuse.
           </ServiceCard>
           {/*<ServiceCard subtitle="General Programs" to="/mccmd/general-events">
-                        To book rooms for other events or Islamic celebrations, from aqiqas and private gatherings to conferences, we offer rooms at reasonable rates of hire.
-                    </ServiceCard>*/}
+            To book rooms for other events or Islamic celebrations, from aqiqas and private gatherings to conferences, we offer rooms at reasonable rates of hire.
+          </ServiceCard>*/}
         </ServicesBox>
       </ServicesWrapper>
     </>

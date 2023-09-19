@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   p {
-    max-width: 850px;
+    max-width: 1100px;
   }
 
   a {

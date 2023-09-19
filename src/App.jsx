@@ -42,6 +42,7 @@ import PostDetail from './components/PostDetail.jsx';
 
 import useIsMobile from './hooks/useIsMobile';
 import PostsProvider from './contexts/PostsProvider.jsx';
+import { WhiteBackground } from './components/WhiteBackground.jsx';
 
 const PageWrapper = styled.div`
   height: 100vh;
@@ -70,7 +71,7 @@ function AppContent() {
   return (
       <PageWrapper>
           {showLoading ? <Loading/> : <>
-          {!isMobile && <PageBackground/>}
+          {!isMobile && <WhiteBackground/>}
           <Header/>
           {!menuOpen && <Routes>
                 <Route path="/mccmd/" element={<Home />} />

@@ -25,7 +25,6 @@ const Wrapper = styled.div`
         padding-right: 7%;
 
         background-color: #fff;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
     }
 `;
 

@@ -35,15 +35,19 @@ const HeaderWrapper = styled.div`
     }
 `;
 
-const CenteredContent = styled.div`
-    position: absolute; // Added this line
-    top: 50%; // Added this line
-    left: 50%; // Added this line
-    transform: translate(-50%, -50%); // Added this line
+const CenteredContainer = styled.div`
     display: flex;
-    width: 64%;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
+    width: 100%;
+`;
+
+const CenteredContent = styled.div`
+    display: flex;
+    width: 72.5%;
+    align-items: center;
+    justify-content: space-evenly;
+    align-self: center;
 
     @media (max-width: 1366px) {
         width: 95%;
@@ -91,6 +95,7 @@ const PrayerTimeWrapper = styled.div``;
 const DateWrapper = styled.div`
     font-weight: bold;
     white-space: nowrap;
+    font-size: 14px;
 
     @media (max-width: 1440px) {
         display: flex;
@@ -113,7 +118,7 @@ const Background = styled.div`
     width: 100%;
 `;
 
-const DateContainer = styled.div`
+const DateContainer = styled.div`'
     @media (max-width: 1440px) {
         font-size: 12px;
     }
@@ -209,30 +214,32 @@ function Header() {
                 <meta property="og:image" content={MCCLogo}/>
             </Helmet>
             <HeaderWrapper>
-                <CenteredContent>
-                    <LogoWrapper><Link to="/mccmd/"><Logo src={MCCLogo} alt="logo" onClick={handleLogoClick}/></Link></LogoWrapper>
-                    {!isMobile && <><DateWrapper><DateContainer>{dateString} · {hijriString} </DateContainer><JummahWrapper>{"1st Jumu'ah"}: 1:00 PM / {"2nd Jumu'ah"}: 2:00 PM</JummahWrapper></DateWrapper><PrayerTimeWrapper><PrayerTimes/></PrayerTimeWrapper></>}
-                    {isMobile && <MenuButtonWrapper>
-                        <Button onClick={handleMobileButtonClick}>
-                            {isUserLoggedIn ? 'Donate' : 'Login'}
-                        </Button>
-                        {menuOpen ? <CloseIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/> : <MenuIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/>}
-                    </MenuButtonWrapper>}
-                </CenteredContent>
-                {!isMobile && (
-                    <AccountInfo>
-                    <div>
-                        {isUserLoggedIn ? `Welcome back, ${userData.firstName}.` : "Welcome to MCC!"}
-                    </div>
-                    <div>
-                        {isUserLoggedIn ? (
-                        <><PageLink to="/mccmd/dashboard">Dashboard</PageLink> | <PageLink to="/mccmd/account">Account</PageLink></>
-                        ) : (
-                        <AuthLink onClick={openAuthModal}>Sign In / Create Account</AuthLink>
-                        )}
-                    </div>
-                    </AccountInfo>
-                )}
+                <CenteredContainer>
+                    <CenteredContent>
+                        <LogoWrapper><Link to="/mccmd/"><Logo src={MCCLogo} alt="logo" onClick={handleLogoClick}/></Link></LogoWrapper>
+                        {!isMobile && <><DateWrapper><DateContainer>{dateString} · {hijriString} </DateContainer><JummahWrapper>{"1st Jumu'ah"}: 1:00 PM / {"2nd Jumu'ah"}: 2:00 PM</JummahWrapper></DateWrapper><PrayerTimeWrapper><PrayerTimes/></PrayerTimeWrapper></>}
+                        {isMobile && <MenuButtonWrapper>
+                            <Button onClick={handleMobileButtonClick}>
+                                {isUserLoggedIn ? 'Donate' : 'Login'}
+                            </Button>
+                            {menuOpen ? <CloseIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/> : <MenuIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/>}
+                        </MenuButtonWrapper>}
+                    </CenteredContent>
+                    {false && !isMobile && (
+                        <AccountInfo>
+                        <div>
+                            {isUserLoggedIn ? `Welcome back, ${userData.firstName}.` : "Welcome to MCC!"}
+                        </div>
+                        <div>
+                            {isUserLoggedIn ? (
+                            <><PageLink to="/mccmd/dashboard">Dashboard</PageLink> | <PageLink to="/mccmd/account">Account</PageLink></>
+                            ) : (
+                            <AuthLink onClick={openAuthModal}>Sign In / Create Account</AuthLink>
+                            )}
+                        </div>
+                        </AccountInfo>
+                    )}
+                </CenteredContainer>
             </HeaderWrapper>
             <AuthModal isOpen={isAuthModalOpen} onClose={closeAuthModal} />
             {!isMobile && <DesktopMenu/>}

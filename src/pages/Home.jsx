@@ -280,6 +280,7 @@ function Home() {
           />
         </ProgramsWrapper>
       </ProgramsSection>
+      <iframe src="https://masjidbox.com/prayer-times/muslim-community-center" style={{width: "50%", height: "500px", border: "none"}}></iframe>
       <TitleWrapper>
         <ProgramTitle>Calendar</ProgramTitle>
         <Divider />

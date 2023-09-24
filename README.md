@@ -61,6 +61,14 @@ Developing a comprehensive website for MCC. See the live website [here](https://
 - [Qalam Institute](https://www.qalam.institute/)
 - [Dar al-Hijrah](https://hijrah.org/)
 
-## To=Do
-- Change logo colors - dome brownish
-- Liven colors 
+## To-Do
+- Digitize the Zakat process.
+- Revamp the reservation process for MCC.
+- Collect and present all important MCC documents - policies, procedures, bylaws, etc.
+- List all committee members on the committees page - not just the chair.
+- Streamline the membership process - integrate it with the account.
+  - Allow members to pay dues online.
+  - Allow members to refer other members.
+  - Allow members to see their donation history.
+  - Allow members to see their membership status and what it means.
+  - Emphasize streamlined communication with members and prospective members.

@@ -72,3 +72,7 @@ Developing a comprehensive website for MCC. See the live website [here](https://
   - Allow members to see their donation history.
   - Allow members to see their membership status and what it means.
   - Emphasize streamlined communication with members and prospective members.
+- Some of the pages on mobile are misaligned - ensure responsiveness.
+  - Check the committees page on mobile.
+- Display the programs of each organization on the committees page.
+- Show who the khatibs are for each week (possibly under the iqamah times).

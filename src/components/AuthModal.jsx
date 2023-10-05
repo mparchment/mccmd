@@ -112,7 +112,7 @@ const Button = styled.button`
     font-weight: bold;
     font-family: inherit;
     box-shadow: 0px 2px 0 ${darkenColor("#b98474", 0.15)};
-    background-color: #b98474;
+    background-color: var(--accent-color);
     color: white;
     border: #b98474 solid 1px;
 

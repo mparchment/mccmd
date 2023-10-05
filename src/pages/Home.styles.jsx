@@ -12,7 +12,7 @@ export const ProgramTitle = styled.h2`
 export const Divider = styled.div`
     width: 12.5%;
     height: 3px;
-    background-color: #b98474;
+    background-color: var(--accent-color);
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 35px;
@@ -63,9 +63,11 @@ export const IntroductionWrapper = styled.div`
     flex-direction: row;
     margin: 0 auto;
     gap: 30px;
+    margin-bottom: 30px;
 
     @media (max-width: 1440px) {
         width: 75%;
+        margin-bottom: 10px;
     }
 
     @media (max-width: 1366px) {
@@ -250,7 +252,6 @@ export const ProgramsSection = styled.div`
     margin-bottom: 55px;
     background: #333;
     color: #fff;
-    margin-top: 30px;
 
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
 `;

@@ -92,7 +92,7 @@ Error generating stack: `+i.message+`
     gap: 10px;
     margin-bottom: 15px;
 `,qw=H.button`
-    background-color: #b98474;
+    background-color: var(--accent-color);
     border: none;
     border-radius: 7.5px;
     color: white;
@@ -142,7 +142,7 @@ Error generating stack: `+i.message+`
 `,kf=H.div`
     width: 12.5%;
     height: 3px;
-    background-color: #b98474;
+    background-color: var(--accent-color);
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 35px;

@@ -79,7 +79,7 @@ const Button = styled.button`
 `;
 
 const SignInButton = styled(Button)`
-    background-color: #b98474;
+    background-color: var(--accent-color);
     color: white;
     border: #b98474 solid 1px;
     &:active {
@@ -124,7 +124,7 @@ const OAuthButton = styled(Button)`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background-color: #b98474;
+    background-color: var(--accent-color);
     box-shadow: 2px 2px 0 ${darkenColor('#b98474', 0.15)};
     border: #b98474 solid 1px;
     color: white;

@@ -1,6 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+  :root {
+    --accent-color: #b98474;
+  }
+
   body {
     margin: 0;
     overflow-x: hidden;

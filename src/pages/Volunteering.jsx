@@ -46,7 +46,7 @@ const CardWrapper = styled.div`
 const Divider = styled.div`
     width: 12.5%;
     height: 3px;
-    background-color: #b98474;
+    background-color: var(--accent-color);
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;

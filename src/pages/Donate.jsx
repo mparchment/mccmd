@@ -157,7 +157,7 @@ const CustomAmountInput = styled.input`
 `;
 
 const DonateButton = styled.button`
-    background-color: #b98474;
+    background-color: var(--accent-color);
     margin: 0 auto;
     color: white;
     border: none;
@@ -194,7 +194,7 @@ const Divider = styled.hr`
 `
 
 const VisaButton = styled.button`
-    background-color: #b98474;  // A blueish color for Visa branding
+    background-color: var(--accent-color);  // A blueish color for Visa branding
     margin: 10px auto;
     color: white;
     border: none;

@@ -59,7 +59,7 @@ const NewsletterInput = styled.input`
 `;
 
 const SubscribeButton = styled.button`
-    background-color: #b98474;
+    background-color: var(--accent-color);
     border: none;
     border-radius: 5px;
     color: #fff;

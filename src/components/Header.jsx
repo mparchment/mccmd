@@ -62,7 +62,7 @@ const AccountInfo = styled.div`
 `;
 
 const Button = styled.button`
-    background-color: #b98474;
+    background-color: var(--accent-color);
     border: none;
     border-radius: 7.5px;
     color: white;
@@ -206,7 +206,6 @@ function Header() {
 
     return (
         <Background>
-            {isMobile && <PrayerTimes/>}
             <Helmet>
                 <meta property="og:title" content="Muslim Community Center"/>
                 <meta property="og:description" content="Welcome to MCC - the place to be!"/>
@@ -216,13 +215,13 @@ function Header() {
                 <CenteredContainer>
                     <CenteredContent>
                         <LogoWrapper><Link to="/mccmd/"><Logo src={MCCLogo} alt="logo" onClick={handleLogoClick}/></Link></LogoWrapper>
-                        {!isMobile && <><DateWrapper><DateContainer>{dateString} · {hijriString} </DateContainer><JummahWrapper>{"1st Jumu'ah"}: 1:00 PM / {"2nd Jumu'ah"}: 2:00 PM</JummahWrapper></DateWrapper><PrayerTimeWrapper><PrayerTimes/></PrayerTimeWrapper></>}
                         {isMobile && <MenuButtonWrapper>
                             <Button onClick={handleMobileButtonClick}>
                                 {isUserLoggedIn ? 'Donate' : 'Login'}
                             </Button>
                             {menuOpen ? <CloseIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/> : <MenuIcon style={{ fontSize: '250%' }} onClick={handleMenuClick}/>}
                         </MenuButtonWrapper>}
+                        {!isMobile && <DesktopMenu/>}
                     </CenteredContent>
                     {false && !isMobile && (
                         <AccountInfo>
@@ -241,7 +240,6 @@ function Header() {
                 </CenteredContainer>
             </HeaderWrapper>
             <AuthModal isOpen={isAuthModalOpen} onClose={closeAuthModal} />
-            {!isMobile && <DesktopMenu/>}
             {isMobile && menuOpen && <MobileMenu/>} 
         </Background>
     )

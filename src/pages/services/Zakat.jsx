@@ -29,7 +29,7 @@ const Wrapper = styled.div`
 const Divider = styled.div`
     width: 12.5%;
     height: 3px;
-    background-color: #b98474;
+    background-color: var(--accent-color);
     margin: 0 auto;
 `;
 

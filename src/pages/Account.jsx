@@ -66,7 +66,7 @@ function darkenColor(color, factor) {
 }
 
 const SubmitButton = styled.button`
-    background-color: #b98474; 
+    background-color: var(--accent-color); 
     margin: 10px auto;
     color: white;
     border: none;

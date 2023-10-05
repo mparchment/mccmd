@@ -63,7 +63,7 @@ const TextArea = styled.textarea`
 `;
 
 const Button = styled.button`
-    background-color: #b98474;
+    background-color: var(--accent-color);
     border: none;
     border-radius: 7.5px;
     color: white;
@@ -94,7 +94,7 @@ const InquiryButton = styled.button`
   font-weight: 500;
   cursor: pointer;
   &:hover, &.active {
-    background-color: #b98474;
+    background-color: var(--accent-color);
     color: white;
   }
 `;

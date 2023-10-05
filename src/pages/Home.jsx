@@ -44,10 +44,10 @@ import {
   Icon,
 } from "./Home.styles";
 
-import FacebookIcon from "../assets/facebook-black.png";
-import InstagramIcon from "../assets/instagram-black.png";
-import WhatsAppIcon from "../assets/whatsapp-black.png";
-import YouTubeIcon from "../assets/youtube-black.png";
+import FacebookIcon from "../assets/facebook-color.png";
+import InstagramIcon from "../assets/instagram-color.png";
+import WhatsAppIcon from "../assets/whatsapp-color.png";
+import YouTubeIcon from "../assets/youtube-color.png";
 
 import Placeholder1 from "../assets/placeholder-1.jpg";
 import Placeholder2 from "../assets/placeholder-2.jpg";
@@ -247,6 +247,7 @@ function Home() {
           </IntroductionCard>
         </IntroductionWrapper>
       )}
+      <iframe src="https://masjidbox.com/prayer-times/muslim-community-center" style={{width: "100%", height: "550px", border: "none"}}/>
       {/*<OldCalendar />*/}
       <ProgramsSection>
         <TitleWrapper>
@@ -280,7 +281,6 @@ function Home() {
           />
         </ProgramsWrapper>
       </ProgramsSection>
-      {/*<iframe src="https://masjidbox.com/prayer-times/muslim-community-center" style={{width: "50%", height: "500px", border: "none"}}></iframe>*/}
       <TitleWrapper>
         <ProgramTitle>Calendar</ProgramTitle>
         <Divider />

@@ -10,39 +10,12 @@ import ServiceCard from "../components/ServiceCard";
 import OldCalendar from "../components/Calendar";
 import WeeklyCalendar from "../components/WeeklyCalendar";
 
+import styled, { css, keyframes } from 'styled-components';
+
 import MCCFront from "../assets/mcc-front.jpg";
 import ShaykhAbdussamadPortrait from "../assets/shaykh-abdussamad-portrait.png";
 
 import PostsContext from "../contexts/PostsContext";
-import { Link } from "react-router-dom";
-
-import {
-  ProgramTitle,
-  Divider,
-  MainImage,
-  ProgramsWrapper,
-  TitleWrapper,
-  IntroductionWrapper,
-  IntroductionCard,
-  IntroductionSubtitle,
-  ReadMoreLink,
-  ReadMoreWrapper,
-  ImageWrapper,
-  SlidesContainer,
-  Slide,
-  OverlayContent,
-  OverlayTitle,
-  OverlayText,
-  OverlayButton,
-  ServicesBox,
-  ServicesWrapper,
-  ProgramsSection,
-  PreviousButton,
-  NextButton,
-  Icons,
-  IconLink,
-  Icon,
-} from "./Home.styles";
 
 import FacebookIcon from "../assets/facebook-color.png";
 import InstagramIcon from "../assets/instagram-color.png";
@@ -57,6 +30,337 @@ import Placeholder4 from "../assets/placeholder-4.jpeg";
 import { events } from "./Home.constants";
 import { WhiteBackground } from "../components/WhiteBackground";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
+import { Link as PageLink } from 'react-router-dom';
+
+const ProgramTitle = styled.h2`
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 175%;
+    color: inherit;
+    user-select: none;
+`;
+
+const Divider = styled.div`
+    width: 12.5%;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 35px;
+    margin: 0 auto;
+`;
+
+const ProgramsWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 50px;
+
+    @media (min-width:1366px) {
+        width: 60%;
+        flex-direction: row;
+    }
+
+    @media (max-width:1366px) {
+        align-items: center;
+    }
+`;
+
+const Link = styled(PageLink)`
+    color: #333;
+    font-weight: 600;
+    text-decoration: underline;
+`;
+
+const TitleWrapper = styled.div`
+    text-align: center;
+    margin-bottom: 35px;
+`;
+
+const IntroductionWrapper = styled.div`
+    width: 63%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 0 auto;
+    gap: 30px;
+    margin-bottom: 30px;
+
+    @media (max-width: 1440px) {
+        width: 75%;
+        margin-bottom: 10px;
+    }
+
+    @media (max-width: 1366px) {
+        width: 100%;
+    }
+`;
+
+const IntroductionCard = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 25px 50px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    gap: 10px;
+
+    @media (max-width: 1366px) {
+        padding-top: 10px;
+    }
+`;
+
+const IntroductionSubtitle = styled.h3`
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+`;
+
+const ReadMoreLink = styled(Link)`
+    color: inherit;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-bottom: 2px solid #b98474;
+
+    &:hover {
+        color: #b98474;
+        
+        transition: all 0.2s ease-in-out;
+    }
+`;
+
+const ReadMoreWrapper = styled.div`
+    margin-top: 18px;
+    whitespace: nowrap;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    width: fit-content;
+`;
+
+const ServicesBox = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+`;
+
+const ServicesWrapper = styled.div`
+    @media (min-width: 768px) {
+        width: 80%;
+        max-width: 1366px;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+`;
+
+const ProgramsSection = styled.div`
+    padding-top: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 55px;
+    background: #333;
+    color: #fff;
+
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+`;
+
+const SlideButton = styled.button`
+    background-color: rgba(0, 0, 0, 0);
+    height: 100%;
+    width: 75px;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    cursor: pointer;
+    outline: none;
+    font-size: 2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        color: lightgray;
+        transition: color .75s ease;
+    }
+`;
+
+const PreviousButton = styled(SlideButton)`
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+`;
+
+const NextButton = styled(SlideButton)`
+    position: absolute;
+    right: 20px;  // Adjust as needed
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+`;
+
+const SlideContent = styled.div`
+    transition: opacity 0.5s ease-in-out;
+    opacity: ${props => props.fadeOut ? '0' : '1'};
+    display: ${props => props.fadeOut ? 'none' : 'flex'};
+    z-index: ${props => props.fadeOut ? '-1' : '1'};
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+`;
+
+const FollowUsLink = styled.div`
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+  cursor: pointer;
+  border-bottom: 2px solid #b98474;
+  width: fit-content;
+
+  &:hover {
+    color: #b98474;
+    transition: all 0.2s ease-in-out;
+  }
+`;
+
+const Icons = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    gap: 10px;
+`;
+
+
+const IconLink = styled.a`
+    color: inherit;
+    text-decoration: none;
+`;
+
+const Icon = styled.img`
+    width: 30px;
+`;
+
+const SliderSection = styled.div`
+  position: relative;
+  width: 100%;
+  height: 575px;
+`;
+
+const Slider = styled.div`
+  width: 50%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+`
+
+const slideIn = keyframes`
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+`;
+
+const slideOut = keyframes`
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+`;
+
+const SlideImageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+`
+
+const SlideImage = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+`
+
+const SlideText = styled.div`
+  height: 100%;
+  width: 50%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+const Slide = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  ${props => props.isEntering && css`
+    animation: ${slideIn} 0.5s forwards;
+  `}
+  ${props => props.isExiting && css`
+    animation: ${slideOut} 0.5s forwards;
+  `}
+`
+
+const ArrowButton = styled.button`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333; // or another color that suits your design
+  
+  ${props => props.left && `
+    left: 14rem;
+    padding-left: 15px;
+  `}
+  
+  ${props => props.right && `
+    right: 14rem;
+    padding-right: 15px;
+  `}
+`;
+
 function stripHtml(html) {
   const doc = new DOMParser().parseFromString(html, "text/html");
   return doc.body.textContent || "";
@@ -64,109 +368,82 @@ function stripHtml(html) {
 
 function Home() {
   const isMobile = useIsMobile();
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [autoSlide, setAutoSlide] = useState(true);
   const { posts } = useContext(PostsContext);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [autoScroll, setAutoScroll] = useState(true);
 
-  const postData = posts.map((post) => ({
+  const slides = posts.map((post) => ({
     id: post.id,
     slug: post.slug,
-    image: post.featuredMedia || MCCFront,
+    image: post.featuredMedia,
     title: stripHtml(post.title.rendered),
     text: stripHtml(post.excerpt.rendered),
     content: stripHtml(post.content.rendered),
   }));
 
-  const nextSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % postData.length);
-    setAutoSlide(false);
-  }, [setCurrentIndex, setAutoSlide, postData.length]);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const prevSlide = useCallback(() => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + postData.length) % postData.length
-    );
-    setAutoSlide(false);
-  }, [setCurrentIndex, setAutoSlide, postData.length]);
+  const nextSlide = () => {
+    stopAutoScroll();
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length); 
+      setIsTransitioning(false);
+    }, 500); // 0.5s to match the CSS animation duration
+  }
 
-  const handlers = useSwipeable({
-    onSwipedLeft: () => nextSlide(),
-    onSwipedRight: () => prevSlide(),
-    preventDefaultTouchmoveEvent: true,
-    trackMouse: true,
-  });
+  const prevSlide = () => {
+    stopAutoScroll();
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1)); 
+      setIsTransitioning(false);
+    }, 500); // 0.5s to match the CSS animation duration
+  }
 
   useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        setAutoSlide(false);
-      } else {
-        setAutoSlide(true);
+    const autoSlide = () => {
+      if (autoScroll) {
+        setIsTransitioning(true);
+        setTimeout(() => {
+          setCurrentSlide((prev) => (prev + 1) % slides.length); 
+          setIsTransitioning(false);
+        }, 500); // 0.5s to match the CSS animation duration
       }
     };
-
-    document.addEventListener("visibilitychange", handleVisibilityChange);
+    const interval = setInterval(autoSlide, 5000);
 
     return () => {
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      clearInterval(interval);
     };
-  }, []);
+  }, [currentSlide, autoScroll]);
 
-  useEffect(() => {
-    if (autoSlide) {
-      const slideTimer = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % postData.length);
-      }, 5000);
-
-      return () => clearInterval(slideTimer);
-    }
-  }, [autoSlide]);
+  const stopAutoScroll = () => {
+    setAutoScroll(false);
+  };
 
   return (
     <>
       <WhiteBackground />
-      {isMobile ? (
-        <ImageWrapper>
-          <SlidesContainer
-            {...handlers}
-            style={{ transform: `translateX(-${currentIndex * 100}vw)` }}
-          >
-            {postData.map((slide, index) => (
-              <Slide key={index}>
-                <MainImage src={slide.image} alt="" />
-                <OverlayContent>
-                  <OverlayTitle>{slide.title}</OverlayTitle>
-                  <OverlayText>{slide.text}</OverlayText>
-                  <OverlayButton to={`/mccmd/${slide.slug}`}>
-                    Read More
-                  </OverlayButton>
-                </OverlayContent>
-              </Slide>
-            ))}
-          </SlidesContainer>
-        </ImageWrapper>
-      ) : (
-        <ImageWrapper>
-          <SlidesContainer
-            style={{ transform: `translateX(-${currentIndex * 100}vw)` }}
-          >
-            {postData.map((slide, index) => (
-              <Slide key={index}>
-                <MainImage src={slide.image} alt="" />
-                <OverlayContent>
-                  <OverlayTitle>{slide.title}</OverlayTitle>
-                  <OverlayText>{slide.text}</OverlayText>
-                  <OverlayButton to={`/mccmd/${slide.slug}`}>
-                    Read More
-                  </OverlayButton>
-                </OverlayContent>
-              </Slide>
-            ))}
-          </SlidesContainer>
-          <PreviousButton onClick={prevSlide}>{"\u2039"}</PreviousButton>
-          <NextButton onClick={nextSlide}>{"\u203a"}</NextButton>
-        </ImageWrapper>
-      )}
+      <SliderSection>
+        <Slider>
+          <Slide isExiting={isTransitioning} isEntering={!isTransitioning}>
+            <SlideImageWrapper>
+              <SlideImage src={slides[currentSlide].image} alt={slides[currentSlide].title} />
+            </SlideImageWrapper>
+            <SlideText>
+              <h1>{slides[currentSlide].title}</h1>
+              <p>{slides[currentSlide].text}</p>
+            </SlideText>
+          </Slide>
+        </Slider>
+        <ArrowButton onClick={prevSlide} left>
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </ArrowButton>
+        <ArrowButton onClick={nextSlide} right>
+          <FontAwesomeIcon icon={faArrowRight} />
+        </ArrowButton>
+      </SliderSection>
       {!isMobile && (
         <IntroductionWrapper>
           <IntroductionCard>

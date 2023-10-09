@@ -139,6 +139,14 @@ const ReadMoreLink = styled(Link)`
     }
 `;
 
+const ReadMoreSpan = styled(Link)`
+    color: inherit;
+    text-decoration: none;
+    font-weight: inherit;
+    border-bottom: 2px solid #b98474;
+    whitespace: nowrap;
+`;
+
 const ReadMoreWrapper = styled.div`
     margin-top: 18px;
     whitespace: nowrap;
@@ -385,6 +393,41 @@ const ArrowButton = styled.button`
   `}
 `;
 
+const SlideExcerpt = styled.p `
+  margin-bottom: 2.5rem;
+  text-align: center;
+`;
+
+function darkenColor(color, factor) {
+  const f = parseInt(color.slice(1), 16),
+        R = f >> 16,
+        G = (f >> 8) & 0x00FF,
+        B = f & 0x0000FF;
+  
+  return "#" + (1 << 24 | (R * (1 - factor)) << 16 | (G * (1 - factor)) << 8 | (B * (1 - factor))).toString(16).slice(1).toUpperCase();
+}
+
+const ReadMoreButton = styled.button`
+  background-color: #b98474;
+  color: #fff;
+  border: 1px solid black;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+
+  width: 200px;
+  height: 50px;
+  border: rgba(0, 0, 0, 0.34) solid 1px;
+  font-size: .9rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  box-shadow: ${`0px 2px 0 ${darkenColor('#b98474', 0.15)}`};
+`;
+
+const SlideHeader = styled.h1`
+  text-align: center;
+`
+
 function stripHtml(html) {
   const doc = new DOMParser().parseFromString(html, "text/html");
   return doc.body.textContent || "";
@@ -466,15 +509,17 @@ function Home() {
               <SlideImage src={slides[currentSlide].image} alt={slides[currentSlide].title} />
             </SlideImageWrapper>
             <SlideText>
-              <h1>{slides[currentSlide].title}</h1>
-              <p>{slides[currentSlide].text}</p>
+              <SlideHeader>{slides[currentSlide].title}</SlideHeader>
+              <SlideExcerpt>{slides[currentSlide].text}</SlideExcerpt>
+              <Link to={`/mccmd/${slides[currentSlide].slug}`}><ReadMoreButton>Read More</ReadMoreButton></Link>
+              
             </SlideText>
           </Slide>
         </Slider>
-        <ArrowButton onClick={prevSlide} left>
+        <ArrowButton onClick={prevSlide} left disabled={isTransitioning}>
           <FontAwesomeIcon icon={faArrowLeft} />
         </ArrowButton>
-        <ArrowButton onClick={nextSlide} right>
+        <ArrowButton onClick={nextSlide} right disabled={isTransitioning}>
           <FontAwesomeIcon icon={faArrowRight} />
         </ArrowButton>
       </SliderSection>

@@ -301,6 +301,24 @@ const slideOut = keyframes`
   }
 `;
 
+const slideInLeft = keyframes`
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+`;
+
+const slideOutRight = keyframes`
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+`;
+
 const SlideImageWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -332,11 +350,17 @@ const Slide = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  ${props => props.isEntering && css`
-    animation: ${slideIn} 0.5s forwards;
+  ${props => props.isEntering && props.isGoingLeft && css`
+    animation: ${slideInLeft} 0.2s forwards;
   `}
-  ${props => props.isExiting && css`
-    animation: ${slideOut} 0.5s forwards;
+  ${props => props.isEntering && !props.isGoingLeft && css`
+    animation: ${slideIn} 0.2s forwards;
+  `}
+  ${props => props.isExiting && props.isGoingLeft && css`
+    animation: ${slideOutRight} 0.2s forwards;
+  `}
+  ${props => props.isExiting && !props.isGoingLeft && css`
+    animation: ${slideOut} 0.2s forwards;
   `}
 `
 
@@ -371,6 +395,7 @@ function Home() {
   const { posts } = useContext(PostsContext);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [autoScroll, setAutoScroll] = useState(true);
+  const [isGoingLeft, setIsGoingLeft] = useState(false);
 
   const slides = posts.map((post) => ({
     id: post.id,
@@ -385,6 +410,7 @@ function Home() {
 
   const nextSlide = () => {
     stopAutoScroll();
+    setIsGoingLeft(false);
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length); 
@@ -394,6 +420,7 @@ function Home() {
 
   const prevSlide = () => {
     stopAutoScroll();
+    setIsGoingLeft(true);
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1)); 
@@ -422,12 +449,19 @@ function Home() {
     setAutoScroll(false);
   };
 
+  useEffect(() => {
+    slides.forEach(slide => {
+      const img = new Image();
+      img.src = slide.image;
+    });
+  }, [slides]);
+
   return (
     <>
       <WhiteBackground />
       <SliderSection>
         <Slider>
-          <Slide isExiting={isTransitioning} isEntering={!isTransitioning}>
+        <Slide isExiting={isTransitioning} isEntering={!isTransitioning} isGoingLeft={isGoingLeft}>
             <SlideImageWrapper>
               <SlideImage src={slides[currentSlide].image} alt={slides[currentSlide].title} />
             </SlideImageWrapper>
@@ -558,11 +592,13 @@ function Home() {
           />
         </ProgramsWrapper>
       </ProgramsSection>
+      {/*
       <TitleWrapper>
         <ProgramTitle>Calendar</ProgramTitle>
         <Divider />
       </TitleWrapper>
       <WeeklyCalendar events={events}/>
+      */}
       <TitleWrapper>
         <ProgramTitle>Services</ProgramTitle>
         <Divider />

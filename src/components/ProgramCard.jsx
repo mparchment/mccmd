@@ -11,7 +11,7 @@ const ProgramCardWrapper = styled.div`
     align-items: center;
     flex-direction: column;
     text-align: center;
-    max-width: 355px;
+    min-width: 355px;
     margin: 0 auto;
     margin-bottom: 30px;
 `;

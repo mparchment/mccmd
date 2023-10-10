@@ -86,7 +86,7 @@ function AppContent() {
                 <Route path="/mccmd/login" element={<Login />} />
                 <Route path="/mccmd/account" element={<Account />} />
                 <Route path="/mccmd/dashboard" element={<Dashboard />} />
-                <Route path="/mccmd/convert-care" element={<Converts />} />
+                <Route path="/mccmd/converts" element={<Converts />} />
                 <Route path="/mccmd/food-pantry" element={<FoodPantry />} />
                 <Route path="/mccmd/general-programs" element={<GeneralPrograms />} />
                 <Route path="/mccmd/imams-corner" element={<Imam />} />

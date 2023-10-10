@@ -9,6 +9,16 @@ const PostsProvider = ({ children }) => {
   useEffect(() => {
     setIsPostsLoading(true);
 
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch('https://mccmd.org/wp-json/wp/v2/categories');
+        return await response.json();
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+        return [];
+      }
+    };
+
     const fetchMedia = async (mediaUrl) => {
       try {
         const mediaResponse = await fetch(mediaUrl);
@@ -19,27 +29,49 @@ const PostsProvider = ({ children }) => {
       }
     };
 
-    fetch('https://mccmd.org/wp-json/wp/v2/posts?_fields=id,title,slug,excerpt,content,_links')
-      .then(response => response.json())
-      .then(data => {
-        const fetchPromises = data.map((post) => {
+    const fetchPostsAndMedia = async () => {
+      try {
+        const postsResponse = await fetch('https://mccmd.org/wp-json/wp/v2/posts?_fields=id,title,slug,excerpt,content,_links,categories');
+        const postsData = await postsResponse.json();
+
+        const mediaPromises = postsData.map((post) => {
           const mediaUrl = post._links?.['wp:featuredmedia']?.[0]?.href;
           return mediaUrl ? fetchMedia(mediaUrl) : Promise.resolve(null);
         });
 
-        return Promise.all(fetchPromises).then((mediaUrls) => {
-          const postsWithMedia = data.map((post, index) => ({
-            ...post,
-            featuredMedia: mediaUrls[index],
-          }));
+        const mediaUrls = await Promise.all(mediaPromises);
 
-          setPosts(postsWithMedia);
-          setIsPostsLoading(false);
-        });
-      })
-      .catch(() => {
+        const postsWithMedia = postsData.map((post, index) => ({
+          ...post,
+          featuredMedia: mediaUrls[index],
+        }));
+
+        return postsWithMedia;
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+        return [];
+      }
+    };
+
+    const fetchData = async () => {
+      try {
+        const [categories, postsWithMedia] = await Promise.all([fetchCategories(), fetchPostsAndMedia()]);
+
+        const postsWithCategories = postsWithMedia.map(post => ({
+          ...post,
+          category: post.categories.map(
+            catId => categories.find(category => category.id === catId)?.name
+          ).filter(Boolean)
+        }));
+
+        setPosts(postsWithCategories);
         setIsPostsLoading(false);
-      });
+      } catch (error) {
+        setIsPostsLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
   const value = {

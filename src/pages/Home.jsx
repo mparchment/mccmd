@@ -51,22 +51,129 @@ const Divider = styled.div`
     margin-right: 10px;
     margin-bottom: 35px;
     margin: 0 auto;
+
+    @media (max-width: 1366px) {
+      width: 50%;
+    }
 `;
 
 const ProgramsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 30px;
+  flex-wrap: wrap;
+
+  @media (min-width: 1366px) {
+    width: 95%;
+    flex-direction: row;
+  }
+
+  @media (max-width: 1366px) {
+    align-items: center;
+  }
+`;
+
+const EventsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 50px;
+
+  @media (max-width:1366px) {
+    gap: 30px;
+  }
+`;
+
+const EventsSection = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 20px;
+  padding-top: 30px;
+  padding-bottom: 100px;
+  background-color: #f5f5f5;
+
+  @media (max-width:1366px) {
+      align-items: center;
+      gap: 0;
+  }
+  
+`;
+
+const EventCard = styled.div`
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: 0 auto;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
     gap: 50px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
 
-    @media (min-width:1366px) {
-        width: 60%;
-        flex-direction: row;
+    @media (max-width: 1366px) {
+        flex-direction: column;
+        gap: 0;
+        width: 80%;
+        margin: 0 auto;
+      }
+`;
+
+const EventContent = styled.div`
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+
+    @media (min-width: 1366px) {
+      padding-right: 40px;
     }
+`;
 
-    @media (max-width:1366px) {
-        align-items: center;
+const EventTitle = styled.h3`
+
+`;
+
+const EventText = styled.div`
+    margin-bottom: 20px;
+
+    max-width: 650px;
+    text-align: center;
+
+
+    @media (max-width: 1366px) {
+        padding-right: 0;
+    }
+`;
+
+const EventTime = styled.div`
+    font-weight: 600;
+
+
+    margin-bottom: 10px;
+`;
+
+const EventDate = styled.div`
+    font-weight: 600;
+
+    @media (max-width: 1366px) {
+        margin-bottom: 25px;
+    }
+`;
+
+const EventImage = styled.img`
+    max-height: 250px;
+    border-radius: 5px 0 0 5px;
+
+    @media (max-width: 1366px) {
+        border-radius: 5px;
+        width: 100%;
     }
 `;
 
@@ -169,6 +276,10 @@ const ServicesBox = styled.div`
     }
 `;
 
+const ServicesSection = styled.div`
+
+`;
+
 const ServicesWrapper = styled.div`
     @media (min-width: 768px) {
         width: 80%;
@@ -186,56 +297,6 @@ const ProgramsSection = styled.div`
     color: #fff;
 
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
-`;
-
-const SlideButton = styled.button`
-    background-color: rgba(0, 0, 0, 0);
-    height: 100%;
-    width: 75px;
-    color: white;
-    border: none;
-    padding: 10px 30px;
-    cursor: pointer;
-    outline: none;
-    font-size: 2rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-        color: lightgray;
-        transition: color .75s ease;
-    }
-`;
-
-const PreviousButton = styled(SlideButton)`
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-`;
-
-const NextButton = styled(SlideButton)`
-    position: absolute;
-    right: 20px;  // Adjust as needed
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-`;
-
-const SlideContent = styled.div`
-    transition: opacity 0.5s ease-in-out;
-    opacity: ${props => props.fadeOut ? '0' : '1'};
-    display: ${props => props.fadeOut ? 'none' : 'flex'};
-    z-index: ${props => props.fadeOut ? '-1' : '1'};
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 10px;
 `;
 
 const FollowUsLink = styled.div`
@@ -272,161 +333,207 @@ const Icon = styled.img`
     width: 30px;
 `;
 
-const SliderSection = styled.div`
-  position: relative;
-  width: 100%;
-  height: 575px;
+export const SlidesContainer = styled.div`
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 `;
 
-const Slider = styled.div`
-  width: 50%;
-  height: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  gap: 50px;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-`
-
-const slideIn = keyframes`
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
+export const Slide = styled.div`
+    flex: 0 0 100vw;
+    height: calc(100vw / 3.57);
+    position: relative;
 `;
 
-const slideOut = keyframes`
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
+export const SlideButton = styled.button`
+    background-color: rgba(0, 0, 0, 0);
+    height: 100%;
+    width: 75px;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    cursor: pointer;
+    outline: none;
+    font-size: 2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        color: lightgray;
+        transition: color .75s ease;
+    }
 `;
 
-const slideInLeft = keyframes`
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
+
+export const PreviousButton = styled(SlideButton)`
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 `;
 
-const slideOutRight = keyframes`
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
-  }
+export const NextButton = styled(SlideButton)`
+    position: absolute;
+    right: 20px;  // Adjust as needed
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 `;
 
-const SlideImageWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-`
 
-const SlideImage = styled.img`
-  max-width: 100%;
-  max-height: 100%;
-`
 
-const SlideText = styled.div`
-  height: 100%;
-  width: 50%;
+export const OverlayContent = styled.div`
+  position: absolute;
+  top: 46%;
+  left: 47%;
+  transform: translate(-50%, -50%);
+  color: #000;  // Changing color to black
   text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
 
-const Slide = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 50px;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  ${props => props.isEntering && props.isGoingLeft && css`
-    animation: ${slideInLeft} 0.2s forwards;
-  `}
-  ${props => props.isEntering && !props.isGoingLeft && css`
-    animation: ${slideIn} 0.2s forwards;
-  `}
-  ${props => props.isExiting && props.isGoingLeft && css`
-    animation: ${slideOutRight} 0.2s forwards;
-  `}
-  ${props => props.isExiting && !props.isGoingLeft && css`
-    animation: ${slideOut} 0.2s forwards;
-  `}
-`
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
 
-const ArrowButton = styled.button`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #333; // or another color that suits your design
-  
-  ${props => props.left && `
-    left: 14rem;
-    padding-left: 15px;
-  `}
-  
-  ${props => props.right && `
-    right: 14rem;
-    padding-right: 15px;
-  `}
+    top: 46%;
+    left: 47%;
+    transform: translate(-50%, -7.5%);
+
+    gap: 20px;
+
+    height: 100%;
+    width: 75%;
+  }
 `;
 
-const SlideExcerpt = styled.p `
-  margin-bottom: 2.5rem;
-  text-align: center;
-`;
-
-function darkenColor(color, factor) {
-  const f = parseInt(color.slice(1), 16),
-        R = f >> 16,
-        G = (f >> 8) & 0x00FF,
-        B = f & 0x0000FF;
-  
-  return "#" + (1 << 24 | (R * (1 - factor)) << 16 | (G * (1 - factor)) << 8 | (B * (1 - factor))).toString(16).slice(1).toUpperCase();
-}
-
-const ReadMoreButton = styled.button`
-  background-color: #b98474;
+export const OverlayTitle = styled.h1`
   color: #fff;
-  border: 1px solid black;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 5px;
-
-  width: 200px;
-  height: 50px;
-  border: rgba(0, 0, 0, 0.34) solid 1px;
-  font-size: .9rem;
+  font-size: 2em;
+  text-align: left;
   text-transform: uppercase;
-  font-weight: 600;
-  box-shadow: ${`0px 2px 0 ${darkenColor('#b98474', 0.15)}`};
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  padding: 20px;
+  margin-bottom: 5px;  // Adjust as needed
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: -10px;  // Adjust as needed
+    right: -10px;  // Adjust as needed
+    background-color: rgba(0, 0 , 0, 0.5);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.34em;
+  }
+
+  @media (max-width: 400px) {
+    font-size: 1em;
+  }
 `;
 
-const SlideHeader = styled.h1`
-  text-align: center;
-`
+export const OverlayText = styled.p`
+  color: #fff;
+  font-size: 1.1em;
+  text-align: left;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  padding: 10px;
+  margin-bottom: 10px;  // Adjust as needed
+  padding: 20px;
+  font-weight: 600;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: -10px;  // Adjust as needed
+    right: -10px;  // Adjust as needed
+    background-color: rgba(0, 0 , 0, 0.5);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1em;
+  }
+
+  @media (max-width: 400px) {
+    font-size: 0.93em;
+  }
+`;
+
+
+
+export const OverlayButton = styled(Link)`
+    color: #fff;  // black text
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    padding: 1em 1.33em;
+    z-index: 1;
+
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      bottom: 0;
+      left: -10px;  // Adjust as needed
+      right: -10px;  // Adjust as needed
+      background-color: rgba(0, 0 , 0, 0.5);
+    }
+
+    &:hover {
+        // Your hover styles here, e.g.,
+        color: #000;  // Adjust as needed
+        &:before {
+            background-color: #fff;  // Adjust as needed
+        }
+    }
+
+    @media (max-width: 768px) {
+        align-self: flex-start;
+    }
+
+    @media (min-width: 1366px) {
+        margin-top: 10px;
+    }
+`;
+
+
+
+export const ImageWrapper = styled.div`
+    display: flex;
+    overflow: hidden;  // to hide images that are outside of this container
+    position: relative;
+    width: 100vw;
+    height: calc(100vw / 3.57);  // or whatever height you want
+
+    @media (max-width: 1366px) {
+        height: 100vw;
+    }
+`;
+
+export const MainImage = styled.img`
+    width: 100vw;
+    height: 555px;
+    object-fit: cover;
+    filter: brightness(70%);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+`;
 
 function stripHtml(html) {
   const doc = new DOMParser().parseFromString(html, "text/html");
@@ -436,61 +543,65 @@ function stripHtml(html) {
 function Home() {
   const isMobile = useIsMobile();
   const { posts } = useContext(PostsContext);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [autoScroll, setAutoScroll] = useState(true);
-  const [isGoingLeft, setIsGoingLeft] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [autoSlide, setAutoSlide] = useState(true);
 
-  const slides = posts.map((post) => ({
+  const sliderPosts = posts.filter(post => post.category.includes("Slider"));
+
+  const slides = sliderPosts.map((post) => ({
     id: post.id,
     slug: post.slug,
     image: post.featuredMedia,
+    category: post.category,
     title: stripHtml(post.title.rendered),
     text: stripHtml(post.excerpt.rendered),
     content: stripHtml(post.content.rendered),
   }));
 
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    setAutoSlide(false);
+  }, [setCurrentIndex, setAutoSlide, slides.length]);
 
-  const nextSlide = () => {
-    stopAutoScroll();
-    setIsGoingLeft(false);
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length); 
-      setIsTransitioning(false);
-    }, 500); // 0.5s to match the CSS animation duration
-  }
+  const prevSlide = useCallback(() => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + slides.length) % slides.length
+    );
+    setAutoSlide(false);
+  }, [setCurrentIndex, setAutoSlide, slides.length]);
 
-  const prevSlide = () => {
-    stopAutoScroll();
-    setIsGoingLeft(true);
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1)); 
-      setIsTransitioning(false);
-    }, 500); // 0.5s to match the CSS animation duration
-  }
+  const handlers = useSwipeable({
+    onSwipedLeft: () => nextSlide(),
+    onSwipedRight: () => prevSlide(),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  });
 
   useEffect(() => {
-    const autoSlide = () => {
-      if (autoScroll) {
-        setIsTransitioning(true);
-        setTimeout(() => {
-          setCurrentSlide((prev) => (prev + 1) % slides.length); 
-          setIsTransitioning(false);
-        }, 500); // 0.5s to match the CSS animation duration
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        setAutoSlide(false);
+      } else {
+        setAutoSlide(true);
       }
     };
-    const interval = setInterval(autoSlide, 5000);
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
-      clearInterval(interval);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, [currentSlide, autoScroll]);
+  }, []);
 
-  const stopAutoScroll = () => {
-    setAutoScroll(false);
-  };
+  useEffect(() => {
+    if (autoSlide) {
+      const slideTimer = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+      }, 5000);
+
+      return () => clearInterval(slideTimer);
+    }
+  }, [autoSlide]);
 
   useEffect(() => {
     slides.forEach(slide => {
@@ -502,27 +613,52 @@ function Home() {
   return (
     <>
       <WhiteBackground />
-      <SliderSection>
-        <Slider>
-        <Slide isExiting={isTransitioning} isEntering={!isTransitioning} isGoingLeft={isGoingLeft}>
-            <SlideImageWrapper>
-              <SlideImage src={slides[currentSlide].image} alt={slides[currentSlide].title} />
-            </SlideImageWrapper>
-            <SlideText>
-              <SlideHeader>{slides[currentSlide].title}</SlideHeader>
-              <SlideExcerpt>{slides[currentSlide].text}</SlideExcerpt>
-              <Link to={`/mccmd/${slides[currentSlide].slug}`}><ReadMoreButton>Read More</ReadMoreButton></Link>
-              
-            </SlideText>
-          </Slide>
-        </Slider>
-        <ArrowButton onClick={prevSlide} left disabled={isTransitioning}>
-          <FontAwesomeIcon icon={faArrowLeft} />
-        </ArrowButton>
-        <ArrowButton onClick={nextSlide} right disabled={isTransitioning}>
-          <FontAwesomeIcon icon={faArrowRight} />
-        </ArrowButton>
-      </SliderSection>
+      {isMobile ? (
+        <ImageWrapper>
+          <SlidesContainer
+            {...handlers}
+            style={{ transform: `translateX(-${currentIndex * 100}vw)` }}
+          >
+            {slides.map((slide, index) => (
+              <Slide key={index}>
+                <MainImage src={slide.image} alt="" />
+                <OverlayContent>
+                  <OverlayTitle>{slide.title}</OverlayTitle>
+                  <OverlayText>{slide.text}</OverlayText>
+                  <OverlayButton to={`/mccmd/${slide.slug}`}>
+                    Read More
+                  </OverlayButton>
+                </OverlayContent>
+              </Slide>
+            ))}
+          </SlidesContainer>
+        </ImageWrapper>
+      ) : (
+        <ImageWrapper>
+          <SlidesContainer
+            style={{ transform: `translateX(-${currentIndex * 100}vw)` }}
+          >
+            {slides.map((slide, index) => (
+              <Slide key={index}>
+                <MainImage src={slide.image} alt="" />
+                <OverlayContent>
+                  <OverlayTitle>{slide.title}</OverlayTitle>
+                  <OverlayText>{slide.text}</OverlayText>
+                  <OverlayButton to={`/mccmd/${slide.slug}`}>
+                    Read More
+                  </OverlayButton>
+                </OverlayContent>
+              </Slide>
+            ))}
+          </SlidesContainer>
+          {slides.length > 1 && (
+            <>
+              <PreviousButton onClick={prevSlide}>{"\u2039"}</PreviousButton>
+              <NextButton onClick={nextSlide}>{"\u203a"}</NextButton>
+            </>
+          )}
+        </ImageWrapper>
+      )}
       {!isMobile && (
         <IntroductionWrapper>
           <IntroductionCard>
@@ -604,7 +740,37 @@ function Home() {
         </IntroductionWrapper>
       )}
       <iframe src="https://masjidbox.com/prayer-times/muslim-community-center" style={{width: "100%", height: "550px", border: "none"}}/>
-      {/*<OldCalendar />*/}
+      <TitleWrapper>
+        <ProgramTitle>Calendar</ProgramTitle>
+        <Divider />
+      </TitleWrapper>
+      <WeeklyCalendar events={events}/>
+      <EventsSection>
+        <TitleWrapper>
+          <ProgramTitle>Events</ProgramTitle>
+          <Divider />
+        </TitleWrapper>
+        <EventsWrapper>
+          <EventCard>
+            <EventImage src={Placeholder1}/>
+            <EventContent>
+              <EventTitle>RESTART A HEART</EventTitle>
+              <EventText>Raising awareness about cardiac arrest and helping you learn lifesaving skills.</EventText>
+              <EventTime>2 PM - 4 PM</EventTime>
+              <EventDate>11th October</EventDate>
+            </EventContent>
+          </EventCard>
+          <EventCard>
+            <EventImage src={Placeholder2}/>
+            <EventContent>
+              <EventTitle>WOMEN’S WELLNESS DAY</EventTitle>
+              <EventText>A special women's wellness event including a presentation on perimenopause. Open to all!</EventText>
+              <EventTime>1 PM - 3 PM</EventTime>
+              <EventDate>21st October</EventDate>
+            </EventContent>
+          </EventCard>
+        </EventsWrapper>
+      </EventsSection>
       <ProgramsSection>
         <TitleWrapper>
           <ProgramTitle>Programs</ProgramTitle>
@@ -621,6 +787,14 @@ function Home() {
           />
           <ProgramCard
             imgSrc={Placeholder3}
+            title="Tazkiyah Tuesdays"
+            text="Join us every Tuesday for a weekly gathering with a focus on spiritual growth and rejuvenation of the heart through a diverse lineup of esteemed teachers, scholars, and peer-led discussions."
+            time="Maghrib to Isha"
+            location="Muslim Community Center"
+            date="Every Tuesday"
+          />
+          <ProgramCard
+            imgSrc={Placeholder3}
             title="Gardens of the Righteous: Hadith Study Circle"
             text="Join us in-person on Wednesday evenings for various lessons and wisdoms from the sunnah with Imam Muhammad Abdullahi."
             time="Maghrib to Isha"
@@ -629,21 +803,30 @@ function Home() {
           />
           <ProgramCard
             imgSrc={Placeholder4}
-            title="Muslim Youth Organization"
+            title="YAP Book Club"
+            text="Join our engaging youth events, every Friday. From inspiring workshops to interactive activities, we aim bridge to traditional values with modern experiences."
+            time="Asr to Isha"
+            location="Muslim Community Center"
+            date="Every Thursday"
+          />
+          <ProgramCard
+            imgSrc={Placeholder4}
+            title="Middle School Halaqah"
             text="Join our engaging youth events, every Friday. From inspiring workshops to interactive activities, we aim bridge to traditional values with modern experiences."
             time="Asr to Isha"
             location="Muslim Community Center"
             date="Every Friday"
           />
+          <ProgramCard
+            imgSrc={ShaykhAbdussamadPortrait}
+            title="Fajr & Fiqh"
+            text="Join us every Saturday for lessons on fiqh after Fajr with Imam Mohamed Abdullahi."
+            time="After Fajr"
+            location="Muslim Community Center"
+            date="Every Saturday"
+          />
         </ProgramsWrapper>
       </ProgramsSection>
-      {/*
-      <TitleWrapper>
-        <ProgramTitle>Calendar</ProgramTitle>
-        <Divider />
-      </TitleWrapper>
-      <WeeklyCalendar events={events}/>
-      */}
       <TitleWrapper>
         <ProgramTitle>Services</ProgramTitle>
         <Divider />
@@ -663,7 +846,7 @@ function Home() {
             and the larger community, we focus on comprehensive care and
             community well-being.
           </ServiceCard>
-          <ServiceCard subtitle="Convert Care" to="/mccmd/convert-care">
+          <ServiceCard subtitle="Converts" to="/mccmd/converts">
             Whether you are just interested in Islam, have some questions, or
             are ready to convert, we are happy to speak to you and answer any
             questions you have.
@@ -672,7 +855,7 @@ function Home() {
             From premarital counseling to nikah ceremonies, we ensure your union
             begins with the right blessings and preparations.
           </ServiceCard>
-          <ServiceCard subtitle="Funerals" to="/mccmd/janazas">
+          <ServiceCard subtitle="Janazas" to="/mccmd/janazas">
             Our team assists families in carrying out Islamic burials with
             respect and timeliness, including janazah prayers and guidance on
             local funeral services.

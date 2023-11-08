@@ -546,9 +546,9 @@ function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [autoSlide, setAutoSlide] = useState(true);
 
-  const sliderPosts = posts.filter(post => post.category.includes("Slider"));
+  // const sliderPosts = posts.filter(post => post.category.includes("Slider"));
 
-  const slides = sliderPosts.map((post) => ({
+  const slides = posts.map((post) => ({
     id: post.id,
     slug: post.slug,
     image: post.featuredMedia,
@@ -621,11 +621,12 @@ function Home() {
           >
             {slides.map((slide, index) => (
               <Slide key={index}>
-                <MainImage src={slide.image} alt="" />
+                <MainImage src={slide.image } alt="" />
                 <OverlayContent>
                   <OverlayTitle>{slide.title}</OverlayTitle>
                   <OverlayText>{slide.text}</OverlayText>
                   <OverlayButton to={`/mccmd/${slide.slug}`}>
+                    console.log(slide.image)
                     Read More
                   </OverlayButton>
                 </OverlayContent>
@@ -745,6 +746,7 @@ function Home() {
         <Divider />
       </TitleWrapper>
       <WeeklyCalendar events={events}/>
+      {/*
       <EventsSection>
         <TitleWrapper>
           <ProgramTitle>Events</ProgramTitle>
@@ -771,6 +773,7 @@ function Home() {
           </EventCard>
         </EventsWrapper>
       </EventsSection>
+      */}
       <ProgramsSection>
         <TitleWrapper>
           <ProgramTitle>Programs</ProgramTitle>
@@ -785,6 +788,7 @@ function Home() {
             location="Muslim Community Center"
             date="Every Monday"
           />
+          {/*
           <ProgramCard
             imgSrc={Placeholder3}
             title="Tazkiyah Tuesdays"
@@ -793,6 +797,7 @@ function Home() {
             location="Muslim Community Center"
             date="Every Tuesday"
           />
+          */}
           <ProgramCard
             imgSrc={Placeholder3}
             title="Gardens of the Righteous: Hadith Study Circle"
@@ -801,6 +806,7 @@ function Home() {
             location="Muslim Community Center"
             date="Every Wednesday"
           />
+          {/*
           <ProgramCard
             imgSrc={Placeholder4}
             title="YAP Book Club"
@@ -809,6 +815,7 @@ function Home() {
             location="Muslim Community Center"
             date="Every Thursday"
           />
+          */}
           <ProgramCard
             imgSrc={Placeholder4}
             title="Middle School Halaqah"
@@ -817,6 +824,7 @@ function Home() {
             location="Muslim Community Center"
             date="Every Friday"
           />
+          {/*
           <ProgramCard
             imgSrc={ShaykhAbdussamadPortrait}
             title="Fajr & Fiqh"
@@ -825,6 +833,7 @@ function Home() {
             location="Muslim Community Center"
             date="Every Saturday"
           />
+          */}
         </ProgramsWrapper>
       </ProgramsSection>
       <TitleWrapper>
@@ -873,6 +882,7 @@ function Home() {
             medical support, as well as help in acclimating to a new
             environment.
           </ServiceCard>
+          {/*
           <ServiceCard
             subtitle="Domestic Violence"
             to="/mccmd/domestic-violence"
@@ -881,7 +891,7 @@ function Home() {
             confidential support and resource guidance if you or someone you
             know is facing abuse.
           </ServiceCard>
-          {/*<ServiceCard subtitle="General Programs" to="/mccmd/general-events">
+          <ServiceCard subtitle="General Programs" to="/mccmd/general-events">
             To book rooms for other events or Islamic celebrations, from aqiqas and private gatherings to conferences, we offer rooms at reasonable rates of hire.
           </ServiceCard>*/}
         </ServicesBox>

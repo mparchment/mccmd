@@ -741,11 +741,12 @@ function Home() {
         </IntroductionWrapper>
       )}
       <iframe src="https://masjidbox.com/prayer-times/muslim-community-center" style={{width: "100%", height: "550px", border: "none"}}/>
-      <TitleWrapper>
+      {/*<TitleWrapper>
         <ProgramTitle>Calendar</ProgramTitle>
         <Divider />
       </TitleWrapper>
       <WeeklyCalendar events={events}/>
+      */}
       {/*
       <EventsSection>
         <TitleWrapper>
@@ -776,7 +777,7 @@ function Home() {
       */}
       <ProgramsSection>
         <TitleWrapper>
-          <ProgramTitle>Programs</ProgramTitle>
+          <ProgramTitle>Weekly Programs</ProgramTitle>
           <Divider />
         </TitleWrapper>
         <ProgramsWrapper>
@@ -818,7 +819,7 @@ function Home() {
           */}
           <ProgramCard
             imgSrc={Placeholder4}
-            title="Middle School Halaqah"
+            title="Muslim Youth Organization"
             text="Join our engaging youth events, every Friday. From inspiring workshops to interactive activities, we aim bridge to traditional values with modern experiences."
             time="Asr to Isha"
             location="Muslim Community Center"
@@ -855,6 +856,7 @@ function Home() {
             and the larger community, we focus on comprehensive care and
             community well-being.
           </ServiceCard>
+          {/*
           <ServiceCard subtitle="Converts" to="/mccmd/converts">
             Whether you are just interested in Islam, have some questions, or
             are ready to convert, we are happy to speak to you and answer any
@@ -864,6 +866,7 @@ function Home() {
             From premarital counseling to nikah ceremonies, we ensure your union
             begins with the right blessings and preparations.
           </ServiceCard>
+          */}
           <ServiceCard subtitle="Janazas" to="/mccmd/janazas">
             Our team assists families in carrying out Islamic burials with
             respect and timeliness, including janazah prayers and guidance on

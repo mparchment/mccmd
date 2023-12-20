@@ -86,7 +86,6 @@ const DropdownContainer = styled.div`
 function Dropdown({ label, labelHref, links }) {
   const [isOpen, setIsOpen] = useState(false);
   
-  // Checking if there are links to display in the dropdown
   const hasLinks = links && links.length > 0;
 
   const handleMouseEnter = () => hasLinks && setIsOpen(true);

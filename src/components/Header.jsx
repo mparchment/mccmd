@@ -23,7 +23,7 @@ const HeaderWrapper = styled.div`
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
-    position: relative; // Added this line
+    position: relative;
 
     @media (min-width:1366px) {
         width: 98%;
@@ -55,7 +55,10 @@ const CenteredContent = styled.div`
 `;
 
 const AccountInfo = styled.div`
-    margin-left: auto;
+    position: absolute;
+    right: 10px; // Adjust as needed
+    top: 50%; // Set top to 50% of the parent's height
+    transform: translateY(-50%); // Shift upward by half its own height
     font-size: 12px;
     text-align: right;
     padding-right: 10px;
@@ -223,18 +226,18 @@ function Header() {
                         </MenuButtonWrapper>}
                         {!isMobile && <DesktopMenu/>}
                     </CenteredContent>
-                    {false && !isMobile && (
+                    {!isMobile && (
                         <AccountInfo>
-                        <div>
-                            {isUserLoggedIn ? `Welcome back, ${userData.firstName}.` : "Welcome to MCC!"}
-                        </div>
-                        <div>
-                            {isUserLoggedIn ? (
-                            <><PageLink to="/mccmd/dashboard">Dashboard</PageLink> | <PageLink to="/mccmd/account">Account</PageLink></>
-                            ) : (
-                            <AuthLink onClick={openAuthModal}>Sign In / Create Account</AuthLink>
-                            )}
-                        </div>
+                            <div>
+                                {isUserLoggedIn ? `Welcome back, ${userData.firstName}.` : "Welcome to MCC!"}
+                            </div>
+                            <div>
+                                {isUserLoggedIn ? (
+                                <><PageLink to="/mccmd/dashboard">Dashboard</PageLink> | <PageLink to="/mccmd/account">Account</PageLink></>
+                                ) : (
+                                <AuthLink onClick={openAuthModal}>Sign In / Create Account</AuthLink>
+                                )}
+                            </div>
                         </AccountInfo>
                     )}
                 </CenteredContainer>

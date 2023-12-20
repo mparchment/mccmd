@@ -25,7 +25,6 @@ const Wrapper = styled.div`
         padding-right: 7%;
 
         background-color: #fff;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
     }
 `;
 
@@ -45,6 +44,7 @@ const Subtitle = styled.h3`
 const Form = styled.form`
     display: flex;
     flex-direction: column;
+    width: 90%;
 `;
 
 const Label = styled.label`
@@ -52,8 +52,11 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
+    width: 100%; 
     padding: 10px;
     margin: 5px 0 20px 0;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
 `;
 
 function darkenColor(color, factor) {
@@ -74,12 +77,16 @@ const SubmitButton = styled.button`
     cursor: pointer;
     font-size: 1.2rem;
     font-weight: bold;
-    width: 80%;
+    width: 50%;
     border-radius: 5px;
     border: #b98474 solid 1px;
     margin-bottom: 5px;
 
     box-shadow: 0 2px 0 ${darkenColor('#b98474', 0.15)};
+
+    @media (max-width: 1366px) {
+        width: 100%;
+    }
 `;
 
 const DashboardContainer = styled.div`
@@ -87,6 +94,7 @@ const DashboardContainer = styled.div`
     flex-direction: row;
     height: fit-content;
     margin-bottom: 30px;
+    width: 100%;
     gap: 40px;
 
     justify-content: center;
@@ -99,6 +107,10 @@ const DashboardDiv = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    
+    @media (max-width: 1366px) {
+        width: 90%;
+    }
 `
 
 const SignOutButton = styled.button`
@@ -110,12 +122,46 @@ const SignOutButton = styled.button`
     cursor: pointer;
     font-size: 1.2rem;
     font-weight: bold;
-    width: 80%;
+    width: 50%;
     border-radius: 5px;
     border: #c9a99f solid 1px;
     margin-bottom: 5px;
 
     box-shadow: 0 2px 0 ${darkenColor('#c9a99f', 0.15)};
+
+    @media (max-width: 1366px) {
+        width: 100%;
+    }
+`;
+
+const Buttons = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 1366px) {
+
+        justify-content: center;
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+`;
+
+const Names = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 50px; // Adjust the gap as needed
+    width: 100%; // Ensures that the Names div takes up the full width of its parent
+`;
+
+const FirstNameField = styled.div`
+    flex-basis: 33.33%; // First Name takes up 1/3 of the space
+    min-width: 0; // Prevents overflow
+`;
+
+const LastNameField = styled.div`
+    flex-basis: 66.67%; // Last Name takes up 2/3 of the space
+    min-width: 0; // Prevents overflow
 `;
 
 function AccountPage() {
@@ -162,18 +208,23 @@ function AccountPage() {
     
     return (
         <>
-            
             <Wrapper>
                 <Title>Account</Title>
                 <DashboardContainer>
                     <DashboardDiv>
                         <Subtitle>Account Information</Subtitle>
                         <Form onSubmit={handleSubmit}>
-                            <Label htmlFor="firstName">First Name</Label>
-                            <Input type="text" id="firstName" name="firstName" value={accountData.firstName} onChange={handleInputChange} />
+                            <Names>
+                                <FirstNameField>
+                                    <Label htmlFor="firstName">First Name</Label>
+                                    <Input type="text" id="firstName" name="firstName" value={accountData.firstName} onChange={handleInputChange}/>
+                                </FirstNameField>
 
-                            <Label htmlFor="lastName">Last Name</Label>
-                            <Input type="text" id="lastName" name="lastName" value={accountData.lastName} onChange={handleInputChange} />
+                                <LastNameField>
+                                    <Label htmlFor="lastName">Last Name</Label>
+                                    <Input type="text" id="lastName" name="lastName" value={accountData.lastName} onChange={handleInputChange}/>
+                                </LastNameField>
+                            </Names>
 
                             <Label htmlFor="address">Address</Label>
                             <Input type="text" id="address" name="address" value={accountData.address} onChange={handleInputChange} />
@@ -183,10 +234,12 @@ function AccountPage() {
 
                             <Label htmlFor="email">Email</Label>
                             <Input type="email" id="email" name="email" value={accountData.email} onChange={handleInputChange} />
-
-                            <SubmitButton type="submit">Update</SubmitButton>
+                            
+                            <Buttons>
+                                <SubmitButton type="submit">Update</SubmitButton>
+                                <SignOutButton onClick={handleSignOut}>Sign Out</SignOutButton>
+                            </Buttons>
                         </Form>
-                        <SignOutButton onClick={handleSignOut}>Sign Out</SignOutButton>
                     </DashboardDiv>
                 </DashboardContainer>
             </Wrapper>

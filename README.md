@@ -2,6 +2,20 @@
 
 Developing a comprehensive website for MCC. See the live website [here](https://mparchment.github.io/mccmd/). 
 
+## To-Do (12/8/2023)
+
+- Fix Imam's Corner
+- Complete Refugee Aid
+- Remove Convert Care
+- Remove Marriage page
+- Complete Education page
+- Connect Donation page to MadinahApp
+- Merge Account with Dashboard page
+- Fix mobile menu to link to dashboard and remove old pages
+- Complete transferring all content from old website to new website
+- Fix slider: ensure that it always slides to the left, even if the user is on the last slide
+
+
 ### Development Tasks
 
 - **Website Review Comments**

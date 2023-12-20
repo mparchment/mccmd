@@ -17,6 +17,7 @@ const Wrapper = styled.div`
 
     @media (min-width:1366px) {
         width: 50%;
+        min-height: 100vh;
         padding-top: 10px;
         margin: 0 auto;
 
@@ -123,7 +124,7 @@ function EducationPage() {
                 Our mission is to enrich our community by providing a diverse range of educational opportunities, all designed to nurture and strengthen Islamic knowledge, understanding, and practice. Each of our programs aims to instill love for the Quran and Sunnah, fortify hearts with iman and taqwa, and inspire the practical application of these teachings in daily life. Explore our programs below to find the right fit for you or your child. 
                 </p>
                 <Divider/>
-                <Box>
+                {/*<Box>
                     <Cell>
                         <Image src={Placeholder}/>
                         <Card to="/mccmd/day-school">
@@ -167,6 +168,7 @@ function EducationPage() {
                         </Card>
                     </Cell>
                 </Box>
+                */}
             </Wrapper>
         </>
     )
